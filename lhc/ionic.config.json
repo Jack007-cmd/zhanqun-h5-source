@@ -1,0 +1,13 @@
+{
+  "name": "caihui",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/home",
+      "proxyUrl": "http://192.168.0.200"
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+<!--
+  Generated template for the HkZodiacTrendPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header (click)="blurCtrl()">
+  <header class="headbox">
+    <div class="logo_view">
+      <img [src]="logo" (click)="toRoot()" alt="" style="height: 35px;vertical-align: super;">
+      <!--<span (click)="toRoot()">返回</span>-->
+    </div>
+    <div class="five_box" style="font-size: 20px;">
+      {{code == 'xglhc' ? '香港六合彩' : '极速六合彩'}}
+      <!--<i [ngStyle]="{'background-position-y':showType==1?'-26.5px':'7.5px'}" (click)="showType1()">开奖记录</i>-->
+    </div>
+    <div class="menubtn">
+      <input type="button" style="background: #e12121; border: none; line-height: 63px; height: 42px; color: #555555;" class="calendar"
+             value="{{code == 'xglhc' ? '极速六合彩' : '香港六合彩'}}" (click)="showOption($event)">
+      <div class="jumphk"  style="top: -5000px;">
+        <ul>
+          <li>
+            <span (click)="toAnotherRecordPage()">开奖记录</span>
+          </li>
+          <li>
+            <span (click)="toAnotherPositivePage()">正码走势</span>
+          </li>
+          <li>
+            <span (click)="toAnotherSpecialPage()">特码走势</span>
+          </li>
+          <li>
+            <span (click)="toAnotherZodiacPage()">生肖走势</span>
+          </li>
+          <li *ngIf="code == 'jslhc'">
+            <span (click)="toLuzhuAnalysisPage()">路珠分析</span>
+          </li>
+          <li *ngIf="code == 'xglhc'">
+            <span (click)="toSumAnalysisPage()">总和分析</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <div class="headfixed">
+    <div *ngIf="code=='jslhc'" class="timebox">
+      <div class="ye_timelist">
+        <div class="five_box" style="line-height: 44px;padding-left: 10px;font-size: 18px;">
+          <i [ngStyle]="{'background-position-y':showType==1?'-26.5px':'7.5px'}" (click)="showType1()">生肖走势</i>
+        </div>
+        <!--<ul class="dayList" style="float: inherit;">-->
+          <!--<li *ngFor="let t of dayArr;" [ngClass]="{checkdate:myDate==t.date}" (click)="myDate=t.date;">{{t.d}}</li>-->
+        <!--</ul>-->
+      </div>
+      <div class="top_menu_more">
+        <ion-item style="background: #f4f5f7;top: 0;">
+          <ion-label><span class="check_day">{{myDate}}</span></ion-label>
+          <ion-datetime displayFormat="YYYY年 MM月 DD日 " min="{{startDay}}" max="{{today}}" [(ngModel)]="myDate"
+                        (ionChange)="getHKZodiac()" cancelText="取消"  doneText="确认">
+          </ion-datetime>
+        </ion-item>
+      </div>
+    </div>
+    <div *ngIf="code=='xglhc'" class="goweb_gray">
+      <div>
+        <div class="five_box" style="line-height: 44px;padding-left: 10px;font-size: 18px;">
+          <i [ngStyle]="{'background-position-y':showType==1?'-26.5px':'7.5px'}" (click)="showType1()">生肖走势</i>
+        </div>
+        <!--<a class="goweb" href="http://www.ch9588.com"><img src="../../../assets/hk-imgs/goweb_gray.png" alt=""></a>-->
+      </div>
+      <div class="menubtn">
+        <ion-item style="background: #f4f5f7;top: 6px;right: 5px;">
+          <ion-label style="margin-top: -8px;"><span class="x_check_day">{{myDate}}年</span></ion-label>
+          <ion-datetime displayFormat="YYYY年" min="{{startDay}}" max="{{today}}" [(ngModel)]="myDate"
+                        (ionChange)="getHKZodiac()" cancelText="取消"  doneText="确认">
+          </ion-datetime>
+        </ion-item>
+      </div>
+      <div class="marginbottom"></div>
+    </div>
+    <div id="box_view">
+      <div class="lz_type">
+        <div>
+          <span class="change_check" [ngClass]="{checked:option==0}" (click)="optionChange(0)">正码一</span>
+        </div>
+        <div>
+          <span class="change_check" [ngClass]="{checked:option==1}" (click)="optionChange(1)">正码二</span>
+        </div>
+        <div>
+          <span class="change_check" [ngClass]="{checked:option==2}" (click)="optionChange(2)">正码三</span>
+        </div>
+        <div>
+          <span class="change_check" [ngClass]="{checked:option==3}" (click)="optionChange(3)">正码四</span>
+        </div>
+        <div>
+          <span class="change_check" [ngClass]="{checked:option==4}" (click)="optionChange(4)">正码五</span>
+        </div>
+        <div>
+          <span class="change_check" [ngClass]="{checked:option==5}" (click)="optionChange(5)">正码六</span>
+        </div>
+        <div>
+          <span class="change_check" [ngClass]="{checked:option==6}" (click)="optionChange(6)">特码</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="alert_win" *ngIf="showType==1" (click)="closeShow()" style="top: 44px;">
+    <div class="five_item">
+          <span class="animated bounceInUp" (click)="closeShow()" navPush="HkRecordPage" [navParams]="{code:code}">
+            <dl>
+              <dt class="kai_history"><span></span></dt>
+              <dd>开奖记录</dd>
+            </dl>
+          </span>
+      <span class="animated bounceInUp" (click)="closeShow()" navPush="HkPositiveTrendPage" [navParams]="{code:code}">
+            <dl>
+              <dt class="zhem_zs"><span></span></dt>
+              <dd>正码走势</dd>
+            </dl>
+          </span>
+      <span class="animated bounceInUp" (click)="closeShow()" navPush="HkSpecialTrendPage" [navParams]="{code:code}">
+            <dl>
+              <dt class="tema_zs"><span></span></dt>
+              <dd>特码走势</dd>
+            </dl>
+          </span>
+      <ng-container *ngIf="code=='jslhc'">
+          <span class="animated bounceInUp" (click)="closeShow()" navPush="HkSumAnalysisPage" [navParams]="{code:code}">
+            <dl>
+              <dt class="zh_fenxi"><span></span></dt>
+              <dd>总和分析</dd>
+            </dl>
+          </span>
+      </ng-container>
+      <ng-container *ngIf="code=='xglhc'">
+          <span class="animated bounceInUp" (click)="closeShow()" navPush="HkLuzhuAnalysisPage" [navParams]="{code:code}">
+            <dl>
+              <dt class="zh_fenxi"><span></span></dt>
+              <dd>路珠分析</dd>
+            </dl>
+          </span>
+      </ng-container>
+    </div>
+  </div>
+</ion-header>
+
+<ion-content (click)="blurCtrl()">
+  <div class="body-box" style="overflow: visible;">
+    <div class="page-div">
+      <div class="content_zoozs animated">
+        <div class="canvas_rightbox">
+          <canvas class="c1" height="10678.523316062176" width="1084" style="background:#fff"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

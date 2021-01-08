@@ -1,0 +1,516 @@
+page-hk-home {
+  * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  a {
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    outline: 0;
+  }
+
+  .headbox {
+    height: 44px;
+    line-height: 44px;
+    width: 100%;
+    padding: 0 10px;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    box-sizing: border-box;
+    background: #e12121;
+  }
+
+  .headbox div {
+    flex: 1;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  .main_visual {
+    position: relative;
+  }
+
+  .headbox div a, .headbox div span {
+    height: 100%;
+    line-height: 15px;
+    width: 83px
+  }
+
+  .headbox div span i, .headbox div a i {
+    display: inline-block;
+    width: 83px;
+    height: 27.3px;
+    background: #fff url("../assets/hk-imgs/xiaol.png") -143px -118.3px;
+    background-size: 318.7px auto;
+    vertical-align: middle;
+    margin-top: 8px;
+    box-sizing: border-box;
+  }
+
+  .headbox .menubtn a, .headbox .menubtn span {
+    float: right;
+    margin-right: 0;
+    width: 25px;
+    text-align: right;
+  }
+
+  .headbox .menubtn span i {
+    height: 25px;
+    width: 21px;
+    background-position: -17px -120px;
+  }
+
+  .headbox .menubtn .go168 {
+    width: 35px;
+    margin-right: 10px;
+  }
+
+  .headbox .menubtn .go168 i {
+    height: 35px;
+    width: 35px;
+    background: #fff url("../assets/hk-imgs/go168.png") 0 0 no-repeat !important;
+    background-size: 35px auto !important;
+  }
+
+  .logo_view {
+    margin-top: -5px;
+  }
+
+  .calendar {
+    margin-top: 2px;
+  }
+
+  .body-box {
+    background: #efeff4;
+    height: auto !important;
+    width: 100%;
+    margin: 0 auto;
+    font-size: calc(26.666667vw);
+    display: block;
+  }
+
+  .page-div {
+    background: #efeff4;
+  }
+
+  .banner-box {
+    overflow: hidden;
+  }
+
+  .slides {
+    overflow: hidden
+  }
+
+  .slide_item {
+    position: relative
+  }
+
+  .slide_item > img {
+    vertical-align: top;
+    display: block;
+    max-height: 210px;
+  }
+
+  #comparison_table {
+    margin-top: 10px;
+    background: #fff;
+  }
+
+  #comparison_table li {
+    font-family: PingFang SC-Bold;
+  }
+
+  #comparison_table .table_type {
+    height: 44px;
+    line-height: 44px;
+    overflow: hidden;
+    padding: 0 20px;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    border-bottom: 1px solid #dbdbdb;
+  }
+
+  #comparison_table .table_type div {
+    flex: 1;
+    text-align: center;
+  }
+
+  #comparison_table .table_type div {
+    color: #333;
+    font-size: 16px;
+  }
+
+  #comparison_table .table_type div span {
+    display: inline-block;
+    height: 43px;
+  }
+
+  #comparison_table .table_type div .checked {
+    border-bottom: 1.5px solid #fa3252;
+    color: #fa3252;
+  }
+
+  .left {
+    float: left;
+  }
+
+  .right {
+    float: right;
+  }
+
+  .bo_color .rows {
+    height: 74px;
+    padding: 0 10px;
+    font-size: 14px;
+    white-space: nowrap;
+    border-top: 1px solid #dbdbdb;
+    display: flex;
+  }
+
+  .bo_color .rows .left {
+    flex: 1;
+  }
+
+  .bo_color .rows div:first-child {
+    max-width: 38px;
+    line-height: 74px;
+    color: #333;
+  }
+
+  .bo_color .rows div:last-child {
+    margin-top: 10px;
+  }
+
+  .bo_color .rows div:last-child ul li {
+    margin-bottom: 5px;
+    margin-right: 6px;
+    float: left;
+    color: #fff;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    width: 24px;
+    border-radius: 50%;
+  }
+
+  .bo_color .rows div:last-child ul li:last-child {
+    margin-right: 0;
+  }
+
+  .bo_color .rows div.red ul li {
+    background: #f93353;
+  }
+
+  .bo_color .rows div.blue ul li {
+    background: #0094e7;
+  }
+
+  .bo_color .rows div.green ul li {
+    background: #20c36b;
+  }
+
+  .bo_color div:first-child {
+    border: 0;
+  }
+
+  .zoo .row {
+    height: 50px;
+    line-height: 50px;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    font-size: 14px;
+    border-top: 1px solid #dbdbdb;
+  }
+
+  .zoo .row div {
+    -moz-box-flex: 5;
+    -webkit-box-flex: 5;
+    -ms-flex: 5;
+  }
+
+  .zoo .row div span {
+    display: inline-block;
+    margin-right: 5px;
+  }
+
+  .zoo .row div ul {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .zoo .row div ul li {
+    float: left;
+    margin-right: 7.5px;
+    color: #fff;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    width: 25px;
+    border-radius: 50%;
+  }
+
+  .zoo .row div ul li:last-child {
+    margin-right: 0;
+  }
+
+  .zoo .row div ul li.red {
+    background: #fa3253;
+  }
+
+  .zoo .row div ul li.blue {
+    background: #0093e8;
+  }
+
+  .zoo .row div ul li.green {
+    background: #1fc26b;
+  }
+
+  .zoo .row div:first-child {
+    flex: 6;
+    padding: 0 0 0 10px;
+  }
+
+  .zoo div:first-child {
+    border-top: 0;
+  }
+
+  .tt {
+    background: #fff;
+  }
+
+  .five_row, .jaye {
+    font-size: 14px;
+  }
+
+  .five_row .row, .jaye .row {
+    padding: 0 5px;
+    height: 50px;
+    line-height: 50px;
+    border-top: 1px solid #dbdbdb
+  }
+
+  .five_row .row > div, .jaye .row > div {
+    display: flex;
+    line-height: 50px;
+  }
+
+  .five_row .row span, .jaye .row span {
+    flex: 1;
+    max-width: 8%;
+    text-align: center;
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .five_row .row ul, .jaye .row ul {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 92%;
+    display: flex;
+    height: 25px;
+    margin-top: 15px;
+  }
+
+  .five_row .row ul li, .jaye .row ul li {
+    float: left;
+    flex: 1;
+    margin-right: 3.5px;
+    color: #fff;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    width: 25px;
+    border-radius: 50%;
+  }
+
+  .five_row .row ul li.red, .jaye .row ul li.red {
+    background: #fa3253;
+  }
+
+  .five_row .row ul li.blue, .jaye .row ul li.blue {
+    background: #0093e8;
+  }
+
+  .five_row .row ul li.green, .jaye .row ul li.green {
+    background: #1fc26b;
+  }
+
+  .five_row div:first-child, .jaye div:first-child {
+    border-top: 0;
+  }
+
+  .jaye .row span {
+    font-size: 16px;
+    color: #000;
+    margin-right: 10px;
+  }
+
+  .jaye .row ul li {
+    color: #666;
+    font-size: 15px;
+    line-height: 20px;
+    margin-right: 12px;
+  }
+
+  #icom_box {
+    background: #fff;
+    font-size: 16px;
+    margin-top: 10px;
+    overflow: hidden;
+  }
+
+  #icom_box .icom {
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    height: 42px;
+    line-height: 42px;
+    border-bottom: 1px solid #dbdbdb;
+  }
+
+  #icom_box .icom div {
+    flex: 1;
+  }
+
+  #icom_box .icom div .line_ {
+    display: inline-block;
+    height: 20px;
+    width: 10px;
+    background: #fff url(../assets/hk-imgs/xiaol.png) -44px -123px no-repeat;
+    background-size: 318px;
+    vertical-align: middle;
+  }
+
+  #icom_box .icom div h2 {
+    font-size: 16px;
+    display: inline-block;
+  }
+
+  #icom_box .icom div a {
+    color: #808080;
+    font-size: 12px;
+  }
+
+  #icom_box .icom div a i {
+    display: inline-block;
+    width: 6.7px;
+    height: 10px;
+    background: #fff url("../assets/hk-imgs/xiaol.png") -103.3px -126.7px no-repeat;
+    background-size: 318px;
+  }
+
+  #icom_box .icom div:first-child {
+    margin-left: 10px;
+  }
+
+  #icom_box .icom div:first-child + div {
+    margin-right: 10px;
+    text-align: right;
+  }
+
+  #icom_box .com_box div:first-child {
+    border: 0;
+  }
+
+  #icom_box .icom_item {
+    margin: 0 10px;
+    border-top: 1px solid #dbdbdb;
+    height: 56px;
+  }
+
+  #icom_box .icom_item div {
+    color: #666;
+    font-weight: 300;
+  }
+
+  #icom_box .icom_item div p {
+    font-family: PingFang-SC-ExtraLight;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 34px;
+  }
+
+  #icom_box .icom_item div .icom_date {
+    font-size: 14px;
+    color: #999;
+    vertical-align: top;
+  }
+
+  .anheight {
+    height: 289px;
+    overflow: visible !important;
+  }
+
+  .ifame_box {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 100%;
+    z-index: 99999;
+    height: 0;
+    overflow: hidden;
+    transition: height .5s;
+  }
+
+  .ifame_box iframe {
+    width: 100%;
+    height: 245px;
+  }
+
+  .ifame_box .close {
+    height: 44px;
+    width: 100%;
+    bottom: 245px;
+    z-index: 1000;
+    position: fixed;
+    background: #fff;
+  }
+
+  .ifame_box .close span {
+    font-size: 13px;
+    display: inline-block;
+    /* width: 15%; */
+    float: right;
+    height: 100%;
+    line-height: 44px;
+    text-align: center;
+    background: #fff;
+    padding: 0 10px;
+  }
+
+  .select-page {
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: 1000;
+    display: block;
+    width: 100%;
+    height: 100%;
+    contain: strict;
+
+    .content {
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: fixed;
+      background: #fff;
+      z-index: 1000;
+    }
+  }
+
+  .zodiac-line{
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+}
+

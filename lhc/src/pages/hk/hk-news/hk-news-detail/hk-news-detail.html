@@ -1,0 +1,45 @@
+<!--
+  Generated template for the HkNewsDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <!--<ion-navbar>-->
+  <!--<ion-title>hk-news-detail</ion-title>-->
+  <!--</ion-navbar>-->
+  <header class="headbox">
+    <div class="logo_view">
+      <span navPop>返回</span>
+    </div>
+    <div>
+      <i id="title">{{option==0?'推荐预测':'专家心水'}}</i>
+    </div>
+    <!--<div class="menubtn">-->
+      <!--<a href="kaijiDate.html" class="calendar"><i></i></a>-->
+    <!--</div>-->
+    <!--<div class="logo_view">-->
+      <!--<span navPop>返回</span>-->
+    <!--</div>-->
+    <!--<div>-->
+      <!--<i>六合资料</i>-->
+    <!--</div>-->
+  </header>
+</ion-header>
+
+
+<ion-content>
+  <div class="pagediv">
+
+    <div class="datum_title">
+      <div class="new_title">{{mainData?.title}}</div>
+      <p class="new_date">{{mainData['created_at']?.substring(0, 10)}}</p>
+    </div>
+    <div class="new_detail">
+      <div class="new_content" [innerHTML]="mainData?.content">
+
+      </div>
+    </div>
+  </div>
+</ion-content>

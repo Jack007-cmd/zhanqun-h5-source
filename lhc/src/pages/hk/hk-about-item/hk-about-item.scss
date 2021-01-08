@@ -1,0 +1,200 @@
+hk-about-item {
+  .kaiji_box {
+    padding: 10px;
+    margin-top: 10px;
+    background: #fff;
+    height: 180px;
+    padding-bottom: 0;
+    position: relative;
+  }
+
+  .kaiji_box .lottype {
+    overflow: hidden;
+  }
+
+  .kaiji_box .lottype h1 {
+    width: 51%;
+    font-size: 18px;
+    color: #282828;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    float: left;
+    font-weight: 600;
+    //display: inline-block;
+  }
+
+  .kaiji_box .lottype h1 span {
+    white-space: nowrap;  /*强制span不换行*/
+    display: inline-block;  /*将span当做块级元素对待*/
+    //width: 32px;  /*限制宽度*/
+    overflow: hidden;  /*超出宽度部分隐藏*/
+    font-size: 12px;
+    color: #626262;
+    font-weight: 500;
+  }
+
+  .kaiji_box .lottype p {
+    width: 49%;
+    text-align: right;
+    white-space: nowrap;
+    float: right;
+    font-size: 12px;
+    line-height: 28px;
+    color: #8a8a8a;
+  }
+
+  .kaiji_box .lottype p .nextissue_time {
+    color: #db5466;
+  }
+
+  .kaiji_box .code_box {
+    display: none;
+  }
+
+  .kaiji_box .code_box ul {
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .kaiji_box .code_box ul li {
+    margin-right: 8px;
+    width: 39.3px;
+    flex: 1
+  }
+
+  .kaiji_box .code_box .result_num {
+    margin-bottom: 10px;
+    -webkit-box-orient: horizontal;
+    flex-direction: column;
+  }
+
+  .kaiji_box .code_box .result_num li {
+    height: 39px;
+    line-height: 33px;
+    width: 39.3px;
+    font-size: 19px;
+    font-weight: 600;
+  }
+
+  .kaiji_box .code_box .result_num .red i, .kaiji_box .code_box .result_num .blue i, .kaiji_box .code_box .result_num .green i, .kaiji_box .code_box .result_num .add i {
+    display: inline-block;
+    width: 39.3px;
+    height: 100%;
+    background: #fff url("../assets/hk-imgs/xiaol.png") -186px -71px no-repeat;
+    background-size: 318px auto;
+  }
+
+  .kaiji_box .code_box .result_num .red {
+    color: #ed2a43;
+    background: 0;
+    text-align: center;
+  }
+
+  .kaiji_box .code_box .result_num .red i {
+    display: inline-block;
+    width: 39.3px;
+    height: 100%;
+  }
+
+  .kaiji_box .code_box .result_num .blue > i {
+    background-position: -274.4px -71px;
+    color: #0d8ddd;
+  }
+
+  .kaiji_box .code_box .result_num .green > i {
+    background-position: -230px -71px;
+    color: #1ab246;
+  }
+
+  .kaiji_box .code_box .result_num li:nth-child(8) {
+    margin-right: 0;
+  }
+
+  .kaiji_box .code_box .result_num .add {
+    width: 13.3px;
+  }
+
+  .kaiji_box .code_box .result_num .add > i {
+    display: inline-block;
+    margin-top: 9px;
+    width: 13.3px;
+    height: 20px;
+    background-position: -84px -120px;
+  }
+
+  .kaiji_box .code_box .result_five, .kaiji_box .code_box .result_zoo {
+    font-size: 12px;
+  }
+
+  .kaiji_box .code_box .result_five li, .kaiji_box .code_box .result_zoo li {
+    padding-left: 8.5px;
+  }
+
+  .kaiji_box .code_box .result_five .empt, .kaiji_box .code_box .result_zoo .empt {
+    margin-top: 13px;
+    width: 13.3px;
+    height: 9.3px;
+  }
+
+  .kaiji_box .linkbox {
+    font-size: 14px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    width: 95%;
+  }
+
+  .kaiji_box .linkbox span {
+    height: 33px;
+    width: 25%;
+    color: #353535;
+    border: 1px solid #cfcfcf;
+    border-radius: 3px;
+    float: left;
+    line-height: 33px;
+    margin-right: 10%;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .kaiji_box .linkbox span:nth-child(3), .kaiji_box .linkbox span:last-child {
+    margin-right: 0;
+  }
+
+  .kaiji_box .kaijiIn {
+    display: none;
+    font-size: 20px;
+    color: red;
+    text-align: center;
+    line-height: 40px;
+  }
+
+  .kaiji_box_fast .code_box {
+    display: block!important;
+  }
+
+  a {
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    outline: 0
+  }
+
+  .cuttime span {
+    color: #db5466;
+  }
+
+  .opentyle {
+    display: none;
+    color: #db5466!important;
+  }
+  address,caption,cite,code,dfn,em,i,strong,th,var {
+    font-weight: normal;
+    font-style: normal
+  }
+}

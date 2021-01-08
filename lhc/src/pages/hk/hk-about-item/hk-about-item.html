@@ -1,0 +1,66 @@
+<!-- Generated template for the HkAboutItemComponent component -->
+<div>
+  <!--极速六合彩-->
+  <div *ngIf="mainItem?.code=='jslhc'" class="kaiji_box kaiji_box_fast" data-href="./html/history_jisu.html">
+    <div class="lottype" id="kaitimebox_fast">
+      <h1>极速六合彩 <span class="issue">{{mainItem['current_number']}}</span><span>期</span></h1>
+      <p *ngIf="allSeconds>0" class="cuttime" style="display: inline-block;">下期开奖:
+        <span class="bgtime hour" style="display: none;">00</span>
+        <span class="hourtxt" style="display: none;">时</span>
+        <span class="bgtime minute">{{minute}}</span>
+        <span>分</span>
+        <span class="bgtime second">{{second}}</span>
+        <span>秒</span>
+      </p>
+      <p class="opentyle" *ngIf="allSeconds<1">开奖中...</p>
+    </div>
+
+    <div class="code_box">
+      <ul class="result_num" *ngIf="mainItem['current_code']?.length>0"  navPush="HkRecordPage" [navParams]="{code:'jslhc'}">
+        <ng-container *ngFor="let code of mainItem['current_code']; let index = index;">
+          <li *ngIf="index==6" class="add"><i></i></li>
+          <li
+            [ngClass]="{red:mainItem?.color[index]==1,green:mainItem?.color[index]==2,blue:mainItem?.color[index]==3}">
+            <i>{{code}}</i></li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="linkbox">
+      <span navPush="HkRecordPage" [navParams]="{code:'jslhc'}">开奖记录</span>
+      <span navPush="HkSpecialTrendPage" [navParams]="{code:'jslhc'}">特码走势</span>
+      <span navPush="HkPositiveTrendPage" [navParams]="{code:'jslhc'}">正码走势</span>
+      <span navPush="HkZodiacTrendPage" [navParams]="{code:'jslhc'}">生肖走势</span>
+      <span navPush="HkSumAnalysisPage" [navParams]="{code:'jslhc'}">总和分析</span>
+    </div>
+  </div>
+
+  <!--香港六合彩-->
+  <div *ngIf="mainItem?.code=='xglhc'" class="kaiji_box kaiji_box_hk">
+    <div class="lottype">
+      <h1>香港六合彩 <span class="issue">{{mainItem['current_number']}}</span><span>期</span></h1>
+      <p>下期开奖:<span class="nextissue_time">&nbsp;&nbsp;{{mainItem['next_time'].substring(5, 16)}}</span></p>
+    </div>
+
+    <div class="code_box" style="display: block;">
+      <ul class="result_num" *ngIf="mainItem['current_code']?.length>0"  navPush="HkRecordPage" [navParams]="{code:'xglhc'}">
+        <ng-container *ngFor="let code of mainItem['current_code']; let index = index;">
+          <li *ngIf="index==6" class="add"><i></i></li>
+          <li
+            [ngClass]="{red:mainItem?.color[index]==1,green:mainItem?.color[index]==2,blue:mainItem?.color[index]==3}">
+            <i>{{code}}</i></li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="linkbox">
+      <span id="open_video" (click)="videoShow()">开奖视频</span>
+      <span navPush="HkRecordPage" [navParams]="{code:'xglhc'}">开奖记录</span>
+      <span navPush="HkSpecialTrendPage" [navParams]="{code:'xglhc'}">特码走势</span>
+      <span navPush="HkPositiveTrendPage" [navParams]="{code:'xglhc'}">正码走势</span>
+      <span navPush="HkZodiacTrendPage" [navParams]="{code:'xglhc'}">生肖走势</span>
+      <span navPush="HkLuzhuAnalysisPage" [navParams]="{code:'xglhc'}">路珠分析</span>
+    </div>
+    <div class="kaijiIn" style="display: none;">请不要走开，今天晚上21：30开奖...</div>
+  </div>
+
+
+</div>

@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://localhost:8100/#/item-detail-01 -->
+<html lang="en" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <!-- Ionic Dev Server: Injected Logger Script -->
+  <script>var IonicDevServerConfig={"sendConsoleLogs":false,"wsPort":53703,"appScriptsVersion":"3.2.1","systemInfo":["Ionic Framework: 3.9.2","Ionic App Scripts: 3.2.1","Angular Core: 5.2.11","Angular Compiler CLI: 5.2.11","Node: 11.3.0","OS Platform: macOS High Sierra"]};</script>
+  <link href="./Ionic App_files/ion-dev.css" rel="stylesheet">
+  <script src="./Ionic App_files/ion-dev.js"></script>
+
+  <script data-ionic="inject">
+    (function(w){var i=w.Ionic=w.Ionic||{};i.version='3.9.2';i.angular='5.2.11';i.staticDir='build/';})(window);
+  </script>
+
+  <title>Ionic App</title>
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+
+
+  <link rel="manifest" href="http://localhost:8100/manifest.json">
+
+  <!--<link href="https://cdn.staticfile.org/ionic/1.3.2/css/ionic.css" rel="stylesheet">-->
+  <meta name="theme-color" content="#4e8ef7">
+
+  <!-- add to homescreen for ios -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <!-- cordova.js required for cordova apps (remove if not needed) -->
+  <script src="./Ionic App_files/cordova.js"></script>
+
+  <!-- un-comment this code to enable service worker
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('service worker installed'))
+        .catch(err => console.error('Error', err));
+    }
+  </script>-->
+
+  <link href="./Ionic App_files/main.css" rel="stylesheet">
+
+<script type="text/javascript" charset="utf-8" async="" src="./Ionic App_files/5.js"></script><link rel="icon" type="image/png" href="data:image/png;base64,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"></head>
+<body>
+
+  <!-- Ionic's root component and where the app will load -->
+  <ion-app class="app-root app-root-md md platform-mobile platform-android platform-android5 platform-android5_0 platform-mobileweb" ng-version="5.2.11"><div app-viewport=""></div><ng-component class="app-root"><ion-nav ng-reflect-root="function TabsPage(navParams, e"><div nav-viewport=""></div><page-item-detail-01 class="ion-page show-page" style="z-index: 100;">
+<ion-header class="header header-md">
+  <div class="myHeader">
+    <div class="header_back" navpop=""></div>
+    <h2><span tappable=""> <i class="top_arrow"></i></span></h2>
+
+  </div>
+</ion-header>
+
+
+<ion-content class="content content-md"><div class="fixed-content" style="margin-top: 44px;"></div><div class="scroll-content" style="margin-top: 44px;">
+
+  <div class="body-box">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="current-date">
+      <ul class="date-list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+      </ul>
+      <span>12月5日</span>
+    </div>
+    <ion-item class="item item-block item-md item-datetime"><div class="item-inner"><div class="input-wrapper"><ion-label class="label label-md" id="lbl-0">Date</ion-label><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><ion-datetime displayformat="MMMM YYYY" max="2020-10-31" min="2016" class="datetime datetime-md ng-untouched ng-pristine ng-valid" ng-reflect-min="2016" ng-reflect-max="2020-10-31" ng-reflect-display-format="MMMM YYYY"><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><div class="datetime-text datetime-placeholder"></div><!--bindings={
+  "ng-reflect-ng-if": ""
+}--><button aria-haspopup="true" class="item-cover disable-hover item-cover-md item-cover-default item-cover-default-md" ion-button="item-cover" type="button" id="datetime-0-0" aria-labelledby="lbl-0" aria-disabled="true"><span class="button-inner"></span><div class="button-effect"></div></button></ion-datetime></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><div class="button-effect"></div></ion-item>
+    <div class="current-info">
+      <div class="divline issuel">
+        <span class="issue"><span class="preDrawIssue">718580</span>期开奖</span>
+        <span class="drawCount">已开<span class="drawCountnum">108</span>期，剩余<span class="sdrawCountnext">71</span>期</span>
+        <span class="displaynone" id="explainBtn_wfsm"></span>
+      </div>
+      <div class="divline drawCodel">
+        <ul class="pk10li numberbox" id="pk10num">
+          <li class="nub03 "><i style="font-size:10px; display:none">03</i></li>
+          <li class="nub10 "><i style="font-size:10px; display:none">10</i></li>
+          <li class="nub01 "><i style="font-size:10px; display:none">01</i></li>
+          <li class="nub08 "><i style="font-size:10px; display:none">08</i></li>
+          <li class="nub06 "><i style="font-size:10px; display:none">06</i></li>
+          <li class="nub05 "><i style="font-size:10px; display:none">05</i></li>
+          <li class="nub02 "><i style="font-size:10px; display:none">02</i></li>
+          <li class="nub09 "><i style="font-size:10px; display:none">09</i></li>
+          <li class="nub04 "><i style="font-size:10px; display:none">04</i></li>
+          <li class="nub07 li_after"><i style="font-size:10px; display:none">07</i></li>
+        </ul>
+      </div>
+      <div class="divline drawCodel tiger">
+        <ul class="pk10li longhu">
+          <li>虎</li>
+          <li>龙</li>
+          <li>虎</li>
+          <li>龙</li>
+          <li class="li_after">龙</li>
+          <li class="verline li_after" style="margin-top: 2px">|</li>
+          <li class="guanyahe li_after">冠亚和：</li>
+          <li guanyaheli="" li_after="" style="margin-top: 2px">13</li>
+          <li guanyaheli="" li_after="">大</li>
+          <li guanyaheli="" li_after="" style="margin-right:0">单</li>
+        </ul>
+      </div>
+      <div class="divline drawTimebox cuttime margbt8" style="display: -webkit-box; opacity: 1; margin-right: 100%;">
+        <div class="flexl margtp78">距下期开奖仅有</div>
+        <input class="nextIssue" type="hidden" value="718581">
+        <div class="flexc margtp78">
+          <div class="graypro"></div>
+          <div class="redpro" style="width: 95%;"></div>
+        </div>
+        <div class="flexr margtp78">
+          <span class="hourid" style="display: none;"><span class="bgtime hour">00</span>:</span><span class="bgtime minute">04</span>:<span class="bgtime second">27</span>
+        </div>
+        <div class="flexr">
+							<span class="openVideo" id="startVideo">
+							视频
+						</span>
+        </div>
+      </div>
+      <div class="divline drawTimebox opentyle displaynone" style="display: none;">
+        <div class="flexl">开奖中...</div>
+      </div>
+    </div>
+
+    <div class="options">
+      <div class="tabs-all">
+        <div class="tab-item current" tappable="">
+          <span class="name">常用</span>
+        </div>
+        <div class="tab-item " tappable="">
+          <span class="name">全部</span>
+        </div>
+        <div class="tab-item " tappable="">
+          <span class="name">走势</span>
+        </div>
+        <div class="tab-item " tappable="">
+          <span class="name">路珠</span>
+        </div>
+      </div>
+      <div class="options-list">
+        <span style="color:#e12121;">开奖号码</span>
+        <span>号码走势</span>
+        <span>路珠分析</span>
+      </div>
+    </div>
+
+    <div class="data-table">
+      <win-number>
+
+<div class="drawCodebox kaijianghm">
+  <div class="linebox">
+    <div class="leftspan">
+      <span class="leftspan">时间</span>
+      <span class="rightspan padleft1">期数</span>
+    </div>
+    <div class="rightspan">
+
+
+
+
+
+
+      <div class="rightdiv">
+        <span class="spanchecked" id="xshm">号码</span>
+        <span id="xsdx">大小</span>
+        <span id="xsds">单双</span>
+        <span id="gjlh">总和/形态</span>
+      </div>
+
+
+
+
+
+
+    </div>
+  </div>
+  <div class="contentlist bortop002" id="numlist">
+
+
+    <div class="listotherline bortop001 ssclist">
+      <div class="leftspan">
+        <span class="boxflex">
+          <span class="graytime">15:13</span>
+          <span class="graytime">207045</span>
+        </span>
+      </div>
+      <div class="rightspan">
+        <div class="rightdiv padl0" style="margin-top:10px;padding-left:0;">
+          <div class=" displayblock">
+            <ul class="cqnclilist" id="">
+              <li><span class="ncnum06"><i style="display:none;">06</i></span></li>
+              <li><span class="ncnum12"><i style="display:none;">12</i></span></li>
+              <li><span class="ncnum09"><i style="display:none;">09</i></span></li>
+              <li><span class="ncnum10"><i style="display:none;">10</i></span></li>
+              <li><span class="ncnum08"><i style="display:none;">08</i></span></li>
+              <li><span class="ncnum11"><i style="display:none;">11</i></span></li>
+              <li><span class="ncnum18"><i style="display:none;">18</i></span></li>
+              <li><span class="ncnum05"><i style="display:none;">05</i></span></li>
+            </ul>
+          </div>
+          <div class="longhuli displaynone">
+            <ul class="ssclilistxt ssclilist listli lhlist listlitxt" style="color:#666">
+              <li style="color:#f12d35">79</li>
+              <li style="color:#666">小</li>
+              <li style="color:#666">单</li>
+              <li style="color:#f12d35">尾大</li>
+              <li style="color:#f12d35">龙</li>
+              <li>虎</li>
+              <li>虎</li>
+              <li style="color:#f12d35">龙</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="listotherline bortop001 ssclist">
+      <div class="leftspan">
+        <span class="boxflex">
+          <span class="graytime">15:13</span>
+          <span class="graytime">207045</span>
+        </span>
+      </div>
+      <div class="rightspan">
+        <div class="rightdiv padl0" style="margin-top:10px;padding-left:0;">
+          <div class=" displayblock">
+            <ul class="cqnclilist">
+              <li><span class="bluesm"><i style="display:none;">06</i></span></li>
+              <li><span class="bluebig"><i style="display:none;">12</i></span></li>
+              <li><span class="bluesm"><i style="display:none;">09</i></span></li>
+              <li><span class="bluesm"><i style="display:none;">10</i></span></li>
+              <li><span class="bluesm"><i style="display:none;">08</i></span></li>
+              <li><span class="bluebig"><i style="display:none;">11</i></span></li>
+              <li><span class="bluebig"><i style="display:none;">18</i></span></li>
+              <li><span class="bluebig"><i style="display:none;">05</i></span></li>
+            </ul>
+          </div>
+          <div class="longhuli displaynone">
+            <ul class="ssclilistxt ssclilist listli lhlist listlitxt" style="color:#666">
+              <li style="color:#f12d35">79</li>
+              <li style="color:#666">小</li>
+              <li style="color:#666">单</li>
+              <li style="color:#f12d35">尾大</li>
+              <li style="color:#f12d35">龙</li>
+              <li>虎</li>
+              <li>虎</li>
+              <li style="color:#f12d35">龙</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="listotherline bortop001 ssclist">
+      <div class="leftspan"><span class="boxflex"><span class="graytime">15:33</span><span class="graytime">207047</span></span></div>
+      <div class="rightspan">
+        <div class="rightdiv padl0" style="margin-top:10px;padding-left:0;">
+          <div class="displayblock">
+            <ul class="cqnclilist">
+              <li><span class="bluesig"><i style="display:none;">09</i></span></li>
+              <li><span class="blueeve"><i style="display:none;">16</i></span></li>
+              <li><span class="bluesig"><i style="display:none;">05</i></span></li>
+              <li><span class="bluesig"><i style="display:none;">13</i></span></li>
+              <li><span class="bluesig"><i style="display:none;">03</i></span></li>
+              <li><span class="bluesig"><i style="display:none;">01</i></span></li>
+              <li><span class="blueeve"><i style="display:none;">14</i></span></li>
+              <li><span class="blueeve"><i style="display:none;">02</i></span></li>
+            </ul>
+          </div>
+          <div class="longhuli displaynone">
+            <ul class="ssclilistxt ssclilist listli lhlist listlitxt" style="color:#666">
+              <li style="color:#f12d35">63</li>
+              <li style="color:#666">小</li>
+              <li style="color:#666">单</li>
+              <li>尾小</li>
+              <li style="color:#f12d35">龙</li>
+              <li style="color:#f12d35">龙</li>
+              <li style="color:#f12d35">龙</li>
+              <li style="color:#f12d35">龙</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+
+</win-number>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div id="cZList" style="display: none; height: 100%;">
+
+    <div class="toRMC" id="toRMC">
+      <div class="title">热门彩</div>
+      <div class="content">
+        <ul>
+          <li><span>香港六合彩</span></li>
+          <li><span>北京PK10</span></li>
+          <li><span>重庆时时彩</span></li>
+          <li><span>极速赛车</span></li>
+          <li><span>极速时时彩</span></li>
+          <li><span>江苏快3</span></li>
+          <li><span>极速飞艇</span></li>
+          <li><span>新疆时时彩</span></li>
+          <li><span>广西快乐十分</span></li>
+          <li><span>天津时时彩</span></li>
+          <li><span>PC蛋蛋幸运28</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="toRMC" id="toJSC">
+      <div class="title">极速彩</div>
+      <div class="content">
+        <ul>
+          <li><span>极速赛车</span></li>
+          <li><span>极速飞艇</span></li>
+          <li><span>极速时时彩</span></li>
+          <li><span>极速快3</span></li>
+          <li><span>极速快乐十分</span></li>
+          <li><span>极速快乐8</span></li>
+          <li><span>极速11选5</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="toRMC" id="toGPC">
+      <div class="title">高频彩</div>
+      <div class="content">
+        <ul>
+          <li><span>十一运夺金</span></li>
+          <li><span>重庆幸运农场</span></li>
+          <li><span>广东快乐十分</span></li>
+          <li><span>天津快乐十分</span></li>
+          <li><span>北京快乐8</span></li>
+          <li><span>重庆七星彩</span></li>
+          <li><span>江苏快3</span></li>
+          <li><span>吉林快3</span></li>
+          <li><span>河北快3</span></li>
+          <li><span>安徽快3</span></li>
+          <li><span>内蒙古快3</span></li>
+          <li><span>福建快3</span></li>
+          <li><span>湖北快3</span></li>
+          <li><span>北京快3</span></li>
+          <li><span>广西快3</span></li>
+          <li><span>广东11选5</span></li>
+          <li><span>上海11选5</span></li>
+          <li><span>安徽11选5</span></li>
+          <li><span>江西11选5</span></li>
+          <li><span>吉林11选5</span></li>
+          <li><span>广西11选5</span></li>
+          <li><span>湖北11选5</span></li>
+          <li><span>辽宁11选5</span></li>
+          <li><span>江苏11选5</span></li>
+          <li><span>浙江11选5</span></li>
+          <li><span>内蒙古11选5</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="toRMC" id="toJWC">
+      <div class="title">境外彩</div>
+      <div class="content">
+        <ul>
+          <li><span>澳洲幸运5</span></li>
+          <li><span>澳洲幸运8</span></li>
+          <li><span>澳洲幸运10</span></li>
+          <li><span>澳洲幸运20</span></li>
+          <li><span>台湾宾果</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="toRMC" id="toQGC">
+      <div class="title">全国彩</div>
+      <div class="content">
+        <ul>
+          <li><span>福彩双色球</span></li>
+          <li><span>福彩3D</span></li>
+          <li><span>福彩七乐彩</span></li>
+          <li><span>超级大乐透</span></li>
+          <li><span>体彩排列3</span></li>
+          <li><span>体彩排列5</span></li>
+          <li><span>体彩七星彩</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div></ion-content>
+</page-item-detail-01><div class="nav-decor"></div></ion-nav>
+</ng-component><div overlay-portal="" ng-reflect-_overlay-portal=""></div><div overlay-portal="" ng-reflect-_overlay-portal=""></div><div class="loading-portal" overlay-portal="" ng-reflect-_overlay-portal=""></div><div class="toast-portal" ng-reflect-_overlay-portal="10000"></div><div class="click-block click-block-enabled"></div></ion-app>
+
+  <!-- The polyfills js is generated during the build process -->
+  <script src="./Ionic App_files/polyfills.js"></script>
+
+  <!-- The vendor js is generated during the build process
+       It contains all of the dependencies in node_modules -->
+  <script src="./Ionic App_files/vendor.js"></script>
+
+  <!-- The main bundle js is generated during the build process -->
+  <script src="./Ionic App_files/main.js"></script>
+
+  <!-- Ionic Dev Server: Injected LiveReload Script -->
+  <script src="./Ionic App_files/livereload.js" async="" defer=""></script>
+
+
+</body></html>

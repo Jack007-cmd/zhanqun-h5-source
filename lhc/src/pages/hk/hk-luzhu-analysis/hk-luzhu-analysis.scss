@@ -1,0 +1,427 @@
+page-hk-luzhu-analysis {
+  .body-box {
+    background: #efeff4;
+    height: auto !important;
+    width: 100%;
+    margin: 0 auto;
+    font-size: calc(26.666667vw);
+    display: block;
+  }
+
+  .page-div {
+    background: #efeff4;
+    font-size: 12px;
+  }
+
+  .headfixed {
+    //position: fixed;
+    top: 64px;
+    z-index: 999;
+    width: 100%;
+    background: #efeff4;
+  }
+
+  .headbox {
+    height: 44px;
+    line-height: 44px;
+    width: 100%;
+    padding: 0 10px;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    box-sizing: border-box;
+    background: #e12121;
+  }
+
+  .headbox div {
+    flex: 1;
+    height: 100%;
+    // width: 33.333%;
+    font-size: 18px;
+    color: #fff;
+    text-align: right;
+    box-sizing: border-box;
+  }
+
+  .headbox div {
+    width: auto;
+  }
+
+  .headbox .logo_view {
+    text-align: left;
+  }
+
+  .headbox .menubtn .calendar {
+    line-height: 44px;
+    float: right;
+    margin-right: 0;
+    color: #e73020;
+    width: auto !important;
+    position: relative;
+    text-align: right;
+  }
+
+  .headbox .menubtn a span {
+    margin-right: -3px;
+  }
+
+  .headbox .menubtn a i {
+    height: 25px !important;
+    width: 12px !important;
+    background-position: -119px -128px !important;
+  }
+
+  .jumphk {
+    position: absolute;
+    top: -5000px;
+    right: 10px;
+    border: 1px solid #efebea;
+    background: #fff;
+    padding: 0 10px;
+    height: initial !important;
+    box-shadow: 0 0 10px rgba(255, 48, 71, 0.2);
+    z-index: 2;
+    transition: top .1s;
+    width: auto !important;
+  }
+
+  .jumphk ul {
+    position: relative;
+  }
+
+  .jumphk ul:before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50px;
+    width: 0;
+    height: 0;
+    border-width: 0 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent #fff;
+  }
+
+  .jumphk ul li {
+    border-bottom: 1px solid #ededed;
+    width: auto;
+    height: 40px;
+    line-height: 40px;
+  }
+
+  .jumphk ul li:last-child {
+    border: 0;
+  }
+
+  .jumphk ul li span {
+    color: #2d2d2d !important;
+    line-height: 40px !important;
+  }
+
+  .alert_win {
+    background: rgba(0, 0, 0, 0.2);
+    min-height: 100%;
+    overflow: hidden;
+    position: fixed;
+    top: -100%;
+    width: 100%;
+    z-index: 9999;
+  }
+
+  .five_box > i {
+    background: url(../assets/hk-imgs/jtx@3x.png) 75px 7.5px no-repeat;
+    background-size: 14px;
+    padding-right: 20px;
+  }
+
+  .five_item {
+    border-top: 1px solid #e0e0e0;
+    margin-top: 0;
+    background: #fff;
+    padding: 20px 15px;
+    font-size: 13px;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    position: relative;
+    z-index: 999;
+  }
+
+  .five_item .animated {
+    margin-right: 35px;
+    flex: 1;
+    text-align: center;
+    color: #333;
+    opacity: 0;
+    display: inline-block;
+  }
+
+  .five_item > .animated.bounceInUp {
+    opacity: 1 !important;
+  }
+
+  .five_item .animated dt span {
+    display: inline-block;
+    height: 51.7px;
+    width: 51.7px;
+    background: url("../assets/hk-imgs/xiaol.png") -6.6px -9.7px no-repeat;
+    background-size: 318px;
+  }
+
+  .five_item .animated .tema_zs span {
+    background-position: -69px -9.7px;
+  }
+
+  .five_item .animated .zhem_zs span {
+    background-position: -131.3px -9.7px;
+  }
+
+  .five_item .animated .zoo_zs span {
+    background-position: -193.3px -9.7px;
+  }
+
+  .five_item .animated .lz_fenxi span {
+    background-position: -255px -9.7px;
+  }
+
+  .five_item .animated .zh_fenxi span {
+    background-position: -255px -140px;
+  }
+
+  .five_item .animated:last-child {
+    margin-right: 0;
+  }
+
+  #showtime {
+    position: absolute;
+    top: 3px;
+    right: -10px;
+    display: inline-block;
+    height: 20px;
+    width: 100%;
+    z-index: 1;
+  }
+
+  #showtime:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: -5px;
+    width: 1px;
+    height: 20px;
+    border-left: 1px solid #acb2be;
+  }
+
+  address, caption, cite, code, dfn, em, i, strong, th, var {
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  .goweb_gray {
+    overflow: hidden;
+    background: #f4f5f6;
+  }
+
+  .goweb_gray .marginbottom {
+    background: #e2e1e5;
+    height: 0;
+    width: 100%;
+  }
+
+  .goweb_gray > div {
+    float: left;
+    width: 50%;
+    height: 44px;
+  }
+
+  .goweb_gray > div:first-child a {
+    width: 80%
+  }
+
+  .goweb_gray > div a {
+    line-height: 50px;
+  }
+
+  .goweb_gray > div a img {
+    width: 100%;
+    vertical-align: middle;
+  }
+
+  .goweb_gray > div.menubtn > a {
+    display: table;
+    width: 50% !important;
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+    line-height: 50px !important;
+    float: right;
+  }
+
+  .goweb_gray > div.menubtn > a i {
+    display: inline-block;
+    background: url(../assets/hk-imgs/xiaol.png) ;//-1.43rem -1.183rem;
+    background-size: 318.7px auto;
+    vertical-align: middle;
+    margin-top: 8px;
+    box-sizing: border-box;
+    margin-left: 5px;
+    height: 25px !important;
+    width: 12px !important;
+    //background-position: -1.19rem -1.28rem !important;
+  }
+
+  #datePlugin {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  // header .calendar {
+    // color: #ff0812 !important;
+  // }
+  .lz_type {
+    height: 44px;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    box-sizing: border-box;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #dcdce0;
+  }
+
+  .lz_type div {
+    font-size: 16px;
+    -moz-box-flex: 1;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    text-align: center;
+    background: #fff;
+    line-height: 44px;
+  }
+
+  .lz_type div span {
+    display: inline-block;
+  }
+
+  .lz_type div .checked {
+    height: 40px;
+    border-bottom: 3px solid #fc3253;
+    color: #fc3253;
+  }
+
+  .left {
+    float: left;
+  }
+
+  .right {
+    float: right;
+  }
+
+  .lz_box {
+    background: #fff;
+  }
+
+  .lz_box .lz_count {
+    height: 35px;
+    line-height: 35px;
+    color: #989898;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  .lz_box .lz_count div {
+    width: 60%;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .lz_box .lz_count .right {
+    width: 40%;
+    text-align: right;
+    color: #ef0508;
+    font-size: 13px;
+  }
+
+  .lz_item {
+    text-align: right;
+    overflow-y: hidden;
+    overflow-x: auto;
+    direction: rtl;
+    border-top: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+    margin-bottom: 10px;
+  }
+
+  .lz_item .lz_table_con {
+    min-height: 85px;
+    border-spacing: 0;
+    border-collapse: collapse;
+    border: 0;
+    direction: rtl;
+    text-align: center;
+  }
+
+  .lz_item .lz_table_con .tablebox>td:nth-child(even) {
+    background: #f5f5f5;
+    border-left: 1px solid #e5e5e5;
+    border-right: 1px solid #e5e5e5;
+  }
+
+  .lz_item .lz_table_con td {
+    min-width: 29px;
+    vertical-align: top;
+    padding-bottom: 8px;
+    padding-top: 5px
+  }
+
+  .lz_item .lz_table_con td p {
+    font-family: "微软雅黑";
+    font-size: 12px;
+    height: 14px;
+    line-height: 14px;
+    box-sizing: border-box;
+  }
+
+  .lz_item .lz_table_con td .red {
+    color: #f0272c;
+  }
+
+  .lz_item .lz_table_con td .green {
+    color: limegreen;
+  }
+
+  .lz_item .lz_table_con td .blue {
+    color: blue;
+  }
+
+  .box {
+    //margin-top: 109px;
+  }
+  .menubtn a {
+    line-height: 44px;
+    float: right;
+    margin-right: 0;
+    color: #333;
+    width: auto!important;
+    text-align: right;
+  }
+
+  .menubtn a span {
+    margin-right: -3px;
+    line-height: 44px;
+  }
+
+  .menubtn a i {
+    height: 25px!important;
+    width: 12px!important;
+    background-position: -119px -128px!important;
+  }
+
+  .check_day {
+    font-size: 16px;
+    float: left;
+    margin-right: 25px;
+  }
+}

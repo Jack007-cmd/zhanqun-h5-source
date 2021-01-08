@@ -1,0 +1,377 @@
+page-hk-sum-analysis {
+  .body-box {
+    background: #efeff4;
+    height: auto !important;
+    width: 100%;
+    margin: 0 auto;
+    font-size: calc(26.666667vw);
+    display: block;
+  }
+
+  .page-div {
+    background: #efeff4;
+    font-size: 12px;
+  }
+
+  .headfixed {
+    //position: fixed;
+    top: 64px;
+    z-index: 999;
+    width: 100%;
+    background: #efeff4;
+  }
+
+  .headbox {
+    height: 44px;
+    line-height: 44px;
+    width: 100%;
+    padding: 0 10px;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    box-sizing: border-box;
+    background: #e12121;
+  }
+
+  .headbox div {
+    flex: 1;
+    height: 100%;
+    // width: 33.333%;
+    font-size: 18px;
+    color: #fff;
+    text-align: right;
+    box-sizing: border-box;
+  }
+
+  .headbox div {
+    width: auto;
+  }
+
+  .headbox .logo_view {
+    text-align: left;
+  }
+
+  .headbox .menubtn .calendar {
+    line-height: 44px;
+    float: right;
+    margin-right: 0;
+    color: #e73020;
+    width: auto !important;
+    position: relative;
+    text-align: right;
+  }
+
+  .headbox .menubtn a span {
+    margin-right: -3px;
+  }
+
+  .headbox .menubtn a i {
+    height: 25px !important;
+    width: 12px !important;
+    background-position: -119px -128px !important;
+  }
+
+  .jumphk {
+    position: absolute;
+    top: -5000px;
+    right: 10px;
+    border: 1px solid #efebea;
+    background: #fff;
+    padding: 0 10px;
+    height: initial !important;
+    box-shadow: 0 0 10px rgba(255, 48, 71, 0.2);
+    z-index: 2;
+    transition: top .1s;
+    width: auto !important;
+  }
+
+  .jumphk ul {
+    position: relative;
+  }
+
+  .jumphk ul:before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50px;
+    width: 0;
+    height: 0;
+    border-width: 0 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent #fff;
+  }
+
+  .jumphk ul li {
+    border-bottom: 1px solid #ededed;
+    width: auto;
+    height: 40px;
+    line-height: 40px;
+  }
+
+  .jumphk ul li:last-child {
+    border: 0;
+  }
+
+  .jumphk ul li span {
+    color: #2d2d2d !important;
+    line-height: 40px !important;
+  }
+
+  .timebox {
+    overflow: hidden;
+    background: #f4f5f7;
+    height: 44px;
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .timebox .ye_timelist {
+    width: 75%;
+    float: left;
+    overflow: scroll;
+  }
+
+  .timebox .ye_timelist ul {
+    width: 150%;
+    overflow: hidden;
+    height: 40px;
+  }
+
+  .timebox .ye_timelist ul li {
+    float: left;
+    line-height: 25px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    margin-left: 10px;
+  }
+
+  .timebox .ye_timelist ul .checkdate {
+    background: #ea3723;
+    color: #fff;
+    border-radius: 50%;
+    position: relative
+  }
+
+  .timebox .ye_timelist ul .checkdate:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 28px;
+    right: 8px;
+    width: 8px;
+    height: 8px;
+    background: #cbcbcb;
+    border-radius: 50%;
+  }
+
+  .timebox .top_menu_more {
+    width: 25%;
+    position: relative;
+    float: right;
+    overflow: hidden;
+  }
+
+  .timebox .top_menu_more .list_shadow {
+    position: absolute;
+    width: 10px;
+    height: 12px;
+    left: 3.6px;
+    top: 16px;
+    background-size: contain;
+    border-left: 1px solid #a8b4d6;
+    background-color: rgba(244, 245, 246, 0.3);
+  }
+
+  .timebox .top_menu_more .more_btn {
+    display: block;
+    width: 79px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 10px;
+    position: relative;
+  }
+
+  .timebox .top_menu_more .more_btn:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 18px;
+    right: 0;
+    width: 12px;
+    height: 12px;
+    background: url(../assets/hk-imgs/xiaol.png) -119px -128px no-repeat;
+    background-size: 318.66px auto;
+  }
+
+  .alert_win {
+    background: rgba(0, 0, 0, 0.2);
+    min-height: 100%;
+    overflow: hidden;
+    position: fixed;
+    top: -100%;
+    width: 100%;
+    z-index: 9999;
+  }
+
+  .five_box > i {
+    background: url(../assets/hk-imgs/jtx@3x.png) 75px 7.5px no-repeat;
+    background-size: 14px;
+    padding-right: 20px;
+  }
+
+  .five_item {
+    border-top: 1px solid #e0e0e0;
+    margin-top: 0;
+    background: #fff;
+    padding: 20px 15px;
+    font-size: 13px;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    position: relative;
+    z-index: 999;
+  }
+
+  .five_item .animated {
+    margin-right: 35px;
+    flex: 1;
+    text-align: center;
+    color: #333;
+    opacity: 0;
+    display: inline-block;
+  }
+
+  .five_item > .animated.bounceInUp {
+    opacity: 1 !important;
+  }
+
+  .five_item .animated dt span {
+    display: inline-block;
+    height: 51.7px;
+    width: 51.7px;
+    background: url("../assets/hk-imgs/xiaol.png") -6.6px -9.7px no-repeat;
+    background-size: 318px;
+  }
+
+  .five_item .animated .tema_zs span {
+    background-position: -69px -9.7px;
+  }
+
+  .five_item .animated .zhem_zs span {
+    background-position: -131.3px -9.7px;
+  }
+
+  .five_item .animated .zoo_zs span {
+    background-position: -193.3px -9.7px;
+  }
+
+  .five_item .animated .lz_fenxi span {
+    background-position: -255px -9.7px;
+  }
+
+  .five_item .animated .zh_fenxi span {
+    background-position: -255px -140px;
+  }
+
+  .five_item .animated:last-child {
+    margin-right: 0;
+  }
+
+  #showtime {
+    position: absolute;
+    top: 3px;
+    right: -10px;
+    display: inline-block;
+    height: 20px;
+    width: 100%;
+    z-index: 1;
+  }
+
+  #showtime:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: -5px;
+    width: 1px;
+    height: 20px;
+    border-left: 1px solid #acb2be;
+  }
+
+  address, caption, cite, code, dfn, em, i, strong, th, var {
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  .check_day {
+    font-size: 14px;
+    float: left;
+    margin-right: 25px;
+    margin-top: -4px;
+    //border-left: 1px solid #acb2be;
+    padding-left: 2px;
+  }
+
+  .item-datetime {
+    float: right;
+    width: 159px;
+    top: -37px;
+    line-height: 30px;
+    border: none;
+    margin-right: -52px;
+  }
+
+  .page-div .lhzflist {
+    width: 100%;
+    //margin-top: 50px;
+  }
+
+  .page-div .lhzflist ul {
+    display: block;
+    height: 35px;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .page-div .lhzflist ul li {
+    float: left;
+    width: 15%;
+    height: 35px;
+    line-height: 35px;
+    color: #999;
+    border-right: 1px solid gainsboro;
+    box-sizing: border-box;
+    white-space: nowrap;
+  }
+
+  .page-div .lhzflist ul li span:first-child {
+    margin-right: 10px;
+  }
+
+  .page-div .lhzflist ul li:first-child {
+    width: 25%;
+    color: #666 !important;
+  }
+
+  .page-div .lhzflist ul li:last-child {
+    border: 0;
+  }
+
+  .page-div .lhzflist .ulfir li {
+    color: #666 !important;
+  }
+
+  .page-div .lhzflist ul:nth-child(odd) {
+    background: #fff;
+  }
+
+  .page-div .lhzflist ul:nth-child(even) {
+    background: #f2f2f2;
+  }
+
+  .timebox {
+    font-size: 12px;
+  }
+
+}

@@ -1,0 +1,240 @@
+page-hk-calendar {
+  .pagediv {
+    min-height: 435px
+  }
+
+  .headbox {
+    height: 44px;
+    line-height: 44px;
+    width: 100%;
+    padding: 0 10px;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    box-sizing: border-box;
+    background: #fff;
+  }
+
+  .headbox div {
+    flex: 1;
+    height: 100%;
+    width: 33.333%;
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    box-sizing: border-box;
+    //width: auto;
+  }
+
+  .headbox .logo_view {
+    text-align: left;
+  }
+
+  .main_visual {
+    position: relative;
+  }
+
+  .headbox div a {
+    height: 100%;
+    line-height: 15px;
+    width: 83px;
+  }
+
+  .headbox div a i {
+    display: inline-block;
+    width: 83px;
+    height: 23.33px;
+    background: #fff url("../assets/hk-imgs/xiaol.png") -143px -118.3px;
+    background-size: 318.66px auto;
+    vertical-align: middle;
+    margin-top: 8px;
+    box-sizing: border-box;
+  }
+
+  .headbox .menubtn a {
+    float: right;
+    margin-right: 0;
+    width: 25px;
+    text-align: right;
+  }
+
+  .headbox .menubtn a i {
+    height: 25px;
+    width: 21px;
+    background-position: -17px -120px;
+  }
+
+  .five_box, .pagediv {
+    background: #fff;
+  }
+
+  //body,html {
+  //  -webkit-transform: none
+  //}
+
+  .date_view {
+    padding-bottom: 50px !important;
+    position: relative;
+    left: 0;
+    margin-top: 25px;
+  }
+
+  .week {
+    font-size: 11px;
+    background: #fff;
+    border-bottom: 1px solid #b2b2b2;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 44px;
+    width: 100%;
+    z-index: 9999;
+  }
+
+  .week ul {
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    box-sizing: border-box;
+  }
+
+  .week ul li {
+    -moz-box-flex: 1;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    text-align: center;
+    height: 23px;
+    line-height: 23px;
+  }
+
+  .month {
+    font-size: 16px;
+    color: #ff3054;
+    height: 32.5px;
+    line-height: 32.5px;
+    text-align: center;
+    background: #fff;
+  }
+
+  .month div {
+    height: 97%;
+    border-bottom: 1px solid #e1e1e1;
+  }
+
+  .month div p {
+    width: 53.56px;
+  }
+
+  .month .one {
+    margin-left: 14.286%;
+  }
+
+  .month .two {
+    margin-left: 28.572%;
+  }
+
+  .month .three {
+    margin-left: 42.858%;
+  }
+
+  .month .four {
+    margin-left: 57.144%;
+  }
+
+  .month .five {
+    margin-left: 71.43%;
+  }
+
+  .month .six {
+    margin-left: 85.716%;
+  }
+
+  .day {
+    font-size: 16px;
+    background: #fff;
+    font-family: "微软雅黑";
+  }
+
+  .day ul {
+    overflow: hidden;
+  }
+
+  .day ul li:nth-child(1), .day ul li:nth-child(7), .day ul li:nth-child(8), .day ul li:nth-child(14), .day ul li:nth-child(15), .day ul li:nth-child(21), .day ul li:nth-child(22), .day ul li:nth-child(28), .day ul li:nth-child(29), .day ul li:nth-child(35), .day ul li:nth-child(36) {
+    color: #a2a2a2;
+  }
+
+  .day ul li {
+    float: left;
+    width: 14.2857143%;
+    height: 70px;
+    text-align: center;
+    border-bottom: 1px solid #e1e1e1;
+    vertical-align: middle;
+  }
+
+  .day ul li span {
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 15px;
+    height: 40px;
+    line-height: 40px;
+    width: 40px;
+  }
+
+  .day ul li .red {
+    background: #ff3054;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .day ul li .grey {
+    background: #cbccd1;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .day ul li:nth-last-child(8) ~ li {
+    border: 0;
+  }
+
+  .fixed_bottom {
+    position: sticky;
+    //position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    border-top: 1px solid #dbdbdb;
+    overflow: hidden;
+    z-index: 999;
+    width: 100%;
+    padding-left: 15px;
+    font-size: 13px;
+    background: #fff;
+  }
+
+  .fixed_bottom div {
+    float: left;
+    width: 90px;
+    text-align: center;
+    line-height: 50px;
+  }
+
+  .fixed_bottom div span {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+
+  .fixed_bottom div .red {
+    background: #f8223c;
+  }
+
+  .fixed_bottom div .grey {
+    background: #cbccd1;
+  }
+
+
+}

@@ -1,0 +1,108 @@
+page-hk-news-detail {
+  .pagediv {
+    min-height: 435px;
+    background: #efeff4;
+  }
+
+  .headbox {
+    height: 44px;
+    line-height: 44px;
+    width: 100%;
+    padding: 0 10px;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    box-sizing: border-box;
+    background: #fff;
+  }
+
+  .headbox div {
+    flex: 1;
+    height: 100%;
+   // width: 33.333%;
+    font-size: 18px;
+    color: #333;
+   // text-align: center;
+    box-sizing: border-box;
+  }
+
+  .headbox .logo_view {
+    text-align: left;
+  }
+
+  .headbox div a {
+    height: 100%;
+    line-height: 15px;
+    width: 83px;
+  }
+
+  a {
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    outline: 0;
+  }
+
+  .headbox div a i {
+    display: inline-block;
+    width: 83px;
+    height: 23.3px;
+    background: #fff url(../assets/hk-imgs/xiaol.png) -143px -118.3px;
+    background-size: 318.7px auto;
+    vertical-align: middle;
+    margin-top: 8px;
+    box-sizing: border-box;
+  }
+
+  address, caption, cite, code, dfn, em, i, strong, th, var {
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  .headbox .menubtn a {
+    float: right;
+    margin-right: 0;
+    width: 25px;
+    text-align: right;
+  }
+
+  .headbox .menubtn a i {
+    height: 25px;
+    width: 21px;
+    background-position: -17px -120px;
+  }
+
+  .datum_title {
+    //padding: 15px 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    background: #fff;
+    border-top: 1px solid #f3f3f3;
+    border-bottom: 1px solid #e2e2e4;
+  }
+
+  .datum_title .new_title {
+    font-size: 23px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .datum_title .new_date {
+    color: #999;
+    font-size: 13px;
+  }
+
+  .new_detail {
+    background: #f5f5f6;
+    padding: 10px 10px;
+  }
+
+  .new_detail .new_content {
+    font-size: 13px;
+    text-align: justify;
+    color: #414142;
+    line-height: 23px;
+  }
+}

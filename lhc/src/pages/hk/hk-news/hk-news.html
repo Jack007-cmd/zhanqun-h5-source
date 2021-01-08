@@ -1,0 +1,74 @@
+<!--
+  Generated template for the HkNewsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <!--<ion-navbar>-->
+  <!--<ion-title>hk-news</ion-title>-->
+  <!--</ion-navbar>-->
+  <header class="headbox">
+    <div class="logo_view">
+      <span navPop>返回</span>
+    </div>
+    <div>
+      <i>六合资料</i>
+    </div>
+    <!--<div class="menubtn">-->
+    <!--<a href="kaijiDate.html" class="calendar"><i></i></a>-->
+    <!--</div>-->
+  </header>
+</ion-header>
+
+
+<ion-content>
+  <div class="pagediv">
+
+    <div class="datum_type">
+      <div>
+        <span class="change_check news_1 d_left" [ngClass]="{checked:option==0}" (click)="optionChange(0)">推荐预测</span>
+      </div>
+      <div>
+        <span class="change_check news_2 d_right" [ngClass]="{checked:option==1}" (click)="optionChange(1)">专家心水</span>
+      </div>
+    </div>
+    <div class="new_view">
+      <div class="conta_view">
+        <div class="new_item  new_item_box" id="wrapper_left">
+          <ul class="left_ul">
+            <li class="contant">
+              <div class="row" *ngFor="let item of news;" navPush="HkNewsDetailPage"
+                   [navParams]="{id:item['id'],option:option}">
+                <div class="left"><p class="new_title">{{item?.title}}</p>
+                  <div class="new_date">{{item['created_at']?.substring(0, 10)}}</div>
+                </div>
+                <div class="right goright"><p></p></div>
+              </div>
+            </li>
+            <li *ngIf="hasNext">
+              <div class="no_more">
+                <div (click)="doInfinite()"> 加载更多 </div>
+              </div>
+            </li>
+            <li *ngIf="!hasNext">
+              <div class="no_more">
+                <div>没有了</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!--<ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="hasNext">-->
+    <!--<ion-infinite-scroll-content-->
+      <!--loadingSpinner="bubbles"-->
+      <!--loadingText="加载中">-->
+    <!--</ion-infinite-scroll-content>-->
+  <!--</ion-infinite-scroll>-->
+</ion-content>

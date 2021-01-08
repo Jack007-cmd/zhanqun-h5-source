@@ -1,0 +1,286 @@
+<!--
+  Generated template for the HkHomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <!--<ion-navbar>-->
+  <!--<ion-title>hk-home</ion-title>-->
+  <!--</ion-navbar>-->
+  <header class="headbox">
+    <div class="logo_view" style="margin-top: -15px;">
+
+      <!--<span href="http://www.ch9588.com" class="logo"><i></i></span>-->
+      <!--<img src="http://www.123kkc.com/storage/images/202001/web_logo_xhSR2QXTmHPzwhfQ7omX8aMoBu2dWIYMf5yhkfPp.png" (click)="openLottery()"  alt="" style="height: 35px;vertical-align: middle;">-->
+      <img [src]="logo" (click)="openLottery()"  alt="" style="height: 44px;vertical-align: middle;">
+      <!--<span  class="logo"><img [src]="logo" alt="" style="height: 35px;"></span>-->
+    </div>
+    <div class="menubtn">
+      <span navPush="HkCalendarPage" class="calendar"><img src="./assets/imgs/calendar.png" alt=""></span>
+<!--      <span navPush="HkCalendarPage" class="calendar"><i></i></span> -->
+      <!--<a class="go168" href="https://1682019.co" target="_blank"><i></i></a>-->
+    </div>
+  </header>
+</ion-header>
+
+
+<ion-content>
+  <div class="body-box">
+    <div class="pagediv">
+      <div *ngIf="showVideo" class="select-page ifame_box anheight" style="position: fixed;">
+        <ion-backdrop (click)="showVideo=false" role="presentation" tappable="" style="opacity: 0.26;"></ion-backdrop>
+      <!--<div *ngIf="showVideo" class="ifame_box anheight">-->
+        <div class="close">
+          <span style="float: left;">香港六合彩开奖视频</span>
+        <span style="float: right;" class="vide_close" (click)="showVideo=false">关闭</span>
+      </div>
+        <iframe class="content" src="http://lh8898.com/lottery/sixColorAnimate.html" frameborder="0"></iframe>
+      </div>
+      <div class="slides" *ngIf="bannerArr && bannerArr?.length>0">
+        <ion-slides #slides class="focus" pager loop="true" autoplay="3000">
+          <ion-slide *ngFor="let item of bannerArr;">
+            <div class="slide_item">
+              <img style="width: 100%;" src="{{item?.image}}" (click)="openAd(item.url)" onerror="this.src='assets/imgs/slide_img.jpg'"/>
+            </div>
+          </ion-slide>
+        </ion-slides>
+      </div>
+      <hk-about-item [hkCode]="item" (event)="getData($event)" *ngFor="let item of codeArr;"></hk-about-item>
+
+      <div style="display: block;" id="icom_box" *ngIf="news && news?.length>0">
+        <div class="icom">
+          <div>
+            <span class="line_"></span>
+            <h2>六合资料</h2>
+          </div>
+          <div>
+            <div navPush="HkNewsPage">
+              更多
+              <i></i>
+            </div>
+          </div>
+        </div>
+        <div class="com_box">
+          <div class="icom_item" *ngFor="let item of news;" navPush="HkNewsDetailPage"
+               [navParams]="{id:item['id'],option:0}">
+            <div><p class="i_title">{{item.title}}</p>
+              <span class="icom_date">{{item['created_at']?.substring(0, 10)}}</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="display: block;" id="comparison_table">
+        <div class="table_type">
+          <div>
+            <span [ngClass]="{checked:showType==0}" (click)="showType=0">波色</span>
+          </div>
+          <div>
+            <span [ngClass]="{checked:showType==1}" (click)="showType=1">生肖</span>
+          </div>
+          <div>
+            <span [ngClass]="{checked:showType==2}" (click)="showType=2">五行</span>
+          </div>
+          <div>
+            <span [ngClass]="{checked:showType==3}" (click)="showType=3">家禽野兽</span>
+          </div>
+        </div>
+        <div id="tab_float">
+          <div class="bo_color t1 tt" *ngIf="showType==0 && typeTable?.color">
+            <div class="rows">
+              <div class="left ">红波</div>
+              <div class="left red" *ngIf="typeTable?.color['红']?.length>0">
+                <ul>
+                  <ng-container *ngFor="let rcode of typeTable?.color['红'];let ri = index;">
+                    <li *ngIf="ri<10">{{rcode < 10 ? ('0' + rcode) : rcode}}</li>
+                  </ng-container>
+                </ul>
+                <ul>
+                  <ng-container *ngFor="let rcode of typeTable?.color['红'];let ri = index;">
+                    <li *ngIf="ri>9">{{rcode < 10 ? ('0' + rcode) : rcode}}</li>
+                  </ng-container>
+                </ul>
+              </div>
+            </div>
+            <div class="rows">
+              <div class="left ">蓝波</div>
+              <div class="left blue" *ngIf="typeTable?.color['蓝']?.length>0">
+                <ul>
+                  <ng-container *ngFor="let bcode of typeTable?.color['蓝'];let bi = index;">
+                    <li *ngIf="bi<10">{{bcode < 10 ? ('0' + bcode) : bcode}}</li>
+                  </ng-container>
+                </ul>
+                <ul>
+                  <ng-container *ngFor="let bcode of typeTable?.color['蓝'];let bi = index;">
+                    <li *ngIf="bi>9">{{bcode < 10 ? ('0' + bcode) : bcode}}</li>
+                  </ng-container>
+                </ul>
+              </div>
+            </div>
+            <div class="rows">
+              <div class="left ">绿波</div>
+              <div class="left green" *ngIf="typeTable?.color['绿']?.length>0">
+                <ul>
+                  <ng-container *ngFor="let gcode of typeTable?.color['绿'];let gi = index;">
+                    <li *ngIf="gi<10">{{gcode < 10 ? ('0' + gcode) : gcode}}</li>
+                  </ng-container>
+                </ul>
+                <ul>
+                  <ng-container *ngFor="let gcode of typeTable?.color['绿'];let gi = index;">
+                    <li *ngIf="gi>9">{{gcode < 10 ? ('0' + gcode) : gcode}}</li>
+                  </ng-container>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="zoo t2 tt" *ngIf="showType==1 && typeTable?.zodiacCode">
+            <div class="row">
+              <div class="zodiac-line">
+                <span>鼠</span>
+                <ul>
+                  <li *ngFor="let m of typeTable?.zodiacCode['鼠'];"
+                      [ngClass]="{red:redArr?.indexOf(m.toString())!=-1,green:greenArr?.indexOf(m.toString())!=-1,blue:blueArr?.indexOf(m.toString())!=-1}">
+                    {{m < 10 ? ('0' + m) : m}}
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <span>牛</span>
+                <ul>
+                  <li *ngFor="let m of typeTable?.zodiacCode['牛'];"
+                      [ngClass]="{red:redArr?.indexOf(m.toString())!=-1,green:greenArr?.indexOf(m.toString())!=-1,blue:blueArr?.indexOf(m.toString())!=-1}">
+                    {{m < 10 ? ('0' + m) : m}}
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="zodiac-line">
+                <span>虎</span>
+                <ul>
+                  <li *ngFor="let m of typeTable?.zodiacCode['虎'];"
+                      [ngClass]="{red:redArr?.indexOf(m.toString())!=-1,green:greenArr?.indexOf(m.toString())!=-1,blue:blueArr?.indexOf(m.toString())!=-1}">
+                    {{m < 10 ? ('0' + m) : m}}
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <span>兔</span>
+                <ul>
+                  <li *ngFor="let m of typeTable?.zodiacCode['兔'];"
+                      [ngClass]="{red:redArr?.indexOf(m.toString())!=-1,green:greenArr?.indexOf(m.toString())!=-1,blue:blueArr?.indexOf(m.toString())!=-1}">
+                    {{m < 10 ? ('0' + m) : m}}
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="zodiac-line">
+                <span>龙</span>
+                <ul>
+                  <li *ngFor="let m of typeTable?.zodiacCode['龙'];"
+                      [ngClass]="{red:redArr?.indexOf(m.toString())!=-1,green:greenArr?.indexOf(m.toString())!=-1,blue:blueArr?.indexOf(m.toString())!=-1}">
+                    {{m < 10 ? ('0' + m) : m}}
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <span>蛇</span>
+                <ul>
+                  <li *ngFor="let m of typeTable?.zodiacCode['蛇'];"
+                      [ngClass]="{red:redArr?.indexOf(m.toString())!=-1,green:greenArr?.indexOf(m.toString())!=-1,blue:blueArr?.indexOf(m.toString())!=-1}">
+                    {{m < 10 ? ('0' + m) : m}}
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="zodiac-line">
+                <span>马</span>
+                <ul>
+                  <li *ngFor="let m of typeTable?.zodiacCode['马'];"
+                      [ngClass]="{red:redArr?.indexOf(m.toString())!=-1,green:greenArr?.indexOf(m.toString())!=-1,blue:blueArr?.indexOf(m.toString())!=-1}">
+                    {{m < 10 ? ('0' + m) : m}}
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <span>羊</span>
+                <ul>
+                  <li *ngFor="let m of typeTable?.zodiacCode['羊'];"
+                      [ngClass]="{red:redArr?.indexOf(m.toString())!=-1,green:greenArr?.indexOf(m.toString())!=-1,blue:blueArr?.indexOf(m.toString())!=-1}">
+                    {{m < 10 ? ('0' + m) : m}}
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="zodiac-line">
+                <span>猴</span>
+                <ul>
+                  <li *ngFor="let m of typeTable?.zodiacCode['猴'];"
+                      [ngClass]="{red:redArr?.indexOf(m.toString())!=-1,green:greenArr?.indexOf(m.toString())!=-1,blue:blueArr?.indexOf(m.toString())!=-1}">
+                    {{m < 10 ? ('0' + m) : m}}
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <span>鸡</span>
+                <ul>
+                  <li *ngFor="let m of typeTable?.zodiacCode['鸡'];"
+                      [ngClass]="{red:redArr?.indexOf(m.toString())!=-1,green:greenArr?.indexOf(m.toString())!=-1,blue:blueArr?.indexOf(m.toString())!=-1}">
+                    {{m < 10 ? ('0' + m) : m}}
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="zodiac-line">
+                <span>狗</span>
+                <ul>
+                  <li *ngFor="let m of typeTable?.zodiacCode['狗'];"
+                      [ngClass]="{red:redArr?.indexOf(m.toString())!=-1,green:greenArr?.indexOf(m.toString())!=-1,blue:blueArr?.indexOf(m.toString())!=-1}">
+                    {{m < 10 ? ('0' + m) : m}}
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <span>猪</span>
+                <ul>
+                  <li *ngFor="let m of typeTable?.zodiacCode['猪'];"
+                      [ngClass]="{red:redArr?.indexOf(m.toString())!=-1,green:greenArr?.indexOf(m.toString())!=-1,blue:blueArr?.indexOf(m.toString())!=-1}">
+                    {{m < 10 ? ('0' + m) : m}}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="five_row t3 tt" *ngIf="showType==2">
+            <div class="row" *ngFor="let key of objectKeys(typeTable['five_elements']);">
+              <div>
+                <span>{{key}}</span>
+                <ul>
+                  <li *ngFor="let f of typeTable['five_elements'][key];"
+                      [ngClass]="{red:redArr?.indexOf(f.toString())!=-1,green:greenArr?.indexOf(f.toString())!=-1,blue:blueArr?.indexOf(f.toString())!=-1}">
+                    {{f < 10 ? ('0' + f) : f}}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="jaye t4 tt" *ngIf="showType==3">
+            <div class="row" *ngFor="let key of objectKeys(typeTable['jqys']);">
+              <div>
+                <span>{{key}}</span>
+                <ul>
+                  <li *ngFor="let item of typeTable['jqys'][key]">{{item}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

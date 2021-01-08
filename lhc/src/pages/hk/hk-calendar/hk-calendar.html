@@ -1,0 +1,85 @@
+<!--
+  Generated template for the HkCalendarPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <!--<ion-navbar>-->
+  <!--<ion-title>hk-calendar</ion-title>-->
+  <!--</ion-navbar>-->
+  <header class="headbox">
+    <div class="logo_view">
+      <span navPop>返回</span>
+    </div>
+    <div class="five_box">
+      <i style="background: 0;font-weight: normal;font-style: normal;">开奖日历</i>
+    </div>
+    <div class="menubtn"></div>
+  </header>
+  <div class="week" style="position: absolute;">
+    <ul>
+      <li>日</li>
+      <li>一</li>
+      <li>二</li>
+      <li>三</li>
+      <li>四</li>
+      <li>五</li>
+      <li>六</li>
+    </ul>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="calendar-body-box">
+    <div class="pagediv">
+
+      <div class="date_view">
+        <ng-container *ngFor="let item of mainData;">
+          <ng-container *ngIf="item['kj_date']?.length>0">
+            <div class="month" style="margin-top: 0px;">
+              <div
+                [ngClass]="{one:item?.first==1,two:item?.first==2,three:item?.first==3,four:item?.first==4,five:item?.first==5,six:item?.first==6}"
+              ><p>{{item?.date?.split("-")[1] - 0}}月</p></div>
+            </div>
+            <div class="day">
+              <ul>
+                <li *ngFor="let temp of item['kj_date'];">
+                  <span *ngIf="temp[0]==0"></span>
+                  <ng-container *ngIf="temp[0]!=0">
+                    <ng-container *ngIf="temp[1]==1">
+                      <ng-container *ngIf="toTimeStamp(item?.date+'-'+temp[0])<=cTimeStamp">
+                        <span class="grey">{{temp[0]}}</span>
+                      </ng-container>
+                      <ng-container *ngIf="toTimeStamp(item?.date+'-'+temp[0])>cTimeStamp">
+                        <span class="red">{{temp[0]}}</span>
+                      </ng-container>
+                    </ng-container>
+                    <ng-container *ngIf="temp[1]!=1">
+                      <span>{{temp[0]}}</span>
+                    </ng-container>
+                  </ng-container>
+                </li>
+              </ul>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div class="fixed_bottom">
+        <div>
+          <span class="red"></span> 搅珠日
+        </div>
+        <div>
+          <span class="grey"></span> 已开奖日期
+        </div>
+      </div>
+    </div>
+  </div>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="hasNext">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="加载中">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
