@@ -1,0 +1,44 @@
+<!-- Generated template for the LonghuCountComponent component style="position: absolute;" -->
+<div class="component_scroll" >
+  <div class="drawCodebox longhutj"  *ngIf="mainData && mainData?.length>0" style="left: 0; display: block;">
+    <div id="longhutjBox">
+      <table border="0" cellspacing="1" cellpadding="1">
+        <thead>
+        <tr>
+          <th rowspan="2" width="100">日期</th>
+          <th colspan="2">冠军</th>
+          <th colspan="2">亚军</th>
+          <th colspan="2">第三</th>
+          <th colspan="2">第四</th>
+          <th colspan="2">第五</th>
+        </tr>
+        <tr>
+          <th width="33">龙</th>
+          <th width="33">虎</th>
+          <th width="33">龙</th>
+          <th width="33">虎</th>
+          <th width="33">龙</th>
+          <th width="33">虎</th>
+          <th width="33">龙</th>
+          <th width="33">虎</th>
+          <th width="33">龙</th>
+          <th width="33">虎</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of mainData;">
+          <td style="height: 33px;">{{item?.day}}</td>
+          <ng-container *ngFor="let temp of item?.list;">
+            <td>{{temp?.dragon}}</td>
+            <!--height="33"-->
+            <td>{{temp?.tiger}}</td>
+          </ng-container>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div *ngIf="!mainData || mainData?.length==0" class="no-data">加载中
+    <div style="height: 350px;"></div>
+  </div>
+</div>

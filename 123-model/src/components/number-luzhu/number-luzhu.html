@@ -1,0 +1,121 @@
+<div class="component_scroll" id="{{code}}">
+  <div class="drawCodebox hmqhlz"  *ngIf="mainData && mainData?.length>0" style="left: 0; display: block;">
+    <div id="hmqhlzBox">
+      <div class="numtabHmlz" *ngIf="codeType==2">
+        <ul>
+          <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('0')>-1}" (click)="numSelect('0')">0</li>
+          <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('1')>-1}" (click)="numSelect('1')">1</li>
+          <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('2')>-1}" (click)="numSelect('2')">2</li>
+          <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('3')>-1}" (click)="numSelect('3')">3</li>
+          <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('4')>-1}" (click)="numSelect('4')">4</li>
+          <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('5')>-1}" (click)="numSelect('5')">5</li>
+          <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('6')>-1}" (click)="numSelect('6')">6</li>
+          <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('7')>-1}" (click)="numSelect('7')">7</li>
+          <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('8')>-1}" (click)="numSelect('8')">8</li>
+          <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('9')>-1}" (click)="numSelect('9')">9</li>
+        </ul>
+      </div>
+      <div class="numtabHmlz" *ngIf="codeType==1||codeType==4">
+        <ul>
+          <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('0')>-1}" (click)="numSelect('0')">01</li>
+          <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('1')>-1}" (click)="numSelect('1')">02</li>
+          <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('2')>-1}" (click)="numSelect('2')">03</li>
+          <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('3')>-1}" (click)="numSelect('3')">04</li>
+          <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('4')>-1}" (click)="numSelect('4')">05</li>
+          <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('5')>-1}" (click)="numSelect('5')">06</li>
+          <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('6')>-1}" (click)="numSelect('6')">07</li>
+          <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('7')>-1}" (click)="numSelect('7')">08</li>
+          <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('8')>-1}" (click)="numSelect('8')">09</li>
+          <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('9')>-1}" (click)="numSelect('9')">10</li>
+          <ng-container *ngIf="codeType==4">
+            <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('10')>-1}" (click)="numSelect('10')">11</li>
+          </ng-container>
+        </ul>
+      </div>
+      <ng-container *ngIf="codeType==3||codeType==5||codeType==6">
+        <div class="numtabHmlz">
+          <ul>
+            <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('0')>-1}" (click)="numSelect('0')">01</li>
+            <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('1')>-1}" (click)="numSelect('1')">02</li>
+            <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('2')>-1}" (click)="numSelect('2')">03</li>
+            <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('3')>-1}" (click)="numSelect('3')">04</li>
+            <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('4')>-1}" (click)="numSelect('4')">05</li>
+            <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('5')>-1}" (click)="numSelect('5')">06</li>
+            <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('6')>-1}" (click)="numSelect('6')">07</li>
+            <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('7')>-1}" (click)="numSelect('7')">08</li>
+            <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('8')>-1}" (click)="numSelect('8')">09</li>
+            <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('9')>-1}" (click)="numSelect('9')">10</li>
+          </ul>
+        </div>
+        <div class="numtabHmlz" style="margin-top: -18px;">
+          <ul>
+            <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('10')>-1}" (click)="numSelect('10')">11</li>
+            <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('11')>-1}" (click)="numSelect('11')">12</li>
+            <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('12')>-1}" (click)="numSelect('12')">13</li>
+            <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('13')>-1}" (click)="numSelect('13')">14</li>
+            <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('14')>-1}" (click)="numSelect('14')">15</li>
+            <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('15')>-1}" (click)="numSelect('15')">16</li>
+            <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('16')>-1}" (click)="numSelect('16')">17</li>
+            <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('17')>-1}" (click)="numSelect('17')">18</li>
+            <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('18')>-1}" (click)="numSelect('18')">19</li>
+            <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('19')>-1}" (click)="numSelect('19')">20</li>
+            <ng-container *ngIf="codeType==6">
+              <li [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('20')>-1}" (click)="numSelect('20')">21</li>
+            </ng-container>
+          </ul>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="codeType==7">
+        <div class="numtabHmlz">
+          <ul>
+            <li style="margin-right: 31px;" [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('0')>-1}" (click)="numSelect('0')">1</li>
+            <li style="margin-right: 31px;" [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('1')>-1}" (click)="numSelect('1')">2</li>
+            <li style="margin-right: 31px;" [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('2')>-1}" (click)="numSelect('2')">3</li>
+            <li style="margin-right: 31px;" [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('3')>-1}" (click)="numSelect('3')">4</li>
+            <li style="margin-right: 31px;" [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('4')>-1}" (click)="numSelect('4')">5</li>
+            <li style="margin-right: 31px;" [ngClass]="{hmqhlzHMAct:filterRs?.indexOf('5')>-1}" (click)="numSelect('5')">6</li>
+          </ul>
+        </div>
+      </ng-container>
+
+        <!--<div class="timeTab">-->
+        <!--&lt;!&ndash;<span id="hmqhlzsxBtn">筛选<i></i></span>&ndash;&gt;-->
+        <!--<ul id="timeUl">-->
+        <!--<li id="qhlztoday" class="hmqhlxdayAct">当天</li>-->
+        <!--<li id="qhlzyesterday">昨天</li>-->
+        <!--<li id="qhlzqianday">前天</li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <div id="hmqhlzlist">
+          <div class="hmqhlzItems lz_content">
+            <div id="hm1" class="tablelist displayblock" style="display: block;"
+                 *ngFor="let item of mainData;let index=index;">
+              <ng-container *ngIf="filterRs.indexOf(index.toString())!=-1">
+                <div class="itemHead">
+                  <div class="l_jrlj">今日累计：<span class="lspan">总来（<i class="longNum">{{item?.total?.yes}}</i>）</span><span
+                    class="rspan">没来（<i
+                    class="huNum">{{item?.total?.no}}</i>）</span></div>
+                  <div class="r_new"><span>号码 {{codeType == 2 ? index : index + 1}}</span><span>最新 ↓</span></div>
+                </div>
+                <div class="itemBody">
+                  <div class="lz_item" (touchstart)="ulScroll($event)" (touchend)="ulScroll($event)">
+                    <table class="lz_table_con" border="0" cellpadding="1" cellspacing="1">
+                      <tbody>
+                      <tr class="tablebox">
+                        <td *ngFor="let temp of item?.list;">
+                          <p *ngFor="let p of temp;" [ngClass]="{font_red:p==1,font_gray:p==0}">{{p == 0 ? '×' : '✓'}}</p>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  </div>
+    <div *ngIf="!mainData || mainData?.length==0" class="no-data">加载中  <div style="height: 350px;"></div></div>
+</div>

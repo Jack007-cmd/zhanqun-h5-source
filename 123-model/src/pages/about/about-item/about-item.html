@@ -1,0 +1,668 @@
+<!--item1-->
+<div class="lilist" *ngIf="itemIndex==1" navPush="{{aboutItem?.des}}"
+     [navParams]="{name:aboutItem?.name,code:aboutItem?.code,video_url:aboutItem?.url,sortKey:aboutItem?.sortKey}">
+  <div class="boxline l1box">
+    <div>
+      <img [src]="aboutItem?.logo" height="30px;" style="vertical-align: middle;" alt="">
+      <!--<span class="line"></span>-->
+      <span class="lotName">{{aboutItem?.name}}</span>
+      <span><label class="preIssue preDrawIssue"><i
+        class="current_issue">{{aboutItem['current_number']}}</i></label>期</span>
+      <!--<div class="next_opening"><span *ngIf="allSeconds>0">下期 <i class="hour" *ngIf="hour>0">{{hour}}时</i>-->
+      <!--<i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒后开奖</span>-->
+      <!--<span class="opening" *ngIf="allSeconds<=0">开奖中</span>-->
+      <!--</div>-->
+      <!-- <span class="r_arrow" *ngIf="allSeconds>0">距下期开奖 <span [ngClass]="{'color-red':allSeconds<600}"><i class="hour"
+                                                                                                         *ngIf="hour>0">{{hour}}
+        时</i>
+        <i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒</span></span> -->
+
+
+      <!--<span class="displaynone nextIssue">20181203072</span>-->
+      <span class="r_arrow" *ngIf="allSeconds>0">距下期开奖 <span class="color-red" >
+          <i class="hour" *ngIf="hour>0">{{hour}}: </i>
+            <i class="minute" >{{minute}}:</i> {{second}}</span></span>
+      <span class="r_arrow color-red" *ngIf="allSeconds<=0">开奖中</span>
+    </div>
+  </div>
+  <ng-container *ngIf="isLoading">
+    <div class="boxline kajianhao">
+      <ul class="pk10li numberbox" style="display: block;">
+        <ng-container *ngIf="aboutItem['current_code']">
+          <li *ngFor="let ccode of aboutItem['current_code'];let index = index;"
+              [ngClass]="{nubb01:ccode=='01',nubb02:ccode=='02',nubb03:ccode=='03',nubb04:ccode=='04',
+            nubb05:ccode=='05',nubb06:ccode=='06',nubb07:ccode=='07',nubb08:ccode=='08',
+            nubb09:ccode=='09',nubb10:ccode=='10',li_after:index==9}">
+            <i style="font-size:10px; display:none">{{ccode}}</i>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="boxline" *ngIf="aboutItem?.describe && aboutItem?.describe?.length>0">
+      <ul class="pk10li li3" style="display: block;width: auto;margin: 0;">
+        <ng-container *ngIf="aboutItem?.describe && aboutItem?.describe?.length>1">
+          <li *ngFor="let temp of aboutItem?.describe[1].val;">{{temp}}</li>
+          <li class="lastli" style="margin-right: 0;width:2px!important;">|</li>
+          <li class="lastli" style="width:50px!important;">冠亚和</li>
+          <li class="lastli " *ngFor="let item of aboutItem?.describe[0].val;" style="width:20px!important;">{{item}}</li>
+        </ng-container>
+      </ul>
+    </div>
+    <!--<div class="next_opening"><span *ngIf="allSeconds>0">下期 <i class="hour" *ngIf="hour>0">{{hour}}时</i> <i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒后开奖</span> <span class="opening" *ngIf="allSeconds<=0">开奖中</span></div>-->
+  </ng-container>
+</div>
+<!--item2-->
+<div class="lilist" *ngIf="itemIndex==2" navPush="{{aboutItem?.des}}"
+     [navParams]="{name:aboutItem?.name,code:aboutItem?.code,video_url:aboutItem?.url,sortKey:aboutItem?.sortKey}">
+  <div class="boxline l1box">
+    <div>
+     <img [src]="aboutItem?.logo" height="30px;" style="vertical-align: middle;" alt="">
+      <!--<span class="line"></span>-->
+      <span class="lotName">{{aboutItem?.name}}</span>
+      <span><label class="preIssue preDrawIssue"><i
+        class="current_issue">{{aboutItem['current_number']}}</i></label>期</span>
+      <!--<div class="next_opening"><span *ngIf="allSeconds>0">下期 <i class="hour" *ngIf="hour>0">{{hour}}时</i>-->
+      <!--<i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒后开奖</span>-->
+      <!--<span class="opening" *ngIf="allSeconds<=0">开奖中</span>-->
+      <!--</div>-->
+      <!-- <span class="r_arrow" *ngIf="allSeconds>0">距下期开奖 <span [ngClass]="{'color-red':allSeconds<600}"><i class="hour"
+                                                                                                         *ngIf="hour>0">{{hour}}
+        时</i>
+        <i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒</span></span> -->
+
+
+      <!--<span class="displaynone nextIssue">20181203072</span>-->
+      <span class="r_arrow" *ngIf="allSeconds>0">距下期开奖 <span class="color-red" >
+          <i class="hour" *ngIf="hour>0">{{hour}}: </i>
+            <i class="minute" >{{minute}}:</i> {{second}}</span></span>
+      <span class="r_arrow color-red" *ngIf="allSeconds<=0">开奖中</span>
+    </div>
+  </div>
+  <ng-container *ngIf="isLoading">
+    <div class="boxline kajianhao">
+      <ul class="sscli numberbox" style="display: block; width: 180px;">
+        <ng-container *ngIf="aboutItem['current_code']">
+          <li *ngFor="let ccode of aboutItem['current_code'];">{{ccode}}</li>
+        </ng-container>
+      </ul>
+    </div>
+    <!--style="border-bottom: 1px solid #efeff4;"-->
+    <div class="boxline">
+      <ul class="pk10li li3" style="display: block;width: 187px;">
+        <ng-container *ngIf="aboutItem?.describe && aboutItem?.describe?.length>1">
+          <li *ngFor="let zodiac of aboutItem?.describe[1]?.val;">{{zodiac}}</li>
+          <li class="lastli" style="width: 23px!important;">|</li>
+          <li class="lastli" style="width: 40px!important;">总和：</li>
+          <li *ngFor="let tem of aboutItem?.describe[0]?.val;" class="lastli ">{{tem}}</li>
+        </ng-container>
+      </ul>
+    </div>
+    <!--<div class="next_opening"><span *ngIf="allSeconds>0">下期 <i class="hour" *ngIf="hour>0">{{hour}}时</i> <i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒后开奖</span> <span class="opening" *ngIf="allSeconds<=0">开奖中</span></div>-->
+  </ng-container>
+</div>
+<!--item3-->
+<div class="lilist" *ngIf="itemIndex==3" navPush="{{aboutItem?.des}}"
+     [navParams]="{name:aboutItem?.name,code:aboutItem?.code,video_url:aboutItem?.url,sortKey:aboutItem?.sortKey}">
+  <div class="boxline l1box">
+    <div>
+     <img [src]="aboutItem?.logo" height="30px;" style="vertical-align: middle;" alt="">
+      <!--<span class="line"></span>-->
+      <span class="lotName">{{aboutItem?.name}}</span>
+      <span><label class="preIssue preDrawIssue"><i
+        class="current_issue">{{aboutItem['current_number']}}</i></label>期</span>
+      <!--<div class="next_opening"><span *ngIf="allSeconds>0">下期 <i class="hour" *ngIf="hour>0">{{hour}}时</i>-->
+      <!--<i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒后开奖</span>-->
+      <!--<span class="opening" *ngIf="allSeconds<=0">开奖中</span>-->
+      <!--</div>-->
+      <!-- <span class="r_arrow" *ngIf="allSeconds>0">距下期开奖 <span [ngClass]="{'color-red':allSeconds<600}"><i class="hour"
+                                                                                                         *ngIf="hour>0">{{hour}}
+        时</i>
+        <i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒</span></span> -->
+
+
+      <!--<span class="displaynone nextIssue">20181203072</span>-->
+      <span class="r_arrow" *ngIf="allSeconds>0">距下期开奖 <span class="color-red" >
+          <i class="hour" *ngIf="hour>0">{{hour}}: </i>
+            <i class="minute" >{{minute}}:</i> {{second}}</span></span>
+      <span class="r_arrow color-red" *ngIf="allSeconds<=0">开奖中</span>
+    </div>
+  </div>
+  <ng-container *ngIf="isLoading">
+    <div class="boxline kajianhao">
+      <ul class="sscli numberbox" style="display: block;width: 180px;">
+        <ng-container *ngIf="aboutItem['current_code']">
+          <li *ngFor="let ccode of aboutItem['current_code'];">{{ccode}}</li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="boxline">
+      <ul class="pk10li li3" style="display: block;width: 280px;">
+        <ng-container *ngIf="aboutItem?.describe && aboutItem?.describe?.length>1">
+          <li *ngFor="let zodiac of aboutItem?.describe[1]?.val;">{{zodiac}}</li>
+          <li>{{aboutItem?.describe[2]?.val}}</li>
+          <li>{{aboutItem?.describe[3]?.val}}</li>
+          <li>{{aboutItem?.describe[4]?.val}}</li>
+          <li class="lastli" style="width: 5px!important;">|</li>
+          <li class="lastli" style="width: 40px!important;">总和：</li>
+          <li *ngFor="let tem of aboutItem?.describe[0]?.val;" class="lastli ">{{tem}}</li>
+        </ng-container>
+      </ul>
+    </div>
+    <!--<div class="next_opening"><span *ngIf="allSeconds>0">下期 <i class="hour" *ngIf="hour>0">{{hour}}时</i> <i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒后开奖</span> <span class="opening" *ngIf="allSeconds<=0">开奖中</span></div>-->
+  </ng-container>
+</div>
+<!--item4-->
+<div class="lilist" *ngIf="itemIndex==4" navPush="{{aboutItem?.des}}"
+     [navParams]="{name:aboutItem?.name,code:aboutItem?.code,video_url:aboutItem?.url,sortKey:aboutItem?.sortKey}">
+  <div class="boxline l1box">
+    <div>
+     <img [src]="aboutItem?.logo" height="30px;" style="vertical-align: middle;" alt="">
+      <!--<span class="line"></span>-->
+      <span class="lotName">{{aboutItem?.name}}</span>
+      <span><label class="preIssue preDrawIssue"><i
+        class="current_issue">{{aboutItem['current_number']}}</i></label>期</span>
+      <!--<div class="next_opening"><span *ngIf="allSeconds>0">下期 <i class="hour" *ngIf="hour>0">{{hour}}时</i>-->
+      <!--<i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒后开奖</span>-->
+      <!--<span class="opening" *ngIf="allSeconds<=0">开奖中</span>-->
+      <!--</div>-->
+      <!-- <span class="r_arrow" *ngIf="allSeconds>0">距下期开奖 <span [ngClass]="{'color-red':allSeconds<600}"><i class="hour"
+                                                                                                         *ngIf="hour>0">{{hour}}
+        时</i>
+        <i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒</span></span> -->
+
+
+      <!--<span class="displaynone nextIssue">20181203072</span>-->
+      <span class="r_arrow" *ngIf="allSeconds>0">距下期开奖 <span class="color-red" >
+          <i class="hour" *ngIf="hour>0">{{hour}}: </i>
+            <i class="minute" >{{minute}}:</i> {{second}}</span></span>
+      <span class="r_arrow color-red" *ngIf="allSeconds<=0">开奖中</span>
+    </div>
+  </div>
+  <ng-container *ngIf="isLoading">
+    <div class="boxline kajianhao">
+      <ul class="k3li numberbox" style="display: block;">
+        <ng-container *ngIf="aboutItem['current_code']">
+          <li *ngFor="let ccode of aboutItem['current_code'];"
+              [ngClass]="{num1:ccode=='1',num2:ccode=='2',num3:ccode=='3',num4:ccode=='4',
+        num5:ccode=='5',num6:ccode=='6' }"
+          ></li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="boxline">
+      <ul class="pk10li li3" style="display: block;width: 130px;">
+        <li class="lastli" style="width: 40px!important;">总和：</li>
+        <ng-container *ngIf="aboutItem?.describe && aboutItem?.describe?.length>0">
+          <li class="lastli " *ngFor="let item of aboutItem?.describe[0].val;">{{item}}</li>
+        </ng-container>
+      </ul>
+    </div>
+    <!--<div class="next_opening"><span *ngIf="allSeconds>0">下期 <i class="hour" *ngIf="hour>0">{{hour}}时</i> <i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒后开奖</span> <span class="opening" *ngIf="allSeconds<=0">开奖中</span></div>-->
+  </ng-container>
+</div>
+<!--item5-->
+<div class="lilist" *ngIf="itemIndex==5" navPush="{{aboutItem?.des}}"
+     [navParams]="{name:aboutItem?.name,code:aboutItem?.code,video_url:aboutItem?.url,sortKey:aboutItem?.sortKey}">
+  <div class="boxline l1box">
+    <div>
+     <img [src]="aboutItem?.logo" height="30px;" style="vertical-align: middle;" alt="">
+      <!--<span class="line"></span>-->
+      <span class="lotName">{{aboutItem?.name}}</span>
+      <span><label class="preIssue preDrawIssue"><i
+        class="current_issue">{{aboutItem['current_number']}}</i></label>期</span>
+      <!--<div class="next_opening"><span *ngIf="allSeconds>0">下期 <i class="hour" *ngIf="hour>0">{{hour}}时</i>-->
+      <!--<i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒后开奖</span>-->
+      <!--<span class="opening" *ngIf="allSeconds<=0">开奖中</span>-->
+      <!--</div>-->
+      <!-- <span class="r_arrow" *ngIf="allSeconds>0">距下期开奖 <span [ngClass]="{'color-red':allSeconds<600}"><i class="hour"
+                                                                                                         *ngIf="hour>0">{{hour}}
+        时</i>
+        <i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒</span></span> -->
+
+
+      <!--<span class="displaynone nextIssue">20181203072</span>-->
+      <span class="r_arrow" *ngIf="allSeconds>0">距下期开奖 <span class="color-red" >
+          <i class="hour" *ngIf="hour>0">{{hour}}: </i>
+            <i class="minute" >{{minute}}:</i> {{second}}</span></span>
+      <span class="r_arrow color-red" *ngIf="allSeconds<=0">开奖中</span>
+    </div>
+  </div>
+  <ng-container *ngIf="isLoading">
+    <div class="boxline kajianhao">
+      <ul class="sscli numberbox" [ngStyle]="{width:aboutItem?.code=='gxklsf'?'180px':'290px'}">
+        <ng-container *ngIf="aboutItem['current_code'] && aboutItem['current_code']?.length>0">
+          <li *ngFor="let ccode of aboutItem['current_code'];">{{ccode}}</li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="boxline">
+      <!-- <ul class="pk10li li3" [ngStyle]="{width:aboutItem?.code.indexOf('gxklsf')>-1?'185px':'280px'}" -->
+     <ul class="pk10li li3" style="width: 185px;display: block;">
+        <ng-container *ngIf="aboutItem?.describe && aboutItem?.describe?.length>1">
+          <li class="firstDragonTiger" *ngFor="let pp of aboutItem?.describe[1]?.val;">{{pp}}</li>
+          <li class="lastli" style="width: 40px!important;">总和：</li>
+          <li class="lastli" *ngFor="let tt of aboutItem?.describe[0]?.val;">{{tt}}</li>
+        </ng-container>
+      </ul>
+    </div>
+    <!--<div class="next_opening"><span *ngIf="allSeconds>0">下期 <i class="hour" *ngIf="hour>0">{{hour}}时</i> <i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒后开奖</span> <span class="opening" *ngIf="allSeconds<=0">开奖中</span></div>-->
+  </ng-container>
+</div>
+<!--item6-->
+<div class="lilist" *ngIf="itemIndex==6" navPush="{{aboutItem?.des}}"
+     [navParams]="{name:aboutItem?.name,code:aboutItem?.code,video_url:aboutItem?.url,sortKey:aboutItem?.sortKey}">
+  <div class="boxline l1box">
+    <div>
+     <img [src]="aboutItem?.logo" height="30px;" style="vertical-align: middle;" alt="">
+      <!--<span class="line"></span>-->
+      <span class="lotName">{{aboutItem?.name}}</span>
+      <span><label class="preIssue preDrawIssue"><i
+        class="current_issue">{{aboutItem['current_number']}}</i></label>期</span>
+      <!--<div class="next_opening"><span *ngIf="allSeconds>0">下期 <i class="hour" *ngIf="hour>0">{{hour}}时</i>-->
+      <!--<i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒后开奖</span>-->
+      <!--<span class="opening" *ngIf="allSeconds<=0">开奖中</span>-->
+      <!--</div>-->
+      <!-- <span class="r_arrow" *ngIf="allSeconds>0">距下期开奖 <span [ngClass]="{'color-red':allSeconds<600}"><i class="hour"
+                                                                                                         *ngIf="hour>0">{{hour}}
+        时</i>
+        <i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒</span></span> -->
+
+
+      <!--<span class="displaynone nextIssue">20181203072</span>-->
+      <span class="r_arrow" *ngIf="allSeconds>0">距下期开奖 <span class="color-red" >
+          <i class="hour" *ngIf="hour>0">{{hour}}: </i>
+            <i class="minute" >{{minute}}:</i> {{second}}</span></span>
+      <span class="r_arrow color-red" *ngIf="allSeconds<=0">开奖中</span>
+    </div>
+  </div>
+  <ng-container *ngIf="isLoading">
+    <div class="boxline kajianhao">
+      <ul class="sscli numberbox" style="display: block;width: 266px;">
+        <ng-container *ngIf="aboutItem['current_code']">
+          <li *ngFor="let ccode of aboutItem['current_code'];let index=index;"
+              [ngClass]="{weight_blue25:index==6,red25:index!=6}">{{ccode}}</li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="boxline">
+      <ul class="pk10li li3" style="display: block;width: 110px;">
+        <!--<li class="dragonTiger">虎</li>-->
+        <!--<li class="lastli" style="margin-top: 2px;">|</li>-->
+        <li class="lastli" style="width: 40px!important;">总和：</li>
+        <li class="lastli " *ngFor="let item of aboutItem?.describe[0]?.val;">{{item}}</li>
+      </ul>
+    </div>
+    <!--<div class="next_opening"><span *ngIf="allSeconds>0">下期 <i class="hour" *ngIf="hour>0">{{hour}}时</i> <i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒后开奖</span> <span class="opening" *ngIf="allSeconds<=0">开奖中</span></div>-->
+  </ng-container>
+</div>
+<!--item7-->
+<div class="lilist" *ngIf="itemIndex==7" navPush="{{aboutItem?.des}}"
+     [navParams]="{name:aboutItem?.name,code:aboutItem?.code,video_url:aboutItem?.url,sortKey:aboutItem?.sortKey}">
+  <div class="boxline l1box">
+    <div>
+     <img [src]="aboutItem?.logo" height="30px;" style="vertical-align: middle;" alt="">
+      <!--<span class="line"></span>-->
+      <span class="lotName">{{aboutItem?.name}}</span>
+      <span><label class="preIssue preDrawIssue"><i
+        class="current_issue">{{aboutItem['current_number']}}</i></label>期</span>
+      <!--<div class="next_opening"><span *ngIf="allSeconds>0">下期 <i class="hour" *ngIf="hour>0">{{hour}}时</i>-->
+      <!--<i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒后开奖</span>-->
+      <!--<span class="opening" *ngIf="allSeconds<=0">开奖中</span>-->
+      <!--</div>-->
+      <!-- <span class="r_arrow" *ngIf="allSeconds>0">距下期开奖 <span [ngClass]="{'color-red':allSeconds<600}"><i class="hour"
+                                                                                                         *ngIf="hour>0">{{hour}}
+        时</i>
+        <i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒</span></span> -->
+
+
+      <!--<span class="displaynone nextIssue">20181203072</span>-->
+      <span class="r_arrow" *ngIf="allSeconds>0">距下期开奖 <span class="color-red" >
+          <i class="hour" *ngIf="hour>0">{{hour}}: </i>
+            <i class="minute" >{{minute}}:</i> {{second}}</span></span>
+      <span class="r_arrow color-red" *ngIf="allSeconds<=0">开奖中</span>
+    </div>
+  </div>
+  <ng-container *ngIf="isLoading">
+    <div class="boxline kajianhao">
+      <ul class="sscli numberbox" style="display: block;">
+        <ng-container *ngIf="aboutItem['current_code']">
+          <li *ngFor="let ccode of aboutItem['current_code'];let index=index;"
+              [ngClass]="{light_blue25:ccode<41 && index!=20,weight_blue25:ccode>40 && index!=20,orange25:index==20}">{{ccode}}</li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="boxline">
+      <ul class="pk10li li3" style="display: block;min-width: 104px;max-width: 140px;">
+        <!--<li class="firstDragonTiger">龙</li>-->
+        <!--<li class="secondDragonTiger">虎</li>-->
+        <!--<li class="thirdDragonTiger">虎</li>-->
+        <!--<li class="fourthDragonTiger">龙</li>-->
+        <!--<li class="lastli" style="margin-top: 2px">|</li>-->
+        <li class="lastli" style="width:40px!important;">总和：</li>
+        <li class="lastli" *ngFor="let item of aboutItem?.describe[0]?.val;">{{item}}</li>
+      </ul>
+    </div>
+    <!--<div class="next_opening"><span *ngIf="allSeconds>0">下期 <i class="hour" *ngIf="hour>0">{{hour}}时</i> <i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒后开奖</span> <span class="opening" *ngIf="allSeconds<=0">开奖中</span></div>-->
+  </ng-container>
+</div>
+<!-- item8-->
+<div class="lilist" *ngIf="itemIndex==8" navPush="{{aboutItem?.des}}"
+     [navParams]="{name:aboutItem?.name,code:aboutItem?.code,video_url:aboutItem?.url,sortKey:aboutItem?.sortKey}">
+  <div class="boxline l1box">
+    <div>
+     <img [src]="aboutItem?.logo" height="30px;" style="vertical-align: middle;" alt="">
+      <!--<span class="line"></span>-->
+      <span class="lotName">{{aboutItem?.name}}</span>
+      <span><label class="preIssue preDrawIssue"><i
+        class="current_issue">{{aboutItem['current_number']}}</i></label>期</span>
+      <!--<div class="next_opening"><span *ngIf="allSeconds>0">下期 <i class="hour" *ngIf="hour>0">{{hour}}时</i>-->
+      <!--<i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒后开奖</span>-->
+      <!--<span class="opening" *ngIf="allSeconds<=0">开奖中</span>-->
+      <!--</div>-->
+      <!-- <span class="r_arrow" *ngIf="allSeconds>0">距下期开奖 <span [ngClass]="{'color-red':allSeconds<600}"><i class="hour"
+                                                                                                         *ngIf="hour>0">{{hour}}
+        时</i>
+        <i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒</span></span> -->
+
+
+      <!--<span class="displaynone nextIssue">20181203072</span>-->
+      <span class="r_arrow" *ngIf="allSeconds>0">距下期开奖 <span class="color-red" >
+          <i class="hour" *ngIf="hour>0">{{hour}}: </i>
+            <i class="minute" >{{minute}}:</i> {{second}}</span></span>
+      <span class="r_arrow color-red" *ngIf="allSeconds<=0">开奖中</span>
+    </div>
+  </div>
+  <ng-container *ngIf="isLoading">
+    <div class="boxline kajianhao">
+      <ul class="sscli numberbox" style="display: block;width: 105px;">
+        <ng-container *ngIf="aboutItem['current_code']">
+          <li *ngFor="let ccode of aboutItem['current_code']" style="background: #e83f46;">{{ccode}}</li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="boxline">
+      <ul class="pk10li li3" style="display: block;width: 130px;">
+        <!--<li class="dragonTiger">虎</li>-->
+        <!--<li class="lastli" style="margin-top: 2px;">|</li>-->
+        <li class="lastli" style="width:40px!important;">总和：</li>
+        <li class="lastli " *ngFor="let a of aboutItem?.describe[3]?.val;">{{a}}</li>
+      </ul>
+    </div>
+    <!--<div class="next_opening"><span *ngIf="allSeconds>0">下期 <i class="hour" *ngIf="hour>0">{{hour}}时</i> <i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒后开奖</span> <span class="opening" *ngIf="allSeconds<=0">开奖中</span></div>-->
+  </ng-container>
+</div>
+<!-- item9-->
+<div class="lilist" *ngIf="itemIndex==9" navPush="{{aboutItem?.des}}"
+     [navParams]="{name:aboutItem?.name,code:aboutItem?.code,video_url:aboutItem?.url,sortKey:aboutItem?.sortKey}">
+  <div class="boxline l1box">
+    <div>
+     <img [src]="aboutItem?.logo" height="30px;" style="vertical-align: middle;" alt="">
+      <!--<span class="line"></span>-->
+      <span class="lotName">{{aboutItem?.name}}</span>
+      <span><label class="preIssue preDrawIssue"><i
+        class="current_issue">{{aboutItem['current_number']}}</i></label>期</span>
+      <!--<div class="next_opening"><span *ngIf="allSeconds>0">下期 <i class="hour" *ngIf="hour>0">{{hour}}时</i>-->
+      <!--<i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒后开奖</span>-->
+      <!--<span class="opening" *ngIf="allSeconds<=0">开奖中</span>-->
+      <!--</div>-->
+      <!-- <span class="r_arrow" *ngIf="allSeconds>0">距下期开奖 <span [ngClass]="{'color-red':allSeconds<600}"><i class="hour"
+                                                                                                         *ngIf="hour>0">{{hour}}
+        时</i>
+        <i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒</span></span> -->
+
+
+      <!--<span class="displaynone nextIssue">20181203072</span>-->
+      <span class="r_arrow" *ngIf="allSeconds>0">距下期开奖 <span class="color-red" >
+          <i class="hour" *ngIf="hour>0">{{hour}}: </i>
+            <i class="minute" >{{minute}}:</i> {{second}}</span></span>
+      <span class="r_arrow color-red" *ngIf="allSeconds<=0">开奖中</span>
+    </div>
+  </div>
+  <ng-container *ngIf="isLoading">
+    <div class="boxline kajianhao">
+      <ul class="sscli numberbox" style="display: block;width: 180px;">
+        <ng-container *ngIf="aboutItem['current_code']">
+          <li style="background: #e83f46;" *ngFor="let ccode of aboutItem['current_code'];">{{ccode}}</li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="boxline">
+      <ul class="pk10li li3" style="display: block;width: 110px;">
+        <!--<li class="dragonTiger">虎</li>-->
+        <!--<li class="lastli" style="margin-top: 2px;">|</li>-->
+        <li class="lastli" style="width:40px!important;">总和：</li>
+        <li class="lastli " *ngFor="let a of aboutItem?.describe[0]?.val;">{{a}}</li>
+      </ul>
+    </div>
+    <!--<div class="next_opening"><span *ngIf="allSeconds>0">下期 <i class="hour" *ngIf="hour>0">{{hour}}时</i> <i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒后开奖</span> <span class="opening" *ngIf="allSeconds<=0">开奖中</span></div>-->
+  </ng-container>
+</div>
+<!--item10-->
+<div class="lilist" *ngIf="itemIndex==10" navPush="{{aboutItem?.des}}"
+     [navParams]="{name:aboutItem?.name,code:aboutItem?.code,video_url:aboutItem?.url,sortKey:aboutItem?.sortKey}">
+  <div class="boxline l1box">
+    <div>
+     <img [src]="aboutItem?.logo" height="30px;" style="vertical-align: middle;" alt="">
+      <!--<span class="line"></span>-->
+      <span class="lotName">{{aboutItem?.name}}</span>
+      <span><label class="preIssue preDrawIssue"><i
+        class="current_issue">{{aboutItem['current_number']}}</i></label>期</span>
+      <!--<div class="next_opening"><span *ngIf="allSeconds>0">下期 <i class="hour" *ngIf="hour>0">{{hour}}时</i>-->
+      <!--<i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒后开奖</span>-->
+      <!--<span class="opening" *ngIf="allSeconds<=0">开奖中</span>-->
+      <!--</div>-->
+      <!-- <span class="r_arrow" *ngIf="allSeconds>0">距下期开奖 <span [ngClass]="{'color-red':allSeconds<600}"><i class="hour"
+                                                                                                         *ngIf="hour>0">{{hour}}
+        时</i>
+        <i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒</span></span> -->
+
+
+      <!--<span class="displaynone nextIssue">20181203072</span>-->
+      <span class="r_arrow" *ngIf="allSeconds>0">距下期开奖 <span class="color-red" >
+          <i class="hour" *ngIf="hour>0">{{hour}}: </i>
+            <i class="minute" >{{minute}}:</i> {{second}}</span></span>
+      <span class="r_arrow color-red" *ngIf="allSeconds<=0">开奖中</span>
+    </div>
+  </div>
+  <ng-container *ngIf="isLoading">
+    <div class="boxline kajianhao">
+      <ul class="sscli numberbox" style="display: block;width: 290px;">
+        <ng-container *ngIf="aboutItem['current_code']">
+          <li *ngFor="let ccode of aboutItem['current_code'];let index=index;"
+              [ngClass]="{weight_blue25:index==7,red25:index!=7}">{{ccode}}</li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="boxline">
+      <ul class="pk10li li3" style="display: block;width: 100px;">
+        <!--<li class="dragonTiger">虎</li>-->
+        <!--<li class="lastli" style="margin-top: 2px;">|</li>-->
+        <li class="lastli" style="width:40px!important;">总和：</li>
+        <li class="lastli " *ngFor="let a of aboutItem?.describe[0]?.val;">{{a}}</li>
+      </ul>
+    </div>
+    <!--<div class="next_opening"><span *ngIf="allSeconds>0">下期 <i class="hour" *ngIf="hour>0">{{hour}}时</i> <i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒后开奖</span> <span class="opening" *ngIf="allSeconds<=0">开奖中</span></div>-->
+  </ng-container>
+</div>
+<!--item11 -->
+<div class="lilist" *ngIf="itemIndex==11" navPush="{{aboutItem?.des}}"
+     [navParams]="{name:aboutItem?.name,code:aboutItem?.code,video_url:aboutItem?.url,sortKey:aboutItem?.sortKey}">
+  <div class="boxline l1box">
+    <div>
+     <img [src]="aboutItem?.logo" height="30px;" style="vertical-align: middle;" alt="">
+      <!--<span class="line"></span>-->
+      <span class="lotName">{{aboutItem?.name}}</span>
+      <span><label class="preIssue preDrawIssue"><i
+        class="current_issue">{{aboutItem['current_number']}}</i></label>期</span>
+      <!--<div class="next_opening"><span *ngIf="allSeconds>0">下期 <i class="hour" *ngIf="hour>0">{{hour}}时</i>-->
+      <!--<i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒后开奖</span>-->
+      <!--<span class="opening" *ngIf="allSeconds<=0">开奖中</span>-->
+      <!--</div>-->
+      <!-- <span class="r_arrow" *ngIf="allSeconds>0">距下期开奖 <span [ngClass]="{'color-red':allSeconds<600}"><i class="hour"
+                                                                                                         *ngIf="hour>0">{{hour}}
+        时</i>
+        <i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒</span></span> -->
+
+
+      <!--<span class="displaynone nextIssue">20181203072</span>-->
+      <span class="r_arrow" *ngIf="allSeconds>0">距下期开奖 <span class="color-red" >
+          <i class="hour" *ngIf="hour>0">{{hour}}: </i>
+            <i class="minute" >{{minute}}:</i> {{second}}</span></span>
+      <span class="r_arrow color-red" *ngIf="allSeconds<=0">开奖中</span>
+    </div>
+  </div>
+  <ng-container *ngIf="isLoading">
+    <div class="boxline kajianhao">
+      <ul class="cqncli numberbox" style="display: block;">
+        <ng-container *ngIf="aboutItem['current_code']">
+          <li *ngFor="let ccode of aboutItem['current_code'];"
+              [ngClass]="{ncnum01:ccode=='01',ncnum02:ccode=='02',ncnum03:ccode=='03',ncnum04:ccode=='04',
+        ncnum05:ccode=='05',ncnum06:ccode=='06',ncnum07:ccode=='07',ncnum08:ccode=='08',
+        ncnum09:ccode=='09',ncnum10:ccode=='10',ncnum11:ccode=='11',ncnum12:ccode=='12',
+        ncnum13:ccode=='13',ncnum14:ccode=='14',ncnum15:ccode=='15',ncnum16:ccode=='16',
+        ncnum17:ccode=='17',ncnum18:ccode=='18',ncnum19:ccode=='19',ncnum20:ccode=='20'}"
+          ><i style="font-size:10px;display:none">{{ccode}}</i>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="boxline">
+      <ul class="pk10li li3" style="display: block;width: 322px;">
+        <ng-container *ngIf="aboutItem?.describe && aboutItem?.describe?.length>2">
+          <li *ngFor="let a of aboutItem?.describe[2]?.val;">{{a}}</li>
+          <li class="" style="width: 1px!important;">|</li>
+          <li class="lastli" style="width: 40px!important;">总和：</li>
+          <li class="lastli " *ngFor="let b of aboutItem?.describe[0]?.val;">{{b}}</li>
+          <li class="lastli " *ngFor="let c of aboutItem?.describe[1]?.val;">{{c}}</li>
+        </ng-container>
+      </ul>
+    </div>
+    <!--<div class="next_opening"><span *ngIf="allSeconds>0">下期 <i class="hour" *ngIf="hour>0">{{hour}}时</i> <i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒后开奖</span> <span class="opening" *ngIf="allSeconds<=0">开奖中</span></div>-->
+  </ng-container>
+</div>
+<!--item12-->
+<div class="lilist" *ngIf="itemIndex==12" navPush="{{aboutItem?.des}}"
+     [navParams]="{name:aboutItem?.name,code:aboutItem?.code,video_url:aboutItem?.url,sortKey:aboutItem?.sortKey}">
+  <div class="boxline l1box">
+    <div>
+     <img [src]="aboutItem?.logo" height="30px;" style="vertical-align: middle;" alt="">
+      <!--<span class="line"></span>-->
+      <span class="lotName">{{aboutItem?.name}}</span>
+      <span><label class="preIssue preDrawIssue"><i
+        class="current_issue">{{aboutItem['current_number']}}</i></label>期</span>
+      <!--<div class="next_opening"><span *ngIf="allSeconds>0">下期 <i class="hour" *ngIf="hour>0">{{hour}}时</i>-->
+      <!--<i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒后开奖</span>-->
+      <!--<span class="opening" *ngIf="allSeconds<=0">开奖中</span>-->
+      <!--</div>-->
+      <!-- <span class="r_arrow" *ngIf="allSeconds>0">距下期开奖 <span [ngClass]="{'color-red':allSeconds<600}"><i class="hour"
+                                                                                                         *ngIf="hour>0">{{hour}}
+        时</i>
+        <i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒</span></span> -->
+
+
+      <!--<span class="displaynone nextIssue">20181203072</span>-->
+      <span class="r_arrow" *ngIf="allSeconds>0">距下期开奖 <span class="color-red" >
+          <i class="hour" *ngIf="hour>0">{{hour}}: </i>
+            <i class="minute" >{{minute}}:</i> {{second}}</span></span>
+      <span class="r_arrow color-red" *ngIf="allSeconds<=0">开奖中</span>
+    </div>
+  </div>
+  <ng-container *ngIf="isLoading">
+    <div class="boxline kajianhao">
+      <ul class="sscli numberbox" style="display: block;width: 105px;">
+        <ng-container *ngIf="aboutItem['current_code']">
+          <li *ngFor="let ccode of aboutItem['current_code'];">{{ccode}}</li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="boxline">
+      <ul class="pk10li li3" style="display: block;width: 130px;">
+        <!--<li class="dragonTiger">虎</li>-->
+        <!--<li class="lastli" style="margin-top: 2px;">|</li>-->
+        <li class="lastli" style="width: 40px!important;">总和：</li>
+        <li class="lastli " *ngFor="let item of aboutItem?.describe[0]?.val;">{{item}}</li>
+      </ul>
+    </div>
+    <!--<div class="next_opening"><span *ngIf="allSeconds>0">下期 <i class="hour" *ngIf="hour>0">{{hour}}时</i> <i class="minute" *ngIf="minute>0">{{minute}}分</i> {{second}}秒后开奖</span> <span class="opening" *ngIf="allSeconds<=0">开奖中</span></div>-->
+  </ng-container>
+</div>
+<!--item13 香港六合彩-->
+<div *ngIf="itemIndex==13" (click)="toHK()" style="height: 140px;">
+  <div class="kaiji_box kaiji_box_hk" style="border-radius: 5px;">
+    <div class="boxline l1box">
+      <div>
+        <!--<span class="line"></span>-->
+        <span class="lotName" style="font-size: 16px;color: #333;margin-right: 5px;">香港六合彩</span>
+        <span style="color: #666;font-size: 13px;"><label class="preIssue preDrawIssue"><i
+          class="current_issue">{{aboutItem['current_number']}}</i></label>期</span>
+        <!--&lt;!&ndash;<span class="displaynone nextIssue">20181203072</span>&ndash;&gt;-->
+        <!--<span class="r_arrow"></span>-->
+        <span class="r_arrow" *ngIf="allSeconds>0">下期开奖:<span
+          class="nextissue_time">&nbsp;&nbsp;{{aboutItem['next_time']?.substring(5, 16)}}</span></span>
+        <!--<span class="r_arrow color-red" *ngIf="allSeconds<=0">开奖中</span>-->
+
+        <span class="r_arrow" *ngIf="allSeconds>0">距下期开奖 <span class="color-red" >
+          <i class="hour" *ngIf="hour>0">{{hour}}: </i>
+            <i class="minute" >{{minute}}:</i> {{second}}</span></span>
+        <span class="r_arrow color-red" *ngIf="allSeconds<=0">开奖中</span>
+      </div>
+
+    </div>
+    <!--<div class="lottype">-->
+    <!--<h1>香港六合彩 <span class="issue">{{aboutItem['current_number']}}</span><span>期</span></h1>-->
+    <!--<p>下期开奖:<span class="nextissue_time">&nbsp;&nbsp;{{aboutItem['next_time']?.substring(5, 16)}}</span></p>-->
+    <!--</div>-->
+
+    <div class="code_box" style="display: block;">
+      <ul class="result_num" style="width: 323px;margin: 0 auto;" *ngIf="aboutItem['current_code']?.length>0">
+        <ng-container *ngFor="let code of aboutItem['current_code']; let index = index;">
+          <li *ngIf="index==6" class="add"><i></i></li>
+          <li class="HK-num"
+              [ngStyle]="{'background': aboutItem?.color[index]==1?'#f32837':aboutItem?.color[index]==2?'#32b969':'#1a8fd8'}">
+            <!--[ngClass]="{red:aboutItem?.color[index]==1,green:aboutItem?.color[index]==2,blue:aboutItem?.color[index]==3}">-->
+            <i style="color: #fff;font-size: 18px;">{{code}}</i></li>
+        </ng-container>
+      </ul>
+      <div>
+        <ul style="width: 328px;margin: 0 auto;" *ngIf="aboutItem['chinese_zodiac']?.length>0">
+          <ng-container *ngFor="let code of aboutItem['chinese_zodiac']; let index = index;">
+            <!--<li *ngIf="index==6" style="margin-right: -2px;" class="add element"><i></i></li>-->
+            <li class="element" [ngStyle]="{'margin-left':index===6?'29px':0}"><i>{{code}}</i></li>
+          </ng-container>
+        </ul>
+        <ul style="width: 328px;margin: 0 auto;" *ngIf="aboutItem['five_elements']?.length>0">
+          <ng-container *ngFor="let code of aboutItem['five_elements']; let index = index;">
+            <!--<li *ngIf="index==6"  style="margin-right: -2px;" class="add element"><i></i></li>-->
+            <li class="element" [ngStyle]="{'margin-left':index===6?'29px':0}"><i>{{code}}</i></li>
+          </ng-container>
+        </ul>
+        <!--data: {logo_image: "//upload.zhanqun.com/storage/upload/images20190423170323.jpg", name: "香港六合彩",…}-->
+        <!--chinese_zodiac: ["牛", "鼠", "狗", "虎", "羊", "马", "狗"]-->
+        <!--code: "xglhc"-->
+        <!--color: [2, 1, 3, 2, 3, 3, 1]-->
+        <!--current_code: ["11", "24", "26", "22", "41", "42", "2"]-->
+        <!--current_number: 2019141-->
+        <!--current_time: "2019-12-22 21:34:27"-->
+        <!--five_elements: ["土", "水", "土", "木", "土", "火", "土"]-->
+        <!--logo_image: "//upload.zhanqun.com/storage/upload/images20190423170323.jpg"-->
+        <!--name: "香港六合彩"-->
+        <!--next_number: 2019142-->
+        <!--next_time: "2019-12-24 21:30:00"-->
+        <!--open_count: 0-->
+        <!--still_count: 0-->
+        <!--sum_total: 168-->
+        <!--total: 0-->
+        <!--msg: "success"-->
+      </div>
+    </div>
+    <!--<div class="linkbox">-->
+    <!--<span id="open_video" (click)="videoShow()">开奖视频</span>-->
+    <!--<span navPush="HkRecordPage" [navParams]="{code:'xglhc'}">开奖记录</span>-->
+    <!--<span navPush="HkSpecialTrendPage" [navParams]="{code:'xglhc'}">特码走势</span>-->
+    <!--<span navPush="HkPositiveTrendPage" [navParams]="{code:'xglhc'}">正码走势</span>-->
+    <!--<span navPush="HkZodiacTrendPage" [navParams]="{code:'xglhc'}">生肖走势</span>-->
+    <!--<span navPush="HkLuzhuAnalysisPage" [navParams]="{code:'xglhc'}">路珠分析</span>-->
+    <!--</div>-->
+    <!--<div class="kaijiIn" style="display: none;">请不要走开，今天晚上21：30开奖...</div>-->
+  </div>
+</div>

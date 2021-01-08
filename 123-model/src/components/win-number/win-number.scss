@@ -1,0 +1,354 @@
+win-number {
+
+   i,th{
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .pk10li li {
+    display: inline-block;
+    float: left;
+    height: 25px;
+    line-height: 25px;
+    width: 25px !important;
+    margin-right: 7.5px;
+    background-size: 350px auto;
+    text-align: center;
+  }
+  .bortop002 {
+    border-top: 2px solid #efeff4;
+  }
+
+  .bortop001 {
+    border-top: 1px solid #efeff4 !important;
+  }
+
+
+  //.rightspan .listli li {
+  //  display: inline-block;
+  //  float: left;
+  //  height: 22px;
+  //  line-height: 22px;
+  //  width: 20px !important;
+  //  margin-right: 10px;
+  //  background-size: 350px auto;
+  //}
+  //
+  //.rightspan .haomali li {
+  //  margin-right: 5px;
+  //}
+
+  .listli li{
+    height: 25px;
+    line-height: 25px;
+    width: auto;
+    margin-right: 2px;
+    background-size: 350px auto;
+  }
+
+  .listli li i {
+    display: none;
+  }
+
+
+
+  .ssclilist {
+    width: 100%;
+    //display: -webkit-box;
+    //display: box;
+  }
+
+  .ssclilist li {
+    float: left;
+    height: 22.5px;
+    line-height: 22.5px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    box-sizing: border-box;
+    -webkit-box-flex: 1;
+    box-flex: 1;
+  }
+
+  .ssclilist li span {
+    width: 26px;
+    margin: 0 auto;
+    background-size: 350px auto;
+  }
+
+  .ssclilist li span i {
+    height: 100%;
+    line-height: 26px;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+  }
+
+  .ssclilist .li_after {
+    margin-right: 0
+  }
+
+  .ssclilistxt {
+    width: 100%;
+    //display: -webkit-box;
+  }
+
+  .ssclilistxt li {
+
+    height: 22px;
+    line-height: 22px;
+    width: auto;
+    margin-right: 12px;
+    background-size: 350px auto;
+    text-align: center;
+    color: #fff;
+    max-width: 36px;
+    //min-width: 23px;
+    font-size: 12px;
+    box-sizing: border-box;
+    -webkit-box-flex:1;
+    box-flex: 1;
+  }
+
+  .ssclilistxt li i {
+    height: 25px;
+    line-height: 25px;
+    width: 25px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: #0092dd;
+  }
+
+  .ssclilistxt .li_after {
+    margin-right: 0;
+  }
+
+  .listlitxt li {
+    color: #666;
+  }
+
+  .listotherline {
+    display: -webkit-box;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    height: auto;
+    width: 100%;
+  }
+
+  .listotherline .haomali,.listotherline .longhuli {
+    width: 100%
+  }
+
+  .listotherline>div {
+    font-size: 12px;
+  }
+
+  .listotherline>div span {
+    height: 42px;
+    line-height: 42px;
+  }
+
+  .listotherline .leftdivsjh {
+    display: inline-block;
+    float: left;
+  }
+
+  .listotherline .leftdivsjh:first-child {
+    width: 10%;
+  }
+
+  .listotherline .leftdivsjh:nth-child(2) {
+    width: 90%;
+  }
+
+  .listotherline>div:first-child {
+    color: #666;
+    width: 113px;
+    //width: 85px;
+  }
+
+  .listotherline>div:first-child .leftspan {
+    float: left;
+  }
+
+  .listotherline>div:first-child .padleft1 {
+    padding-right: 6px;
+  }
+
+  .listotherline>div:first-child .graytime {
+    font-size: 11px;
+  }
+
+  .listotherline>div:first-child .rightspan {
+    float: right;
+  }
+
+  .listotherline .leftspanw {
+    width: 79px !important;
+  }
+
+  .listotherline>div:nth-child(2) {
+    color: #333;
+    box-flex: 6;
+    -webkit-box-flex:6;
+  }
+
+  .listotherline>div:nth-child(2) .rightdiv {
+    width: 100%;
+    display: -webkit-box;
+    margin-top: 10px;
+    padding-left: 20px;
+    box-sizing: border-box;
+  }
+
+  .listotherline>div:nth-child(2) .rightdiv span {
+    height: 26px;
+    line-height: 26px;
+    display: block;
+    text-align: center;
+    -webkit-box-flex: 4;
+    box-flex: 4;
+  }
+
+  .listotherline>div:nth-child(2) .rightdiv span:nth-child(4) {
+    box-flex: 5;
+    text-align: right;
+    padding-right: 10px;
+  }
+
+  .listotherline>div:nth-child(2) .rightdiv .lhdspanchecked,.listotherline>div:nth-child(2) .rightdiv .spanchecked {
+    border-radius: 11px;
+    background: #fb8e19;
+    color: #fff;
+  }
+
+  .listotherline>div:nth-child(2) .padl0 {
+    padding-left: 0;
+  }
+
+  .listotherline .haomali, .listotherline .longhuli {
+    width: 100%;
+  }
+
+  .displayblock{
+    display: block;
+  }
+
+  .kuaisan {
+    width: 100%;
+  }
+
+  .kuaisan li {
+    display: inline-block;
+    float: left;
+    height: 25px;
+    width: 10px;
+    background-size: 350px auto;
+    text-align: center;
+  }
+
+  .kuaisan .li_after {
+    margin-right: 0;
+  }
+
+  .kuaisanlist li {
+    margin-right: 0;
+    font-size: 12px;
+    width: 25px !important;
+  }
+
+  .kuaisanlist li i {
+    display: none;
+  }
+
+
+
+  .cqnclilist {
+    width: 100%;
+    display: -webkit-box;
+  }
+
+  .cqnclilist li {
+    height: 23px;
+    line-height: 0;
+    width: auto;
+    text-align: center;
+    color: #fff;
+    font-size: 10px;
+    box-sizing: border-box;
+    min-width: 30px;
+    max-width: 25px;
+    background-size: 350px auto;
+    -webkit-box-flex: 1;
+    box-flex: 1;
+  }
+
+  .cqnclilist li span {
+    background-size: 350px auto;
+    height: 25px !important;
+  }
+
+  .cqnclilist li span i {
+    height: 25px;
+    line-height: 25px;
+    width: 25px;
+    margin: 0 auto;
+    border-radius: 50%;
+  }
+
+  .cqnclilist .li_after {
+    margin-right: 0
+  }
+
+  .listotherline .leftdivsjh:first-child {
+    width: 15%;
+  }
+  .listotherline .leftdivsjh {
+    display: inline-block;
+    float: left;
+  }
+  .listotherline .leftdivsjh:nth-child(2) {
+    width: 85%;
+  }
+
+  .drawCodebox .linebox div:nth-child(2) .rightdiv .egxy_xshm {
+    width: 80px;
+    margin: 0 auto;
+  }
+  .drawCodebox .contentlist .boxflex {
+    width: 100%;
+    display: block;
+    display: -webkit-box;
+    //display: box;
+  }
+  .listotherline .eghaomali ul {
+    margin: 0 auto;
+    width: 168px;
+  }
+  .egxy_ssclilist {
+    height: 30px;
+  }
+  .lhlist li {
+    float: left;
+    margin-right: 8px;
+  }
+  .jskl-8-l{
+    width:95px !important;
+  }
+
+  .jskl-8 ul{
+    height: 80px;
+  }
+  .jskl-8 ul li{
+    float: left;
+    margin-right: -1px;
+    margin-bottom: 5px;
+  }
+  .addicon {
+    background: url(../../assets/imgs/atlas.png) no-repeat -251px -38px;
+  }
+
+}

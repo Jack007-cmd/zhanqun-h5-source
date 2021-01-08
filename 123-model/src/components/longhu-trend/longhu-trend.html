@@ -1,0 +1,139 @@
+<div id="{{code}}" class="component_scroll">
+  <div class="drawCodebox longhuzs" style="left: 0; display: block;">
+    <div id="gltjhead" *ngIf="mainData?.list && mainData?.list?.length>0">
+      <div class="gyhHead">
+        <ul>
+          <li id="gyhtodayBtn" (click)="showFilter=2;">
+            <span>{{tPeriods == 2000 ? '当天' : tPeriods == 30 ? '近30期' : tPeriods == 60 ? '近60期' : '近90期'}}</span><i></i>
+          </li>
+          <li id="gyhsxBtn" (click)="choseCon(3)"><span>筛选</span><i></i></li>
+        </ul>
+        <div class="gyhcksjtj" (click)="goBottom()">查看数据统计</div>
+      </div>
+      <div class="table_conBox_gyh" id="waitBox">
+        <div class="gyhdateBox" id="chartLinediv">
+          <table id="trend_table2_gyhzs" border="0" cellspacing="1" cellpadding="1">
+            <thead>
+            <tr>
+              <th width="30%">期号</th>
+              <th width="30%">开奖号码</th>
+              <th>龙</th>
+              <th>虎</th>
+              <th *ngIf="codeType==1">和</th>
+            </tr>
+            </thead>
+            <tbody id="allNumber">
+            <ng-container *ngFor="let item of mainData?.list;let m = index;">
+              <tr *ngIf="m<tPeriods;">
+                <td class="nohide">{{item?.no.toString().substring(4)}}</td>
+                <td class="nohide"><span style="color:red">{{item?.num[0]}}</span>&nbsp;&nbsp; {{item?.num[1]}}&nbsp;&nbsp;{{item?.num[2]}}&nbsp;&nbsp;{{item?.num[3]}}
+                  &nbsp;&nbsp;<span style="color:red">{{item?.num[4]}}</span></td>
+                <ng-container *ngFor="let dts of item?.list?.dts;">
+                  <td [ngClass]="{hot_gyh:dts?.d==0}"><span
+                    [ngClass]="{light_blue:dts?.d==0}">{{dts?.d == 0 ? '龙' : dts?.d}}</span>
+                  </td>
+                  <td [ngClass]="{hot_gyh:dts?.t==0}"><span
+                    [ngClass]="{light_blue:dts?.t==0}">{{dts?.t == 0 ? '虎' : dts?.t}}</span>
+                  </td>
+                  <td *ngIf="codeType==1" [ngClass]="{hot_gyh:dts?.s==0}"><span
+                    [ngClass]="{light_blue:dts?.s==0}">{{dts?.s == 0 ? '和' : dts?.s}}</span>
+                  </td>
+                </ng-container>
+              </tr>
+            </ng-container>
+            <tr>
+              <th colspan="2">数据统计</th>
+              <th>龙</th>
+              <th>虎</th>
+              <th *ngIf="codeType==1">平</th>
+            </tr>
+            <tr class="clospan_gyh">
+              <td colspan="2">出现总数</td>
+              <ng-container *ngFor="let dts of mainData?.statistics?.appear?.dts;">
+                <td>{{dts?.d}}</td>
+                <td>{{dts?.t}}</td>
+                <td *ngIf="codeType==1">{{dts?.s}}</td>
+              </ng-container>
+            </tr>
+            <tr class="clospan_gyh">
+              <td colspan="2">平均遗漏</td>
+              <ng-container *ngFor="let dts of mainData?.statistics?.avg?.dts;">
+                <td>{{dts?.d}}</td>
+                <td>{{dts?.t}}</td>
+                <td *ngIf="codeType==1">{{dts?.s}}</td>
+              </ng-container>
+            </tr>
+            <tr class="clospan_gyh">
+              <td colspan="2">最大遗漏</td>
+              <ng-container *ngFor="let dts of mainData?.statistics?.max?.dts;">
+                <td>{{dts?.d}}</td>
+                <td>{{dts?.t}}</td>
+                <td *ngIf="codeType==1">{{dts?.s}}</td>
+              </ng-container>
+            </tr>
+            <tr class="clospan_gyh">
+              <td colspan="2">最大连出</td>
+              <ng-container *ngFor="let dts of mainData?.statistics?.maxAway?.dts;">
+                <td>{{dts?.d}}</td>
+                <td>{{dts?.t}}</td>
+                <td *ngIf="codeType==1">{{dts?.s}}</td>
+              </ng-container>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="chartbottom">
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!mainData?.list || mainData?.list?.length==0" class="no-data">加载中  <div style="height: 350px;"></div></div>
+  </div>
+
+</div>
+<!--龙虎走势  当天  昨天 前天 30  60  90期操作-->
+<div *ngIf="showFilter==2" class="select-page">
+  <ion-backdrop (click)="showFilter=-1" role="presentation" tappable="" style="opacity: 0.26;"></ion-backdrop>
+  <div class="main-wrapper" style="height: 45%;">
+    <div class="tool-bar">
+      <span class="option-md" style="float: left;">查看期数选择</span>
+      <span class="option-md" style="float: right;" (click)="showFilter=-1">取消</span>
+    </div>
+    <div class="main-content">
+      <ul>
+        <li [ngClass]="{checked:tPeriods == 2000}" (click)="chosePeriods(2000);">当天</li>
+        <li [ngClass]="{checked:tPeriods == 30}" (click)="chosePeriods(30);">近30期</li>
+        <li [ngClass]="{checked:tPeriods == 60}" (click)="chosePeriods(60);">近60期</li>
+        <li [ngClass]="{checked:tPeriods == 90}" (click)="chosePeriods(90);">近90期</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showFilter==3" class="select-page">
+  <ion-backdrop (click)="choseCon(-1)" role="presentation" tappable="" style="opacity: 0.26;"></ion-backdrop>
+  <div class="main-wrapper" style="height: 30%;">
+    <div class="tool-bar">
+      <span class="option-md" style="float: left;">条件选择</span>
+      <!--<span class="option-md" style="float: right;" (click)="choseCon(-1)">取消</span>-->
+      <span class="option-md" style="float: right;" (click)="choseCon(99)">确定</span>
+    </div>
+    <div class="main-content" style="display: block;  padding: 0 15px;">
+      <div>
+        <ul class="marginTop" style="margin-top: 15px;padding-top: 1px;">
+          <li class="yilo" [ngClass]="{check_tj:temRs.missing}" (click)="temRs.missing=!temRs.missing">
+            遗漏
+          </li>
+          <li class="caix" [ngClass]="{check_tj:temRs.disassemble}"
+              (click)="temRs.disassemble=!temRs.disassemble">拆线
+          </li>
+          <li class="fancong" [ngClass]="{check_tj:temRs.missingLayer}"
+              (click)="temRs.missingLayer=!temRs.missingLayer">遗漏分层
+          </li>
+          <li class="fgx" [ngClass]="{check_tj:temRs.dividingLine}"
+              (click)="temRs.dividingLine=!temRs.dividingLine">分割线
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+longhu-count {
+
+
+  .longhutj #longhutjBox table {
+    display: table;
+    width: 100%;
+    background: #e5e5e5;
+    text-align: center;
+  }
+
+  .longhutj #longhutjBox table thead th {
+    height: 33px;
+    line-height: 33px;
+    background: #f0f0f0;
+    text-align: center;
+    border: 1px solid #eaeaea;
+  }
+
+  .longhutj #longhutjBox table tbody td {
+    color: #666;
+    background: #fff;
+    border: 1px solid #eaeaea;
+  }
+
+  .longhutj #longhutjBox table tbody td:first-child {
+    white-space: nowrap;
+  }
+
+}

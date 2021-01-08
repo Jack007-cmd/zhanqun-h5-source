@@ -1,0 +1,128 @@
+page-game-rules {
+  .ListHead {
+    margin-top: 0;
+  }
+
+  .ListHead .guize_detail {
+    padding: 0 20px;
+  }
+
+  .ListHead .navcz {
+    position: relative;
+    margin: 0 auto;
+    height: 60px;
+    background: #fff;
+  }
+
+  .ListHead .navcz #choseCaiName {
+    position: relative;
+    width: 120px;
+    text-align: left;
+    border: 1px solid #959595;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 2px;
+    background: #fff;
+    margin-left: 50%;
+    left: -50px;
+    font-size: -14px;
+    color: #333;
+    top: 20px;
+    padding-left: 10px;
+  }
+
+  .ListHead .navcz #choseCaiName:after {
+    display: block;
+    content: " ";
+    background: url(../../../assets/imgs/icon-168index.png) no-repeat -53.3px -14px;
+    background-size: 333px;
+    position: absolute;
+    display: inline-block;
+    width: 18px;
+    height: 10px;
+    top: 37%;
+    right: 10%;
+  }
+  
+  .opacitbox {
+    position: fixed;
+    width: 100%;
+    height: 0;
+    top: 100%;
+    background: rgba(0,0,0,.1);
+    z-index: 1;
+    transition: all .3s linear;
+    overflow: hidden;
+  }
+
+  .opacitbox .caikindBox {
+    position: absolute;
+    width: 95%;
+    background: #fff;
+    border-radius: 10px;
+    margin: 0 10px;
+    text-align: center;
+    margin-top: 15%;
+  }
+
+  .opacitbox .caikindBox p {
+    display: block;
+    font-size: 16px;
+    height: 45px;
+    line-height: 45px;
+    color: #e12121;
+  }
+
+  .opacitbox .caikindBox ul {
+    border-top: 1px solid #ccc;
+    height: 300px;
+    overflow: scroll;
+  }
+
+  .opacitbox .caikindBox ul li {
+    position: relative;
+    font-size: 16px;
+    list-style: none;
+    height:  50px;
+    line-height:  50px;
+    color: #333;
+    border-bottom: 1px solid #ededed;
+  }
+
+  .opacitbox .caikindBox ul li i {
+    position: absolute;
+    top:  -3px;
+    display: block;
+    font-size: 14px;
+    width: 90px;
+    height: 29px;
+    line-height: 29px;
+  }
+
+  .opacitbox .caikindBox ul li:last-child {
+    border-bottom: none;
+  }
+
+  .opacitbox .caikindBox .qsCancel {
+    position: absolute;
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 16px;
+    margin-top: 10px;
+    background: #fff;
+    color: #2f76f6;
+  }
+
+  .czclassBg {
+    color: #fff!important;
+    background: url(../../../assets/imgs/icon-168index.png) no-repeat -246px 0;
+    background-size: 333px;
+  }
+
+  .checked{
+    color:#e12121!important;
+  }
+}

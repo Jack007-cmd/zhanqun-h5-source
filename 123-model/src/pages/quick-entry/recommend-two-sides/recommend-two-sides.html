@@ -1,0 +1,136 @@
+<!--
+  Generated template for the RecommendTwoSidesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <div class="myHeader">
+    <!--<div class="header_back" navPop></div>-->
+    <h2><span (click)="showKinds=!showKinds" tappable>
+      两面推荐 &nbsp;
+      <i *ngIf="!showKinds" class="top_arrow"></i>
+      <i *ngIf="showKinds" class="bottom_arrow"></i>
+    </span></h2>
+    <span class="about_kinds" (click)="showKinds=false" navPush="AboutKindsPage">彩种</span>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="showKinds" class="navList" style="opacity: 1;">
+    <div (click)="showKinds=false" navPush="AboutKindsPage">
+      <dl>
+        <dt class="cphost"><span></span></dt>
+        <dd>彩种大厅</dd>
+      </dl>
+    </div>
+    <div (click)="showKinds=false;toLongDragonCount()">
+      <dl>
+        <dt class="clcj"><span></span></dt>
+        <dd>长龙提醒</dd>
+      </dl>
+    </div>
+    <div (click)="showKinds=false;toKillingPlan()">
+      <dl>
+        <dt class="shjhua"><span></span></dt>
+        <dd>杀号计划</dd>
+      </dl>
+    </div>
+    <div (click)="showKinds=false;toAboutPlan()">
+      <dl>
+        <dt class="goucjhua"><span></span></dt>
+        <dd>购彩计划</dd>
+      </dl>
+    </div>
+
+  </div>
+  <div class="body-box">
+    <div class="unFillInfo" style="display: block;">
+      今日累计：<span>{{mainData?.gather?.total}}</span>距离目标：<span>{{mainData?.gather?.distance > 0 ? mainData?.gather?.distance : '已完成'}}</span>
+    </div>
+    <div class="headNum">
+      <div class="divline issuel">
+        <span class="caiName">北京PK10</span>
+        <span class="issue">距<span class="preDrawIssue">{{aboutList?.next_number}}</span>期开奖</span>
+        <div *ngIf="allSeconds>0" class="timeBox cuttime"
+             style="display: inline-block; opacity: 1; margin-right: 100%;">
+          <span class="hourid" *ngIf="hour>0"><span class="bgtime hour">{{hour}}</span>:</span><span
+          class="bgtime minute">{{minute}}</span>:<span class="bgtime second">{{second}}</span>
+        </div>
+        <div *ngIf="allSeconds<1" class="divline drawTimebox opentyle" style="display: none;">
+          <div class="flexl">开奖中</div>
+        </div>
+      </div>
+      <div class="divline drawCodel">
+        <span class="bqkiajiang">本期开奖</span>
+        <ul id="pk10num" class="pk10li numberbox" *ngIf="aboutList?.current_code && aboutList?.current_code?.length>0">
+          <li *ngFor="let ccode of aboutList?.current_code;let index = index;"
+              [ngClass]="{nub01:ccode=='01',nub02:ccode=='02',nub03:ccode=='03',nub04:ccode=='04',
+            nub05:ccode=='05',nub06:ccode=='06',nub07:ccode=='07',nub08:ccode=='08',
+            nub09:ccode=='09',nub10:ccode=='10',li_after:index==9 }" style="height:24px;"
+          ><i style="font-size:10px; display:none">{{ccode}}</i></li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="border-right: 0;height: 38.9px;background: #fff;">
+      <ion-item  style="top: 2px;width: 182px!important;margin-right: -22px!important;min-height: 30px!important;line-height: 19px;">
+        <ion-label style="margin-top: 4px;"><span id="myDate" style="float: right;padding-right: 10px;">{{myDate}} <i class="time_arrow"></i></span></ion-label>
+        <ion-datetime displayFormat="YYYY年 MM月 DD日 " min="{{startDay}}" max="{{today}}" [(ngModel)]="myDate"
+                      (ionChange)="getRecommendTwoSides()" cancelText="取消" doneText="确认">
+        </ion-datetime>
+      </ion-item>
+    </div>
+
+    <div class="ListHead">
+      <table *ngIf="mainData?.list?.length>0" border="0" cellspacing="1" cellpadding="1" id="result_table">
+        <tbody>
+        <tr class="th_til">
+          <th>时间</th>
+          <th>期数</th>
+          <th>1号球</th>
+          <th>大小</th>
+          <th>跟投</th>
+          <th>单双</th>
+          <th>跟投</th>
+          <th>得分</th>
+          <th>累计</th>
+        </tr>
+        <tr *ngFor="let item of mainData?.list;">
+          <td>{{item?.time?.substring(11, 16)}}</td>
+          <td>{{item?.number}}</td>
+          <td>
+            <ng-container *ngIf="item?.data?.length==0">待开</ng-container>
+            <ng-container *ngIf="item?.data?.length>0">
+              <!--<ul>-->
+                <li style="width:25px;height:25px;display: block;margin: 0 auto;" [ngClass]="{nub01:item?.data[0]=='01',nub02:item?.data[0]=='02',nub03:item?.data[0]=='03',nub04:item?.data[0]=='04',
+                nub05:item?.data[0]=='05',nub06:item?.data[0]=='06',nub07:item?.data[0]=='07',nub08:item?.data[0]=='08',nub09:item?.data[0]=='09',
+                nub10:item?.data[0]=='10'}" class=" push">
+                  <!--<i class="whiteBK"></i>-->
+                </li>
+                <!--<i class="redBK" style="top: -1px;left: -1.8px;"></i>-->
+              <!--</ul>-->
+            </ng-container>
+          </td>
+          <td class="oth_cla"><span>{{item?.size}}</span>
+            <span *ngIf="item?.sizeStats==-1" style="color: rgb(253, 58, 58); margin-left: 15px;">?</span>
+            <span *ngIf="item?.sizeStats==1" style="color: rgb(253, 58, 58);">赢{{item?.sizeKeep}}分</span>
+            <span *ngIf="item?.sizeStats==0">输{{item?.sizeKeep}}分</span>
+          </td>
+          <td>+{{item?.sizeKeep}}</td>
+          <td class="oth_cla"><span>{{item?.evenOdd}}</span>
+            <span *ngIf="item?.evenOddStats==-1" style="color: rgb(253, 58, 58); margin-left: 15px;">?</span>
+            <span *ngIf="item?.evenOddStats==1" style="color: rgb(253, 58, 58);">赢{{item?.evenOddKeep}}分</span>
+            <span *ngIf="item?.evenOddStats==0">输{{item?.evenOddKeep}}分</span>
+          </td>
+          <td>+{{item?.evenOddKeep}}</td>
+          <td *ngIf="item?.score!=0 && !item?.score" class="98k" style="color: rgb(253, 58, 58);">?</td>
+          <td *ngIf="item?.score==0||item?.score" class="98k">{{item?.score}}</td>
+          <td class="jrsumScore">{{item?.total == 0 ? 0 : (item?.total || '?')}}</td>
+        </tr>
+        </tbody>
+      </table>
+      <div *ngIf="!mainData?.list || mainData?.list?.length==0" class="no-data"> 加载中</div>
+    </div>
+  </div>
+</ion-content>

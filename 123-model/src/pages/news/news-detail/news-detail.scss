@@ -1,0 +1,6 @@
+page-news-detail {
+
+  .news_content{ color:#000; font-size: 17px; line-height: 30px; padding:5px 0 0; position: relative; overflow: hidden}
+  .news_content:before{ position: absolute;left: 0;right: 0;bottom: 0;height: 1px;content: '';-webkit-transform: scaleY(.5);transform: scaleY(.5); background-color: #eaeaea;}
+  .news_content p{margin:15px 0;}
+}

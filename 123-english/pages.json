@@ -1,0 +1,29 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path" : "pages/home/home",
+			"style": {}
+		}
+        ,{
+            "path" : "pages/about-speedy/about-speedy",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/lottery-details/lottery-details",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/public-item/public-item",
+            "style" : {}
+        }
+    ],
+	"globalStyle": {
+		"navigationStyle":"custom",
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "Speedy Lottos",
+		"navigationBarBackgroundColor": "#222222",
+		"backgroundColor": "#222222",
+		"backgroundColorTop": "#222222",
+		"backgroundColorBottom": "#222222"
+	}
+}

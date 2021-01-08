@@ -1,0 +1,134 @@
+<!-- Generated template for the DsdxHistoryComponent component -->
+<div class="component_scroll">
+  <div class="drawCodebox dsdxls" *ngIf="mainData && mainData?.length>0" style="left: 0; display: block;">
+    <div class="navTab">
+      <span id="zhCheck" (click)="type=0">综合查看<i [ngClass]="{iActClass:type==0}"></i></span>
+      <span id="personCheck" (click)="type=1">个体查看<i [ngClass]="{iActClass:type==1}"></i></span>
+    </div>
+    <div class="minciList" *ngIf="type==0">
+      <div id="minciBox">
+        <ul style="width: 950px;" *ngIf="codeType==1" (touchstart)="ulScroll($event)" (touchend)="ulScroll($event)">
+          <li [ngClass]="{minciLiAct:tGoal==0}" (click)="tGoal=0">冠军<i>0</i></li>
+          <li [ngClass]="{minciLiAct:tGoal==1}" (click)="tGoal=1">亚军<i>1</i></li>
+          <li [ngClass]="{minciLiAct:tGoal==2}" (click)="tGoal=2">第三<i>2</i></li>
+          <li [ngClass]="{minciLiAct:tGoal==3}" (click)="tGoal=3">第四<i>3</i></li>
+          <li [ngClass]="{minciLiAct:tGoal==4}" (click)="tGoal=4">第五<i>4</i></li>
+          <li [ngClass]="{minciLiAct:tGoal==5}" (click)="tGoal=5">第六<i>5</i></li>
+          <li [ngClass]="{minciLiAct:tGoal==6}" (click)="tGoal=6">第七<i>6</i></li>
+          <li [ngClass]="{minciLiAct:tGoal==7}" (click)="tGoal=7">第八<i>7</i></li>
+          <li [ngClass]="{minciLiAct:tGoal==8}" (click)="tGoal=8">第九<i>8</i></li>
+          <li [ngClass]="{minciLiAct:tGoal==9}" (click)="tGoal=9">第十<i>9</i></li>
+        </ul>
+        <ul style="width: 480px;" *ngIf="codeType==2" (touchstart)="ulScroll($event)" (touchend)="ulScroll($event)">
+          <li [ngClass]="{minciLiAct:tGoal==0}" (click)="tGoal=0">第一球<i>0</i></li>
+          <li [ngClass]="{minciLiAct:tGoal==1}" (click)="tGoal=1">第二球<i>1</i></li>
+          <li [ngClass]="{minciLiAct:tGoal==2}" (click)="tGoal=2">第三球<i>2</i></li>
+          <li [ngClass]="{minciLiAct:tGoal==3}" (click)="tGoal=3">第四球<i>3</i></li>
+          <li [ngClass]="{minciLiAct:tGoal==4}" (click)="tGoal=4">第五球<i>4</i></li>
+        </ul>
+        <ul style="width: 770px;" *ngIf="codeType==3" (touchstart)="ulScroll($event)" (touchend)="ulScroll($event)">
+          <li [ngClass]="{minciLiAct:tGoal==0}" (click)="tGoal=0">第一球<i>0</i></li>
+          <li [ngClass]="{minciLiAct:tGoal==1}" (click)="tGoal=1">第二球<i>1</i></li>
+          <li [ngClass]="{minciLiAct:tGoal==2}" (click)="tGoal=2">第三球<i>2</i></li>
+          <li [ngClass]="{minciLiAct:tGoal==3}" (click)="tGoal=3">第四球<i>3</i></li>
+          <li [ngClass]="{minciLiAct:tGoal==4}" (click)="tGoal=4">第五球<i>4</i></li>
+          <li [ngClass]="{minciLiAct:tGoal==5}" (click)="tGoal=5">第六球<i>5</i></li>
+          <li [ngClass]="{minciLiAct:tGoal==6}" (click)="tGoal=6">第七球<i>6</i></li>
+          <li [ngClass]="{minciLiAct:tGoal==7}" (click)="tGoal=7">第八球<i>7</i></li>
+        </ul>
+      </div>
+      <div id="tableBox">
+        <table border="0" cellspacing="1" cellpadding="1">
+          <thead>
+          <tr>
+            <th>日期</th>
+            <th>大</th>
+            <th>小</th>
+            <th>单</th>
+            <th>双</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of mainData;" style="height:25px">
+            <td>{{item?.day}}</td>
+            <ng-container *ngFor="let temp of item?.list;let t=index;">
+              <ng-container *ngIf="t==tGoal">
+                <td>{{temp?.big}}</td>
+                <td>{{temp?.little}}</td>
+                <td>{{temp?.single}}</td>
+                <td>{{temp?.double}}</td>
+              </ng-container>
+            </ng-container>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="dsdxList" *ngIf="type==1">
+      <div id="dsdxBox">
+        <ul>
+          <li [ngClass]="{dsdxActcolor:modeType==0}" (click)="modeType=0">单<i>0</i></li>
+          <li [ngClass]="{dsdxActcolor:modeType==1}" (click)="modeType=1">双<i>1</i></li>
+          <li [ngClass]="{dsdxActcolor:modeType==2}" (click)="modeType=2">大<i>2</i></li>
+          <li [ngClass]="{dsdxActcolor:modeType==3}" (click)="modeType=3">小<i>3</i></li>
+        </ul>
+      </div>
+      <div id="getiTable">
+        <table  border="0" cellspacing="1" cellpadding="1">
+          <thead *ngIf="codeType==1">
+          <tr>
+            <th>日期</th>
+            <th>冠军</th>
+            <th>亚军</th>
+            <th>第三</th>
+            <th>第四</th>
+            <th>第五</th>
+            <th>第六</th>
+            <th>第七</th>
+            <th>第八</th>
+            <th>第九</th>
+            <th>第十</th>
+          </tr>
+          </thead>
+          <thead *ngIf="codeType==2">
+          <tr>
+            <th>日期</th>
+            <th>第一球</th>
+            <th>第二球</th>
+            <th>第三球</th>
+            <th>第四球</th>
+            <th>第五球</th>
+          </tr>
+          </thead>
+          <thead *ngIf="codeType==3">
+          <tr>
+            <th>日期</th>
+            <th>第一球</th>
+            <th>第二球</th>
+            <th>第三球</th>
+            <th>第四球</th>
+            <th>第五球</th>
+            <th>第六球</th>
+            <th>第七球</th>
+            <th>第八球</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr></tr>
+          <tr *ngFor="let item of mainData;" style="height:25px">
+            <td>{{item?.day}}</td>
+            <ng-container *ngFor="let temp of item.list;">
+              <td *ngIf="modeType==0">{{temp?.single}}</td>
+              <td *ngIf="modeType==1">{{temp?.double}}</td>
+              <td *ngIf="modeType==2">{{temp?.big}}</td>
+              <td *ngIf="modeType==3">{{temp?.little}}</td>
+            </ng-container>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!mainData || mainData?.length==0" class="no-data">加载中  <div style="height: 350px;"></div></div>
+
+</div>

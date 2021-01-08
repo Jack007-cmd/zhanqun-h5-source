@@ -1,0 +1,279 @@
+<div class="component_scroll">
+  <div class=" drawCodebox todayhaomatj" *ngIf="mainData && mainData?.length>0" style="left: 0; display: block;">
+    <div class="checkshow">
+      <span class="checkClick" (click)="choseCon(1)">筛选 <i></i></span>
+      <span>值为15-30时为<span class="red">红色</span>31-40为<span class="blue">蓝色</span>41-50时为<span
+        class="green">绿色</span>
+							</span>
+    </div>
+    <!--北京PK10等-->
+    <div class="showconten" *ngIf="codeType==1">
+      <ng-container *ngFor="let item of mainData;let index=index;">
+        <div class="item_" *ngIf="filterRs.indexOf(index.toString())>-1"
+             [ngClass]="{item_1:index==0,item_2:index==1,item_3:index>1}">
+      <span
+        class="item_title">{{index == 0 ? '冠军' : index == 1 ? '亚军' : index == 2 ? '第三' : index == 3 ? '第四' : index == 4 ? '第五' : index == 5 ? '第六' : index == 6 ? '第七' : index == 7 ? '第八' : index == 8 ? '第九' : '第十'}}</span>
+          <ul class="num_item">
+            <li class="li_first">号码</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+          </ul>
+          <ul class="zongkai_item" *ngIf="filterRs.indexOf('a')>-1">
+            <li class="li_first">总开</li>
+            <li *ngFor="let temp of item?.awayOpen"
+                [ngClass]="{rednum_tj: temp>14 && temp<31,bluenum_tj:temp>30 && temp<41,greennum_tj:temp>40 && temp<51}">{{temp}}</li>
+          </ul>
+          <ul class="weikai_item" *ngIf="filterRs.indexOf('t')>-1">
+            <li class="li_first">未开</li>
+            <li *ngFor="let temp of item?.notOpen"
+                [ngClass]="{rednum_tj: temp>14 && temp<31,bluenum_tj:temp>30 && temp<41,greennum_tj:temp>40 && temp<51}">{{temp}}</li>
+          </ul>
+        </div>
+      </ng-container>
+    </div>
+
+    <!--时时彩等-->
+    <div class="showconten" *ngIf="codeType==2 ||codeType==3" style="display: block;">
+      <div *ngFor="let item of mainData;let index=index;">
+        <div class="item_" *ngIf="filterRs.indexOf(index.toString())>-1"
+             [ngClass]="{item_1:index==0,item_2:index==1,item_3:index>1}">
+        <span
+          class="item_title">{{index == 0 ? '第一球' : index == 1 ? '第二球' : index == 2 ? '第三球' : index == 3 ? '第四球' : '第五球'}}</span>
+          <ul *ngIf="codeType==2" class="num_item">
+            <li class="li_first">号码</li>
+            <li>0</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+          </ul>
+          <ul *ngIf="codeType==3" class="num_item">
+            <li class="li_first" style="width:8%;">号码</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+            <li>11</li>
+          </ul>
+          <ul class="zongkai_item" *ngIf="filterRs.indexOf('a')>-1">
+            <li class="li_first" [ngStyle]="{'width':codeType==3?'8%':'16%'}">总开</li>
+            <li *ngFor="let temp of item?.appear"
+                [ngClass]="{rednum_tj: temp>14 && temp<31,bluenum_tj:temp>30 && temp<41,greennum_tj:temp>40 && temp<51}">{{temp}}</li>
+          </ul>
+          <ul class="liankai_item" *ngIf="filterRs.indexOf('t')>-1">
+            <li class="li_first" [ngStyle]="{'width':codeType==3?'8%':'16%'}">最多连开</li>
+            <li *ngFor="let temp of item?.maxAway"
+                [ngClass]="{rednum_tj: temp>14 && temp<31,bluenum_tj:temp>30 && temp<41,greennum_tj:temp>40 && temp<51}">{{temp}}</li>
+          </ul>
+          <ul class="dingqian_item" *ngIf="filterRs.indexOf('c')>-1">
+            <li class="li_first" [ngStyle]="{'width':codeType==3?'8%':'16%'}">当前遗漏</li>
+            <li *ngFor="let temp of item?.current"
+                [ngClass]="{rednum_tj: temp>14 && temp<31,bluenum_tj:temp>30 && temp<41,greennum_tj:temp>40 && temp<51}">{{temp}}</li>
+          </ul>
+          <ul class="big_item" *ngIf="filterRs.indexOf('m')>-1">
+            <li class="li_first" [ngStyle]="{'width':codeType==3?'8%':'16%'}">最大遗漏</li>
+            <li *ngFor="let temp of item?.max"
+                [ngClass]="{rednum_tj: temp>14 && temp<31,bluenum_tj:temp>30 && temp<41,greennum_tj:temp>40 && temp<51}">{{temp}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!--广东快乐十分-->
+    <div class="showconten" *ngIf="codeType==4">
+      <ng-container *ngFor="let item of mainData;let index=index;">
+        <div class="item_" *ngIf="filterRs.indexOf(index.toString())>-1"
+             [ngClass]="{item_1:index==0,item_2:index==1,item_3:index>1}">
+          <span
+            class="item_title">{{index == 0 ? '第一球' : index == 1 ? '第二球' : index == 2 ? '第三球' : index == 3 ? '第四球' : index == 4 ? '第五球' : index == 5 ? '第六球' : index == 6 ? '第七球' : '第八球'}}</span>
+          <ul class="num_item">
+            <li class="li_first">号码</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+          </ul>
+          <ul class="zongkai_item" *ngIf="filterRs.indexOf('a')>-1">
+            <li class="li_first">总开</li>
+            <ng-container *ngFor="let temp of item?.awayOpen;let t=index;">
+              <li *ngIf="t<10"
+                  [ngClass]="{rednum_tj: temp>14 && temp<31,bluenum_tj:temp>30 && temp<41,greennum_tj:temp>40 && temp<51}">{{temp}}</li>
+            </ng-container>
+          </ul>
+          <ul class="weikai_item" *ngIf="filterRs.indexOf('t')>-1">
+            <li class="li_first">未开</li>
+            <ng-container *ngFor="let temp of item?.notOpen;let t=index;">
+              <li *ngIf="t<10"
+                  [ngClass]="{rednum_tj: temp>14 && temp<31,bluenum_tj:temp>30 && temp<41,greennum_tj:temp>40 && temp<51}">{{temp}}</li>
+            </ng-container>
+          </ul>
+          <ul class="num_item">
+            <li class="li_first">号码</li>
+            <li>11</li>
+            <li>12</li>
+            <li>13</li>
+            <li>14</li>
+            <li>15</li>
+            <li>16</li>
+            <li>17</li>
+            <li>18</li>
+            <li>19</li>
+            <li>20</li>
+          </ul>
+          <ul class="zongkai_item" *ngIf="filterRs.indexOf('a')>-1">
+            <li class="li_first">总开</li>
+            <ng-container *ngFor="let temp of item?.awayOpen;let t=index;">
+              <li *ngIf="t>9"
+                  [ngClass]="{rednum_tj: temp>14 && temp<31,bluenum_tj:temp>30 && temp<41,greennum_tj:temp>40 && temp<51}">{{temp}}</li>
+            </ng-container>
+          </ul>
+          <ul class="weikai_item" *ngIf="filterRs.indexOf('t')>-1">
+            <li class="li_first">未开</li>
+            <ng-container *ngFor="let temp of item?.notOpen;let t=index;">
+              <li *ngIf="t>9"
+                  [ngClass]="{rednum_tj: temp>14 && temp<31,bluenum_tj:temp>30 && temp<41,greennum_tj:temp>40 && temp<51}">{{temp}}</li>
+            </ng-container>
+          </ul>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <div *ngIf="!mainData || mainData?.length==0" class="no-data">加载中  <div style="height: 350px;"></div></div>
+
+</div>
+
+<!--筛选框-->
+<div *ngIf="showFilter==1" class="select-page">
+  <ion-backdrop (click)="choseCon(-1)" role="presentation" tappable="" style="opacity: 0.26;"></ion-backdrop>
+  <div class="main-wrapper" style="height: 45%;">
+    <div class="tool-bar">
+      <span class="option-md" style="float: left;">筛选选择</span>
+      <span class="option-md" style="float: right;" (click)="choseCon(-1)">取消</span>
+      <span class="option-md" style="float: right;" (click)="choseCon(99)">确定</span>
+    </div>
+    <p>
+      <span class="text_kong">筛选名次：</span>
+      <span class="checkAll" (click)="checkOne('999')">全选</span>
+      <span class="noAll"  (click)="checkOne('-1')">清空</span>
+    </p>
+    <div class="main-content">
+      <ng-container *ngIf="codeType==1 || codeType==4">
+        <div>
+          <ul class="marginTop" *ngIf="codeType==1">
+            <li [ngClass]="{check_tj:tempRs.indexOf('0')>-1}" (click)="checkOne('0')">冠军</li>
+            <li [ngClass]="{check_tj:tempRs.indexOf('1')>-1}" (click)="checkOne('1')">亚军</li>
+            <li [ngClass]="{check_tj:tempRs.indexOf('2')>-1}" (click)="checkOne('2')">第三</li>
+            <li [ngClass]="{check_tj:tempRs.indexOf('3')>-1}" (click)="checkOne('3')">第四</li>
+            <li [ngClass]="{check_tj:tempRs.indexOf('4')>-1}" (click)="checkOne('4')">第五</li>
+            <li [ngClass]="{check_tj:tempRs.indexOf('5')>-1}" (click)="checkOne('5')">第六</li>
+            <li [ngClass]="{check_tj:tempRs.indexOf('6')>-1}" (click)="checkOne('6')">第七</li>
+            <li [ngClass]="{check_tj:tempRs.indexOf('7')>-1}" (click)="checkOne('7')">第八</li>
+            <li [ngClass]="{check_tj:tempRs.indexOf('8')>-1}" (click)="checkOne('8')">第九</li>
+            <li [ngClass]="{check_tj:tempRs.indexOf('9')>-1}" (click)="checkOne('9')">第十</li>
+          </ul>
+          <ul class="marginTop" *ngIf="codeType==4">
+            <li [ngClass]="{check_tj:tempRs.indexOf('0')>-1}" (click)="checkOne('0')">第一球</li>
+            <li [ngClass]="{check_tj:tempRs.indexOf('1')>-1}" (click)="checkOne('1')">第二球</li>
+            <li [ngClass]="{check_tj:tempRs.indexOf('2')>-1}" (click)="checkOne('2')">第三球</li>
+            <li [ngClass]="{check_tj:tempRs.indexOf('3')>-1}" (click)="checkOne('3')">第四球</li>
+            <li [ngClass]="{check_tj:tempRs.indexOf('4')>-1}" (click)="checkOne('4')">第五球</li>
+            <li [ngClass]="{check_tj:tempRs.indexOf('5')>-1}" (click)="checkOne('5')">第六球</li>
+            <li [ngClass]="{check_tj:tempRs.indexOf('6')>-1}" (click)="checkOne('6')">第七球</li>
+            <li [ngClass]="{check_tj:tempRs.indexOf('7')>-1}" (click)="checkOne('7')">第八球</li>
+          </ul>
+        </div>
+        <div>
+          <p>
+            <span class="text_kong"  style="margin-left:0;">筛选类型：</span>
+          </p>
+          <ul  class="mosh" style="margin-top: 15px;padding-top: 1px;">
+            <li class="show_zonkai" [ngClass]="{check_tj:tempRs.indexOf('a')>-1}" (click)="checkOne('a')">总开</li>
+            <li class="show_mliankai" [ngClass]="{check_tj:tempRs.indexOf('t')>-1}" (click)="checkOne('t')">未开</li>
+          </ul>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="codeType==2||codeType==3">
+        <div>
+          <ul class="marginTop">
+            <li [ngClass]="{check_tj:tempRs.indexOf('0')>-1}" (click)="checkOne('0')">第一球</li>
+            <li [ngClass]="{check_tj:tempRs.indexOf('1')>-1}" (click)="checkOne('1')">第二球</li>
+            <li [ngClass]="{check_tj:tempRs.indexOf('2')>-1}" (click)="checkOne('2')">第三球</li>
+            <li [ngClass]="{check_tj:tempRs.indexOf('3')>-1}" (click)="checkOne('3')">第四球</li>
+            <li [ngClass]="{check_tj:tempRs.indexOf('4')>-1}" (click)="checkOne('4')">第五球</li>
+          </ul>
+        </div>
+        <div>
+          <p>
+            <span class="text_kong"  style="margin-left:0;">筛选类型：</span>
+          </p>
+          <ul class="mosh" style="margin-top: 15px;padding-top: 1px;">
+            <li class="show_zonkai" [ngClass]="{check_tj:tempRs.indexOf('a')>-1}" (click)="checkOne('a')">总开</li>
+            <li class="show_mliankai" [ngClass]="{check_tj:tempRs.indexOf('t')>-1}" (click)="checkOne('t')">最多连开</li>
+            <li class="show_dingqian" [ngClass]="{check_tj:tempRs.indexOf('c')>-1}" (click)="checkOne('c')">当前遗漏</li>
+            <li class="show_big" [ngClass]="{check_tj:tempRs.indexOf('m')>-1}" (click)="checkOne('m')">最大遗漏</li>
+          </ul>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<!--幸运农场-->
+<!--<div class="loteyPage gotop" id="jirihmtj_lz" style="height: 2617px;display: none;">-->
+  <!--<div class="Page_main" style="background: #fff">-->
+    <!--<div class="checkTitle"><span>筛选选择</span></div>-->
+    <!--<div class="Page_content zfblz_mod">-->
+      <!--<p>-->
+        <!--<span class="text_kong">筛选名次：</span>-->
+        <!--<span class="checkAll">全选</span>-->
+        <!--<span class="noAll">清空</span>-->
+      <!--</p>-->
+      <!--<ul class="marginTop">-->
+        <!--<li data-text="1" class="check_tj">第一球</li>-->
+        <!--<li data-text="2" class="check_tj">第二球</li>-->
+        <!--<li data-text="3" class="check_tj">第三球</li>-->
+        <!--<li data-text="4" class="check_tj">第四球</li>-->
+        <!--<li data-text="5" class="check_tj">第五球</li>-->
+        <!--<li data-text="6" class="check_tj">第六球</li>-->
+        <!--<li data-text="7" class="check_tj">第七球</li>-->
+        <!--<li data-text="8" class="check_tj">第八球</li>-->
+      <!--</ul>-->
+      <!--<p>-->
+        <!--<span class="text_kong">筛选类型：</span>-->
+      <!--</p>-->
+      <!--<ul>-->
+        <!--<li class="show_zonkai check_tj">总开</li>-->
+        <!--<li class="show_weikai check_tj">未开</li>-->
+      <!--</ul>-->
+    <!--</div>-->
+    <!--<div class="btngrulp">-->
+      <!--<span class="reset">取消</span>-->
+      <!--<span class="sure">确定</span>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->

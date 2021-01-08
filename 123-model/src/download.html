@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> 最快最全彩票开奖_彩票开奖结果查询_彩票官方开奖公告 App下载</title>
+  <link rel="shortcut icon" href="">
+  <link rel="stylesheet" href="assets/download-css/app-download-style.css">
+  <style>
+    a{
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body style="overflow-x: hidden;">
+<div class="main">
+  <div class="sub_nav">
+    <div class="web_nav_button">
+      <a id="toHome" class="item" style="display: inline-block;"><img style="width: 25px;height:25px;vertical-align: sub;" src="assets/download-imgs/g-home.png" ></a>
+      <a class="item active" onclick="getDetail(this,'down_ios')"><span class="icon-apple"></span>苹果网页版</a>
+      <a class="item" onclick="getDetail(this,'down_android')"><span class="icon-android"></span>安卓系统</a>
+    </div>
+  </div>
+</div>
+
+<div class="main ">
+  <div id="loc_download" class="web_switch loc_page">
+    <div class="loc_article item active" style="text-align: center;">
+    </div>
+  </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.js"></script>
+<script>
+  $(function () {
+    $("#toHome").attr("href",document.location.protocol+"//"+document.domain);
+    getDetail('', "down_ios");
+  });
+
+  function getDetail(that, tem) {
+    if (that) {
+      $(that).addClass('active').siblings().removeClass('active');
+    }
+    $.ajax({
+      url: document.location.protocol + "//" + document.domain + "/v1/h5/caihui/pageDetail",
+      method: 'get',
+      dataType: 'json',
+      data: {"identify": tem},
+      // identify单页标识（ios下载：down_ios，安卓下载：down_android）
+      success: function (rs) {
+        document.title = rs['web_name'];
+        document.querySelector('link[rel="shortcut icon"]').setAttribute("href",  rs['web_icon']);
+        $('#loc_download .item').html(rs.content);
+      },
+      err: function (error) {
+        console.log(error);
+      }
+    });
+  }
+</script>
+
+
+</body>
+</html>

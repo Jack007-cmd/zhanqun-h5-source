@@ -1,0 +1,340 @@
+pattern-trend {
+
+  .shjian_singtai {
+    margin-right: -10px;
+    border-right: 1px solid #e12121;
+  }
+
+  #singtai_content tbody tr td {
+    white-space: nowrap;
+    height: 26px!important;
+  }
+
+  #singtai_content tbody tr td .orcls {
+    background: #e12121!important;
+  }
+
+  #singtai_content tbody tr td:first-child {
+    width: 15%;
+  }
+
+  #singtai_content tbody tr td:nth-child(2),#singtai_content tbody tr td:nth-child(3),#singtai_content tbody tr td:nth-child(4) {
+    width: 6%;
+  }
+
+  #singtai_content tbody tr td:nth-child(n+5) {
+    width: 8.3%;
+  }
+
+  #singtai_content tbody tr td.hot span {
+    width: 25px!important;
+    height: 25px!important;
+    line-height: 25px!important;
+  }
+
+  .singtaizs .Pattern span {
+    margin-left: 40px!important;
+  }
+
+
+  .singtaizs .Pattern,.wezizs .Pattern {
+    background: #fff;
+    height: 45px;
+    line-height: 45px;
+    display: -moz-box;
+    display: -webkit-box;
+    margin-bottom: 1px;
+  }
+
+  .singtaizs .Pattern span,.wezizs .Pattern span {
+    margin-left: 20px;
+    display: inline-block;
+    padding: 0 10px;
+    height: 21px;
+    vertical-align: middle;
+    line-height: 21px;
+    text-align: center;
+  }
+
+  .singtaizs .Pattern span.haomafb,.wezizs .Pattern span.haomafb {
+    margin-left: 20px;
+  }
+
+  .singtaizs .Pattern span.checkspan,.wezizs .Pattern span.checkspan {
+    background: #e12121;
+    color: #fff;
+    border-radius: 21px;
+  }
+
+  .singtaizs .table_conditions,.wezizs .table_conditions {
+    background: #fff;
+  }
+
+  .singtaizs .table_conditions .divtitile,.wezizs .table_conditions .divtitile {
+    overflow: hidden;
+  }
+
+  .singtaizs .table_conditions .divtitile p,.wezizs .table_conditions .divtitile p {
+    display: flex;
+   // margin-left: 10px;
+    border: 1px solid #e12121;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 30px;
+    margin: 5px 10px;
+    width: 62%;
+    float: left;
+  }
+
+  .singtaizs .table_conditions .divtitile p span,.wezizs .table_conditions .divtitile p span {
+    display: inline-block;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+    color: #e12121;
+    flex: 1;
+    text-align: center;
+  }
+
+  .singtaizs .table_conditions .divtitile p span:after,.wezizs .table_conditions .divtitile p span:after {
+    content: "";
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    top: 9px;
+    display: inline-block;
+    background: url(../../assets/imgs/px10obj.png) -17px 0 no-repeat;
+    background-size: 37px;
+    margin-left: 3px;
+  }
+
+  .singtaizs .table_conditions .divtitile p span.weai,.wezizs .table_conditions .divtitile p span.weai {
+    width: .95rem;
+    margin-right: -10px;
+    border-right: 1px solid #e12121;
+  }
+
+  .singtaizs .table_conditions .divtitile p span.shjian,.wezizs .table_conditions .divtitile p span.shjian {
+    width: 8px;
+    border-right: 1px solid #e12121;
+    box-sizing: border-box;
+    margin-right: -10px;
+  }
+
+  .singtaizs .table_conditions .divtitile p span.tiaojian,.wezizs .table_conditions .divtitile p span.tiaojian {
+    width: 83px;
+    border: 0;
+    margin-right: 10px;
+  }
+
+  .singtaizs .table_conditions .divtitile .lookshjtj,.wezizs .table_conditions .divtitile .lookshjtj {
+    display: inline;
+    line-height: 40px;
+    color: #333;
+    float: right;
+    margin-right: 10px;
+  }
+
+  .singtaizs .table_conditions .table_conBox #chartLinediv,.wezizs .table_conditions .table_conBox #chartLinediv {
+    position: relative;
+  }
+
+  .singtaizs .table_conditions .table_conBox #chartLinediv table,.wezizs .table_conditions .table_conBox #chartLinediv table {
+    background: #dbdbdb;
+    border-spacing: 1px;
+    width: 100%;
+    color: #999;
+  }
+
+  .singtaizs .table_conditions .table_conBox #chartLinediv table thead tr th,.wezizs .table_conditions .table_conBox #chartLinediv table thead tr th {
+    text-align: center;
+    height: 25px;
+    background: #f0f0f0;
+    font-size: 14px;
+    color: #333;
+    border: 1px solid #eaeaea;
+  }
+
+  .singtaizs .table_conditions .table_conBox #chartLinediv table thead tr th.short,.wezizs .table_conditions .table_conBox #chartLinediv table thead tr th.short {
+    width: 15%!important;
+  }
+
+  .singtaizs .table_conditions .table_conBox #chartLinediv table tbody tr.line_wzzs,.wezizs .table_conditions .table_conBox #chartLinediv table tbody tr.line_wzzs {
+    height: 0;
+
+  }
+
+  .singtaizs .table_conditions .table_conBox #chartLinediv table tbody tr.line_wzzs td,.wezizs .table_conditions .table_conBox #chartLinediv table tbody tr.line_wzzs td {
+    height: 0!important;
+
+  }
+
+  .singtaizs .table_conditions .table_conBox #chartLinediv table tbody tr.clospan td,.wezizs .table_conditions .table_conBox #chartLinediv table tbody tr.clospan td {
+    background: #f0f0f0;
+    font-size: 14px;
+    color: #333;
+  }
+
+  .singtaizs .table_conditions .table_conBox #chartLinediv table tbody tr td,.wezizs .table_conditions .table_conBox #chartLinediv table tbody tr td {
+    text-align: center;
+    height: 25px;
+    background: #fff;
+    min-width: 20px;
+    border: 1px solid #eaeaea;
+  }
+
+  .singtaizs .table_conditions .table_conBox #chartLinediv table tbody tr td.numeven span,.singtaizs .table_conditions .table_conBox #chartLinediv table tbody tr td.numodd span,.wezizs .table_conditions .table_conBox #chartLinediv table tbody tr td.numeven span,.wezizs .table_conditions .table_conBox #chartLinediv table tbody tr td.numodd span {
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    color: #fff;
+    background: #e12121;
+  }
+
+  .singtaizs .table_conditions .table_conBox #chartLinediv table tbody tr td.numodd span,.wezizs .table_conditions .table_conBox #chartLinediv table tbody tr td.numodd span {
+    background: #3cb0ec;
+  }
+
+  .singtaizs .table_conditions .table_conBox #chartLinediv table tbody tr td.tabred span,.wezizs .table_conditions .table_conBox #chartLinediv table tbody tr td.tabred span {
+    color: #ef020a;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .singtaizs .table_conditions .table_conBox #chartLinediv table tbody tr td.hot span,.wezizs .table_conditions .table_conBox #chartLinediv table tbody tr td.hot span {
+    display: inline-block;
+    height: 16px;
+    line-height: 16px;
+    width: 16px;
+    background: #0092e0;
+    color: #fff;
+    border-radius: 50%;
+  }
+
+  .singtaizs .table_conditions .table_conBox #chartLinediv table tbody tr td.fancongcls,.wezizs .table_conditions .table_conBox #chartLinediv table tbody tr td.fancongcls {
+    background: #9595c5;
+  }
+
+  .singtaizs .table_conditions .table_conBox #chartLinediv table tbody tr td.fancongcls span,.wezizs .table_conditions .table_conBox #chartLinediv table tbody tr td.fancongcls span {
+    color: #fff;
+  }
+
+  .singtaizs .table_conditions .table_conBox #chartLinediv .table_sttz tbody tr td,.wezizs .table_conditions .table_conBox #chartLinediv .table_sttz tbody tr td {
+    min-width: 30px;
+    border: 1px solid #eaeaea;
+  }
+
+  .singtaizs .table_conditions .table_conBox #chartLinediv .table_lu012 tbody tr td,.singtaizs .table_conditions .table_conBox #chartLinediv .table_spj tbody tr td,.wezizs .table_conditions .table_conBox #chartLinediv .table_lu012 tbody tr td,.wezizs .table_conditions .table_conBox #chartLinediv .table_spj tbody tr td {
+    width: 20%;
+    border: 1px solid #eaeaea;
+  }
+
+  .select-page {
+    left: 0;
+    top: 12px;
+    position: absolute;
+    z-index: 1000;
+    display: block;
+    width: 100%;
+    height: 100%;
+    contain: strict;
+  }
+
+  .main-wrapper {
+    height: 260px;
+    border-top: 0.55px solid #dedede;
+    background: #fff;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 10;
+    margin: auto;
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+  }
+
+  .tool-bar {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    height: 44px;
+    background: #fff;
+    z-index: 1;
+    width: 100%;
+    contain: strict;
+  }
+
+  .option-md {
+    padding: 15px;
+    height: 44px;
+    font-size: 14px;
+    color: red;
+  }
+
+  .main-content {
+    display: flex;
+    overflow: hidden;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    overflow: scroll;
+    height: auto;
+    max-height: 200px;
+  }
+
+  .main-content ul {
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+
+  .main-content ul li {
+    text-align: center;
+    font-size: 16px;
+    line-height: 42px;
+  }
+
+  .main-content ul li.checked {
+    color: red;
+  }
+
+  .marginTop li {
+    text-align: center;
+    float: left;
+    width: 22%;
+    height: 30px;
+    font-size: 14px!important;
+    line-height: 30px!important;
+    margin-right: 2%;
+    border: 1px solid #e4e3e8;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  ul li.check_tj {
+    border-color: #e12121;
+    color: #e12121;
+    position: relative;
+  }
+
+  ul li.check_tj:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -1px;
+    right: 0;
+    margin-left: -8px;
+    width: 16px;
+    height: 16px;
+    background: url(../../assets/imgs/icon-168index.png) 0 -25px no-repeat;
+    background-size: 333px;
+  }
+}

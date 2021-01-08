@@ -1,0 +1,445 @@
+<!--
+  Generated template for the PrecisionPlanPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header style="height: 44px;">
+  <div class="myHeader">
+    <h2 *ngIf="showType==-1" (click)="showType=1"><span tappable="">{{currentType.name}} <i
+      class="top_arrow"></i></span></h2>
+    <h2 *ngIf="showType==1" (click)="showType=-1"><span tappable="">所有彩种 <i class="bottom_arrow"></i></span></h2>
+  </div>
+</ion-header>
+<ion-content (ionScroll)="ionScroll($event)">
+  <div class="item-body-box">
+
+    <div class="current-info">
+      <div class="divline issuel">
+        <span class="issue"><span class="preDrawIssue">{{current_number}}</span>期开奖</span>
+        <span class="drawCount">已开<span class="drawCountnum">{{aboutList?.open_num}}</span>期，剩余<span
+          class="sdrawCountnext">{{aboutList?.still_num}}</span>期</span>
+        <!--<div class="flexr">-->
+        <span class="openVideo" id="startVideo" (click)="videoCtrl()">视频</span>
+        <!--</div>-->
+      </div>
+      <ng-container *ngIf="currentType.type==1">
+        <div class="divline drawCodel">
+          <ul class="pk10num pk10li numberbox" *ngIf="aboutList?.current_code && aboutList?.current_code.length>0">
+            <li *ngFor="let ccode of aboutList?.current_code;let index = index;"
+                [ngClass]="{nubb01:ccode=='01',nubb02:ccode=='02',nubb03:ccode=='03',nubb04:ccode=='04',
+              nubb05:ccode=='05',nubb06:ccode=='06',nubb07:ccode=='07',nubb08:ccode=='08',
+              nubb09:ccode=='09',nubb10:ccode=='10',li_after:index==9 }"
+            ><i style="font-size:10px; display:none">{{ccode}}</i></li>
+          </ul>
+        </div>
+        <div class="divline drawCodel tiger">
+          <ul class="pk10li longhu" *ngIf="aboutList?.describe && aboutList?.describe.length>0">
+            <li *ngFor="let tem of aboutList?.describe[1]?.val" style="margin-right:20px!important;">{{tem}}</li>
+            <li class="verline li_after" style="margin-right: 0px!important;">|</li>
+            <li class="guanyahe li_after" style="margin-right: 2px!important;">冠亚和</li>
+            <li class="guanyaheli lastli" *ngFor="let it of aboutList?.describe[0]?.val"  style="margin-right: 2px!important;">{{it}}</li>
+          </ul>
+          <div class="drawTimebox" *ngIf="allSeconds>0">
+            <span class="hourid" *ngIf="hour>0"><span class="bgtime hour">{{hour}}</span>:</span><span
+            class="bgtime minute">{{minute}}</span>:<span class="bgtime second">{{second}}</span>
+          </div>
+          <div class="drawTimebox" *ngIf="allSeconds<=0">
+            <span class="flexl">开奖中</span>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="currentType.type==2">
+        <div class="divline drawCodel">
+          <ul class="pk10num sscli" *ngIf="aboutList && aboutList?.current_code && aboutList?.current_code.length>0">
+            <li *ngFor="let ccode of aboutList?.current_code;" style="padding-top: 0px;">{{ccode}}</li>
+          </ul>
+        </div>
+        <div class="divline drawCodel tiger">
+          <ul class="pk10li longhu" *ngIf="aboutList?.describe && aboutList?.describe.length>0">
+            <li *ngFor="let zodiac of aboutList?.describe[1]?.val;">{{zodiac}}</li>
+            <li class="lastli">|</li>
+            <li class="lastli">总和：</li>
+            <li *ngFor="let tem of aboutList?.describe[0]?.val;" class="lastli ">{{tem}}</li>
+          </ul>
+          <div class="drawTimebox" *ngIf="allSeconds>0">
+            <span class="hourid" *ngIf="hour>0"><span class="bgtime hour">{{hour}}</span>:</span><span
+            class="bgtime minute">{{minute}}</span>:<span class="bgtime second">{{second}}</span>
+          </div>
+          <div class="drawTimebox" *ngIf="allSeconds<=0">
+            <span class="flexl">开奖中</span>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="currentType.type==3">
+        <div class="divline drawCodel">
+          <ul class="pk10num sscli" *ngIf="aboutList && aboutList?.current_code && aboutList?.current_code.length>0">
+            <li *ngFor="let ccode of aboutList?.current_code;" style="padding-top: 0px; ">{{ccode}}</li>
+          </ul>
+        </div>
+        <div class="divline drawCodel tiger">
+          <ul class="pk10li longhu" *ngIf="aboutList?.describe && aboutList?.describe.length>0">
+            <li *ngFor="let zodiac of aboutList?.describe[1]?.val;">{{zodiac}}</li>
+            <li>{{aboutList?.describe[2]?.val}}</li>
+            <li>{{aboutList?.describe[3]?.val}}</li>
+            <li>{{aboutList?.describe[4]?.val}}</li>
+            <li class="lastli">|</li>
+            <li class="lastli">总和：</li>
+            <li *ngFor="let tem of aboutList?.describe[0]?.val;" class="lastli ">{{tem}}</li>
+          </ul>
+          <div class="drawTimebox" *ngIf="allSeconds>0">
+            <span class="hourid" *ngIf="hour>0"><span class="bgtime hour">{{hour}}</span>:</span><span
+            class="bgtime minute">{{minute}}</span>:<span class="bgtime second">{{second}}</span>
+          </div>
+          <div class="drawTimebox" *ngIf="allSeconds<=0">
+            <span class="flexl">开奖中</span>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="currentType.type==4">
+        <div class="divline drawCodel">
+          <ul class="pk10num pk10li numberbox" *ngIf="aboutList?.current_code && aboutList?.current_code.length>0">
+            <li *ngFor="let ccode of aboutList?.current_code;" style="padding-top: 0px; line-height: 36px;"
+                [ngClass]="{num1:ccode=='1',num2:ccode=='2',num3:ccode=='3',
+            num4:ccode=='4',num5:ccode=='5',num6:ccode=='6'}"
+            ></li>
+          </ul>
+        </div>
+        <div class="divline drawCodel tiger">
+          <ul class="pk10li longhu">
+            <!--<li class="li_after">杂六</li>-->
+            <!--<li class="li_after">杂六</li>-->
+            <!--<li class="li_after">半顺</li>-->
+            <!--<li class="verline li_after" style="margin-top: 2px">|</li>-->
+            <li class="guanyahe li_after">总和：</li>
+            <li class="guanyaheli li_after" *ngFor="let a of aboutList?.describe[0]?.val;">{{a}}</li>
+          </ul>
+          <div class="drawTimebox" *ngIf="allSeconds>0">
+            <span class="hourid" *ngIf="hour>0"><span class="bgtime hour">{{hour}}</span>:</span><span
+            class="bgtime minute">{{minute}}</span>:<span class="bgtime second">{{second}}</span>
+          </div>
+          <div class="drawTimebox" *ngIf="allSeconds<=0">
+            <span class="flexl">开奖中</span>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="currentType.type==5">
+        <div class="divline drawCodel">
+          <ul class="pk10num sscli" *ngIf="aboutList?.current_code && aboutList?.current_code.length>0">
+            <li *ngFor="let ccode of aboutList?.current_code;"
+                style="padding-top: 0px;">{{ccode}}</li>
+          </ul>
+        </div>
+        <div class="divline drawCodel tiger">
+          <div class="drawTimebox" *ngIf="allSeconds>0">
+            <span class="hourid" *ngIf="hour>0"><span class="bgtime hour">{{hour}}</span>:</span><span
+            class="bgtime minute">{{minute}}</span>:<span class="bgtime second">{{second}}</span>
+          </div>
+          <div class="drawTimebox" *ngIf="allSeconds<=0">
+            <span class="flexl">开奖中</span>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="currentType.type==6">
+        <div class="divline drawCodel">
+          <ul class="pk10num sscli" *ngIf="aboutList?.current_code && aboutList?.current_code.length>0">
+            <li *ngFor="let ccode of aboutList?.current_code;let index = index;"
+                [ngClass]="{weight_blue25:index==6,red25:index!=6}">{{ccode}}</li>
+
+          </ul>
+        </div>
+        <div class="divline drawCodel tiger">
+          <div class="drawTimebox" *ngIf="allSeconds>0">
+            <span class="hourid" *ngIf="hour>0"><span class="bgtime hour">{{hour}}</span>:</span><span
+            class="bgtime minute">{{minute}}</span>:<span class="bgtime second">{{second}}</span>
+          </div>
+          <div class="drawTimebox" *ngIf="allSeconds<=0">
+            <span class="flexl">开奖中</span>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="currentType.type==7">
+        <div class="divline drawCodel">
+          <ul class="pk10num sscli" *ngIf="aboutList?.current_code && aboutList?.current_code.length>0">
+            <li *ngFor="let ccode of aboutList?.current_code;let index=index;"
+                [ngClass]="{light_blue25:ccode<41 && index!=20,weight_blue25:ccode>40 && index!=20,orange25:index==20}">{{ccode}}</li>
+          </ul>
+        </div>
+        <div class="divline drawCodel tiger">
+          <ul class="pk10li longhu">
+            <!--<li class="li_after">龙</li>-->
+            <!--<li class="verline li_after" style="margin-top: 2px">|</li>-->
+            <li class="guanyahe li_after">总和：</li>
+            <li class="guanyaheli li_after" *ngFor="let item of aboutList?.describe[0]?.val">{{item}}</li>
+            <li class="guanyaheli li_after" style="margin-right:0">{{aboutList?.describe[4]?.val}}</li>
+          </ul>
+          <div class="drawTimebox" *ngIf="allSeconds>0">
+            <span class="hourid" *ngIf="hour>0"><span class="bgtime hour">{{hour}}</span>:</span><span
+            class="bgtime minute">{{minute}}</span>:<span class="bgtime second">{{second}}</span>
+          </div>
+          <div class="drawTimebox" *ngIf="allSeconds<=0">
+            <span class="flexl">开奖中</span>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="currentType.type==8">
+        <div class="divline drawCodel">
+          <ul class="pk10num sscli" *ngIf="aboutList?.current_code && aboutList?.current_code.length>0">
+            <li *ngFor="let ccode of aboutList?.current_code;"
+                style="background-color: red;padding-top: 0;">{{ccode}}</li>
+          </ul>
+        </div>
+        <div class="divline drawCodel tiger">
+          <div class="drawTimebox" *ngIf="allSeconds>0">
+            <span class="hourid" *ngIf="hour>0"><span class="bgtime hour">{{hour}}</span>:</span><span
+            class="bgtime minute">{{minute}}</span>:<span class="bgtime second">{{second}}</span>
+          </div>
+          <div class="drawTimebox" *ngIf="allSeconds<=0">
+            <span class="flexl">开奖中</span>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="currentType.type==9">
+        <div class="divline drawCodel">
+          <ul class="pk10num sscli" *ngIf="aboutList?.current_code && aboutList?.current_code.length>0">
+            <li *ngFor="let ccode of aboutList?.current_code;"
+                style="background-color: red;padding-top: 0;">{{ccode}}</li>
+          </ul>
+        </div>
+        <div class="divline drawCodel tiger">
+          <div class="drawTimebox" *ngIf="allSeconds>0">
+            <span class="hourid" *ngIf="hour>0"><span class="bgtime hour">{{hour}}</span>:</span><span
+            class="bgtime minute">{{minute}}</span>:<span class="bgtime second">{{second}}</span>
+          </div>
+          <div class="drawTimebox" *ngIf="allSeconds<=0">
+            <span class="flexl">开奖中</span>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="currentType.type==10">
+        <div class="divline drawCodel">
+          <ul class="pk10num sscli" *ngIf="aboutList?.current_code && aboutList?.current_code.length>0">
+            <li *ngFor="let ccode of aboutList?.current_code;let index = index;"
+                [ngClass]="{red25:index!=7,weight_blue25:index==7}">{{ccode}}</li>
+          </ul>
+        </div>
+        <div class="divline drawCodel tiger">
+          <div class="drawTimebox" *ngIf="allSeconds>0">
+            <span class="hourid" *ngIf="hour>0"><span class="bgtime hour">{{hour}}</span>:</span><span
+            class="bgtime minute">{{minute}}</span>:<span class="bgtime second">{{second}}</span>
+          </div>
+          <div class="drawTimebox" *ngIf="allSeconds<=0">
+            <span class="flexl">开奖中</span>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="currentType.type==11">
+        <div class="divline drawCodel">
+          <ul class="pk10num cqnclilist numberbox" *ngIf="aboutList?.current_code && aboutList?.current_code.length>0">
+            <li *ngFor="let ccode of aboutList?.current_code;"
+                [ngClass]="{ncnum01:ccode=='01',ncnum02:ccode=='02',ncnum03:ccode=='03',ncnum04:ccode=='04',
+            ncnum05:ccode=='05',ncnum06:ccode=='06',ncnum07:ccode=='07',ncnum08:ccode=='08',
+            ncnum09:ccode=='09',ncnum10:ccode=='10',ncnum11:ccode=='11',ncnum12:ccode=='12',
+            ncnum13:ccode=='13',ncnum14:ccode=='14',ncnum15:ccode=='15',ncnum16:ccode=='16',
+            ncnum17:ccode=='17',ncnum18:ccode=='18',ncnum19:ccode=='19',ncnum20:ccode=='20'}"
+            ><i style="font-size:10px;display:none">{{ccode}}</i></li>
+          </ul>
+        </div>
+        <div class="divline drawCodel tiger" *ngIf="aboutList?.describe && aboutList?.describe.length>0">
+          <ul class="pk10li longhu">
+            <li class="li_after" *ngFor="let aa of aboutList?.describe[2]?.val;"
+                style="margin-right: 26px!important;">{{aa}}</li>
+            <li class="verline li_after" style="margin-right: 2px!important;">|</li>
+            <li class="guanyahe li_after" style="margin-right: 2px!important;">总和：</li>
+            <li class="guanyaheli li_after" *ngFor="let bb of aboutList?.describe[0]?.val;"
+                style="margin-right: 2px!important;">{{bb}}</li>
+            <li class="guanyaheli li_after" *ngFor="let cc of aboutList?.describe[1]?.val;"
+                style="margin-right: 2px!important;">{{cc}}</li>
+          </ul>
+          <div class="drawTimebox" *ngIf="allSeconds>0">
+            <span class="hourid" *ngIf="hour>0"><span class="bgtime hour">{{hour}}</span>:</span><span
+            class="bgtime minute">{{minute}}</span>:<span class="bgtime second">{{second}}</span>
+          </div>
+          <div class="drawTimebox" *ngIf="allSeconds<=0">
+            <span class="flexl">开奖中</span>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="currentType.type==12">
+        <div class="divline drawCodel egxy_drawCodel egxy_div">
+          <ul class="pk10num sscli" *ngIf="aboutList?.current_code && aboutList?.current_code.length>0">
+            <li *ngFor="let ccode of aboutList?.current_code;"
+                style="background: rgb(25, 166, 218); padding-top: 0;">{{ccode}}</li>
+            <li class="sumNum" *ngIf="allSeconds>0 "
+                style="background: red; margin-right: 0; padding-top: 0;">{{sum(aboutList?.current_code)}}</li>
+          </ul>
+          <span class="addF1 addicon"></span>
+          <span class="addF2 addicon"></span>
+          <span class="equalF"></span>
+        </div>
+        <div class="divline drawCodel tiger">
+          <ul class="pk10li longhu">
+            <li class="guanyahe li_after">总和：</li>
+            <li class="guanyaheli li_after" *ngFor="let item of aboutList?.describe[0]?.val;">{{item}}</li>
+          </ul>
+          <div class="drawTimebox" *ngIf="allSeconds>0">
+            <span class="hourid" *ngIf="hour>0"><span class="bgtime hour">{{hour}}</span>:</span><span
+            class="bgtime minute">{{minute}}</span>:<span class="bgtime second">{{second}}</span>
+          </div>
+          <div class="drawTimebox" *ngIf="allSeconds<=0">
+            <span class="flexl">开奖中</span>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="main-div">
+      <div class="select-sec">
+        <ul>
+          <li (click)="selectType=1">{{factorList?.position[checkedFactor?.position]}} <span class="list_arrow"></span></li>
+          <li (click)="selectType=2">{{factorList?.betting[checkedFactor?.position][checkedFactor?.betting]}}<span class="list_arrow"></span></li>
+          <li (click)="numberSelection(100)">{{factorList?.num[checkedFactor?.betting][checkedFactor?.num[0]]}}<span class="list_arrow"></span></li>
+          <li (click)="selectType=4">{{checkedFactor?.limit==0?'今天':checkedFactor?.limit+'期'}}<span class="list_arrow"></span></li>
+        </ul>
+      </div>
+
+      <div class="handle-sec">
+        <span>遗漏提醒 &nbsp;<input type="text" value="80" disabled>&nbsp;%</span>
+        <button (click)="toAnalyzing()">开始分析</button>
+      </div>
+
+      <div class="statistics-sec" *ngFor="let item of  statistics;">
+        <div class="title-div">{{currentType.name}} {{factorList?.position[checkedFactor?.position]}} {{factorList?.betting[checkedFactor?.position][checkedFactor?.betting]}}【{{item?.num}}】 {{checkedFactor?.limit==0?'今天':checkedFactor?.limit+'期'}} 出号统计</div>
+        <ul>
+          <li>出现次数 <br> <span>{{item?.occurrence}}</span></li>
+          <li>平均遗漏 <br> <span>{{item?.avgOmit}}</span></li>
+          <li>最大遗漏 <br> <span>{{item?.maxOmit}}</span></li>
+          <li>最大连出 <br> <span>{{item?.maxLinkOut}}</span></li>
+        </ul>
+        <ul>
+          <li>当前遗漏 <br> <span>{{item?.nowOmit}}</span></li>
+          <li>当前连出 <br> <span>{{item?.nowLinkOut}}</span></li>
+          <li>欲出几率 <br> <span>{{item?.desireProbability}}</span></li>
+          <li></li>
+        </ul>
+      </div>
+      <div class="pic-sec">
+        <div class="title-div">{{currentType.name}} {{factorList?.position[checkedFactor?.position]}} {{factorList?.betting[checkedFactor?.position][checkedFactor?.betting]}}【
+          <!--{{checkedFactor?.num.toString()}}-->
+          <ng-container *ngFor="let temp of  statistics;let index=index;">{{temp?.num}}{{index==(statistics.length-1)?'':'、'}}</ng-container>
+          】 {{checkedFactor?.limit==0?'今天':checkedFactor?.limit+'期'}} 输赢图</div>
+        <div id="echart-div" style="height:350px;width: 100%;"></div>
+      </div>
+      <div class="desc-sec">
+        <h5><span class="analysis_desc"></span>分析解释</h5>
+        <p><span>遗漏：</span>统计周期内没有出现的期数。如号码5，已经8期没有出现了，遗漏值就是8。</p>
+        <p><span>出现次数：</span>统计周期内，某个号码的累计出现次数。</p>
+        <p><span>平均遗漏：</span>统计期数内遗漏的平均值（计算公式：平均遗漏=统计期内的总遗漏次数/（出现次数+1），统计期内的总遗漏次数=统计期数-出现次数）。</p>
+        <p><span>最大遗漏：</span>统计周期内所有遗漏值的最大值。</p>
+        <p><span>最大连出：</span>统计周期内所有连出值的最大值。</p>
+        <p><span>当前遗漏：</span>号码截止到当前期，连续有多少期未出现。</p>
+        <p><span>当前连出：</span>号码截止到当前期，连续出现多少次。</p>
+        <p><span>欲出几率：</span>当前遗漏 /平均遗漏</p>
+        <p><span>输赢图：</span><span class="win">赢</span>代表号码连续出现期数（红色）。例如：冠军大，赢5，代表冠军大已经连续出现5期；<span class="lose">输</span>代表号码连续未出期数（绿色）。例如：冠军大，输3，代表冠军大已连续3期没有出现。</p>
+      </div>
+    </div>
+    <div *ngIf="showVideo" class="select-page" style="position: fixed;">
+      <ion-backdrop (click)="showVideo=false" role="presentation" tappable="" style="opacity: 0.26;"></ion-backdrop>
+      <div class="content" id="contentID">
+        <div class="head">
+          {{currentType.name}}开奖视频
+          <div class="btn">
+            <ul>
+              <li class="closevideo"><i class="iconfont" (click)="videoCtrl()">关闭</i></li>
+            </ul>
+          </div>
+        </div>
+        <div class="animate" style="height: 268px;">
+          <div class="loading" style="display: none;"></div>
+          <iframe style="height: 291.5px; width: 100%; border: none; display: inline-block;"
+                  class="e2e-iframe-trusted-src"
+                  [src]="currentType.video_url"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content >
+<div id="cZList" style="height: auto;top: 44px;padding-bottom: 50px;"
+     *ngIf="showType==1 && categoryList && categoryList.length>0">
+  <div class="toRMC" id="toRMC" *ngFor="let item of categoryList;">
+    <div class="title">{{item.name}}</div>
+    <div class="content" *ngIf="item.list && item.list.length>0">
+      <ul>
+        <li *ngFor="let it of item.list;" (click)="switchType(it);" [ngClass]="{checked_item:it.code==currentType.code}">
+          <img height="25" [src]="it?.logo" alt=""><span>{{it.name}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div *ngIf="selectType==1" class="select-page">
+  <ion-backdrop (click)="selectType=-1" role="presentation" tappable="" style="opacity: 0.26;"></ion-backdrop>
+  <div class="main-wrapper">
+    <div class="tool-bar">
+      <span class="option-md">选择位置</span>
+      <button  (click)="selectType=-1">确定</button>
+    </div>
+    <div class="main-content">
+      <ul *ngIf="factorList">
+        <!--<li class="checked">冠军</li>-->
+        <li *ngFor="let k of objectKeys(factorList?.position);" [ngClass]="{checked:checkedFactor.position==k}" (click)="positionSelection(k)">
+          {{factorList?.position[k]}}<span></span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div *ngIf="selectType==2" class="select-page">
+  <ion-backdrop (click)="selectType=-1" role="presentation" tappable="" style="opacity: 0.26;"></ion-backdrop>
+  <div class="main-wrapper">
+    <div class="tool-bar">
+      <span class="option-md">选择投注</span>
+      <button  (click)="selectType=-1">确定</button>
+    </div>
+    <div class="main-content">
+      <ul>
+        <li *ngFor="let j of objectKeys(factorList?.betting[checkedFactor.position]);" [ngClass]="{checked:checkedFactor.betting==j}" (click)="bettingSelection(j)">
+          {{factorList?.betting[checkedFactor.position][j]}} <span></span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div *ngIf="selectType==3" class="select-page">
+  <ion-backdrop (click)="numberSelection(200)" role="presentation" tappable="" style="opacity: 0.26;"></ion-backdrop>
+  <div class="main-wrapper">
+    <div class="tool-bar">
+      <span class="option-md">选择号码</span>
+      <button  (click)="numberSelection(300)">确定</button>
+    </div>
+    <div class="main-content">
+      <ul>
+        <li *ngFor="let m of objectKeys(factorList?.num[checkedFactor.betting]);" [ngClass]="{checked:tempNoArr.indexOf(m)!= -1}" (click)="numberSelection(m)">
+          {{factorList?.num[checkedFactor.betting][m]}}<span></span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div *ngIf="selectType==4" class="select-page">
+  <ion-backdrop (click)="selectType=-1" role="presentation" tappable="" style="opacity: 0.26;"></ion-backdrop>
+  <div class="main-wrapper">
+    <div class="tool-bar">
+      <span class="option-md">选择期数</span>
+      <button  (click)="selectType=-1">确定</button>
+    </div>
+    <div class="main-content">
+      <ul>
+        <li  [ngClass]="{checked:checkedFactor.limit==100}" (click)="checkedFactor.limit=100;selectType=-1;">100期<span></span></li>
+        <li  [ngClass]="{checked:checkedFactor.limit==200}" (click)="checkedFactor.limit=200;selectType=-1;">200期<span></span></li>
+        <li  [ngClass]="{checked:checkedFactor.limit==300}" (click)="checkedFactor.limit=300;selectType=-1;">300期<span></span></li>
+        <li  [ngClass]="{checked:checkedFactor.limit==0}" (click)="checkedFactor.limit=0;selectType=-1;">今天<span></span></li>
+      </ul>
+    </div>
+  </div>
+</div>

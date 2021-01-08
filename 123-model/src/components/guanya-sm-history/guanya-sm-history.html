@@ -1,0 +1,28 @@
+<div class="component_scroll">
+  <div class="drawCodebox gyhlmlishi" *ngIf="mainData && mainData?.length>0" style="left: 0; display: block;">
+    <div id="gyhlmlsBox" >
+      <table border="0" cellspacing="1" cellpadding="1">
+        <thead>
+        <tr>
+          <th width="30%">日期</th>
+          <th width="15%">大</th>
+          <th width="15%">小</th>
+          <th width="15%">单</th>
+          <th width="15%">双</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr height="30" *ngFor="let item of mainData;">
+          <td>{{item?.day}}</td>
+          <td>{{item?.detail?.big}}</td>
+          <td>{{item?.detail?.litter}}</td>
+          <td>{{item?.detail?.single}}</td>
+          <td>{{item?.detail?.double}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div *ngIf="!mainData || mainData?.length==0" class="no-data">加载中  <div style="height: 350px;"></div></div>
+
+</div>

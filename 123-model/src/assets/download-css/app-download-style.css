@@ -1,0 +1,12 @@
+*{margin: 0;padding: 0;}
+body,pre,textarea{font-size: 12px;line-height: 30px;-webkit-tap-highlight-color: transparent;font-family: "Helvetica Neue", "Microsoft YaHei", Helvetica, Tahoma, sans-serif;word-wrap: break-word;user-select: none;-webkit-user-select: none;}
+.sub_nav{ line-height: 50px;background: rgba(147, 173, 148, 0.3); font-size: 14px;}
+.web_nav_button .item{display: inline-block; margin: 0 5px; border-radius: 4px;line-height: 26px;padding: 0 15px; cursor:pointer}
+.web_nav_button .item.active{ background: #02934f; color: #fff;}
+.sub_content{padding: 20px;padding-top: 30px;}
+.w{margin: 0 auto}
+
+.icon-apple, .icon-android{display: inline-block; background-image: url("../download-imgs/1.png"); width: 16px;height: 16px;background-size: cover; position: relative; top: 2px; margin-right: 2px;}
+.active .icon-apple{background-image: url("../download-imgs/2.png");}
+.icon-android{background-image: url("../download-imgs/3.png");}
+.active .icon-android{background-image: url("../download-imgs/4.png");}

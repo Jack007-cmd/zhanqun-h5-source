@@ -1,0 +1,310 @@
+history-number-count {
+
+  .lishihmtj .lshmtj_navTab {
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    height: auto;
+    width: 100%;
+    border-bottom: 1px solid #dbdbdb;
+  }
+
+  .lishihmtj .lshmtj_navTab span {
+    display: inline-block;
+    height: 100%;
+    line-height: 44px;
+    text-align: center;
+    color: #666;
+    font-size: 13px;
+    width: 49%;
+  }
+
+  .lishihmtj .lshmtj_navTab span i {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .lishihmtj ul {
+    width: 100%;
+    height: 33px;
+    color: #666;
+  }
+
+  .lishihmtj ul li {
+    float: left;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e5e5e5;
+    border-right: 1px solid #e5e5e5;
+  }
+
+  .lishihmtj ul li:last-child {
+    border-right: none!important;
+  }
+
+  .lishihmtj .lshmtj_hmkanList .firstul {
+    background: #f0f0f0;
+  }
+
+  .lishihmtj .lshmtj_hmkanList ul li {
+    width: 7.8%;
+  }
+
+  .lishihmtj .lshmtj_hmkanList ul li:first-child {
+    width: 22%;
+  }
+
+  .lishihmtj #lshmtj_xtList .firstul {
+    background: #f0f0f0;
+  }
+
+  .lishihmtj #lshmtj_xtList ul li {
+    width: 11.1%;
+  }
+
+  .lishihmtj #lshmtj_xtList ul li:first-child {
+    width: 22%;
+  }
+  .lishihmtj #lishitj_ls .leftDate {
+    float: left;
+    width: 20%;
+    height: auto;
+    background: wheat;
+  }
+
+  .lishihmtj #lishitj_ls .leftDate #leftUl {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    border-right: 1px solid #e6e6e6;
+    color: #999;
+  }
+
+  .lishihmtj #lishitj_ls .leftDate #leftUl li {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 5px;
+    border-bottom: 1px solid #e6e6e6;
+    box-sizing: border-box;
+  }
+
+  .lishihmtj #lishitj_ls .leftDate #leftUl li.line_gyh {
+    height: 0;
+    border-bottom: 1px solid #d6d6d6;
+  }
+
+  .lishihmtj #lishitj_ls .leftDate #leftUl li:nth-child(2n) {
+    background-color: #fff;
+  }
+
+  .lishihmtj #lishitj_ls .leftDate #leftUl li:nth-child(odd) {
+    background-color: #f6f6f2;
+  }
+
+  .lishihmtj #lishitj_ls .leftDate #leftUl li:first-child {
+    height: 60px;
+    line-height: 60px;
+    background: #f0f0f0!important;
+    color: #333;
+  }
+
+  .lishihmtj #lishitj_ls .leftDate #leftUl .missUl {
+    color: #333;
+    background: #f0f0f0!important;
+  }
+
+  .lishihmtj #lishitj_ls .leftDate #leftUl .missUlWhite {
+    background: #fff!important;
+  }
+
+  .lishihmtj #lishitj_ls .lishiDate {
+    float: right;
+    width: 80%;
+    height: auto;
+    overflow: scroll;
+    position: relative;
+  }
+
+  .lishihmtj #lishitj_ls .lishiDate ul {
+    width: 1860px;
+    height: 30px;
+    line-height: 30px
+  }
+
+  .lishihmtj #lishitj_ls .lishiDate ul li {
+    float: left;
+    width: 60px;
+    border-right: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    box-sizing: border-box;
+    text-align: center;
+    white-space: nowrap
+  }
+
+  .lishihmtj #lishitj_ls .lishiDate ul:nth-child(odd) li {
+    background: #fff;
+  }
+
+  .lishihmtj #lishitj_ls .lishiDate ul:nth-child(2n) li {
+    background: #f6f6f2;
+  }
+
+  .lishihmtj #lishitj_ls .lishiDate .titleUl {
+    height: 29px;
+    line-height: 29px;
+    border-bottom: 1px solid #e6e6e6;
+    box-sizing: border-box;
+    background: #f0f0f0!important;
+    color: #fb8e19;
+  }
+
+  .lishihmtj #lishitj_ls .lishiDate .titleUl i {
+    margin-left: 55px;
+    color: #333;
+  }
+
+  .lishihmtj #lishitj_ls .lishiDate .numUl li {
+    background: #f0f0f0!important;
+  }
+
+  .lishihmtj #lishitj_ls .lishiDate .missUl li {
+    color: #333;
+    background: #f0f0f0!important;
+  }
+
+  .lishihmtj #lishitj_ls .lishiDate .missUlWhite li {
+    background: #fff!important;
+  }
+
+  #table_lishihmtj,#table_riqi {
+    display: table;
+    background: #e6e6e6;
+    width: 900px;
+    color: #666;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  #table_lishihmtj .riqi,#table_riqi .riqi {
+    text-align: left;
+    padding-left: 10%;
+  }
+
+  #table_lishihmtj .riqi span,#table_riqi .riqi span {
+    color: #fa962f;
+  }
+
+  #table_lishihmtj thead,#table_riqi thead {
+    height: 60px;
+    overflow: hidden;
+  }
+
+  #table_lishihmtj th,#table_riqi th {
+    color: #333;
+    height: 30px;
+    line-height: 30px;
+    background: #f0f0f0;
+    text-align: center;
+    box-sizing: border-box;
+    width: 30px!important;
+  }
+
+  #table_lishihmtj tbody .line_wzzs,#table_riqi tbody .line_wzzs {
+    height: 0;
+    border-bottom: 2px solid #d6d6d6;
+  }
+
+  #table_lishihmtj tbody .line_wzzs td,#table_riqi tbody .line_wzzs td {
+    height: 0;
+  }
+
+  #table_lishihmtj tbody .line_gyh,#table_riqi tbody .line_gyh {
+    height: 0;
+    border-bottom: 2px solid #d6d6d6;
+  }
+
+  #table_lishihmtj tbody .line_gyh td,#table_riqi tbody .line_gyh td {
+    height: 0;
+  }
+
+  #table_lishihmtj tbody .missUlWhite td,#table_riqi tbody .missUlWhite td {
+    background: #fff!important;
+  }
+
+  #table_lishihmtj tbody .missUlWhite td span,#table_riqi tbody .missUlWhite td span {
+    display: inline-block!important;
+  }
+
+  #table_lishihmtj tbody .missUl td,#table_riqi tbody .missUl td {
+    background: #f0f0f0;
+  }
+
+  #table_lishihmtj tbody td,#table_riqi tbody td {
+    height: 30px;
+    background: #fff;
+    width: 30px!important;
+  }
+
+  #table_lishihmtj tbody td.fancongcls,#table_riqi tbody td.fancongcls {
+    background: #9595c5!important;
+  }
+
+  #table_lishihmtj tbody td.fancongcls span,#table_riqi tbody td.fancongcls span {
+    color: #fff;
+  }
+
+  #table_lishihmtj tbody .hot_gyh span,#table_riqi tbody .hot_gyh span {
+    color: #fff!important;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 10px;
+  }
+
+  #table_lishihmtj tbody .fancongcls_gyh,#table_riqi tbody .fancongcls_gyh {
+    background: #9595c5!important;
+    color: #fff;
+  }
+
+  #table_lishihmtj tbody .fancongcls_gyh span,#table_riqi tbody .fancongcls_gyh span {
+    color: #fff;
+  }
+
+  #table_lishihmtj .hmck:nth-child(2n) td,#table_riqi .hmck:nth-child(2n) td {
+    background: #f6f6f2;
+  }
+  #table_riqi {
+    width: 100%;
+  }
+
+  #table_riqi tr {
+    width: 100%;
+    background: #fff;
+  }
+
+  #table_riqi tr th {
+    width: 100%!important;
+    height: 61px!important;
+    line-height: 61px!important;
+  }
+
+  #table_riqi tr td {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+  }
+
+  #table_riqi tr.qishutr:nth-child(2n) td {
+    background: #f6f6f2;
+  }
+
+  .k3_lishi ul li{
+    width:9.3%!important;
+  }
+  .k3_lishi ul li:first-child{
+    width:24%!important;
+  }
+}

@@ -1,0 +1,29 @@
+<!--<ion-tabs class="custom_nav" #myTabs (ionChange)="ionChange()">-->
+<!--<ion-tab [root]="tab1Root" tabTitle="首页" tabIcon="index"></ion-tab>-->
+<!--<ion-tab [root]="tab2Root" tabTitle="彩种" tabIcon="stars"></ion-tab>-->
+<!--<ion-tab [root]="tab3Root" tabTitle="资讯" tabIcon="news"></ion-tab>-->
+<!--<ion-tab [root]="tab4Root" tabTitle="设置" tabIcon="setting"></ion-tab>-->
+<!--</ion-tabs>-->
+
+<div *ngIf="messageType>-1" (click)="hideToast()"
+     style="left: 0;top: 0;position: absolute;z-index: 19999;display: block;width: 100%;height: 100%;pointer-events: none;contain: strict;">
+  <div
+    style="left: 1%;position: absolute;z-index: 10;display: block;width: 98%;max-width: 700px;background: #666666;border-radius: 0.65rem;bottom: 50px;opacity: .6;">
+    <div
+      style="display: flex;-webkit-box-align: center;-webkit-align-items: center;-ms-flex-align: center;align-items: center;pointer-events: auto;contain: content;">
+      <div style="font-size: 14px;color: #fff;padding: 10px;width: 100%;line-height: 30px;">
+        {{messageContent}}
+        <span *ngIf="messageType==1" (click)="toastTo(1)" style="padding: 5px 10px;float: right;background: red;border-radius: 5px;line-height: 20px;">查看</span>
+        <span *ngIf="messageType==2" (click)="toastTo(3)" style="padding: 5px 10px;float: right;background: red;border-radius: 5px;line-height: 20px;">查看</span>
+        <span *ngIf="messageType==3" (click)="toastTo(4)" style="padding: 5px 10px;float: right;background: red;border-radius: 5px;line-height: 20px;">查看</span>
+      </div>
+    </div>
+  </div>
+</div>
+<ion-tabs class="custom_nav" #myTabs (ionChange)="ionChange()" [selectedIndex]="2" (click)="selectTab()">
+  <ion-tab [root]="tab1Root" tabTitle="论坛" tabIcon="index"></ion-tab>
+  <ion-tab [root]="tab2Root" tabTitle="长龙提醒" tabIcon="stars"></ion-tab>
+  <ion-tab [root]="tab3Root" tabTitle="首页" tabIcon="news"></ion-tab>
+  <ion-tab [root]="tab4Root" tabTitle="精准计划" tabIcon="setting"></ion-tab>
+  <ion-tab [root]="tab5Root" tabTitle="数据分析" tabIcon="about"></ion-tab>
+</ion-tabs>

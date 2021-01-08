@@ -1,0 +1,391 @@
+parity-trend {
+  .drawCodebox {
+    height: auto;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    font-size: 12px;
+  }
+  .qiyuzs {
+    background: #f0eff5;
+  }
+
+  .qiyuzs .qiyu {
+    background: #fff;
+    height: 45px;
+    line-height: 45px;
+    display: inherit;
+    margin-bottom: 8px;
+  }
+
+  .qiyuzs .qiyu .Pattern_noe {
+    display: inline-block;
+    width: 100px;
+    height: 23px;
+    vertical-align: middle;
+    line-height: 20px;
+    text-align: center;
+    float: left;
+    margin-left: 15%;
+    margin-top: 9px;
+    padding-top: 3px;
+  }
+
+  .qiyuzs .qiyu .Pattern_noe.checkspan {
+    background: #e12121;
+    color: #fff;
+    border-radius: 21px;
+  }
+
+  .qiyuzs .qiyu .Pattern_pl {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 21px;
+    text-align: center;
+    float: right;
+    margin-right: 15%;
+    width: 100px;
+    height: 23px;
+    margin-top: 9px;
+    padding-top: 3px;
+  }
+
+  .qiyuzs .qiyu .Pattern_pl.checkspan {
+    background: #e12121;
+    color: #fff;
+    border-radius: 21px;
+  }
+
+  .qiyuzs .divtitile_qiou {
+    overflow: hidden;
+    width: 100%;
+    background: #fff;
+  }
+
+  .qiyuzs .divtitile_qiou p {
+    display: flex;
+    margin-left: 10px;
+    border: 1px solid #e12121;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 30px;
+    margin: .05rem 10px;
+    width: 62%;
+    float: left;
+  }
+
+  .qiyuzs .divtitile_qiou p .tiaojianyu {
+    border-left: 1px solid #e12121;
+  }
+
+  .qiyuzs .divtitile_qiou p span {
+    display: inline-block;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+    color: #e12121;
+    flex: 1;
+    margin-right: 20px;
+    text-align: center;
+  }
+
+  .qiyuzs .divtitile_qiou p span:after {
+    content: "";
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    top: 9px;
+    display: inline-block;
+    margin-left: 4px;
+    background: url(../../assets/imgs/px10obj.png) -17px 0 no-repeat;
+    background-size: 37px;
+  }
+
+  .qiyuzs .divtitile_qiou p span.weai {
+    width: 95px;
+  }
+
+  .qiyuzs .divtitile_qiou p span.tiaojian {
+    width: 82.5px;
+    border: 0;
+  }
+
+  .qiyuzs .divtitile_qiou .lookshjtjyu {
+    display: inline;
+    line-height: 40px;
+    color: #333;
+    float: right;
+    margin-right: 10px;
+  }
+
+  .qiyuzs .qiyuzsBox {
+    position: relative;
+  }
+
+  .qiyuzs .qiyuzsBox .yu {
+    background: #fdf7ed;
+  }
+
+  .qiyuzs .qiyuzsBox table {
+    display: table;
+    width: 100%;
+    background: #e5e5e5;
+    text-align: center;
+  }
+
+  .qiyuzs .qiyuzsBox table thead th {
+    height: 33px;
+    line-height: 33px;
+    background: #f0f0f0;
+    text-align: center;
+    color: #666!important;
+  }
+
+  .qiyuzs .qiyuzsBox table thead .qiyu_app {
+    width: 11%;
+  }
+
+  .qiyuzs .qiyuzsBox table thead .qiyu_arr {
+    width: 12%;
+  }
+
+  .qiyuzs .qiyuzsBox table .ptin {
+    background: #f0efef;
+  }
+
+  .qiyuzs .qiyuzsBox table tbody tr {
+    height: 33px;
+    background: #fefdfd;
+  }
+
+  .qiyuzs .qiyuzsBox table tbody tr td {
+    color: #999;
+  }
+
+  .qiyuzs .qiyuzsBox table tbody tr td.hot span {
+    background: #50befa;
+  }
+
+  .qiyuzs .qiyuzsBox table tbody tr td.hot span,.qiyuzs .qiyuzsBox table tbody tr td.pol span {
+    display: inline-block;
+    height: 16px;
+    line-height: 16px;
+    width: 16px;
+    color: #fff;
+    border-radius: 50%;
+  }
+
+  .qiyuzs .qiyuzsBox table tbody tr td.pol span {
+    background: #ee9a00;
+  }
+
+  .qiyuzs .qiyuzsBox table tbody tr td.fancongcls {
+    background: #9595c5!important;
+  }
+
+  .qiyuzs .qiyuzsBox table tbody tr td.fancongcls span {
+    color: #fff;
+  }
+
+  .qiyuzs .qiyuzsBox table tbody tr td i {
+    position: absolute;
+    display: none;
+    width: 12px;
+    height: 12px;
+    z-index: 1;
+    font-size: 11px;
+    border-radius: 13px;
+    line-height: 12px;
+  }
+
+  .qiyuzs .qiyuzsBox table tbody tr td .smallQiu {
+    background-color: red;
+    display: inline-block;
+    color: #fff;
+    margin-top: -8px;
+    margin-left: -2px;
+  }
+
+  .qiyuzs .qiyuzsBox table tbody tr th {
+    text-align: center;
+  }
+
+  .qiyuzs .qiyuzsBoxtop .meek {
+    background: #f0efef;
+  }
+
+  .qiyuzs .qiyuzsBoxtop .one {
+    color: #fff;
+    font-zise: 13px;
+    background: #00baff;
+  }
+
+  .qiyuzs .qiyuzsBoxtop .top {
+    color: #fff;
+    font-zise: 13px;
+    background: #fcb103;
+  }
+
+  .qiyuzs .qiyuzsBoxtop table {
+    display: table;
+    width: 100%;
+    background: #e5e5e5;
+    text-align: center;
+  }
+
+  .qiyuzs .qiyuzsBoxtop table thead th {
+    height: 33px;
+    line-height: 33px;
+    background: #f0f0f0;
+    text-align: center;
+    color: #666!important;
+  }
+
+  .qiyuzs .qiyuzsBoxtop table thead .qiyupl_app {
+    width: 8%;
+  }
+
+  .qiyuzs .qiyuzsBoxtop table thead .qiyu_arr {
+    width: 12%;
+  }
+
+  .qiyuzs .qiyuzsBoxtop table tbody tr {
+    height: 33px;
+    background: #fefdfd;
+  }
+
+  .qiyuzs .qiyuzsBoxtop table tbody tr td {
+    color: #999;
+    font-size: 12px;
+  }
+
+  .qiyuzs .qiyuzsBoxtop table tbody tr td.fancongcls {
+    background: #9595c5!important;
+  }
+
+  .qiyuzs .qiyuzsBoxtop table tbody tr td.fancongcls span {
+    color: #fff;
+  }
+
+  .qiyuzs .qiyuzsBoxtop table tbody tr th {
+    text-align: center;
+  }
+
+  .lookshjtjda {
+    display: inline;
+    line-height: 40px;
+    color: #333;
+    float: right;
+    margin-right: 10px;
+  }
+
+  th,td{
+    border:1px solid #eaeaea;
+  }
+  .select-page {
+    left: 0;
+    top: 12px;
+    position: absolute;
+    z-index: 1000;
+    display: block;
+    width: 100%;
+    height: 100%;
+    contain: strict;
+  }
+
+  .main-wrapper {
+    height: 260px;
+    border-top: 0.55px solid #dedede;
+    background: #fff;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 10;
+    margin: auto;
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+  }
+
+  .tool-bar {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    height: 44px;
+    background: #fff;
+    z-index: 1;
+    width: 100%;
+    contain: strict;
+  }
+
+  .option-md {
+    padding: 15px;
+    height: 44px;
+    font-size: 14px;
+    color: red;
+  }
+
+  .main-content {
+    display: flex;
+    overflow: hidden;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    overflow: scroll;
+    height: auto;
+    max-height: 200px;
+  }
+
+  .main-content ul {
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+
+  .main-content ul li {
+    text-align: center;
+    font-size: 16px;
+    line-height: 42px;
+  }
+
+  .main-content ul li.checked {
+    color: red;
+  }
+
+  .marginTop li {
+    text-align: center;
+    float: left;
+    width: 22%;
+    height: 30px;
+    font-size: 14px!important;
+    line-height: 30px!important;
+    margin-right: 2%;
+    border: 1px solid #e4e3e8;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  ul li.check_tj {
+    border-color: #e12121;
+    color: #e12121;
+    position: relative;
+  }
+
+  ul li.check_tj:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -1px;
+    right: 0;
+    margin-left: -8px;
+    width: 16px;
+    height: 16px;
+    background: url(../../assets/imgs/icon-168index.png) 0 -25px no-repeat;
+    background-size: 333px;
+  }
+}

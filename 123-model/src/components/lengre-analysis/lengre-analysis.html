@@ -1,0 +1,33 @@
+<!-- Generated template for the LengreAnalysisComponent component -->
+<!--<div >-->
+<div class="component_scroll">
+  <div class=" drawCodebox lenrefx" style="left: 0; display: block;">
+
+    <div class="showconten" *ngIf="tempData && tempData?.length>0">
+      <div class="item_" [ngClass]="{item_lere1:index==0,item_lere2:index==1,item_lere3:index>1}"
+           *ngFor="let item of tempData;let index=index;">
+        <span
+          class="item_title">{{index == 0 ? '冠军' : index == 1 ? '亚军' : index == 2 ? '第三名' : index == 3 ? '第四名' : index == 4 ? '第五名' : index == 5 ? '第六名' : index == 6 ? '第七名' : index == 7 ? '第八名' : index == 8 ? '第九名' : '第十名'}}</span>
+        <ul class="num_item">
+          <li class="li_first">热号</li>
+          <!--<li class="hotnum" ng><span>1</span><span class="spanclass">4</span></li>-->
+          <li class="hotnum" *ngFor="let temp of item?.hot;">
+            <span *ngIf="temp?.value>3"><span>{{temp?.key}}</span><span class="spanclass">{{temp?.value}}</span></span>
+            <span *ngIf="temp?.value<4">{{temp?.key}}</span>
+          </li>
+          <!--<li class="hotnum"  *ngFor="let temp in item?.hot;"><span>{{temp}}</span><span class="spanclass">{{item?.hot[temp]}}</span></li>-->
+        </ul>
+        <ul class="zongkai_item">
+          <li class="li_first">温号</li>
+          <li class="hotnum" *ngFor="let temp of item?.soft;">{{temp?.key}}</li>
+        </ul>
+        <ul class="weikai_item">
+          <li class="li_first">冷号</li>
+          <li class="hotnum" *ngFor="let temp of item?.cool;">{{temp?.key}}</li>
+        </ul>
+      </div>
+    </div>
+    <div *ngIf="!tempData || tempData?.length==0" class="no-data"> 加载中   <div style="height: 350px;"></div></div>
+  </div>
+
+</div>

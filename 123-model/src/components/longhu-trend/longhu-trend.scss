@@ -1,0 +1,383 @@
+longhu-trend {
+
+
+  .longhuzs #gltjhead .gyhHead {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+    padding: 10px;
+  }
+
+  .longhuzs #gltjhead .gyhHead span {
+    display: inline-block;
+  }
+
+  .longhuzs #gltjhead .gyhHead ul {
+    display: flex;
+    width: 70%;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 15px;
+    border: 1px solid #e12121;
+  }
+
+  .longhuzs #gltjhead .gyhHead ul li {
+    float: left;
+    flex: 1;
+    text-align: center;
+  }
+
+  .longhuzs #gltjhead .gyhHead ul li span {
+    position: relative;
+    color: #e12121;
+  }
+
+  .longhuzs #gltjhead .gyhHead ul li:first-child {
+    margin-right: -10px;
+    border-right: 1px solid #e12121;
+  }
+
+  .longhuzs #gltjhead .gyhHead ul span:after {
+    content: "";
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    top: 9px;
+    margin-left: .03rem;
+    display: inline-block;
+    background: url(../../assets/imgs/px10obj.png) -17px 0 no-repeat;
+    background-size: 37px;
+  }
+
+  .longhuzs #gltjhead .gyhHead ul #gyhsxBtn {
+    margin-right: 10px;
+  }
+
+  .longhuzs #gltjhead .gyhHead .gyhcksjtj {
+    display: inline-block;
+    flex: 1;
+    float: right;
+    height: 30px;
+    line-height: 30px;
+    color: #333;
+    text-align: right;
+  }
+
+  .longhuzs #gltjhead .gyhdateBox {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .longhuzs #gltjhead .gyhdateBox table {
+    display: table;
+    background: #e6e6e6;
+    width: 100%;
+    color: #666;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  .longhuzs #gltjhead .gyhdateBox table th {
+    color: #333;
+    height: 30px;
+    line-height: 30px;
+    background: #f0f0f0;
+    text-align: center;
+    border: 1px solid #eaeaea;
+  }
+
+  .longhuzs #gltjhead .gyhdateBox table tbody .line_gyh {
+    height: 0;
+    border-bottom: 2px solid #d6d6d6;
+  }
+
+  .longhuzs #gltjhead .gyhdateBox table tbody .line_gyh td {
+    height: 0;
+  }
+
+  .longhuzs #gltjhead .gyhdateBox table tbody td {
+    height: 30px;
+    background: #fff;
+    border: 1px solid #eaeaea;
+  }
+
+  .longhuzs #gltjhead .gyhdateBox table tbody .hot_gyh span {
+    color: #fff!important;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 10px;
+  }
+
+  .longhuzs #gltjhead .gyhdateBox table tbody .fancongcls_gyh {
+    background: #9595c5;
+    color: #fff;
+  }
+
+  .longhuzs #gltjhead .gyhdateBox table tbody .fancongcls_gyh span {
+    color: #fff;
+  }
+
+  //龙虎走势  今天  昨天 前天 30  60  90期操作
+  #gyhshowBox {
+    position: absolute;
+    width: 100%;
+    height: 0;
+    top: -2000px;
+    background: rgba(0,0,0,.1);
+    z-index: 1;
+    transition: all .3s linear;
+  }
+
+  #gyhshowBox .gyhshow {
+    position: absolute;
+    width: 95%;
+    height: 60%;
+    border-radius: 10px;
+    margin: 0 10px;
+    text-align: center;
+    margin-top: 30%;
+    font-size: 14px;
+    color: #666;
+  }
+
+  #gyhshowBox .gyhshow p {
+    height: 40px;
+    line-height: 40px;
+    color: #e12121;
+    background: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  #gyhshowBox .gyhshow ul {
+    color: #666;
+    height: auto;
+    background: #fff;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  #gyhshowBox .gyhshow ul li {
+    background: #fff;
+    height: 50px;
+    line-height: 50px;
+    border-top: 1px solid #dbdbdb;
+  }
+
+  #gyhshowBox .gyhshow ul li:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  #gyhshowBox .gyhshow .btndiv {
+    height: 50px;
+  }
+
+  #gyhshowBox .gyhshow .btndiv span {
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 10px;
+    color: #2f76f6;
+    border-radius: 10px;
+    background: #fff;
+  }
+
+
+  //龙虎走势  筛选操作
+  .gyhloteyPage {
+    position: absolute;
+    width: 100%;
+    height: 0;
+    top: -2000px;
+    background: rgba(0,0,0,.1);
+    z-index: 1;
+    transition: all .3s linear;
+  }
+
+  .gyhloteyPage .Page_maingyh {
+    position: absolute;
+    width: 95%;
+    height: 60%;
+    border-radius: 10px;
+    margin: 0 10px;
+    text-align: center;
+    margin-top: 50%;
+    font-size: 14px;
+    color: #666;
+  }
+
+  .gyhloteyPage .Page_maingyh p {
+    height: 40px;
+    line-height: 40px;
+    color: #e12121;
+    background: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .gyhloteyPage .Page_maingyh ul {
+    color: #666;
+    background: #fff;
+    height: 80px;
+    padding: 30px 10px;
+    padding-bottom: 0;
+    font-size: 0;
+  }
+
+  .gyhloteyPage .Page_maingyh ul li {
+    float: left;
+    width: 23%;
+    height: 30px;
+    font-size: 14px;
+    line-height: 30px;
+    margin-right: 2.5%;
+    margin-top: 7px;
+    border: 1px solid #dbdbdb;
+    border-radius: 2px;
+    display: inline-block;
+    box-sizing: border-box;
+  }
+
+  .gyhloteyPage .Page_maingyh ul li:last-child {
+    margin-right: 0;
+  }
+
+  .gyhloteyPage .Page_maingyh .btngrulp_gyh {
+    height: 50px;
+  }
+
+  .gyhloteyPage .Page_maingyh .btngrulp_gyh span {
+    display: inline-block;
+    float: left;
+    width: 50%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .gyhloteyPage .Page_maingyh .btngrulp_gyh .reset_gyh {
+    color: #2f76f6;
+    background: #f0f0f0;
+  }
+
+  .gyhloteyPage .Page_maingyh .btngrulp_gyh .sure_gyh {
+    color: #fff;
+    background: #e12121;
+  }
+  .select-page {
+    left: 0;
+    top: 12px;
+    position: absolute;
+    z-index: 1000;
+    display: block;
+    width: 100%;
+    height: 100%;
+    contain: strict;
+  }
+
+  .main-wrapper {
+    height: 260px;
+    border-top: 0.55px solid #dedede;
+    background: #fff;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 10;
+    margin: auto;
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+  }
+
+  .tool-bar {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    height: 44px;
+    background: #fff;
+    z-index: 1;
+    width: 100%;
+    contain: strict;
+  }
+
+  .option-md {
+    padding: 15px;
+    height: 44px;
+    font-size: 14px;
+    color: red;
+  }
+
+  .main-content {
+    display: flex;
+    overflow: hidden;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    overflow: scroll;
+    height: auto;
+    max-height: 200px;
+  }
+
+  .main-content ul {
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+
+  .main-content ul li {
+    text-align: center;
+    font-size: 16px;
+    line-height: 42px;
+  }
+
+  .main-content ul li.checked {
+    color: red;
+  }
+
+  .marginTop li {
+    text-align: center;
+    float: left;
+    width: 22%;
+    height: 30px;
+    font-size: 14px!important;
+    line-height: 30px!important;
+    margin-right: 2%;
+    border: 1px solid #e4e3e8;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  ul li.check_tj {
+    border-color: #e12121;
+    color: #e12121;
+    position: relative;
+  }
+
+  ul li.check_tj:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -1px;
+    right: 0;
+    margin-left: -8px;
+    width: 16px;
+    height: 16px;
+    background: url(../../assets/imgs/icon-168index.png) 0 -25px no-repeat;
+    background-size: 333px;
+  }
+}

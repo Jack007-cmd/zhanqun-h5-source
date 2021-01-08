@@ -1,0 +1,33 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+            "path" : "pages/index/index",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/draw-history/draw-history",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/analysis/instant-draw",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/recommend-favorite/recommend-favorite",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/rules-of-play/rules-of-play",
+            "style" : {}
+        }
+    ],
+	"globalStyle": {
+		"navigationStyle":"custom",
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "Macao Lottos",
+		"navigationBarBackgroundColor": "#222222",
+		"backgroundColor": "#222222",
+		"backgroundColorTop": "#222222",
+		"backgroundColorBottom": "#222222"
+	}
+}

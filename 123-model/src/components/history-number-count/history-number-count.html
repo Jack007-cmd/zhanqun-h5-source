@@ -1,0 +1,128 @@
+<div class="component_scroll">
+  <div class="drawCodebox lishihmtj" *ngIf="mainData" style="left: 0; display: block;">
+    <div class="lshmtj_navTab" *ngIf="codeType!=4">
+      <span id="hmCheck" (click)="filter=0">号码查看<i [ngClass]="{iActClass:filter==0}"></i></span>
+      <span id="xtCheck" (click)="filter=1">形态查看<i [ngClass]="{iActClass:filter==1}"></i></span>
+    </div>
+    <div *ngIf="filter==0">
+      <div class="minciList" class="lshmtj_hmkanList" *ngIf="codeType==1||codeType==2">
+        <ul class="firstul">
+          <li>日期</li>
+          <li>0</li>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+          <li>6</li>
+          <li>7</li>
+          <li>8</li>
+          <li>9</li>
+        </ul>
+        <div class="ulDiv">
+          <ul *ngFor="let item of mainData?.basic;">
+            <li>{{item?.day}}</li>
+            <li *ngFor="let temp of item?.number;">{{temp}}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="minciList" class="lshmtj_hmkanList k3_lishi" *ngIf="codeType==4">
+        <ul class="firstul">
+          <li>日期</li>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+          <li>6</li>
+          <li>大</li>
+          <li>小</li>
+        </ul>
+        <div class="ulDiv">
+          <ul *ngFor="let item of mainData?.basic;">
+            <li>{{item?.day}}</li>
+            <li *ngFor="let temp of item?.number;">{{temp}}</li>
+          </ul>
+        </div>
+      </div>
+      <div id="lishitj_ls" *ngIf="codeType==3">
+        <div class="leftDate">
+          <table id="table_riqi" border="0" cellspacing="1" cellpadding="10">
+            <thead>
+            <tr>
+              <th rowspan="2">日期</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of mainData?.basic;" class="qishutr">
+              <td>{{item?.day}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="lishiDate">
+          <table id="table_lishihmtj" border="0" cellspacing="1" cellpadding="1">
+            <thead>
+            <tr>
+              <th colspan="31" class="riqi">1--20分布<span>（左右滑动查看）</span></th>
+            </tr>
+            <tr>
+              <th>01</th>
+              <th>02</th>
+              <th>03</th>
+              <th>04</th>
+              <th>05</th>
+              <th>06</th>
+              <th>07</th>
+              <th>08</th>
+              <th>09</th>
+              <th>10</th>
+              <th>11</th>
+              <th>12</th>
+              <th>13</th>
+              <th>14</th>
+              <th>15</th>
+              <th>16</th>
+              <th>17</th>
+              <th>18</th>
+              <th>19</th>
+              <th>20</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of mainData?.basic;" class="hmck">
+              <td *ngFor="let temp of item?.number;">{{temp}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="dsdxList" id="lshmtj_xtList" *ngIf="filter==1">
+      <ul class="firstul">
+        <li>日期</li>
+        <li>单</li>
+        <li>双</li>
+        <li>大</li>
+        <li>小</li>
+        <li>龙</li>
+        <li>虎</li>
+        <li>平</li>
+      </ul>
+      <div class="ulDiv">
+        <ul *ngFor="let item of mainData?.pattern;">
+          <li>{{item?.day}}</li>
+          <li>{{item?.single}}</li>
+          <li>{{item?.double}}</li>
+          <li>{{item?.big}}</li>
+          <li>{{item?.little}}</li>
+          <li>{{item?.dragon}}</li>
+          <li>{{item?.tiger}}</li>
+          <li>{{item?.and}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!mainData" class="no-data">加载中  <div style="height: 350px;"></div></div>
+
+</div>

@@ -1,0 +1,490 @@
+position-trend {
+
+
+  .wezizs {
+    background: #efeff4;
+  }
+
+  .wezizs .table_conditions {
+    background: #fff;
+  }
+
+  .wezizs .table_conditions .divtitile {
+    overflow: hidden;
+  }
+
+  .wezizs .table_conditions .divtitile p {
+    display: flex;
+    margin-left: 10px;
+    border: 1px solid #e12121;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 30px;
+    margin: 5px 10px;
+    width: 62%;
+    float: left;
+  }
+
+  .wezizs .table_conditions .divtitile p span {
+    border-right: 1px solid #e12121;
+    display: inline-block;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+    color: #e12121;
+    flex: 1;
+  }
+
+  .wezizs .table_conditions .divtitile p span:after {
+    content: "";
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    top: 9px;
+    display: inline-block;
+    background: url(../../assets/imgs/px10obj.png) -17px 0 no-repeat;
+    background-size: 37px;
+    margin-left: 5px;
+  }
+
+  .wezizs .table_conditions .divtitile p span.weai {
+    width: 95px;
+    text-align: center;
+    margin-right: -10px;
+  }
+
+  .wezizs .table_conditions .divtitile p span.shjian {
+    width: 80px;
+    text-align: center;
+    margin-right: -10px;
+  }
+
+  .wezizs .table_conditions .divtitile p span.tiaojian {
+    width: 83px;
+    text-align: center;
+    border: 0;
+    margin-right: 10px;
+  }
+
+  .wezizs .table_conditions .divtitile .lookshjtj {
+    display: inline;
+    line-height: 40px;
+    color: #333;
+    float: right;
+    margin-right: 10px;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv {
+    position: relative;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv table {
+    background: #dbdbdb;
+    border-spacing: 1px;
+    width: 100%;
+    color: #999;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv table thead tr th {
+    text-align: center;
+    height: 25px;
+    background: #f0f0f0;
+    font-size: 14px;
+    color: #333;
+    border:1px solid #eaeaea;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv table thead tr th.short {
+    width: 15% !important;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv table tbody tr.line_wzzs {
+    height: 0;
+    border-bottom: 2px solid #d6d6d6;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv table tbody tr.line_wzzs td {
+    height: 0;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv table tbody tr.clospan td {
+    background: #f0f0f0;
+    font-size: 14px;
+    color: #333;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv table tbody tr td {
+    text-align: center;
+    height: 25px;
+    background: #fff;
+    min-width: 20px;
+    border:1px solid #eaeaea;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv table tbody tr td.numeven span,.wezizs .table_conditions .table_conBox #chartLinediv table tbody tr td.numodd span {
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    color: #fff;
+    background: #e12121;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv table tbody tr td.numodd span {
+    background: #3cb0ec;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv table tbody tr td.tabred span {
+    color: #ef020a;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv table tbody tr td.hot span {
+    display: inline-block;
+    height: 16px;
+    line-height: 16px;
+    width: 16px;
+    background: #0092e0;
+    color: #fff;
+    border-radius: 50%;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv table tbody tr td.fancongcls {
+    background: #9595c5;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv table tbody tr td.fancongcls span {
+    color: #fff;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv .table_sttz tbody tr td {
+    min-width: 30px;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv .table_lu012 tbody tr td,.wezizs .table_conditions .table_conBox #chartLinediv .table_spj tbody tr td {
+    width: 20%;
+  }
+
+
+  .wezizs .table_conditions .table_conBox #chartLinediv .table_dingwezs {
+    background: #dbdbdb;
+    border-spacing: 1px;
+    width: 100%;
+    color: #999;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv .table_dingwezs thead tr th {
+    text-align: center;
+    height: 25px;
+    background: #f0f0f0;
+    font-size: 12px;
+    color: #333;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv .table_dingwezs thead tr th.short {
+    width: 15%!important;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv .table_dingwezs tbody .ding {
+    background: #fdf7ed;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv .table_dingwezs tbody tr.line_wzzs {
+    height: 0;
+    border-bottom: 2px solid #d6d6d6;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv .table_dingwezs tbody tr.line_wzzs td {
+    height: 0;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv .table_dingwezs tbody tr.clospan td {
+    background: #f0f0f0;
+    font-size: 12px;
+    color: #333;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv .table_dingwezs tbody tr td {
+    text-align: center;
+    height: 25px;
+    background: #fff;
+    min-width: 20px;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv .table_dingwezs tbody tr td.numeven span,.wezizs .table_conditions .table_conBox #chartLinediv .table_dingwezs tbody tr td.numodd span {
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    color: #fff;
+    background: #fb8e19;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv .table_dingwezs tbody tr td.numodd span {
+    background: #3cb0ec;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv .table_dingwezs tbody tr td.hot span {
+    display: inline-block;
+    height: 16px;
+    line-height: 16px;
+    width: 16px;
+    background: #50befa;
+    color: #fff;
+    border-radius: 50%;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv .table_dingwezs tbody tr td.pol span {
+    display: inline-block;
+    height: 16px;
+    line-height: 16px;
+    width: 16px;
+    background: #ee9a00;
+    color: #fff;
+    border-radius: 50%;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv .table_dingwezs tbody tr td.fancongcls {
+    background: #9595c5!important;
+  }
+
+  .wezizs .table_conditions .table_conBox #chartLinediv .table_dingwezs tbody tr td.fancongcls span {
+    color: #fff;
+  }
+
+
+  //.wezizs .table_conditions #chartbottom {
+  //  display: none;
+  //}
+
+  .wezizs .Pattern {
+    background: #fff;
+    height: 45px;
+    line-height: 45px;
+    display: -moz-box;
+    display: -webkit-box;
+    margin-bottom: 8px;
+  }
+
+  .wezizs .Pattern span {
+    margin-left: 20px;
+    display: inline-block;
+    padding: 0 10px;
+    height: 21px;
+    vertical-align: middle;
+    line-height: 21px;
+    text-align: center
+  }
+
+  .wezizs .Pattern span.haomafb {
+    margin-left: 20px;
+  }
+
+  .wezizs .Pattern span.checkspan {
+    background: #e12121;
+    color: #fff;
+    border-radius: 21px;
+  }
+
+
+  .loteyPage#rank_wzzs .Page_content {
+    max-height: 60% !important;
+  }
+
+  .loteyPage#rank_wzzs .checkTitle {
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #ededed;
+  }
+
+  .loteyPage#rank_wzzs ul {
+    height: auto;
+    overflow: scroll;
+    overflow-x: hidden;
+    background: #fff;
+  }
+
+  .loteyPage#rank_wzzs ul li {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    border-top: 1px solid #e8e8e8;
+    text-align: center;
+    background: #fff;
+    box-sizing: border-box;
+  }
+
+  .loteyPage#rank_wzzs ul li.checked {
+    color: #e12121;
+  }
+
+  .loteyPage#rank_wzzs ul li:first-child {
+    border-top: 0;
+  }
+
+  .loteyPage#rank_wzzs .reset {
+    height: 40px;
+    line-height: 40px;
+  }
+
+
+  .loteyPage#periods_wzzs .checkTitle {
+    border-bottom: 1px solid #ededed;
+  }
+
+  .loteyPage#periods_wzzs ul {
+    height: auto;
+    overflow: scroll;
+    overflow-x: hidden;
+    background: #fff;
+  }
+
+  .loteyPage#periods_wzzs ul li {
+    width: 100%;
+    height: 53px;
+    line-height: 53px;
+    border-top: 1px solid #e8e8e8;
+    text-align: center;
+    background: #fff;
+    box-sizing: border-box;
+  }
+
+  .loteyPage#periods_wzzs ul li.checked {
+    color: #e12121;
+  }
+
+  .loteyPage#periods_wzzs ul li:first-child {
+    border-top: 0;
+  }
+
+
+  .loteyPage#tiaojian_wzzs .Page_main {
+    position: relative;
+    height: auto;
+    max-height: 45%;
+    margin-top: 211px;
+  }
+
+  .loteyPage#tiaojian_wzzs .Page_main .Page_content {
+    height: 51%;
+  }
+
+  .loteyPage#tiaojian_wzzs ul li {
+    margin-right: 0!important;
+    margin-left: 2%!important;
+    list-style-type: none;
+  }
+  .w_70{
+    width:70%!important;;
+  }
+  .select-page {
+    left: 0;
+    top: 12px;
+    position: absolute;
+    z-index: 1000;
+    display: block;
+    width: 100%;
+    height: 100%;
+    contain: strict;
+  }
+
+  .main-wrapper {
+    //height: 260px;
+    border-top: 0.55px solid #dedede;
+    background: #fff;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 10;
+    margin: auto;
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+  }
+
+  .tool-bar {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    height: 44px;
+    background: #fff;
+    z-index: 1;
+    width: 100%;
+    contain: strict;
+  }
+
+  .option-md {
+    padding: 15px;
+    height: 44px;
+    font-size: 14px;
+    color: red;
+  }
+
+  .main-content {
+    display: flex;
+    overflow: hidden;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    overflow: scroll;
+    height: auto;
+    //max-height: 200px;
+  }
+
+  .main-content ul {
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+
+  .main-content ul li {
+    text-align: center;
+    font-size: 16px;
+    line-height: 42px;
+  }
+
+  .main-content ul li.checked {
+    color: red;
+  }
+
+  .marginTop li {
+    text-align: center;
+    float: left;
+    width: 22%;
+    height: 30px;
+    font-size: 14px!important;
+    line-height: 30px!important;
+    margin-right: 2%;
+    border: 1px solid #e4e3e8;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  ul li.check_tj {
+    border-color: #e12121;
+    color: #e12121;
+    position: relative;
+  }
+
+  ul li.check_tj:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -1px;
+    right: 0;
+    margin-left: -8px;
+    width: 16px;
+    height: 16px;
+    background: url(../../assets/imgs/icon-168index.png) 0 -25px no-repeat;
+    background-size: 333px;
+  }
+}
+

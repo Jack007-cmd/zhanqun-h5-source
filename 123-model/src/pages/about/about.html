@@ -1,0 +1,41 @@
+<ion-header>
+  <div class="myHeader">
+    <div class="header_back" navPop></div>
+    <h2>开奖号码</h2>
+    <!--<div class="root-div"><span class="to-root" (click)="toRoot()"></span></div>-->
+  </div>
+</ion-header>
+
+<ion-content>
+
+  <div class="about-tabs">
+    <div class="tabs-all">
+      <ul class="ul-list">
+        <li [ngClass]="{current:currentSort==index}" tappable="" *ngFor="let sort of sortArr;let index = index;"
+            (click)="currentSortAbout(index);">
+          <span class="name">{{sort.name}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!--<ion-refresher (ionRefresh)="doRefresh($event)">-->
+  <!--<ion-refresher-content-->
+  <!--pullingIcon="arrow-dropdown"-->
+  <!--pullingText="刷新"-->
+  <!--refreshingSpinner="circles"-->
+  <!--refreshingText="刷新中">-->
+  <!--</ion-refresher-content>-->
+  <!--</ion-refresher>-->
+
+  <div class="body-box">
+    <div class="czList" id="about-parent" (touchstart)="first($event)"
+         (touchend)="last($event)">
+      <!--<div *ngFor="let item of aboutList;let index=index;" style="padding: 0 5px;"  (touchstart)="start($event)" (touchend)="end($event)" [attr.data-id]="item.code">-->
+      <div *ngFor="let item of aboutList;let index=index;" style="padding: 0 5px;" [attr.data-id]="item.code">
+        <about-item [aboutItem]="item"></about-item>
+      </div>
+      <!--    <about-item  class="about-item" [aboutItem]="item" *ngFor="let item of aboutList;let index=index;" [id]="index" [attr.code]="item.code" (touchstart)='start($event)' (touchmove) ='move($event)' (touchend)='end($event)'></about-item> -->
+    </div>
+  </div>
+</ion-content>

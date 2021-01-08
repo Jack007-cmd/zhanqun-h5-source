@@ -1,0 +1,39 @@
+<!--
+  Generated template for the AboutKindsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <div class="myHeader">
+    <div class="header_back" navPop></div>
+    <h2 ><span tappable>所有彩种 </span></h2>
+  </div>
+</ion-header>
+
+<ion-content >
+  <!--彩种列表框-->
+  <ng-container *ngIf="sortArr && sortArr?.length>0">
+  <div id="cZList" style="position: absolute;height: 100%;">
+    <!--<div class="backbtn"><span>返回</span><span>所有彩种</span><span>&nbsp;</span></div>-->
+    <div class="toRMC"  >
+      <div class="title">我的收藏（{{collectionArr?.length}}）</div>
+      <div class="content" >
+        <ul id="my-collection" >
+          <li class="ignore-elements" *ngFor="let it of collectionArr;" (touchstart)="start($event)" (touchend)="end($event,it)" (touchmove)="clear($event)" [attr.code]="it?.code">
+            <img height="25" [src]="it?.logo" alt=""><span>{{it?.name}}</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="toRMC"  *ngFor="let item of sortArr;let index=index;">
+      <div class="title" >{{item?.name}}  <span class="right_arrow" navPush="AboutPage" [navParams]="{index:index}"></span></div>
+      <div class="content" *ngIf="item?.list && item?.list?.length>0">
+        <ul [id]="'item-parent_'+index">
+          <li *ngFor="let it of item?.list;"  (touchstart)="itemStart($event)" (touchend)="itemEnd($event,it)" (touchmove)="itemClear($event)" [attr.code]="it.code">
+            <img height="25" [src]="it?.logo" alt=""><span>{{it.name}}</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </ng-container>
+</ion-content>

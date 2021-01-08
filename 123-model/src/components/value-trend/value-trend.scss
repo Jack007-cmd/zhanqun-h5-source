@@ -1,0 +1,381 @@
+value-trend {
+  .drawCodebox {
+    height: auto;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    font-size: 12px;
+  }
+
+  .hezhizspl {
+    background: #f0eff5;
+  }
+
+  .hezhizspl .qianhuan_pl {
+    background: #fff;
+    height: 45px;
+    line-height: 45px;
+    display: inherit;
+    margin-bottom: 8px;
+  }
+
+  .hezhizspl .qianhuan_pl .qianhuan_noe {
+    display: inline-block;
+    width: 100px;
+    height: 23px;
+    vertical-align: middle;
+    line-height: 20px;
+    text-align: center;
+    float: left;
+    margin-left: 15%;
+    margin-top: 9px;
+    padding-top: 3px;
+  }
+
+  .hezhizspl .qianhuan_pl .qianhuan_noe.checkspan {
+    background: #e12121;
+    color: #fff;
+    border-radius: 21px;
+  }
+
+  .hezhizspl .qianhuan_pl .qianhuan_top {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 21px;
+    text-align: center;
+    float: right;
+    margin-right: 15%;
+    width: 100px;
+    height: 23px;
+    margin-top: 9px;
+    padding-top: 3px;
+  }
+
+  .hezhizspl .qianhuan_pl .qianhuan_top.checkspan {
+    background: #e12121;
+    color: #fff;
+    border-radius: 21px;
+  }
+
+  .hezhizspl .hezhi_pon {
+    overflow: hidden;
+    width: 100%;
+    background: #fff;
+  }
+
+  .hezhizspl .hezhi_pon p {
+    display: flex;
+    margin-left: 10px;
+    border: 1px solid #e12121;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 30px;
+    margin: 5px 10px;
+    width: 62%;
+    float: left;
+  }
+
+  .hezhizspl .hezhi_pon p span {
+    display: inline-block;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+    color: #e12121;
+    flex: 1;
+    margin-right: 20px;
+    text-align: center;
+  }
+
+  .hezhizspl .hezhi_pon p span:after {
+    content: "";
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    top: 9px;
+    display: inline-block;
+    margin-left: 4px;
+    background: url(../../assets/imgs/px10obj.png) -17px 0 no-repeat;
+    background-size: 37px;
+  }
+
+  .hezhizspl .hezhi_pon p span.kjdsbskj {
+    width: 95px;
+    border-left: 1px solid #e12121;
+  }
+
+  .hezhizspl .hezhi_pon p span.tiaojiannot {
+    width: 82.5px;
+    border: 0;
+  }
+
+  .hezhizspl .hezhi_pon .lookshjtjhe {
+    display: inline;
+    line-height: 40px;
+    color: #333;
+    float: right;
+    margin-right: 10px;
+  }
+
+  .hezhizspl .hezhiBox_noe, .hezhizspl .hezhiBox_top {
+    position: relative;
+  }
+
+  .hezhizspl .hezhiBox_noe .diyige, .hezhizspl .hezhiBox_top .diyige {
+    width: 9.6%;
+  }
+
+  .hezhizspl .hezhiBox_noe .dier, .hezhizspl .hezhiBox_top .dier {
+    width: 4.6%;
+  }
+
+  .hezhizspl .hezhiBox_noe .disan, .hezhizspl .hezhiBox_top .disan {
+    width: 5.3%;
+  }
+
+  .hezhizspl .hezhiBox_noe table, .hezhizspl .hezhiBox_top table {
+    background: #dbdbdb;
+    border-spacing: 1px;
+    width: 100%;
+    color: #999;
+  }
+
+  .hezhizspl .hezhiBox_noe table thead tr th, .hezhizspl .hezhiBox_top table thead tr th {
+    text-align: center;
+    height: 25px;
+    background: #f0f0f0;
+    font-size: 8px;
+    color: #333;
+  }
+
+  .hezhizspl .hezhiBox_noe .table_sttz .zouship, .hezhizspl .hezhiBox_top .table_sttz .zouship {
+    height: 26px;
+    background: #f0f0f0;
+  }
+
+  .hezhizspl .hezhiBox_noe .table_sttz .danmoshi, .hezhizspl .hezhiBox_top .table_sttz .danmoshi {
+    height: 26px;
+    background: #f0f0f0;
+    color: #000;
+  }
+
+  .hezhizspl .hezhiBox_noe .table_sttz tr, .hezhizspl .hezhiBox_top .table_sttz tr {
+    height: 20px;
+    background: #fff;
+  }
+
+  .hezhizspl .hezhiBox_noe .table_sttz tr td, .hezhizspl .hezhiBox_top .table_sttz tr td {
+    text-align: center;
+    height: 25px;
+    background: #fff;
+    font-size: 12px;
+  }
+
+  .hezhizspl .hezhiBox_noe .table_sttz tr td.numeven span, .hezhizspl .hezhiBox_noe .table_sttz tr td.numodd span, .hezhizspl .hezhiBox_top .table_sttz tr td.numeven span, .hezhizspl .hezhiBox_top .table_sttz tr td.numodd span {
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    color: #fff;
+    background: #e12121;
+  }
+
+  .hezhizspl .hezhiBox_noe .table_sttz tr td.hot span, .hezhizspl .hezhiBox_top .table_sttz tr td.hot span {
+    display: inline-block;
+    height: 16px;
+    line-height: 16px;
+    width: 16px;
+    background: #50befa;
+    color: #fff;
+    border-radius: 50%;
+  }
+
+  .hezhizspl .hezhiBox_noe .table_sttz tr td.fancongcls, .hezhizspl .hezhiBox_top .table_sttz tr td.fancongcls {
+    background: #9595c5 !important;
+  }
+
+  .hezhizspl .hezhiBox_noe .table_sttz tr td.fancongcls span, .hezhizspl .hezhiBox_top .table_sttz tr td.fancongcls span {
+    color: #fff;
+  }
+
+  .hezhizspl .hezhiBox_noe .table_sttz tr th, .hezhizspl .hezhiBox_top .table_sttz tr th {
+    text-align: center;
+  }
+
+  .hezhizspl .hezhiBox_noe .table_lese .zhilinst, .hezhizspl .hezhiBox_top .table_lese .zhilinst {
+    background: #fff;
+  }
+
+  .hezhizspl .hezhiBox_noe .table_lese tr, .hezhizspl .hezhiBox_top .table_lese tr {
+    height: 30px;
+    text-align: center;
+    background: #fff;
+  }
+
+  .hezhizspl .hezhiBox_noe .table_lese tr td, .hezhizspl .hezhiBox_top .table_lese tr td {
+    color: #949393;
+    font-size: 11px;
+  }
+
+  .hezhizspl .hezhiBox_noe .table_lese tr td.hot span, .hezhizspl .hezhiBox_top .table_lese tr td.hot span {
+    display: inline-block;
+    height: 16px;
+    line-height: 16px;
+    width: 16px;
+    background: #50befa;
+    color: #fff;
+    border-radius: 50%;
+  }
+
+  .hezhizspl .hezhiBox_noe .table_lese tr td.hotp span, .hezhizspl .hezhiBox_top .table_lese tr td.hotp span {
+    display: inline-block;
+    height: 16px;
+    line-height: 16px;
+    width: 16px;
+    background: #f8a141;
+    color: #fff;
+    border-radius: 50%;
+  }
+
+  .hezhizspl .hezhiBox_noe .table_lese tr td.fancongcls, .hezhizspl .hezhiBox_top .table_lese tr td.fancongcls {
+    background: #9595c5 !important;
+  }
+
+  .hezhizspl .hezhiBox_noe .table_lese tr td.fancongcls span, .hezhizspl .hezhiBox_top .table_lese tr td.fancongcls span {
+    color: #fff;
+  }
+
+  .count_data .zouship th {
+    text-align: center;
+    height: 25px;
+    background: #f0f0f0;
+    font-size: 8px;
+    color: #333;
+  }
+
+  .count_data td {
+    text-align: center;
+    height: 25px;
+    background: #fff;
+    font-size: 12px;
+  }
+
+  .lookshjtjda {
+    display: inline;
+    line-height: 40px;
+    color: #333;
+    float: right;
+    margin-right: 10px;
+  }
+
+  th, td {
+    border: 1px solid #eaeaea;
+  }
+  .select-page {
+    left: 0;
+    top: 12px;
+    position: absolute;
+    z-index: 1000;
+    display: block;
+    width: 100%;
+    height: 100%;
+    contain: strict;
+  }
+
+  .main-wrapper {
+    height: 260px;
+    border-top: 0.55px solid #dedede;
+    background: #fff;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 10;
+    margin: auto;
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+  }
+
+  .tool-bar {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    height: 44px;
+    background: #fff;
+    z-index: 1;
+    width: 100%;
+    contain: strict;
+  }
+
+  .option-md {
+    padding: 15px;
+    height: 44px;
+    font-size: 14px;
+    color: red;
+  }
+
+  .main-content {
+    display: flex;
+    overflow: hidden;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    overflow: scroll;
+    height: auto;
+    max-height: 200px;
+  }
+
+  .main-content ul {
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+
+  .main-content ul li {
+    text-align: center;
+    font-size: 16px;
+    line-height: 42px;
+  }
+
+  .main-content ul li.checked {
+    color: red;
+  }
+
+  .marginTop li {
+    text-align: center;
+    float: left;
+    width: 22%;
+    height: 30px;
+    font-size: 14px!important;
+    line-height: 30px!important;
+    margin-right: 2%;
+    border: 1px solid #e4e3e8;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  ul li.check_tj {
+    border-color: #e12121;
+    color: #e12121;
+    position: relative;
+  }
+
+  ul li.check_tj:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -1px;
+    right: 0;
+    margin-left: -8px;
+    width: 16px;
+    height: 16px;
+    background: url(../../assets/imgs/icon-168index.png) 0 -25px no-repeat;
+    background-size: 333px;
+  }
+}
+

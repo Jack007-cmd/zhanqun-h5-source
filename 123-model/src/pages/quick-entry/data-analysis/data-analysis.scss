@@ -1,0 +1,392 @@
+page-data-analysis {
+  .current-info {
+    margin-top: 10px;
+    width: 100%;
+    height: 120px;
+    background: #fff;
+    padding: 15px 10px 0 10px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 12px;
+    margin-bottom: 10px;
+
+    .divline {
+      width: 100%;
+      //height: auto
+    }
+
+    .issuel {
+      //height: 17px
+      height: 28px;
+      line-height: 28px;
+
+      .openVideo {
+        float: right;
+      }
+    }
+
+    .drawCount {
+      font-size: 14px;
+      color: #999999;
+    }
+
+    .drawTimebox {
+      height: 30px;
+      line-height: 30px;
+      float: right;
+      color: #ff2600;
+      font-size: 14px;
+    }
+
+  }
+
+  .pk10num li {
+    font-size: 17px;
+    width: 30px !important;
+    line-height: 30px;
+  }
+
+  .divline .pk10li li {
+    display: inline-block;
+    float: left;
+    height: 30px;
+    margin-right: 3.5px;
+    background-size: 422px auto;
+    text-align: center;
+  }
+
+  .drawCodel {
+    margin-top: 9px;
+  }
+
+  .longhu li {
+    font-size: 14px;
+    line-height: 30px;
+  }
+
+  .cqnclilist {
+    width: 100%;
+    display: -webkit-box;
+
+    li {
+      height: 30px;
+      line-height: 30px;
+      width: auto;
+      text-align: center;
+      color: #fff;
+      font-size: .1rem;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      min-width: 30px;
+      max-width: 25px;
+      background-size: 452px auto;
+      -webkit-box-flex: 1;
+      box-flex: 1;
+      margin-right: 10px;
+    }
+  }
+
+  .egxy_div {
+    position: relative;
+
+    span {
+      position: absolute;
+      display: inline-block;
+      height: 30px;
+      line-height: 30px;
+      width: 25px;
+      background-size: 452px auto;
+      text-align: center;
+      color: #fff;
+      font-size: 10px;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    .addF1 {
+      left: 30px;
+    }
+
+    .addF2 {
+      left: 86px;
+    }
+
+    .equalF {
+      left: 143px;
+    }
+
+    .sscli li {
+      margin-right: 26px;
+    }
+  }
+
+  .egxy_ssclilist {
+    height: 30px;
+  }
+
+  .nub {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    vertical-align: inherit;
+  }
+
+  .blue-ball {
+    color: #fff;
+    background: #0092dd;
+    box-sizing: border-box;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    text-align: center;
+    line-height: 21px;
+  }
+
+  .num {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background-size: 350px auto;
+    vertical-align: inherit;
+  }
+
+  .pc-ball {
+    background: rgb(25, 166, 218);
+    box-sizing: border-box;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    text-align: center;
+    line-height: 21px;
+    color: #fff;
+  }
+
+  .label-ios {
+    margin: 11px 8px 0 0;
+  }
+
+  .label-md {
+    margin: 13px 8px 0 0;
+  }
+
+  .main-div {
+    .select-sec {
+      background: #fff;
+      height: 44px;
+      padding-top: 10px;
+
+      ul {
+        line-height: 24px;
+        height: 24px;
+        vertical-align: middle;
+        display: flex;
+
+        li {
+          width: 25%;
+          border-right: 1px solid #e5e5e5;
+          color: #333333;
+          text-align: center;
+
+          .list_arrow {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: url(../../../assets/imgs/sprite.png) 0 0 no-repeat;
+            background-size: 220px 147px;
+            background-position: -199px -31px;
+            vertical-align: middle;
+          }
+        }
+
+        li:last-child {
+          border: none;
+        }
+      }
+    }
+
+    .handle-sec {
+      line-height: 44px;
+      height: 44px;
+      background: #f1f1f1;
+      padding: 0 15px;
+      color: #494949;
+
+      input {
+        border: none;
+        border-radius: 5px;
+        width: 30px;
+        height: 20px;
+        text-align: center;
+        color: #0a91dd;
+        background: #fff;
+        line-height: 20px;
+        vertical-align: middle;
+      }
+
+      button {
+        margin-top: 7px;
+        border-radius: 5px;
+        background: #0a91dd;
+        color: #fff;
+        float: right;
+        height: 30px;
+        width: 70px;
+      }
+    }
+
+    .statistics-sec, .pic-sec {
+      background: #fff;
+      padding: 10px;
+
+      .title-div {
+        color: #555555;
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+
+      ul {
+        border: 1px solid #e5e5e5;
+        padding: 10px;
+        vertical-align: middle;
+        display: flex;
+
+        li {
+          width: 25%;
+          border-right: 1px solid #e5e5e5;
+          text-align: center;
+          color: #a0a0a0;
+
+          span {
+            color: #333333;
+            font-weight: 500;
+          }
+        }
+
+        li:nth-child(4n) {
+          border-right: none;
+        }
+      }
+
+      ul:nth-child(odd) {
+        border-top: none;
+      }
+    }
+
+    .desc-sec {
+      background: #fff;
+      padding: 10px;
+
+      h5 {
+        color: #2c80c8
+      }
+
+      p {
+        line-height: 20px;
+        margin-bottom: 10px;
+        color: #5c5c5c;
+
+        span:first-child {
+          color: #333333;
+          font-weight: bold;
+        }
+
+        .win {
+          color: #e12121;
+        }
+
+        .lose {
+          color: #3db83d;
+        }
+      }
+    }
+  }
+
+
+  .scroll-content {
+    margin-top: 32px !important;
+  }
+
+  .select-page {
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: 1000;
+    display: block;
+    width: 100%;
+    height: 100%;
+    contain: strict;
+
+    .main-wrapper {
+      height: 310px;
+
+      .tool-bar {
+        height: 45px;
+        border-bottom: 1px solid #dddddd;
+
+        .option-md {
+          float: left;
+          color: #333333;
+        }
+
+        button {
+          float: right;
+          background: #e12021;
+          color: #fff;
+          border-radius: 5px;
+          padding: 8px 20px;
+          margin-top: 8px;
+          margin-right: 15px;
+        }
+      }
+
+      ul {
+        width: 100%;
+      }
+
+      .main-content {
+        max-height: 212px;
+
+        ul {
+          li {
+            font-size: 14px;
+            line-height: 42px;
+            text-align: left;
+            padding-left: 20px;
+            border-bottom: 1px solid #dddddd;
+          }
+
+          li.checked {
+            background: #fff3f3;
+            color: #e32322;
+
+            span {
+              display: inline-block;
+              width: 24px;
+              height: 24px;
+              background: url(../../../assets/imgs/sprite.png) 0 0 no-repeat;
+              background-size: 220px 147px;
+              background-position: -65px -89px;
+              vertical-align: middle;
+              float: right;
+              margin-top: 11px;
+              margin-right: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .analysis_desc {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: url(../../../assets/imgs/sprite.png) 0 0 no-repeat;
+    background-size: 176px 118px;
+    background-position: -26px -95px;
+    vertical-align: middle;
+  }
+
+}
