@@ -1,0 +1,535 @@
+page-about-plan {
+  .navList {
+    position: absolute;
+    font-size: 14px;
+    background: #fff;
+    width: 100%;
+    height: 110px;
+    z-index: 3;
+    opacity: .1;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .navList div {
+    display: inline-block;
+    margin-right: 30px;
+    -moz-box-flex: 1;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    text-align: center;
+    color: #292929;
+    margin-top: 20px;
+    font-size: 12px;
+    flex: 1;
+  }
+
+  .navList div:first-child {
+    margin-left: 32px;
+  }
+
+  .navList span {
+    display: inline-block;
+    height: 38px;
+    width: 36px;
+    margin-bottom: 5px;
+  }
+
+  .navList .cphost span {
+    background: #fff url(../../../assets/imgs/icon-168index.png) -70px 2px no-repeat;
+    background-size: 333px;
+  }
+
+  .navList .lmtuijan span {
+    background: #fff url(../../../assets/imgs/icon-168index.png) -105px 2px no-repeat;
+    background-size: 333px;
+  }
+
+  .navList .shjhua span {
+    background: #fff url(../../../assets/imgs/icon-168index.png) -176px 2px no-repeat;
+    background-size: 333px;
+  }
+
+  .navList .goucjhua span {
+    background: #fff url(../../../assets/imgs/icon-168index.png) -210px 2px no-repeat;
+    background-size: 333px;
+  }
+
+  .navList .clcj span {
+    background: #fff url(../../../assets/imgs/icon-168index.png) -140px 0 no-repeat;
+    background-size: 333px;
+  }
+
+  .body-box {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background: #f0eff5;
+    font-size: 12px;
+  }
+
+  .body-box div {
+    box-sizing: border-box;
+  }
+
+  .lottHeader {
+    color: #8e8e8e;
+    background: #fff;
+    margin-bottom: 20px;
+  }
+
+  .lottHeader .center, .lottHeader .left, .lottHeader .right {
+    width: 31.33%;
+    float: left;
+    height: 34.2px;
+    line-height: 34.2px;
+  }
+
+  .lottHeader .center a, .lottHeader .left a, .lottHeader .right a {
+    overflow: hidden;
+  }
+
+  .lottHeader .center {
+    width: 36.33%;
+  }
+
+  .lottHeader .left {
+    padding-left: 5px;
+    position: relative;
+    white-space: nowrap;
+  }
+
+  .lottHeader .left span {
+    font-size: 16px;
+    color: #333;
+  }
+
+  .lottHeader .left i {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    background: url(../../../assets/imgs/icon-168index.png) -51px -10px no-repeat;
+    background-size: 333px;
+    top: 6px;
+    left: 0.2px;
+  }
+
+  .lottHeader .right {
+    text-align: right;
+    padding-right: .1053rem
+  }
+
+  .lottHeader .right .doubt {
+    width: 18.43px;
+    height: 18.43px;
+    border: 0;
+    outline: none;
+    background: url(../../../assets/imgs/icon-168index.png) -20px 0 no-repeat;
+    background-size: 333px;
+    margin-top: 2px;
+    position: relative;
+    top: 2.72px;
+  }
+
+  .lottHeader .center {
+    text-align: center;
+  }
+
+  .lottHeader .center .countTime {
+    color: #ef020a;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .lottHeader P {
+    clear: both;
+    line-height: 23.7px;
+    font-size: 12px;
+    padding-left: 10.53px;
+  }
+
+  .lottHeader P .puoneTime, .lottHeader P .puthreeTime, .lottHeader P .putwoTime {
+    color: #f3193c;
+  }
+
+  .lottHeader P .puoneTime {
+    margin-right: 5px;
+  }
+
+  .lottHeader P .disandun {
+    display: none;
+    margin-left: 35px;
+  }
+
+  .dayAndStage {
+    width: 96%;
+    margin: 0 auto;
+    margin-top: 10.53px;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+    background: #fff;
+  }
+
+  .dayAndStage .one-third {
+    position: relative;
+    float: left;
+    width: 50%;
+    margin: 0 auto;
+    border: 1px solid #dbdbdb;
+  }
+
+  .dayAndStage div.checkrank {
+    border-right: 0;
+  }
+
+  .dayAndStage div.checkday {
+    border-right: 0;
+    margin-right: -2px;
+    height: 38.9px;
+    background: #fff;
+  }
+
+  .dayAndStage div.checkday .beginTime {
+    height: 37.39px;
+    top: 0;
+    width: 100%;
+  }
+
+  .dayAndStage div.checkday .showtime {
+    height: 37.9px;
+    top: 0;
+    right: 0;
+    border-bottom: 1px solid #dbdbdb;
+    border-radius: 0;
+    text-align: center;
+    line-height: 37.9px;
+    z-index: auto;
+    width: 100%;
+  }
+
+  .dayAndStage div input {
+    border: 0;
+    width: 100%;
+    height: 37.39px;
+    outline: none;
+    background: transparent;
+    border-radius: 3px;
+    font-size: 14px;
+    text-align: center;
+    padding-right: 10.53px;
+    box-sizing: border-box;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    position: relative;
+    z-index: 1
+  }
+
+  .dayAndStage div i {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url(../../../assets/imgs/icon-168index.png) -51px -6px no-repeat;
+    background-size: 333px;
+    top: 6px;
+    left: 74%;
+    z-index: 0 !important;
+  }
+
+  .contenbox {
+    clear: both;
+    width: 100%;
+    background: #fff;
+    margin-top: 10.53px;
+  }
+
+  .contenbox .check_plan {
+    height: 47.4px;
+  }
+
+  .contenbox .check_plan ul {
+    overflow: hidden;
+  }
+
+  .contenbox .check_plan ul li {
+    float: left;
+    line-height: 47.4px;
+    width: 28%;
+    text-align: center;
+  }
+
+  .contenbox .check_plan ul li.A {
+    margin-right: 8%;
+  }
+
+  .contenbox .check_plan ul li.check i {
+    border-bottom: 1px solid #e12121;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .contenbox .check_plan ul li.C {
+    float: right;
+  }
+
+  .contenbox .content_main ul {
+    overflow: hidden;
+  }
+
+  .contenbox .content_main ul.title {
+    background: #f0f0f0;
+  }
+
+  .contenbox .content_main ul.title span {
+    border: 0 !important;
+  }
+
+  .contenbox .content_main ul.title li {
+    height: 55.3px;
+    color: #333;
+    padding-top: 10.53px;
+  }
+
+  .contenbox .content_main ul.title li.checkNum, .contenbox .content_main ul.title li.qihao {
+    line-height: 55.3px;
+    padding: 0
+  }
+
+  .contenbox .content_main ul.title .planArr {
+    padding-left: 40px;
+  }
+
+  .contenbox .content_main ul.content_list {
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .contenbox .content_main ul.content_list li {
+    border-right: 1px solid #e5e5e5;
+    height: 35.8px;
+    line-height: 35.8px;
+    text-align: center;
+  }
+
+  .contenbox .content_main ul.content_list li:last-child {
+    border: 0;
+  }
+
+  .contenbox .content_main ul li {
+    float: left;
+    text-align: center;
+    color: #666;
+    box-sizing: border-box;
+  }
+
+  .contenbox .content_main ul .winning {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid red !important;
+    vertical-align: middle;
+    line-height: 19px;
+    position: relative;
+    color: #ff0e0e !important;
+  }
+
+  .contenbox .content_main ul .winning:after {
+    content: "中";
+    position: absolute;
+    top: -11px;
+    left: 13px;
+    font-size: 8px;
+    color: red;
+  }
+
+  .contenbox .content_main ul .lrmkcd:after {
+    left: 8px;
+  }
+
+  .contenbox .content_main ul .qihao {
+    width: 17%;
+  }
+
+  .contenbox .content_main ul .checkNum {
+    width: 7.5%;
+  }
+
+  .contenbox .content_main ul .planArr {
+    width: 36%;
+    white-space: nowrap;
+    text-align: left;
+  }
+
+  .contenbox .content_main ul .planArr span {
+    display: inline-block;
+    text-align: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid #7c7c7c;
+    vertical-align: middle;
+    line-height: 19px;
+    position: relative;
+    color: #666;
+    margin-left: 3px;
+  }
+
+  .contenbox .content_main ul .planArr .span11 {
+    width: 13px;
+    height: 14px;
+    line-height: 14px;
+    font-size: 11px;
+  }
+
+  .contenbox .content_main ul .chben, .contenbox .content_main ul .sumchben {
+    width: 7.5%;
+  }
+
+  .contenbox .content_main ul .win {
+    width: 9%;
+  }
+
+  .contenbox .content_main ul .kaiTime {
+    width: 15.5%;
+  }
+
+  .select-page {
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: 1000;
+    display: block;
+    width: 100%;
+    height: 100%;
+    contain: strict;
+  }
+
+  .main-wrapper {
+    height: 220px;
+    border-top: 0.55px solid #dedede;
+    background: #fff;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 10;
+    margin: auto;
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+  }
+
+  .tool-bar {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    height: 44px;
+    background: #fff;
+    z-index: 1;
+    width: 100%;
+    contain: strict;
+  }
+
+  .option-md {
+    padding: 15px;
+    height: 44px;
+    font-size: 14px;
+    color:red;
+  }
+
+  .main-content {
+    display: flex;
+    overflow: hidden;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    overflow: scroll;
+    height: auto;
+    max-height: 200px;
+  }
+
+  .main-content ul {
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+
+  .main-content ul li {
+    text-align: center;
+    font-size: 16px;
+    line-height: 42px;
+  }
+
+  .main-content ul li.checked {
+    color: red;
+  }
+
+  .about-wrapper{
+    height: 295px;
+    border-top: 0.55px solid #dedede;
+    background: #fff;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 10;
+    margin: auto;
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+  }
+
+  .about-main{
+    overflow: hidden;
+    height: auto;
+    max-height: 200px;
+    position: absolute;
+    width: 100%;
+    max-width: 500px;
+  }
+  .about-series{
+    width: 25%;
+    float: left;
+  }
+  .about-list{
+    width: 75%;
+    float: right;
+    overflow: scroll;
+    height: auto;
+    max-height: 200px;
+  }
+
+  .about-list ul {
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+
+  .about-list ul li {
+    text-align: center;
+    font-size: 14px;
+    line-height: 42px;
+  }
+
+  .about-list ul li.checked {
+    color: red;
+  }
+
+  .about-series ul li{
+    height:40px;
+    background: #776a5c;
+    color: #fff;
+    border:1px solid #d6d6d6;
+    border-top-right-radius:20px;
+    border-bottom-right-radius:20px;
+  }
+  .about-series ul li.checked{
+    background: #e12121;
+  }
+}

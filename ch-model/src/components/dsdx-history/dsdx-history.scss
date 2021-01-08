@@ -1,0 +1,183 @@
+dsdx-history {
+
+
+  .dsdxls .navTab {
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    height: auto;
+    width: 100%;
+    border-bottom: 1px solid #dbdbdb;
+  }
+
+  .dsdxls .navTab span {
+    display: inline-block;
+    height: 100%;
+    line-height: 44px;
+    text-align: center;
+    color: #666;
+    font-size: 13px;
+    width: 49%;
+  }
+
+  .dsdxls .navTab span i {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .iActClass {
+    width: 120px;
+    border-bottom: 1px solid #e12121;
+  }
+
+  .dsdxls .minciList {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+  }
+
+  .dsdxls .minciList #minciBox {
+    width: 100%;
+    height: 60px;
+    padding: 0 10px;
+    overflow: scroll;
+  }
+
+  .dsdxls .minciList #minciBox ul {
+    width: 1000px;
+    height: auto;
+    margin-top: 15px;
+    text-align: center;
+    overflow-x: scroll;
+  }
+
+  .dsdxls .minciList #minciBox ul li {
+    float: left;
+    font-size: 14px;
+    color: #666;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 15px;
+    border-radius: 15px;
+    border: 1px solid #dbdbdb;
+    list-style-type: none;
+  }
+
+  .dsdxls .minciList #minciBox ul li i {
+    display: none !important;
+  }
+
+  .dsdxls .minciList #tableBox table {
+    display: table;
+    width: 100%;
+    background: #e5e5e5;
+    text-align: center;
+    color: #666;
+  }
+
+  .dsdxls .minciList #tableBox table thead td {
+    background: #fff;
+  }
+
+  .dsdxls .minciList #tableBox table thead th {
+    height: 33px;
+    line-height: 33px;
+    padding: 0 10px;
+    background: #f0f0f0;
+    text-align: center;
+    border:1px solid #eaeaea;
+  }
+
+  .dsdxls .minciList #tableBox table tbody td {
+    background: #fff;
+    border:1px solid #eaeaea;
+  }
+
+  .dsdxls .dsdxList {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+  }
+
+  .dsdxls .dsdxList #dsdxBox {
+    height: auto;
+    padding: 0 10px 10px;
+    width: 94%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .dsdxls .dsdxList #dsdxBox ul {
+    width: auto;
+    height: 30px;
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #e12121;
+  }
+
+  .dsdxls .dsdxList #dsdxBox ul li {
+    float: left;
+    font-size: 14px;
+    color: #e12121;
+    width: 25%;
+    height: 30px;
+    line-height: 30px;
+    box-sizing: border-box;
+    list-style-type: none;
+  }
+
+  .dsdxls .dsdxList #dsdxBox ul li i {
+    display: none;
+  }
+
+  .dsdxls .dsdxList #dsdxBox ul li:nth-child(2) {
+    border-right: 1px solid #e12121;
+    border-left: 1px solid #e12121;
+  }
+
+  .dsdxls .dsdxList #dsdxBox ul li:nth-child(3) {
+    border-right: 1px solid #e12121;
+  }
+
+  .dsdxls .dsdxList #getiTable table {
+    display: table;
+    width: 100%;
+    background: #e5e5e5;
+    color: #666;
+    text-align: center;
+  }
+
+  .dsdxls .dsdxList #getiTable table thead td {
+    background: #fff;
+  }
+
+  .dsdxls .dsdxList #getiTable table thead th {
+    height: 33px;
+    line-height: 33px;
+    padding: 0 5px;
+    background: #f0f0f0;
+    text-align: center;
+    border:1px solid #eaeaea;
+  }
+
+  .dsdxls .dsdxList #getiTable table thead th:first-child {
+    padding: 0 30px;
+    white-space: nowrap;
+  }
+
+  .dsdxls .dsdxList #getiTable table tbody td {
+    background: #fff;
+    border:1px solid #eaeaea;
+  }
+
+  .minciLiAct {
+    border: none !important;
+  }
+
+  .dsdxActcolor,.minciLiAct {
+    color: #fff !important;
+    background: #e12121;
+  }
+}

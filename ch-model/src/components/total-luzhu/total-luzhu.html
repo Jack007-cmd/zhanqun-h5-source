@@ -1,0 +1,46 @@
+
+<!--<div  class="component_scroll">-->
+  <div class="drawCodebox guyahelz displaynone" style="left: 0; display: block;">
+    <!--<div class="cheDate">-->
+    <!--<div class="checkday">-->
+    <!--<span class="today_lz checkspan">当天</span>-->
+    <!--<span class="yestoday_lz">昨天</span>-->
+    <!--<span class="qitian_lz">前天</span>-->
+    <!--</div>-->
+    <!--</div>-->
+    <div class="lz_content" *ngIf="mainData">
+      <div class="lz_title dansuShow ball_1">
+        <div class="left"><span>今日累计:</span><span>双（{{mainData?.double}}）</span><span>单（{{mainData?.single}}）</span></div>
+        <div class="right"><span class="weizi">总和</span><span class="mosh">单双</span><span class="zxi">最新    ↓</span></div>
+        <div class="lz_item" (touchstart)="ulScroll($event)" (touchend)="ulScroll($event)">
+          <table class="lz_table_con" border="0" cellpadding="1" cellspacing="1">
+            <tbody>
+            <tr class="tablebox">
+              <td *ngFor="let item of mainData?.oddEvenList;">
+                <p *ngFor="let temp of item" [ngClass]="{font_red:temp=='双'}">{{temp}}</p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="lz_title daxiaoShow ball_2">
+        <div class="left"><span>今日累计:</span><span>小（{{mainData?.little}}）</span><span>大（{{mainData?.big}}）</span></div>
+        <div class="right"><span class="weizi">总和</span><span class="mosh">大小</span><span class="zxi">最新    ↓</span></div>
+        <div class="lz_item" (touchstart)="ulScroll($event)" (touchend)="ulScroll($event)">
+          <table class="lz_table_con" border="0" cellpadding="1" cellspacing="1">
+            <tbody>
+            <tr class="tablebox">
+              <td *ngFor="let item of mainData?.sizeList;">
+                <p *ngFor="let temp of item" [ngClass]="{font_red:temp=='大'}">{{temp}}</p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!mainData" class="no-data">木得数据啦    <div style="height: 350px;"></div></div>
+
+  </div>
+<!--</div>-->

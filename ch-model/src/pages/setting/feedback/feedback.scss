@@ -1,0 +1,40 @@
+page-feedback {
+  * {
+    font-size: 18px;
+
+  }
+
+  input {
+    border-width: 0;
+  }
+
+  .body-box input {
+    width: 100%;
+    border-radius: 5px;
+    line-height: 30px;
+  }
+
+  .area {
+    background-color: #fff;
+    line-height: 30px;
+    border-radius: 5px;
+    width: 100%;
+    border-width: 0;
+    height: 300px;
+  }
+
+  .sub-div {
+    height: 30px;
+    width: 50%;
+    //align: center;
+    background-color: #e12121;
+    border-radius: 5px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  input, select {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+}

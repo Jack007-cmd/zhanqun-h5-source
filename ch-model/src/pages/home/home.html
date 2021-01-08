@@ -1,0 +1,123 @@
+<!--<ion-header>-->
+<!--<ion-navbar>-->
+<!--<ion-title>Home</ion-title>-->
+<!--</ion-navbar>-->
+<!--</ion-header>-->
+
+<ion-header>
+  <div class="myHeader">
+    <div class="setting" navPush="SettingPage"></div>
+    <!--<div class="show-logo"></div>-->
+    <span (click)="toWeb()" class="calendar"></span>
+    <img  [src]="logo" alt="" style="height: 44px;max-width: 150px;margin: 0 auto;display: block;z-index: 100;">
+  </div>
+</ion-header>
+
+
+<ion-content>
+
+  <div class="home-body-box">
+    <!--轮播图-->
+    <div class="slides" *ngIf="bannerArr && bannerArr?.length>0">
+      <!--<ion-slides #slides *ngIf="focusList.length>0" class="focus" pager  loop="true" autoplay="3000">-->
+      <!--<ion-slide *ngFor="let item of focusList">-->
+      <!--<img [src]="config.apiUrl+item.pic" />-->
+      <!--</ion-slide>-->
+      <!--</ion-slides>-->
+      <ion-slides #slides class="focus" pager loop="true" autoplay="3000">
+        <ion-slide *ngFor="let item of bannerArr;">
+          <div class="slide_item">
+            <img style="width: 100%;" (click)="jumpToAd(item?.url)" [src]="item?.image" alt=""
+                 onerror="this.src='assets/imgs/slide_img.jpg'"/>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+
+    <!--大家在看-->
+    <div class="watch">
+      <p>大家都在看</p>
+      <div class="watch-about">
+        <ul>
+          <li (click)="toDetail('sgft')">
+            <!--,sortKey:aboutItem?.sortKey}">-->
+            <span class="about-11x5"></span>
+            <p>SG飞艇</p>
+          </li>
+          <li (click)="toDetail('bjpks')">
+            <span class="racing-car"></span>
+            <p>北京PK拾</p>
+          </li>
+          <li (click)="toDetail('cqhlsx')">
+            <span class="k3"></span>
+            <p>重庆欢乐生肖</p>
+          </li>
+          <li navPush="AboutKindsPage">
+            <span class="more"></span>
+            <p>更多彩种</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!--通知/公告/快报-->
+    <div class="notice" *ngIf="notice">
+      <span id="noticeT">{{notice}}</span>
+    </div>
+
+    <!--彩种类别-->
+    <div class="about-kinds">
+      <ul>
+        <li navPush="AboutPage" [navParams]="{index:0}">
+          <h3>热门彩</h3>
+          <p>彩民最爱</p>
+          <span class="hot"></span>
+        </li>
+        <li navPush="AboutPage" [navParams]="{index:1}">
+          <h3>极速彩</h3>
+          <p>玩家最多</p>
+          <span class="fast"></span>
+        </li>
+        <li navPush="AboutPage" [navParams]="{index:2}">
+          <h3>高频彩</h3>
+          <p>快开易中</p>
+          <span class="high"></span>
+        </li>
+        <li navPush="AboutPage" [navParams]="{index:3}">
+          <h3>境外彩</h3>
+          <p>买多中多</p>
+          <span class="out"></span>
+        </li>
+        <li navPush="AboutPage" [navParams]="{index:4}">
+          <h3>全国彩</h3>
+          <p>高返奖率</p>
+          <span class="national"></span>
+        </li>
+      </ul>
+    </div>
+
+    <!--资讯推荐-->
+    <div class="info_recommned" *ngIf="infoList && infoList?.length>0 ">
+      <div class="recommned_title">
+        <h3>资讯推荐</h3>
+        <span navPush="NewsPage">更多</span>
+      </div>
+      <div class="info_item" *ngFor="let item of infoList;"  navPush="NewsDetailPage" [navParams]="{id:item.id}">
+        <h4>{{item?.title}}</h4>
+        <p>{{delHtmlTag(item?.description)}}</p> <span>{{item?.created_at}}</span>
+      </div>
+    </div>
+
+    <!--热门彩种最近一期开奖结果-->
+    <div class="czList">
+      <about-item [aboutItem]="item" *ngFor="let item of aboutList;"></about-item>
+    </div>
+
+    <div style="margin: 10px; background: #fff;height: 40px;line-height: 40px;text-align: center;border-radius: 5px;" navPush="AboutPage" [navParams]="{index:0}">查看所有彩种
+    </div>
+
+  </div>
+</ion-content>
+
+
+

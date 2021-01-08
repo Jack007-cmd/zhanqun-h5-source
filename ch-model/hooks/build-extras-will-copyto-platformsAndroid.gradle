@@ -1,0 +1,81 @@
+ext.cdvReleaseSigningPropertiesFile = '../../hooks/buildConfig/keystore.properties'
+configurations {
+   all*.exclude group: 'com.android.support', module: 'support-v4'
+}
+
+def setting = new groovy.json.JsonSlurper().parse(new File("platforms/android/build-setting.json")); 
+
+ext.postBuildExtras = {
+        // 自定义批量渠道包
+        android {
+            if(setting.isBatch){
+                def agentIdFile;
+                if(setting.majia != null && setting.majia != ''){
+                    agentIdFile = file("../../hooks/buildConfig/${setting.majia}/agentIds.txt");
+                }else{
+                    agentIdFile = file('../../hooks/buildConfig/agentIds.txt')
+                }
+                productFlavors {
+                    agentIdFile.eachLine{ agent ->
+                        "${agent}" {
+                            versionCode defaultConfig.versionCode + 2
+                            ndk {
+                                abiFilters "armeabi-v7a", ""
+                            }
+                        }
+                    }
+                }
+                agentIdFile.eachLine{ agent ->
+                    sourceSets["${agent}"].assets.srcDirs = ["agent/${agent}/assets"]
+                    //单引号不会解析${}
+                }
+                compileOptions {
+                    sourceCompatibility JavaVersion.VERSION_1_6
+                    targetCompatibility JavaVersion.VERSION_1_6
+                }
+            }
+        }
+
+        def time = new java.text.SimpleDateFormat("yyyyMMddHHmm").format(new Date())
+        def androidManifest = new XmlSlurper().parse("platforms/android/AndroidManifest.xml")  
+       //用Gpath解析出版本号
+		def versionName = androidManifest['@android:versionName']
+		def apkPath = setting.apkPath;
+		def en = setting.en;
+		if(apkPath == null||"".equals(apkPath)){
+			apkPath = file('../../hooks/apk/');
+		}
+
+		android.applicationVariants.all { variant ->
+        if (variant.buildType.name.equals('release')) {
+          variant.outputs.all { output ->
+            def buildName = "Downloader"
+            def type = variant.buildType.name
+            def releaseApkName = buildName + '_' + type + "_" + versionName + '_' + time+ '.apk'
+            outputFileName = releaseApkName
+            variant.packageApplication.outputDirectory = new File("./apk")
+          }
+        }
+
+//      variant ->
+//      			variant.outputs.each { output ->
+//                def outputFile = output.outputFile
+//                if (outputFile != null && outputFile.name.endsWith('release.apk')&&outputFile.name.indexOf('x86') == -1) {
+//                //默认格式 android-2335038-release.apk
+//	                if(setting.isBatch){
+//	                 	output.outputFile = new File("${apkPath}",outputFile.name.replace("-release","").replace("android","tuiqiu_android_v${versionName}"));
+//	                }else{
+//	                   output.outputFile = new File("${apkPath}", "${en}_v${versionName}-${setting.agentId}-${time}.apk")
+//	                }
+//                }
+//            }
+//      variant.outputs.all {output ->
+////        output.outputFile = new File("${apkPath}","${variant.name}-${variant.versionName}.apk")
+////        output.outputFile = new File("${apkPath}", "${en}_v${versionName}-${setting.agentId}-${time}.apk")
+//        output.outputFile = new File("${apkPath}", "caihui.apk")
+//      }
+
+		}
+
+		  
+}

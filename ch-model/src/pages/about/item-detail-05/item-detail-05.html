@@ -1,0 +1,241 @@
+<!--
+  Generated template for the ItemDetail_05Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+  极速快乐十分  广东快乐十分 天津快乐十分 共用此页
+-->
+<ion-header>
+  <div class="myHeader">
+    <div class="header_back" navPop></div>
+    <h2 *ngIf="showType==-1" (click)="showType=1"><span tappable="">{{name}} <i class="top_arrow"></i></span></h2>
+    <h2 *ngIf="showType==1" (click)="showType=-1"><span tappable="">所有彩种 <i class="bottom_arrow"></i></span></h2>
+  </div>
+</ion-header>
+
+
+<ion-content>
+
+  <div  (touchstart)="first($event)" (touchend)="last($event)" class="body-box">
+    <div class="current-date">
+      <div style="width: 70%;height:30px;overflow: scroll;">
+        <ul class="dayList date-list"  (touchstart)="ulScroll($event)" (touchend)="ulScroll($event)">
+          <li *ngFor="let t of dayArr;" [ngClass]="{day_choosed:myDate==t.date}" (click)="myDate=t.date;">{{t.d}}</li>
+        </ul>
+      </div>
+      <ion-item style="padding-left: 0;">
+        <ion-label style="margin-top: 6px;"><span class="check_day" id="myDate">{{myDate}}</span></ion-label>
+        <ion-datetime displayFormat="YYYY年 MM月 DD日 " min="{{startDay}}" max="{{today}}" [(ngModel)]="myDate" cancelText="取消"
+                      doneText="确认">
+        </ion-datetime>
+      </ion-item>
+
+    </div>
+    <div class="current-info">
+      <div class="divline issuel">
+        <span class="issue"><span class="preDrawIssue">{{current_number}}</span>期开奖</span>
+        <span class="drawCount">已开<span class="drawCountnum">{{aboutList?.open_num}}</span>期，剩余<span
+          class="sdrawCountnext">{{aboutList?.still_num}}</span>期</span>
+        <span id="explainBtn_wfsm" class="displaynone"></span>
+      </div>
+      <div class="divline drawCodel">
+        <ul id="pk10num" class="sscli" *ngIf="aboutList?.current_code && aboutList?.current_code?.length>0">
+          <li *ngFor="let ccode of aboutList?.current_code;"
+              style="padding-top: 0px; line-height: 25px;">{{ccode}}</li>
+        </ul>
+      </div>
+          <div class="divline drawTimebox cuttime margbt8" *ngIf="allSeconds>0"
+           style="display: -webkit-box; opacity: 1; margin-right: 100%;">
+        <div class="flexl margtp78">距下期开奖仅有</div>
+        <input type="hidden" class="nextIssue" value="718581">
+        <div class="flexc margtp78">
+          <div class="graypro"></div>
+          <div id="redLine" class="redpro" style="width: 95%;"></div>
+        </div>
+        <div class="flexr margtp78">
+          <span class="hourid"  *ngIf="hour>0"><span
+            class="bgtime hour">{{hour}}</span>:</span><span
+          class="bgtime minute">{{minute}}</span>:<span class="bgtime second">{{second}}</span>
+        </div>
+        <div class="flexr">
+							<span class="openVideo" id="startVideo" (click)="videoCtrl()">
+							视频
+						</span>
+        </div>
+      </div>
+      <div class="divline drawTimebox opentyle" *ngIf="allSeconds<=0">
+        <div class="flexl">开奖中...</div>
+      </div>
+    </div>
+
+
+    <div class="options">
+
+      <div class="options-list">
+       <ul id="sortList" class="sort-list" (touchstart)="ulScroll($event)" (touchend)="ulScroll($event)">
+          <li *ngFor="let sort of sortList;">
+            <span [ngClass]="{current:currentSort==sort?.type}" (click)="currentSort=sort?.type">{{sort?.name}}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="ana-radio" (click)="showType=2"></div>
+    </div>
+    <!--开奖号码-->
+    <div class="data-table">
+      <win-number *ngIf="currentSort=='jskj'" [code]="code" [date]="myDate" [current_number]="current_number"></win-number>
+    </div>
+
+    <!--路珠分析-->
+    <div class="data-table">
+      <luzhu-analysis *ngIf="currentSort=='lzfx'" [code]="code" [date]="myDate" [current_number]="current_number"></luzhu-analysis>
+    </div>
+
+    <!--冷热分析-->
+    <div class="data-table">
+      <lengre-analysis *ngIf="currentSort=='lrfx'" [code]="code" [date]="myDate" [current_number]="current_number"></lengre-analysis>
+    </div>
+
+    <!--单双大小历史-->
+    <div class="data-table">
+      <dsdx-history *ngIf="currentSort=='dsdxls'" [code]="code" [date]="myDate" [current_number]="current_number"></dsdx-history>
+    </div>
+
+    <!--每日长龙统计-->
+    <div class="data-table">
+      <dldragon-count *ngIf="currentSort=='mrcltj'" [code]="code" [date]="myDate" [current_number]="current_number"></dldragon-count>
+    </div>
+
+    <!--号码前后路珠-->
+    <div class="data-table">
+      <numberqh-luzhu *ngIf="currentSort=='fmqhlz'" [code]="code" [date]="myDate" [current_number]="current_number"></numberqh-luzhu>
+    </div>
+
+    <!--冠亚和路珠-->
+    <div class="data-table">
+      <guanya-luzhu *ngIf="currentSort=='gyhlz'" [code]="code" [date]="myDate" [current_number]="current_number"></guanya-luzhu>
+    </div>
+
+    <!--单双大小路珠-->
+    <div class="data-table">
+      <dsdx-luzhu *ngIf="currentSort=='dxdslz'" [code]="code" [date]="myDate" [current_number]="current_number"></dsdx-luzhu>
+    </div>
+
+    <!--号码规律统计-->
+    <div class="data-table">
+      <number-rule-count *ngIf="currentSort=='hmgltj'" [code]="code" [date]="myDate" [current_number]="current_number"></number-rule-count>
+    </div>
+
+    <!--基本走势-->
+    <div class="data-table">
+      <basic-trend *ngIf="currentSort=='jbzs'" [code]="code" [date]="myDate" [current_number]="current_number"></basic-trend>
+    </div>
+
+    <!--定位走势-->
+    <div class="data-table">
+      <position-trend *ngIf="currentSort=='dwzs'" [code]="code" [date]="myDate" [current_number]="current_number"></position-trend>
+    </div>
+
+    <!--今日号码统计-->
+    <div class="data-table">
+      <today-number-count *ngIf="currentSort=='jrhmtj'" [code]="code" [date]="myDate" [current_number]="current_number"></today-number-count>
+    </div>
+
+    <!--双面统计-->
+    <div class="data-table">
+      <double-sides-count *ngIf="currentSort=='lmsjtj'" [code]="code" [date]="myDate" [current_number]="current_number"></double-sides-count>
+    </div>
+
+    <!--冠亚和双面历史-->
+    <div class="data-table">
+      <guanya-sm-history *ngIf="currentSort=='gyhlmls'" [code]="code" [date]="myDate" [current_number]="current_number"></guanya-sm-history>
+    </div>
+
+    <!--总和路珠-->
+    <div class="data-table">
+      <total-luzhu *ngIf="currentSort=='zhlz'" [code]="code" [date]="myDate" [current_number]="current_number"></total-luzhu>
+    </div>
+
+    <!--号码路珠-->
+    <div class="data-table">
+      <number-luzhu *ngIf="currentSort=='hmlzfx'" [code]="code" [date]="myDate" [current_number]="current_number"></number-luzhu>
+    </div>
+
+    <!--龙虎露珠-->
+    <longhu-luzhu *ngIf="currentSort=='lfrz'" [code]="code" [date]="myDate" [current_number]="current_number"></longhu-luzhu>
+
+    <!--龙虎走势-->
+    <div class="data-table">
+      <longhu-trend *ngIf="currentSort=='lhzs'" [code]="code" [date]="myDate" [current_number]="current_number"></longhu-trend>
+    </div>
+
+    <!--形态走势-->
+    <div class="data-table">
+      <pattern-trend *ngIf="currentSort=='xtzs'" [code]="code" [date]="myDate" [current_number]="current_number"></pattern-trend>
+    </div>
+
+    <!--  历史号码统计-->
+    <div class="data-table">
+      <history-number-count *ngIf="currentSort=='lshmtj'" [code]="code" [date]="myDate" [current_number]="current_number"></history-number-count>
+    </div>
+
+    <!--号码分布-->
+    <div class="data-table">
+    <number-distribution *ngIf="currentSort=='hmfb'" [code]="code" [date]="myDate" [current_number]="current_number"></number-distribution>
+    </div>
+  </div>
+
+  <!--视频播放控制-->
+  <div *ngIf="showVideo" class="select-page" style="position: fixed;">
+    <ion-backdrop (click)="showVideo=false" role="presentation" tappable="" style="opacity: 0.26;"></ion-backdrop>
+    <div class="content" id="contentID">
+      <div class="head">
+        {{name}}开奖视频
+        <div class="btn">
+          <ul>
+            <li class="closevideo"><i class="iconfont" (click)="videoCtrl()">关闭</i></li>
+          </ul>
+        </div>
+      </div>
+      <div class="animate" style="height: 250px;">
+        <div class="loading" style="display: none;"></div>
+        <iframe style="height: 291.5px; width: 100%; border: none; display: inline-block;"
+                class="e2e-iframe-trusted-src"
+                [src]="video_url"></iframe>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!--彩种列表框-->
+  <div id="cZList" style=" height: 100%;" *ngIf="showType==1 && sortArr && sortArr?.length>0">
+    <!--<div class="backbtn"><span>返回</span><span>所有彩种</span><span>&nbsp;</span></div>-->
+    <div class="toRMC" id="toRMC" *ngFor="let item of sortArr;">
+      <div class="title">{{item?.name}}</div>
+      <div class="content" *ngIf="item?.list && item?.list?.length>0">
+        <ul>
+          <li *ngFor="let it of item?.list;" (click)="toDestination(it,item?.key);"><span>{{it.name}}</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+
+<div *ngIf="showType==2" class="select-page">
+  <ion-backdrop (click)="showType=-1" role="presentation" tappable="" style="opacity: 0.26;"></ion-backdrop>
+  <div class="main-wrapper">
+    <div class="tool-bar">
+      <span class="option-md" style="float: left;">选择分析类型</span>
+      <span class="option-md" style="float: right;" (click)="showType=-1">取消</span>
+      <!--<span class="option-md" style="float: right;" (click)="toGameRule()">玩法规则介绍</span>-->
+    </div>
+    <div class="main-content">
+      <ul class="chose_ana">
+        <li *ngFor="let sort of sortList;" [ngClass]="{checked:currentSort==sort?.type}" >
+          <span (click)="currentSort=sort?.type;showType=-1;">{{sort?.name}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

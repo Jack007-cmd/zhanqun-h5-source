@@ -1,0 +1,73 @@
+page-about {
+
+  //.about-tabs {
+  //  background-color: #fff;
+  //  position: fixed;
+  //  .tabs-all {
+  //    display: flex;
+  //    font-size: 16px;
+  //    .tab-item {
+  //      flex: 1;
+  //      text-align: center;
+  //      margin: 0 13.3px;
+  //      .name {
+  //        padding: 7px 0 5px;
+  //        display: inline-block;
+  //        vertical-align: top;
+  //      }
+  //      &.current {
+  //        color: #e12121;
+  //        .name {
+  //          border-bottom: 3px solid #e12121;
+  //        }
+  //      }
+  //    }
+  //  }
+  //}
+
+  .about-tabs {
+    height: 45px;
+    top: 44px;
+    z-index: 2;
+    border-bottom: 1px solid #eaeaea;
+    width: 100%;
+    background: #fff;
+    font-size: 16px;
+    padding-top: 10px;
+    position: relative;
+    //position: absolute;
+    .tabs-all {
+      height: 30px;
+      overflow: scroll;
+
+      .ul-list {
+        width: 360px;
+        height: auto;
+        overflow-x: scroll;
+        text-align: center;
+
+        li {
+          display: inline-block;
+          float: left;
+          width: 65px;
+          height: 25px;
+          margin-top: 2px;
+          margin-right: 7px;
+          text-align: center;
+          font-size: 16px;
+          padding-top: 0px;
+          line-height: 25px;
+
+        }
+
+        .current {
+          color: #e12121;
+
+          .name {
+            border-bottom: 3px solid #e12121;
+          }
+        }
+      }
+    }
+  }
+}

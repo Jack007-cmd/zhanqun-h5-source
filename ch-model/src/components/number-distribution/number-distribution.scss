@@ -1,0 +1,242 @@
+number-distribution {
+  .drawCodebox .linebox{
+    padding-bottom: 0;
+  }
+  .drawCodebox .linebox>div:first-child {
+    color: #666;
+    -webkit-box-flex: 1;
+    box-flex: 1;
+    width: 53px;
+  }
+  .numbtn {
+    width: 100%;
+    margin-top: 12px;
+    margin-bottom: 15px;
+  }
+  .numbtn ul {
+    width: auto;
+    height: auto;
+    display: block;
+    height: 36px;
+    margin: 0 auto;
+    //display: box;
+    display: -webkit-box;
+  }
+  .numbtn ul li {
+    width: 32px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid #dbdbdb;
+    float: left;
+    margin-right: 4px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    font-size: 14px;
+    position: relative;
+    -webkit-box-flex: 1;
+    box-flex: 1;
+  }
+  .numbtn ul li:last-child {
+    margin-right: 0
+  }
+
+  .numbtn ul .lichecked {
+    border: 1px solid #e12121;
+  }
+
+  .numbtn ul .lichecked:after {
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 22px;
+    right: -2px;
+    background: url(../../assets/imgs/hamtj_icon.png) no-repeat -170px -49px;
+    background-size: 434px auto;
+  }
+  
+  .dansdxbtn {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .dansdxbtn ul {
+    width: auto;
+    height: auto;
+    display: block;
+    //height: 28px;
+    margin: 0 auto;
+    //display: box;
+    display: -webkit-box;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border: 1px solid #e12121;
+  }
+  .dansdxbtn ul .lichecked {
+    background: #e12121;
+    color: #fff
+  }
+  .dansdxbtn ul li:first-child {
+    border: 0;
+  }
+  .dansdxbtn ul li {
+    width: 32px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    display: inline-block;
+    float: left;
+    font-size: 14px;
+    border-left: 1px solid #e12121;
+    position: relative;
+    -webkit-box-flex: 1;
+    box-flex: 1;
+    color: #e12121;
+  }
+  .bortop002 {
+    border-top: 2px solid #efeff4;
+  }
+  .bortop001 {
+    border-top: 1px solid #efeff4!important;
+  }
+  .listotherline {
+    display: -webkit-box;
+    //display: box;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    height: auto;
+    width: 100%;
+  }
+  .listotherline>div:first-child {
+    color: #666;
+    width: 113px;
+  }
+  .listotherline>div {
+    font-size: 12px;
+  }
+  .listotherline>div span {
+    height: 42px;
+    line-height: 42px;
+  }
+  .drawCodebox .contentlist .boxflex {
+    width: 100%;
+    display: block;
+    display: -webkit-box;
+   // display: box;
+  }
+  .drawCodebox .contentlist .boxflex span {
+    display: block;
+    -webkit-box-flex: 1;
+    box-flex: 1;
+  }
+  .listotherline>div:first-child .graytime {
+    font-size: 14px;
+  }
+  .listotherline>div:nth-child(2) {
+    color: #333;
+    -webkit-box-flex: 6;
+    box-flex: 6;
+  }
+  .listotherline>div:nth-child(2) .rightdiv {
+    width: 100%;
+    display: -webkit-box;
+    //display: box;
+    margin-top: 10px;
+    padding-left: 20px;
+    box-sizing: border-box;
+  }
+  .listotherline>div:nth-child(2) .rightdiv span {
+    height: 26px;
+    line-height: 26px;
+    display: block;
+    text-align: center;
+    -webkit-box-flex: 4;
+    box-flex: 4;
+  }
+  .listotherline .longhuli {
+    width: 100%;
+  }
+  .ssclilist {
+    width: 100%;
+    //display: box;
+    display: -webkit-box;
+  }
+  .ssclilist li {
+    height: 23px;
+    line-height: 23px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    box-sizing: border-box;
+    -webkit-box-flex: 1;
+    box-flex: 1;
+  }
+  .listli li {
+    height: 22px;
+    line-height: 22px;
+    width: auto;
+    margin-right: 5px;
+    background-size: 354px auto;
+  }
+  .ssclilist li span {
+    width: 26px;
+    margin: 0 auto;
+    background-size: 350px auto;
+  }
+  .ssclilist li span i {
+    height: 100%;
+    line-height: 26px;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+  }
+
+  .cqnclilist {
+    width: 100%;
+    display: -webkit-box;
+  }
+
+  .cqnclilist li {
+    height: 23px;
+    line-height: 0;
+    width: auto;
+    text-align: center;
+    color: #fff;
+    font-size: 10px;
+    box-sizing: border-box;
+    min-width: 30px;
+    max-width: 25px;
+    background-size: 350px auto;
+    -webkit-box-flex: 1;
+    box-flex: 1;
+  }
+
+  .cqnclilist li span {
+    background-size: 350px auto;
+    height: 25px !important;
+    margin-top:8px;
+  }
+
+  .cqnclilist li span i {
+    height: 25px;
+    line-height: 25px;
+    width: 25px;
+    margin: 0 auto;
+    border-radius: 50%;
+  }
+
+  .cqnclilist .li_after {
+    margin-right: 0
+  }
+  .selectedOpacity {
+    opacity: .1!important;
+  }
+}

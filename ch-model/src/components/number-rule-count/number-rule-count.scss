@@ -1,0 +1,427 @@
+number-rule-count {
+
+
+  .hlgltj {
+    background: #efeff4;
+  }
+
+  .hlgltj #gltjhead {
+    height: auto;
+    padding: 0 10px;
+    background: #fff;
+  }
+
+  .hlgltj #gltjhead .numList {
+    padding: 15px 0;
+    height: auto;
+  }
+
+  .hlgltj #gltjhead .numList ul {
+    height: 30px;
+    display: flex;
+  }
+
+  .hlgltj #gltjhead .numList ul li {
+    float: left;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    color: #666;
+    text-align: center;
+    margin-right: 4px;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    flex: 1;
+    list-style-type: none;
+  }
+
+  .hlgltj #gltjhead .btnList {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+  }
+
+  .hlgltj #gltjhead .btnList .tusjbox {
+    width: 70%;
+    height: auto;
+    color: #e12121;
+    border: 1px solid #e12121;
+    border-radius: 5px;
+    padding-top: 0!important;
+  }
+
+  .hlgltj #gltjhead .btnList .tusjbox span {
+    width: 49.4%;
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+  }
+
+  .hlgltj #gltjhead .btnList .todayBtn {
+    position: relative;
+    width: auto;
+  }
+
+  .hlgltj #gltjhead .btnList .todayBtn p {
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 10px;
+  }
+
+  .hlgltj #gltjhead .btnList .todayBtn i {
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url(../../assets/imgs/icon-168index.png) -51px -10px no-repeat;
+    background-size: 333px;
+    top: 6px;
+    left: 40px;
+  }
+
+  .hlgltj #gltjbody {
+    margin-top: 10px;
+    background: #fff;
+  }
+
+  .hlgltj #gltjbody #tblist p {
+    height: 45px;
+    line-height: 45px;
+    border-top: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+    padding: 0 10px;
+    color: #666;
+  }
+
+  .hlgltj #gltjbody #tblist p span:first-child {
+    margin-right: 10px;
+  }
+
+  .hlgltj #gltjbody #tblist #tbSqur li {
+    padding: 0 10px;
+    height: 43px;
+    line-height: 43px;
+    border-bottom: 1px solid #dbdbdb;
+  }
+
+  .hlgltj #gltjbody #tblist #tbSqur li span {
+    position: relative;
+    vertical-align: top;
+    width: 92%;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    color: #fff;
+    margin-top: 10px;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    background: #e12121;
+    margin-left: 10px;
+  }
+
+  .hlgltj #gltjbody #tblist #tbSqur li span i {
+    display: inline-block;
+    width: 20px;
+    color: #fff;
+    float: right;
+    text-align: center;
+  }
+
+  .hlgltj #gltjbody #datelist .qihsj {
+    padding: 0 10px;
+    height: 50px;
+    line-height: 50px;
+    border-top: 1px solid #dbdbdb;
+    background: #f0f0f0;
+  }
+
+  .hlgltj #gltjbody #datelist .qihsj p,.hlgltj #gltjbody #datelist .qihsj span {
+    width: 30%;
+    color: #666;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .hlgltj #gltjbody #datelist .qihsj span:nth-child(2),.hlgltj #gltjbody #datelist .qihsj span:nth-child(3) {
+    height: 30px;
+    line-height: 30px;
+    margin-left: 10px;
+    border-radius: 15px;
+  }
+
+  .hlgltj #gltjbody #datelist #sjdsdxList ul {
+    height: 30px;
+    overflow: hidden;
+    line-height: 30px;
+    border-bottom: 1px solid #dbdbdb;
+  }
+
+  .hlgltj #gltjbody #datelist #sjdsdxList ul li {
+    border-right: 1px solid #dbdbdb;
+    float: left;
+    text-align: center;
+    color: #999;
+    box-sizing: border-box;
+    list-style-type: none;
+  }
+
+  .hlgltj #gltjbody #datelist #sjdsdxList ul li:first-child {
+    width: 40%;
+    color: #51627e;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .hlgltj #gltjbody #datelist #sjdsdxList ul li:first-child span {
+    margin-right: 2px;
+    color: #999;
+    font-size: 14px;
+  }
+
+  .hlgltj #gltjbody #datelist #sjdsdxList ul li:nth-child(2) {
+    width: 10%;
+    color: #666;
+  }
+
+  .hlgltj #gltjbody #datelist #sjdsdxList ul li:nth-child(3),.hlgltj #gltjbody #datelist #sjdsdxList ul li:nth-child(4),.hlgltj #gltjbody #datelist #sjdsdxList ul li:nth-child(5) {
+    width: 16%;
+  }
+
+  .hlgltj #gltjbody #datelist #sjdsdxList ul li:last-child {
+    border: none;
+  }
+
+  .hlgltj #gltjbody #datelist #sjdsdxList ul:first-child {
+    border-top: 1px solid #dbdbdb;
+  }
+
+  .hlgltj #gltjbody #datelist .sjhmfbList {
+    position: relative;
+  }
+
+  .hlgltj #gltjbody #datelist .sjhmfbList table {
+    display: table;
+    width: 100%;
+    background: #e5e5e5;
+    color: #666;
+    text-align: center;
+    word-wrap: break-word;
+    word-break: break-all;
+  }
+
+  .hlgltj #gltjbody #datelist .sjhmfbList table tr {
+    width: 100%;
+  }
+
+  .hlgltj #gltjbody #datelist .sjhmfbList table tr td {
+    height: 30px;
+    background: #fff;
+  }
+
+  .hlgltj #gltjbody #datelist .sjhmfbList table tr td span {
+    display: block;
+    line-height: 19px;
+    margin-left: 2px;
+    margin: 0 auto;
+  }
+
+  .hlgltj #gltjbody #datelist .sjhmfbList table tr td:first-child {
+    min-width: 30%!important;
+    color: #51627e;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .hlgltj #gltjbody #datelist .sjhmfbList table tr td:first-child span {
+    display: inline-block;
+    margin-right: 2px;
+    width: auto;
+    height: auto;
+    color: #999;
+    font-size: 14px;
+  }
+
+
+
+  #gltjshowBox {
+    position: absolute;
+    width: 100%;
+    height: 0;
+        height: 276.5px;
+    top: 35px;
+    background: rgba(0,0,0,.1);
+    z-index: 1;
+    transition: all .3s linear;
+  }
+
+  #gltjshowBox .gltjshow {
+    position: absolute;
+    width: 95%;
+    height: 60%;
+    border-radius: 10px;
+    margin: 0 10px;
+    text-align: center;
+    margin-top: 30%;
+    font-size: 14px;
+    color: #666;
+  }
+
+  #gltjshowBox .gltjshow p {
+    height: 40px;
+    line-height: 40px;
+    color: #e12121;
+    background: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  #gltjshowBox .gltjshow ul {
+    color: #666;
+    height: auto;
+    background: #fff;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  #gltjshowBox .gltjshow ul li {
+    background: #fff;
+    height: 50px;
+    line-height: 50px;
+    border-top: 1px solid #dbdbdb;
+    list-style-type: none ;
+  }
+
+  #gltjshowBox .gltjshow ul li:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  #gltjshowBox .gltjshow .btndiv {
+    height: 50px;
+  }
+
+  #gltjshowBox .gltjshow .btndiv span {
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 10px;
+    color: #2f76f6;
+    border-radius: 10px;
+    background: #fff;
+  }
+
+
+  .hmglNumAct {
+    border: 1px solid #e12121!important;
+    position: relative;
+  }
+
+  .hmglNumAct:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 8px;
+    right: 0;
+    width: 20px;
+    height: 21px;
+    background: url(../../assets/imgs/icon-168index.png) no-repeat 5px -21px;
+    background-size: 333px;
+  }
+
+
+  .tubiaocheck {
+    border-top: 1px solid #e12121;
+    margin-top: -1px;
+    vertical-align: top;
+    height: 100%;
+  }
+
+  .gltjHMfb,.tubiaocheck {
+    color: #fff!important;
+    background: #e12121;
+  }
+  .codenum{
+    font-weight: 400;
+    font-style: normal;
+  }
+  .select-page {
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: 1000;
+    display: block;
+    width: 100%;
+    height: 100%;
+    contain: strict;
+  }
+
+  .main-wrapper {
+    height: 260px;
+    border-top: 0.55px solid #dedede;
+    background: #fff;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 10;
+    margin: auto;
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+  }
+
+  .tool-bar {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    height: 44px;
+    background: #fff;
+    z-index: 1;
+    width: 100%;
+    contain: strict;
+  }
+
+  .option-md {
+    padding: 15px;
+    height: 44px;
+    font-size: 14px;
+    color:red;
+  }
+
+  .main-content {
+    display: flex;
+    overflow: hidden;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    //overflow: scroll;
+    height: auto;
+    max-height: 200px;
+  }
+
+  .main-content ul {
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+
+  .main-content ul li {
+    text-align: center;
+    font-size: 16px;
+    line-height: 42px;
+  }
+
+  .main-content ul li.checked {
+    color: red;
+  }
+
+}

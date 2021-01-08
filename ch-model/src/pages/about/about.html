@@ -1,0 +1,33 @@
+<ion-header>
+  <div class="myHeader">
+    <div class="header_back" navPop></div>
+    <h2>开奖号码</h2>
+  </div>
+</ion-header>
+
+<div class="about-tabs">
+  <div class="tabs-all">
+    <ul class="ul-list">
+      <li [ngClass]="{current:currentSort==index}" tappable="" *ngFor="let sort of sortArr;let index = index;"
+          (click)="currentSortAbout(index);">
+        <span class="name">{{sort.name}}</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<ion-content class="body-box" style="margin-top: 45px;z-index:1;">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="刷新"
+      refreshingSpinner="circles"
+      refreshingText="刷新中">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div class="czList" style="padding-bottom: 55px;">
+    <about-item [aboutItem]="item" *ngFor="let item of aboutList;"></about-item>
+  </div>
+
+</ion-content>

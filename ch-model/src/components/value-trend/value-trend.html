@@ -1,0 +1,281 @@
+<!-- Generated template for the ValueTrendComponent component -->
+<div class="component_scroll" id="{{code}}">
+  <div class="drawCodebox hezhizspl displaynone" style="left: 0; display: block;">
+    <div class="qianhuan_pl">
+      <p class="qianhuan_noe" [ngClass]="{ checkspan: option=='A'}" (click)="option='A';">和值走势</p>
+      <p class="qianhuan_top" [ngClass]="{ checkspan: option=='B'}" (click)="option='B';">和值形态</p>
+    </div>
+    <div class="hezhi_pon" style="margin-top: -8px;">
+      <p>
+        <span class="weaipl"
+              (click)="showFilter=2;">{{tPeriods == 2000 ? '当天' : tPeriods == 30 ? '近30期' : tPeriods == 60 ? '近60期' : '近90期'}}</span>
+        <span class="kjdsbskj" (click)="choseCon(3)">筛选</span>
+      </p>
+      <div class="lookshjtjda" (click)="goBottom()">查看数据统计</div>
+    </div>
+    <div id="chartLinediv">
+    <div *ngIf="option=='A'" class="hezhiBox_noe" style="display: block;" >
+      <table border="0" cellspacing="1" cellpadding="1" id="table_hezhi">
+        <thead>
+        <tr>
+          <th class="diyige">期号</th>
+          <th class="dier">和</th>
+          <th class="disan">3</th>
+          <th class="disan">4</th>
+          <th class="disan">5</th>
+          <th class="disan">6</th>
+          <th class="disan">7</th>
+          <th class="disan">8</th>
+          <th class="disan">9</th>
+          <th class="disan">10</th>
+          <th class="disan">11</th>
+          <th class="disan">12</th>
+          <th class="disan">13</th>
+          <th class="disan">14</th>
+          <th class="disan">15</th>
+          <th class="disan">16</th>
+          <th class="disan">17</th>
+          <th class="disan">18</th>
+        </tr>
+        </thead>
+        <tbody class="table_sttz allNumber" *ngIf="mainData?.list">
+        <ng-container *ngFor="let item of mainData?.list;let index=index;">
+          <tr *ngIf="index<tPeriods">
+            <td>{{item?.no?.toString()?.substring(4)}}</td>
+            <td class="tabred"><span class="yanse" style="color: #E90009;">
+            <ng-container *ngFor="let sum of item?.list?.sum;">
+              <ng-container *ngFor="let temp of sum;">{{temp}}</ng-container>
+            </ng-container>
+          </span>
+            </td>
+            <ng-container *ngFor="let sn of item?.list?.sn;">
+              <ng-container *ngFor="let k of objectKeys(sn);">
+                <td [ngClass]="{hot:sn[k]==0,da:sn[k]==0}"><span>{{sn[k]==0?k:sn[k]}}</span></td>
+              </ng-container>
+            </ng-container>
+          </tr>
+        </ng-container>
+        </tbody>
+        <tbody class="count_data">
+        <tr class="zouship">
+          <th colspan="2">数据统计</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+          <th>6</th>
+          <th>7</th>
+          <th>8</th>
+          <th>9</th>
+          <th>10</th>
+          <th>11</th>
+          <th>12</th>
+          <th>13</th>
+          <th>14</th>
+          <th>15</th>
+          <th>16</th>
+          <th>17</th>
+          <th>18</th>
+        </tr>
+        <tr>
+          <td colspan="2">出现次数</td>
+          <ng-container *ngFor="let sn of mainData?.statistics?.appear?.sn;">
+            <ng-container *ngFor="let k of objectKeys(sn);">
+              <td>{{sn[k]}}</td>
+            </ng-container>
+          </ng-container>
+        </tr>
+        <tr>
+          <td colspan="2">平均遗漏</td>
+          <ng-container *ngFor="let sn of mainData?.statistics?.avg?.sn;">
+            <ng-container *ngFor="let k of objectKeys(sn);">
+              <td>{{sn[k]}}</td>
+            </ng-container>
+          </ng-container>
+        </tr>
+        <tr>
+          <td colspan="2">当前遗漏</td>
+          <ng-container *ngFor="let sn of mainData?.statistics?.current?.sn;">
+            <ng-container *ngFor="let k of objectKeys(sn);">
+              <td>{{sn[k]}}</td>
+            </ng-container>
+          </ng-container>
+        </tr>
+        <tr>
+          <td colspan="2">最大连出</td>
+          <ng-container *ngFor="let sn of mainData?.statistics?.maxAway?.sn;">
+            <ng-container *ngFor="let k of objectKeys(sn);">
+              <td>{{sn[k]}}</td>
+            </ng-container>
+          </ng-container>
+        </tr>
+        <tr>
+          <td colspan="2">最大遗漏</td>
+          <ng-container *ngFor="let sn of mainData?.statistics?.max?.sn;">
+            <ng-container *ngFor="let k of objectKeys(sn);">
+              <td>{{sn[k]}}</td>
+            </ng-container>
+          </ng-container>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="option=='B'" class="hezhiBox_top" style="display: block;">
+      <table border="0" cellspacing="1" cellpadding="1" id="table_danxuanon">
+        <thead>
+        <tr style="height: 0.28rem; font-size: 15px;">
+          <th style="width: 25%;">期号</th>
+          <th style="width: 20%;">开奖号码</th>
+          <th style="width: 8%;">和</th>
+          <th>大</th>
+          <th>小</th>
+          <th>单</th>
+          <th>双</th>
+        </tr>
+        </thead>
+        <tbody class="table_lese allNumber" *ngIf="mainData?.list">
+        <ng-container *ngFor="let item of mainData?.list;let index=index;">
+          <tr *ngIf="index<tPeriods">
+            <td>{{item?.no}}</td>
+            <td>
+            <span class="yanse">
+              <ng-container *ngFor="let n of item?.num;">
+                {{n}}
+              </ng-container>
+            </span></td>
+            <td class="hez">
+              <span style="color: #E90009;">
+                <ng-container *ngFor="let sum of item?.list?.sum;">
+                  <ng-container *ngFor="let temp of sum;">{{temp}}</ng-container>
+                </ng-container>
+              </span>
+            </td>
+            <ng-container *ngFor="let bs of item?.list['sum_bs'];">
+              <td [ngClass]="{hot:bs['b']==0}"><span>{{bs['b']==0?'大':bs['b']}}</span></td>
+              <td [ngClass]="{hot:bs['s']==0}"><span>{{bs['s']==0?'小':bs['s']}}</span></td>
+            </ng-container>
+            <ng-container *ngFor="let od of item?.list['sum_od'];">
+              <td [ngClass]="{hotp:od['o']==0}"><span>{{od['o']==0?'单':od['o']}}</span></td>
+              <td [ngClass]="{hotp:od['d']==0}"><span>{{od['d']==0?'双':od['d']}}</span></td>
+            </ng-container>
+          </tr>
+        </ng-container>
+        <tr class="danmoshi">
+          <th colspan="3" style="text-align: center;color: #0c0c0c;">数据统计</th>
+          <th style="text-align: center;color: #0c0c0c;">大</th>
+          <th style="text-align: center;color: #0c0c0c;">小</th>
+          <th style="text-align: center;color: #0c0c0c;">单</th>
+          <th style="text-align: center;color: #0c0c0c;">双</th>
+        </tr>
+        <tr>
+          <td colspan="3">出现次数</td>
+          <ng-container *ngFor="let bs of mainData?.statistics?.appear['sum_bs'];">
+            <td><span>{{bs['b']}}</span></td>
+            <td><span>{{bs['s']}}</span></td>
+          </ng-container>
+          <ng-container *ngFor="let od of mainData?.statistics?.appear['sum_od'];">
+            <td><span>{{od['o']}}</span></td>
+            <td><span>{{od['d']}}</span></td>
+          </ng-container>
+        </tr>
+        <tr>
+          <td colspan="3">平均遗漏</td>
+          <ng-container *ngFor="let bs of mainData?.statistics?.avg['sum_bs'];">
+            <td><span>{{bs['b']}}</span></td>
+            <td><span>{{bs['s']}}</span></td>
+          </ng-container>
+          <ng-container *ngFor="let od of mainData?.statistics?.avg['sum_od'];">
+            <td><span>{{od['o']}}</span></td>
+            <td><span>{{od['d']}}</span></td>
+          </ng-container>
+        </tr>
+        <tr>
+          <td colspan="3">当前遗漏</td>
+          <ng-container *ngFor="let bs of mainData?.statistics?.current['sum_bs'];">
+            <td><span>{{bs['b']}}</span></td>
+            <td><span>{{bs['s']}}</span></td>
+          </ng-container>
+          <ng-container *ngFor="let od of mainData?.statistics?.current['sum_od'];">
+            <td><span>{{od['o']}}</span></td>
+            <td><span>{{od['d']}}</span></td>
+          </ng-container>
+        </tr>
+        <tr>
+          <td colspan="3">最大连出</td>
+          <ng-container *ngFor="let bs of mainData?.statistics?.maxAway['sum_bs'];">
+            <td><span>{{bs['b']}}</span></td>
+            <td><span>{{bs['s']}}</span></td>
+          </ng-container>
+          <ng-container *ngFor="let od of mainData?.statistics?.maxAway['sum_od'];">
+            <td><span>{{od['o']}}</span></td>
+            <td><span>{{od['d']}}</span></td>
+          </ng-container>
+        </tr>
+        <tr>
+          <td colspan="3">最大遗漏</td>
+          <ng-container *ngFor="let bs of mainData?.statistics?.max['sum_bs'];">
+            <td><span>{{bs['b']}}</span></td>
+            <td><span>{{bs['s']}}</span></td>
+          </ng-container>
+          <ng-container *ngFor="let od of mainData?.statistics?.max['sum_od'];">
+            <td><span>{{od['o']}}</span></td>
+            <td><span>{{od['d']}}</span></td>
+          </ng-container>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="chartbottom">
+    </div>
+    </div>
+  </div>
+  <div *ngIf="!mainData?.list || mainData?.list?.length==0" class="no-data">木得数据啦 <div style="height: 350px;"></div></div>
+
+</div>
+
+
+<div *ngIf="showFilter==2" class="select-page">
+  <ion-backdrop (click)="showFilter=-1" role="presentation" tappable="" style="opacity: 0.26;"></ion-backdrop>
+  <div class="main-wrapper" style="height: 45%;">
+    <div class="tool-bar">
+      <span class="option-md" style="float: left;">查看期数选择</span>
+      <span class="option-md" style="float: right;" (click)="showFilter=-1">取消</span>
+    </div>
+    <div class="main-content">
+      <ul>
+        <li [ngClass]="{checked:tPeriods == 2000}" (click)="chosePeriods(2000);">当天</li>
+        <li [ngClass]="{checked:tPeriods == 30}" (click)="chosePeriods(30);">近30期</li>
+        <li [ngClass]="{checked:tPeriods == 60}" (click)="chosePeriods(60);">近60期</li>
+        <li [ngClass]="{checked:tPeriods == 90}" (click)="chosePeriods(90);">近90期</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showFilter==3" class="select-page">
+  <ion-backdrop (click)="choseCon(-1)" role="presentation" tappable="" style="opacity: 0.26;"></ion-backdrop>
+  <div class="main-wrapper" style="height: 30%;">
+    <div class="tool-bar">
+      <span class="option-md" style="float: left;">条件选择</span>
+      <!--<span class="option-md" style="float: right;" (click)="choseCon(-1)">取消</span>-->
+      <span class="option-md" style="float: right;" (click)="choseCon(99)">确定</span>
+    </div>
+    <div class="main-content" style="display: block;  padding: 0 15px;">
+      <div>
+        <ul class="marginTop" style="margin-top: 15px;padding-top: 1px;">
+          <li class="yilo" [ngClass]="{check_tj:temRs.missing}" (click)="temRs.missing=!temRs.missing">
+            遗漏
+          </li>
+          <li class="caix" [ngClass]="{check_tj:temRs.disassemble}"
+              (click)="temRs.disassemble=!temRs.disassemble">拆线
+          </li>
+          <li class="fancong" [ngClass]="{check_tj:temRs.missingLayer}"
+              (click)="temRs.missingLayer=!temRs.missingLayer">遗漏分层
+          </li>
+          <li class="fgx" [ngClass]="{check_tj:temRs.dividingLine}"
+              (click)="temRs.dividingLine=!temRs.dividingLine">分割线
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

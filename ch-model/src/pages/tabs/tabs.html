@@ -1,0 +1,14 @@
+<!--<ion-tabs class="custom_nav" #myTabs (ionChange)="ionChange()">-->
+  <!--<ion-tab [root]="tab1Root" tabTitle="首页" tabIcon="index"></ion-tab>-->
+  <!--<ion-tab [root]="tab2Root" tabTitle="彩种" tabIcon="stars"></ion-tab>-->
+  <!--<ion-tab [root]="tab3Root" tabTitle="资讯" tabIcon="news"></ion-tab>-->
+  <!--<ion-tab [root]="tab4Root" tabTitle="设置" tabIcon="setting"></ion-tab>-->
+<!--</ion-tabs>-->
+
+<ion-tabs class="custom_nav" #myTabs (ionChange)="ionChange()" [selectedIndex]="2">
+  <ion-tab [root]="tab1Root" tabTitle="两面推荐" tabIcon="index"></ion-tab>
+  <ion-tab [root]="tab2Root" tabTitle="长龙提醒" tabIcon="stars"></ion-tab>
+  <ion-tab [root]="tab3Root" tabTitle="" tabIcon="news"></ion-tab>
+  <ion-tab [root]="tab4Root" tabTitle="杀号计划" tabIcon="setting"></ion-tab>
+  <ion-tab [root]="tab5Root" tabTitle="购彩计划" tabIcon="about"></ion-tab>
+</ion-tabs>

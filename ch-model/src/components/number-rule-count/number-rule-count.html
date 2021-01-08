@@ -1,0 +1,100 @@
+<div class="component_scroll">
+  <div class="drawCodebox hlgltj haomagltj" *ngIf="mainData" style="left: 0; display: block;">
+    <div id="gltjhead">
+      <div class="numList">
+        <ul id="gltjhmNum">
+          <li [ngClass]="{hmglNumAct:rank==1}" (click)="rankCheck(1)">1</li>
+          <li [ngClass]="{hmglNumAct:rank==2}" (click)="rankCheck(2)">2</li>
+          <li [ngClass]="{hmglNumAct:rank==3}" (click)="rankCheck(3)">3</li>
+          <li [ngClass]="{hmglNumAct:rank==4}" (click)="rankCheck(4)">4</li>
+          <li [ngClass]="{hmglNumAct:rank==5}" (click)="rankCheck(5)">5</li>
+          <li [ngClass]="{hmglNumAct:rank==6}" (click)="rankCheck(6)">6</li>
+          <li [ngClass]="{hmglNumAct:rank==7}" (click)="rankCheck(7)">7</li>
+          <li [ngClass]="{hmglNumAct:rank==8}" (click)="rankCheck(8)">8</li>
+          <li [ngClass]="{hmglNumAct:rank==9}" (click)="rankCheck(9)">9</li>
+          <li [ngClass]="{hmglNumAct:rank==10}" (click)="rankCheck(10)">10</li>
+        </ul>
+      </div>
+      <div class="btnList">
+        <div class="tusjbox">
+          <span id="picBtn" [ngClass]="{tubiaocheck:modeType==0}" (click)="modeType=0">图表</span>
+          <span id="dateBtn" [ngClass]="{tubiaocheck:modeType==1}" (click)="modeType=1">数据</span>
+        </div>
+        <span class="todayBtn" id="todayBtn" (click)="showFilter=2">
+        <p>{{tPeriods == 2000 ? '当天' : tPeriods == 30 ? '近30期' : tPeriods == 60 ? '近60期' : '近90期'}}</p><i></i>
+      </span>
+      </div>
+    </div>
+    <div id="gltjbody">
+      <!--图表-->
+      <div id="tblist" *ngIf="modeType==0">
+        <p><span>号码</span><span>次数</span></p>
+        <ul id="tbSqur">
+          <li *ngFor="let ap of mainData?.appear;let a=index;">
+            <i class="codenum">{{(a<9?'0':'')+(a + 1)}}</i>
+            <span class="gayPip" [ngStyle]="{width:(ap/mainData?.max)*90+'%'}"><i class="kainum">{{ap}}</i></span>
+          </li>
+        </ul>
+      </div>
+      <!--数据-->
+      <div id="datelist" *ngIf="modeType==1">
+        <div class="qihsj">
+          <p>期号&nbsp;&nbsp;/&nbsp;&nbsp;时间</p>
+          <span id="hmfbId" [ngClass]="{gltjHMfb:radio==0}" (click)="radio=0">号码分布</span>
+          <span id="dsdxId" [ngClass]="{gltjHMfb:radio==1}" (click)="radio=1">大小单双</span>
+        </div>
+        <div id="sjdsdxList" *ngIf="radio==1">
+          <ul *ngFor="let item of mainData?.list;">
+            <li><span>{{item?.no.toString().substring(2)}}</span>{{item?.time.substring(5, 16)}}</li>
+            <li>{{item?.on}}</li>
+            <li [ngClass]="{font_red:item?.trend=='升'}">{{item?.trend}}</li>
+            <li [ngClass]="{font_red:item?.double==1}">{{item?.double == 1 ? '双' : '单'}}</li>
+            <li [ngClass]="{font_red:item?.big==1}">{{item?.big == 1 ? '大' : '小'}}</li>
+          </ul>
+        </div>
+        <div id="waitBox" *ngIf="radio==0">
+          <div class="sjhmfbList " id="chartLinediv">
+            <table id="trend_table2_hmgltj" border="0" cellspacing="1" cellpadding="1">
+              <tbody>
+              <tr *ngFor="let item of mainData?.list;">
+                <td style="width:38%"><span>{{item?.no.toString().substring(2)}}</span>{{item?.time.substring(5, 16)}}
+                </td>
+                <td *ngFor="let num of item?.num;" [ngClass]="{hot:num==item?.on}">
+                <span class="defalut_circle"
+                      [ngClass]="{ lineBall1:num==1&&item?.on==1,lineBall2:num==2&&item?.on==2,
+                lineBall3:num==3&&item?.on==3,lineBall4:num==4&&item?.on==4,lineBall5:num==5&&item?.on==5,
+                lineBall6:num==6&&item?.on==6,lineBall7:num==7&&item?.on==7,lineBall8:num==8&&item?.on==8,
+                lineBall9:num==9&&item?.on==9,lineBall10:num==10&&item?.on==10}">{{num}}</span>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="chartbottom">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!mainData" class="no-data">木得数据啦  <div style="height: 350px;"></div></div>
+
+</div>
+
+
+<div *ngIf="showFilter==2" class="select-page">
+  <ion-backdrop (click)="showFilter=-1" role="presentation" tappable="" style="opacity: 0.26;"></ion-backdrop>
+  <div class="main-wrapper" style="height: 45%;">
+    <div class="tool-bar">
+      <span class="option-md" style="float: left;">查看期数选择</span>
+      <span class="option-md" style="float: right;" (click)="showFilter=-1">取消</span>
+    </div>
+    <div class="main-content">
+      <ul>
+        <li [ngClass]="{checked:tPeriods == 2000}" (click)="chosePeriods(2000);">当天</li>
+        <li [ngClass]="{checked:tPeriods == 30}" (click)="chosePeriods(30);">近30期</li>
+        <li [ngClass]="{checked:tPeriods == 60}" (click)="chosePeriods(60);">近60期</li>
+        <li [ngClass]="{checked:tPeriods == 90}" (click)="chosePeriods(90);">近90期</li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,1012 @@
+page-long-dragon-count {
+  .navList {
+    position: absolute;
+    font-size: 14px;
+    background: #fff;
+    width: 100%;
+    height: 110px;
+    z-index: 3;
+    opacity: .1;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .navList div {
+    display: inline-block;
+    margin-right: 30px;
+    -moz-box-flex: 1;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    text-align: center;
+    color: #292929;
+    margin-top: 20px;
+    font-size: 12px;
+    flex: 1;
+  }
+
+  .navList div:first-child {
+    margin-left: 32px;
+  }
+
+  .navList span {
+    display: inline-block;
+    height: 38px;
+    width: 36px;
+    margin-bottom: 5px;
+  }
+
+  .navList .cphost span {
+    background: #fff url(../../../assets/imgs/icon-168index.png) -70px 2px no-repeat;
+    background-size: 333px;
+  }
+
+  .navList .lmtuijan span {
+    background: #fff url(../../../assets/imgs/icon-168index.png) -105px 2px no-repeat;
+    background-size: 333px;
+  }
+
+  .navList .shjhua span {
+    background: #fff url(../../../assets/imgs/icon-168index.png) -176px 2px no-repeat;
+    background-size: 333px;
+  }
+
+  .navList .goucjhua span {
+    background: #fff url(../../../assets/imgs/icon-168index.png) -210px 2px no-repeat;
+    background-size: 333px;
+  }
+
+  .navList .clcj span {
+    background: #fff url(../../../assets/imgs/icon-168index.png) -140px 0 no-repeat;
+    background-size: 333px;
+  }
+
+  .body-box {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background: #f0eff5;
+    font-size: 12px;
+  }
+
+  .qsSelectbox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    height: 45px;
+  }
+
+  .qsSelectbox input {
+    border: 1px solid #e5e5e5;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    color: #959595;
+    height: 22px;
+    border-radius: 2px;
+    background: #fff;
+    margin: 0 5px;
+    z-index: 1;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .qsSelectbox .left_qishu {
+    position: relative;
+    width: 70%;
+    font-size: 14px;
+    color: #666;
+  }
+
+  .qsSelectbox .left_qishu .qishuNum {
+    display: inline-block;
+    width: 35px;
+    border: 1px solid #e5e5e5;
+    text-align: left;
+    padding-left: 5px;
+    color: #959595;
+    height: 22px;
+    line-height: 22px;
+    border-radius: 2px;
+    background: #fff;
+    margin: 0 5px;
+    z-index: 1;
+  }
+
+  .qsSelectbox .left_qishu .grayCor_l {
+    position: absolute;
+    width: 12px;
+    height: 10px;
+    top: 7px;
+    left: 73px;
+    background: url(../../../assets/imgs/icon-168index.png) no-repeat -40px -2px;
+    background-size: 333px;
+    z-index: 0;
+  }
+
+  .qsSelectbox #choseCaiName {
+    width: 55px;
+    text-align: center;
+    float: right;
+    color: #fff;
+    font-size: 14px;
+    height: 25px;
+    line-height: 25px;
+    border-radius: 12.5px;
+    background: #e12121;
+  }
+
+  .ListHead .headTitle_cltj {
+    width: 320%;
+    display: -webkit-box;
+    height: 44px;
+    border-bottom: 0.5px solid #dbdbdb;
+    position: relative;
+    padding-right: 44px;
+  }
+
+  .ListHead .checkyellowbl {
+    color: #e12121 !important;
+  }
+
+  .ListHead .contopenKai table, .ListHead .unopenbox table {
+    display: table;
+    width: 100%;
+    margin-top: 5px;
+    background: #e7e7e7;
+    text-align: center;
+  }
+
+  .ListHead .contopenKai table thead th, .ListHead .unopenbox table thead th {
+    width: 25%;
+    height: 33px;
+    line-height: 33px;
+    background: #e7e7e7;
+    text-align: center;
+  }
+
+  .ListHead .contopenKai table tbody tr, .ListHead .unopenbox table tbody tr {
+    height: 24px;
+    line-height: 24px;
+    color: #666;
+  }
+
+  .ListHead .contopenKai table tbody tr td, .ListHead .unopenbox table tbody tr td {
+    white-space: nowrap;
+    background: #fff;
+  }
+
+  .ListHead .contopenKai table tbody tr td a, .ListHead .unopenbox table tbody tr td a {
+    color: #666;
+  }
+
+  .ListHead .contopenKai table tbody tr td:first-child, .ListHead .contopenKai table tbody tr td:nth-child(2), .ListHead .unopenbox table tbody tr td:first-child, .ListHead .unopenbox table tbody tr td:nth-child(2) {
+    padding-left: 10px;
+    text-align: left;
+  }
+
+  .ListHead {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background: #fff;
+    margin-top: 0;
+    min-height: 500px !important;
+    position: relative;
+  }
+
+  .ListHead .sort {
+    position: absolute;
+    background: #fff;
+    z-index: 1;
+    top: -2px;
+    right: 0;
+    height: 44px;
+    width: 44px;
+  }
+
+  .ListHead .sort:after {
+    content: "";
+    display: block;
+    width: 21px;
+    height: 21px;
+    position: relative;
+    top: 13px;
+    left: 12px;
+    background: #fff url(../../../assets/imgs/px10obj.png) 4px 2px no-repeat;
+    background-size: 37px;
+  }
+
+  .ListHead .sort.bgsize:after {
+    background-position-y: -17px;
+  }
+
+  .ListHead .headTitle_view {
+    width: 100%;
+    overflow: scroll;
+    position: relative;
+  }
+
+  .ListHead .headTitle {
+    width: 320%;
+    display: -webkit-box;
+    height: 44px;
+    border-bottom: 0.5px solid #dbdbdb;
+    position: relative;
+    z-index: 0;
+    padding-right: 44px;
+  }
+
+  .ListHead .headTitle button, .ListHead .headTitle div {
+    height: 100%;
+    margin-right: 25px;
+    margin-left: 10px;
+    line-height: 44px;
+    height: 44px;
+    text-align: center;
+    color: #666;
+    font-size: 13px;
+    background: transparent;
+    outline: none;
+    border: 0;
+    flex: 1;
+    display: inline-block;
+  }
+
+  .ListHead .headTitle button span, .ListHead .headTitle div span {
+    // width: auto;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    white-space: nowrap;
+  }
+
+  .ListHead span {
+    width: 100px;
+  }
+
+  .ListHead .checkyellowbl span i {
+    margin: 0 auto;
+    width: 100px;
+    border-bottom: 2px solid #e12121;
+    display: block;
+  }
+
+  .ListHead .headTitle button {
+    margin-right: 9px;
+  }
+
+  .ListHead .headTitle .checkedbl span i {
+    margin: 0 auto;
+    width: 100%;
+    border-bottom: 1px solid #e12121;
+    display: block;
+    bottom: 2px;
+    position: relative;
+    min-width: 50px;
+  }
+
+  .ListHead .headTitle .single {
+    float: left;
+    margin-left: 10px;
+  }
+
+  .ListHead .headTitle_gary {
+    width: 515%;
+    display: flex;
+  }
+
+  .ListHead .headTitle_gary div {
+    margin-right: 10px;
+  }
+
+  .ListHead .headTitle_widthreset {
+    width: 1300px;
+    padding-right: 100px;
+  }
+
+  .ListHead .headTitle_show {
+    width: 240%;
+    display: flex;
+  }
+
+  .ListHead .headTitle_show div {
+    margin-right: 10px;
+  }
+
+  .ListHead .headTitle_ffceva div {
+    margin-left: 3px;
+  }
+
+  .ListHead .drawCodebox {
+    height: auto;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    left: 0;
+    font-size: 12px;
+  }
+
+  .ListHead .drawCodebox .linebox {
+    display: -webkit-box;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    height: auto;
+    width: 100%;
+  }
+
+  .ListHead .drawCodebox .linebox > div span {
+    height: 44px;
+    line-height: 44px;
+    display: inline-block;
+  }
+
+  .ListHead .drawCodebox .linebox > div:first-child {
+    color: #666;
+    -webkit-box-flex: 1;
+    box-flex: 1;
+    width: 53px;
+  }
+
+  .ListHead .drawCodebox .linebox > div:first-child .leftspan {
+    float: left;
+  }
+
+  .ListHead .drawCodebox .linebox > div:first-child .padleft1 {
+    padding-right: 6px;
+  }
+
+  .ListHead .drawCodebox .linebox > div:first-child .graytime {
+    font-size: 11px;
+  }
+
+  .ListHead .drawCodebox .linebox > div:first-child .rightspan {
+    float: right;
+  }
+
+  .ListHead .drawCodebox .linebox .leftspanw {
+    width: 68px !important;
+  }
+
+  .ListHead .drawCodebox .linebox .leftspanb {
+    width: 140px !important;
+  }
+
+  .ListHead .drawCodebox .linebox .midillspan {
+    margin-left: 34px;
+  }
+
+  .ListHead .drawCodebox .linebox div:nth-child(2) {
+    color: #333;
+    -webkit-box-flex: 6;
+    box-flex: 6;
+  }
+
+  .ListHead .drawCodebox .linebox div:nth-child(2) .lhdzlDiv, .ListHead .drawCodebox .linebox div:nth-child(2) .rightdiv {
+    width: 100%;
+    display: -webkit-box;
+    margin-top: 10px;
+    padding-left: 20px;
+    box-sizing: border-box;
+  }
+
+  .ListHead .drawCodebox .linebox div:nth-child(2) .lhdzlDiv span, .ListHead .drawCodebox .linebox div:nth-child(2) .rightdiv span {
+    height: 24px;
+    line-height: 24px;
+    display: block;
+    text-align: center;
+    -webkit-box-flex: 4;
+    box-flex: 4
+  }
+
+  .ListHead .drawCodebox .linebox div:nth-child(2) .lhdzlDiv span:nth-child(4), .ListHead .drawCodebox .linebox div:nth-child(2) .rightdiv span:nth-child(4) {
+    -webkit-box-flex: 5;
+    box-flex: 5;
+  }
+
+  .ListHead .drawCodebox .linebox div:nth-child(2) .lhdzlDiv .lhdspanchecked, .ListHead .drawCodebox .linebox div:nth-child(2) .lhdzlDiv .spanchecked, .ListHead .drawCodebox .linebox div:nth-child(2) .rightdiv .lhdspanchecked, .ListHead .drawCodebox .linebox div:nth-child(2) .rightdiv .spanchecked {
+    border-radius: 11px;
+    -moz-border-radius: 11px;
+    -webkit-border-radius: 11px;
+    background: #e12121;
+    color: #fff;
+  }
+
+  .ListHead .drawCodebox .linebox div:nth-child(2) .rightdivhead {
+    width: 100%;
+    display: -webkit-box;
+    margin-top: 10px;
+    padding-left: 20px;
+    box-sizing: border-box;
+  }
+
+  .ListHead .drawCodebox .linebox div:nth-child(2) .rightdivhead span {
+    height: 22px;
+    line-height: 22px;
+    display: block;
+    text-align: center;
+    -webkit-box-flex: 4;
+    box-flex: 4;
+  }
+
+  .ListHead .drawCodebox .linebox div:nth-child(2) .rightdivhead span:nth-child(4) {
+    -webkit-box-flex: 5;
+    box-flex: 5;
+  }
+
+  .ListHead .drawCodebox .linebox div:nth-child(2) .rightdivhead .lhdspanchecked, .ListHead .drawCodebox .linebox div:nth-child(2) .rightdivhead .spanchecked {
+    border-radius: 11px;
+    -moz-border-radius: 11px;
+    -webkit-border-radius: 11px;
+    background: #e12121;
+    color: #fff;
+  }
+
+  .ListHead .drawCodebox .contentlist .listline {
+    display: -webkit-box;;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    height: auto;
+    width: 100%;
+  }
+
+  .ListHead .drawCodebox .contentlist .listline div {
+    font-size: 12px;
+  }
+
+  .ListHead .drawCodebox .contentlist .listline div span {
+    height: 42px;
+    line-height: 42px;
+  }
+
+  .ListHead .drawCodebox .contentlist .listline div:first-child {
+    color: #666;
+    -webkit-box-flex: 1;
+    box-flex: 1;
+    width: 53px;
+  }
+
+  .ListHead .drawCodebox .contentlist .listline div:first-child .leftspan {
+    float: left;
+  }
+
+  .ListHead .drawCodebox .contentlist .listline div:first-child .padleft1 {
+    padding-right: 6px;
+  }
+
+  .ListHead .drawCodebox .contentlist .listline div:first-child .graytime {
+    font-size: 11px;
+  }
+
+  .ListHead .drawCodebox .contentlist .listline div:first-child .rightspan {
+    float: right;
+  }
+
+  .ListHead .drawCodebox .contentlist .listline .leftspanw {
+    width: 79px !important;
+  }
+
+  .ListHead .drawCodebox .contentlist .listline div:nth-child(2) {
+    color: #333;
+    -webkit-box-flex: 6;
+    box-flex: 6;
+  }
+
+  .ListHead .drawCodebox .contentlist .listline div:nth-child(2) .rightdiv {
+    width: 100%;
+    display: -webkit-box;
+    margin-top: 10px;
+    padding-left: 20px;
+    box-sizing: border-box;
+  }
+
+  .ListHead .drawCodebox .contentlist .listline div:nth-child(2) .rightdiv span {
+    height: 24px;
+    line-height: 24px;
+    display: block;
+    text-align: center;
+    -webkit-box-flex: 4;
+    box-flex: 4;
+  }
+
+  .ListHead .drawCodebox .contentlist .listline div:nth-child(2) .rightdiv span:nth-child(4) {
+    -webkit-box-flex: 5;
+    box-flex: 5;
+    text-align: right;
+    padding-right: 10px;
+  }
+
+  .ListHead .drawCodebox .contentlist .listline div:nth-child(2) .rightdiv .spanchecked {
+    border-radius: 11px;
+    -moz-border-radius: 11px;
+    -webkit-border-radius: 11px;
+    background: #e12121;
+    color: #fff;
+  }
+
+  .ListHead .drawCodebox .contentlist .listline div:nth-child(2) .padl0 {
+    padding-left: 7px;
+  }
+
+  .ListHead .drawCodebox .contentlist .boxflex {
+    width: 100%;
+    display: block;
+    display: -webkit-box;
+  }
+
+  .ListHead .drawCodebox .contentlist .boxflex span {
+    display: block;
+    -webkit-box-flex: 1;
+    box-flex: 1;
+  }
+
+  td {
+    border: 1px solid #eaeaea;
+  }
+
+  .opacitbox {
+    position: fixed;
+    width: 100%;
+    height: 0;
+    top: 100%;
+    background: rgba(0, 0, 0, .1);
+    z-index: 2;
+    transition: all .3s linear;
+    overflow: hidden;
+  }
+
+  .opacitbox .qishuBox {
+    position: absolute;
+    width: 95%;
+    height: 60%;
+    margin: 0 10px;
+    margin-top: 30%;
+    text-align: center;
+  }
+
+  .opacitbox .qishuBox p {
+    display: block;
+    font-size: 14px;
+    height: 33px;
+    line-height: 33px;
+    color: #e12121;
+    background: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .opacitbox .qishuBox ul {
+    height: 58%;
+    overflow: scroll;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .opacitbox .qishuBox ul li {
+    font-size: 16px;
+    list-style: none;
+    height: 42px;
+    line-height: 42px;
+    color: #666;
+    background: #fff;
+    border-top: 1px solid #ededed;
+  }
+
+  .opacitbox .qishuBox ul li.checkedli {
+    color: #e12121;
+  }
+
+  .opacitbox .qishuBox ul li:last-child {
+    border-bottom: none;
+  }
+
+  .opacitbox .qishuBox span {
+    display: block;
+    border-radius: 10px;
+    height: 46px;
+    line-height: 46px;
+    font-size: 16px;
+    margin-top: 10px;
+    color: #2f76f6;
+    position: absolute;
+    width: 100%;
+    background: #fff;
+  }
+
+  .all_kinds {
+    background: #fff;
+  }
+
+  .chose_kind li {
+    font-size: 14px;
+    list-style: none;
+    width: 28% !important;
+    height: 30px !important;
+    line-height: 30px !important;
+    color: #666;
+    float: left;
+    text-align: center;
+    border-radius: 2px;
+    border: 1px solid #e5e4e9;
+    margin-right: 14px;
+    margin-left: 5px;
+    margin-bottom: 13px;
+    background: #fff;
+  }
+
+  .czListBg {
+    color: #e12121!important;
+    border: 1px solid #e12121!important;
+    position: relative;
+  }
+
+  //.czListBg:after {
+  //  content: "";
+  //  display: block;
+  //  position: absolute;
+  //  top: 8px;
+  //  left: 78.5px;
+  //  width: 19.5px;
+  //  height: 21px;
+  //  background: url(../../../assets/imgs/icon-168index.png) no-repeat 4.5px -21px;
+  //  background-size: 333px;
+  //}
+
+  .loteyPage {
+    position: absolute;
+    z-index: 2;
+    top: -2000px;
+    left: 0;
+    height: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, .1);
+    transition: all .3s linear;
+  }
+
+  .loteyPage.gotop {
+    top: 0;
+    height: 100%;
+  }
+
+  .loteyPage .Page_main {
+    width: 95%;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    margin: 0 auto;
+    max-height: 95%;
+    overflow: hidden;
+    margin-top: 55px;
+    //margin-top: 100px;
+  }
+
+  .loteyPage .Page_main div {
+    width: 100%;
+  }
+
+  .loteyPage .Page_main .checkTitle {
+    // border-bottom: 1px solid #e8e8e8;
+    background: #fff;
+    border-top-left-radius: 10.53px;
+    border-top-right-radius: 10.53px;
+    display: block;
+    font-size: 16px;
+    height: 50px;
+    line-height: 50px;
+    color: #e12121;
+  }
+
+  .loteyPage .Page_main .Page_content {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    height: auto;
+    max-height: 400px;
+    //max-height: 400px;
+    overflow: scroll;
+    margin-bottom: 10.53px;
+  }
+
+  .loteyPage .Page_main .Page_content ul {
+    height: auto;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+
+  .loteyPage .Page_main .Page_content ul li {
+    width: 100%;
+    height: 52.6px;
+    line-height: 52.6px;
+    border-top: 1px solid #e8e8e8;
+    text-align: center;
+    background: #fff;
+    box-sizing: border-box;
+  }
+
+  .loteyPage .Page_main .Page_content ul li.checked {
+    color: #e12121;
+  }
+
+  //.loteyPage .Page_main .Page_content ul li:first-child {
+  //  border-top: 0;
+  //}
+
+  .loteyPage .Page_main .Page_content ul .Pk10Li {
+    position: relative;
+  }
+
+  .loteyPage .Page_main .Page_content ul .Pk10Li:before {
+    content: "PK10系列";
+    width: 92.2px;
+    height: 26.33px;
+    line-height: 26.33px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    background: url(../../../assets/imgs/icon-168index.png) -247px 0 no-repeat;
+    background-size: 333px;
+    font-size: 12px;
+  }
+
+  .loteyPage .Page_main .Page_content ul .sscLi {
+    position: relative;
+  }
+
+  .loteyPage .Page_main .Page_content ul .sscLi:before {
+    content: "时时彩系列";
+    width: 92.2px;
+    height: 26.33px;
+    line-height: 26.33px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    background: url(../../../assets/imgs/icon-168index.png) -247px 0 no-repeat;
+    background-size: 333px;
+    font-size: 12px;
+  }
+
+  .loteyPage .Page_main .Page_content ul .check11_5Li {
+    position: relative;
+  }
+
+  .loteyPage .Page_main .Page_content ul .check11_5Li:before {
+    content: "11选5系列";
+    width: 92.2px;
+    height: 26.33px;
+    line-height: 26.33px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    background: url(../../../assets/imgs/icon-168index.png) -247px 0 no-repeat;
+    background-size: 333px;
+    font-size: 12px;
+  }
+
+  .loteyPage .Page_main .Page_content ul .kui3Li {
+    position: relative;
+  }
+
+  .loteyPage .Page_main .Page_content ul .kui3Li:before {
+    content: "快三系列";
+    width: 92.2px;
+    height: 26.33px;
+    line-height: 26.33px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    background: url(../../../assets/imgs/icon-168index.png) -247px 0 no-repeat;
+    background-size: 333px;
+    font-size: 12px;
+  }
+
+  .loteyPage .Page_main .Page_content ul .ortherLi {
+    position: relative
+  }
+
+  .loteyPage .Page_main .Page_content ul .ortherLi:before {
+    content: "其它";
+    width: 92.2px;
+    height: 26.33px;
+    line-height: 26.33px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    background: url(../../../assets/imgs/icon-168index.png) -247px 0 no-repeat;
+    background-size: 333px;
+    font-size: 12px;
+  }
+
+  .loteyPage .Page_main .rulebox {
+    height: 192.2px;
+    width: 316px;
+    border-radius: 63.4px;
+    margin: 0 auto;
+    margin-top: 40%;
+  }
+
+  .loteyPage .Page_main .rulebox .box_top {
+    height: 36.9px;
+    line-height: 36.9px;
+    background: #e12121;
+    color: #fff;
+    border-top-left-radius: 10.53px;
+    border-top-right-radius: 10.53px;
+  }
+
+  .loteyPage .Page_main .rulebox .box_top i {
+    display: inline-block;
+    width: 18.5px;
+    height: 18.5px;
+    position: relative;
+    top: 5px;
+    left: -134px;
+    background: url(../../../assets/imgs/icon-168index.png) -20px -23px no-repeat;
+    background-size: 333px;
+  }
+
+  .loteyPage .Page_main .rulebox .box_top span {
+    float: left;
+    margin-left: 38px;
+  }
+
+  .loteyPage .Page_main .rulebox .box_top .right {
+    float: right;
+    color: #fff;
+    margin-right: 10.53px;
+    position: relative;
+  }
+
+  .loteyPage .Page_main .rulebox .box_top .right:after {
+    position: absolute;
+    top: .3rem;
+    left: 0;
+    content: "";
+    width: 100%;
+    border-bottom: 1px solid #fff;
+  }
+
+  .loteyPage .Page_main .rulebox .box_content {
+    background: #fff;
+    min-height: 102.7px;
+    max-height: 263.3px;
+    border-bottom: 1px solid #ededed;
+    padding-top: 5px;
+  }
+
+  .loteyPage .Page_main .rulebox .box_content p {
+    color: #666;
+    text-align: left;
+    line-height: 35px;
+    padding-left: 20.53px;
+    box-sizing: border-box;
+  }
+
+  .loteyPage .Page_main .rulebox .box_content p span {
+    color: #333;
+  }
+
+  .loteyPage .Page_main .rulebox .box_content P:last-child {
+    line-height: 25px;
+  }
+
+  .loteyPage .Page_main .rulebox .reset {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    color: #666;
+    font-size: 16px;
+  }
+
+  .btngrulp {
+    margin-top: -15px;
+    height: 50px;
+    position: relative;
+    bottom: 0;
+  }
+
+  .btngrulp span {
+    width: 50%;
+    height: 100%;
+    line-height: 50px;
+    font-size: 16px;
+    float: left;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 0;
+  }
+
+  .reset {
+    background: #f0f0f0!important;
+    color: #2f76f6;
+    border-radius: 0 !important;
+  }
+
+  .sure {
+    background: #e12121;
+    color: #fff;
+  }
+
+  .select-page {
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: 1000;
+    display: block;
+    width: 100%;
+    height: 100%;
+    contain: strict;
+  }
+
+  .main-wrapper {
+    height: 285px;
+    border-top: 0.55px solid #dedede;
+    background: #fff;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 10;
+    margin: auto;
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+  }
+
+  .tool-bar {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    height: 44px;
+    background: #fff;
+    z-index: 1;
+    width: 100%;
+    contain: strict;
+  }
+
+  .option-md {
+    padding: 15px;
+    height: 44px;
+    font-size: 14px;
+    color:red;
+  }
+
+  .main-content {
+    display: flex;
+    overflow: hidden;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    overflow: scroll;
+    height: auto;
+    max-height: 200px;
+  }
+
+  .main-content ul {
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+
+  .main-content ul li {
+    text-align: center;
+    font-size: 12px;
+    line-height: 42px;
+  }
+
+  .main-content ul li.checked {
+    color: red;
+  }
+}

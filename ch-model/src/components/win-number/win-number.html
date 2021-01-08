@@ -1,0 +1,579 @@
+<!-- Generated template for the WinNumberComponent component -->
+<div id="mainContent" class="component_scroll" detect-scroll (onScroll)="handleScroll($event)">
+  <ng-container *ngIf="mainList && mainList?.length>0">
+    <!--极速快3等-->
+    <div class="drawCodebox kaijianghm" *ngIf="showType==4">
+      <div class="linebox">
+        <div class="leftspan">
+          <span class="leftspan">时间</span>
+          <span class="rightspan padleft1">期数</span>
+        </div>
+        <div class="rightspan">
+          <div class="rightdivhead">
+            <span>号码</span>
+            <span>&nbsp;</span>
+            <span>大小/单双</span>
+            <span>鱼虾蟹</span>
+          </div>
+        </div>
+      </div>
+      <div class="contentlist bortop002" >
+        <div class="listotherline bortop001 ssclist" *ngFor="let item of mainList;">
+          <div class="leftspan">
+    <span class="boxflex">
+    <span class="graytime">{{item?.time?.substring(11, 16)}}</span>
+    <span class="graytime">{{item?.no}}</span>
+    </span>
+          </div>
+          <div class="rightspan">
+            <div class="rightdiv padl0">
+              <div class=" displayblock">
+                <ul class="pk10li kuaisanlist  numul">
+                  <li *ngFor="let tem of item?.num;"
+                      [ngClass]="{num1:tem=='1',num2:tem=='2',num3:tem=='3',num4:tem=='4',num5:tem=='5',num6:tem=='6'}">
+                    <i>{{tem}}</i></li>
+                  <!--<li class="num4"><i>4</i></li>-->
+                  <!--<li class="num5 li_after"><i>5</i></li>-->
+                  <li style="color:#f12d35">{{item?.total}}</li>
+                  <li style="color:#f12d35">{{item?.size}}</li>
+                  <li style="color:#666">{{item?.oddEven}}</li>
+                  <li *ngFor="let p of item?.desc;">{{p}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--北京PK10等-->
+    <div class="drawCodebox kaijianghm" *ngIf="showType==1">
+      <div class="linebox">
+        <div class="leftspan">
+          <span class="leftspan">时间</span>
+          <span class="rightspan padleft1">期数</span>
+        </div>
+        <div class="rightspan">
+          <div class="rightdiv">
+            <span [ngClass]="{spanchecked:spanType==0}" (click)="spanType=0">号码</span>
+            <span [ngClass]="{spanchecked:spanType==1}" (click)="spanType=1">大小</span>
+            <span [ngClass]="{spanchecked:spanType==2}" (click)="spanType=2">单双</span>
+            <span [ngClass]="{spanchecked:spanType==3}" (click)="spanType=3">冠军/龙虎</span>
+          </div>
+        </div>
+      </div>
+      <div class="contentlist bortop002" >
+        <div class="listline bortop001" *ngFor="let item of mainList;">
+          <div class="leftspan leftspanw"><span class="boxflex"><span
+            class="graytime">{{item?.time?.substring(11, 16)}}</span><span class="graytime">{{item?.no?.toString().length<9?item?.no:item?.no?.toString().substring(4)}}</span></span>
+          </div>
+          <div class="rightspan">
+            <div class="rightdiv padl0">
+              <ul class="pk10li haomali listli" *ngIf="spanType==0 && item?.num && item?.num?.length>0">
+                <li *ngFor="let tem of item?.num;let index = index;"
+                    [ngClass]="{nubb01:tem=='01',nubb02:tem=='02',nubb03:tem=='03',nubb04:tem=='04',nubb05:tem=='05',
+                nubb06:tem=='06',nubb07:tem=='07',nubb08:tem=='08',nubb09:tem=='09',nubb10:tem=='10',li_after:index==9}"
+                    class="nubb05"><i>{{tem}}</i></li>
+              </ul>
+
+              <ul class="pk10li haomali listli" *ngIf="spanType==1 && item?.num && item?.num?.length>0">
+                <li *ngFor="let tem of item?.num;let index = index;"
+                    [ngClass]="{numbig:tem>max/2,numsm:tem<=max/2,li_after:index==9}"><i>{{tem}}</i></li>
+              </ul>
+
+              <ul class="pk10li haomali listli " *ngIf="spanType==2 && item?.num && item?.num?.length>0">
+                <li *ngFor="let tem of item?.num;let index = index;"
+                    [ngClass]="{numd:tem%2==1,nums:tem%2==0,li_after:index==9}"><i>{{tem}}</i></li>
+              </ul>
+              <ul class="pk10li longhuli listli lhlist " *ngIf="spanType==3 && item?.num && item?.num?.length>0">
+                <li *ngFor="let p of item?.topazTotalDesc;">{{p}}</li>
+                <li *ngFor="let t of item?.pred" [ngClass]="{hubg:t=='虎',longbg:t=='龙'}"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--重庆时时彩等-->
+    <!--<div class="drawCodebox kaijianghm" *ngIf="code.indexOf('ssc')>-1 || code.indexOf('yxw')>-1 ||code.indexOf('ydj')>-1">-->
+    <div class="drawCodebox kaijianghm" *ngIf="showType==2">
+      <div class="linebox">
+        <div class="leftspan">
+          <span class="leftspan">时间</span>
+          <span class="rightspan padleft1">期数</span>
+        </div>
+        <div class="rightspan">
+          <div class="rightdiv">
+            <span [ngClass]="{spanchecked:spanType==0}" (click)="spanType=0">号码</span>
+            <span [ngClass]="{spanchecked:spanType==1}" (click)="spanType=1">大小</span>
+            <span [ngClass]="{spanchecked:spanType==2}" (click)="spanType=2">单双</span>
+            <span [ngClass]="{spanchecked:spanType==3}" (click)="spanType=3">总和/形态</span>
+          </div>
+        </div>
+      </div>
+      <div class="contentlist bortop002" >
+        <div class="listotherline bortop001 ssclist" *ngFor="let item of mainList;">
+          <div class="leftspan">
+        <span class="boxflex">
+          <span class="graytime">{{item?.time?.substring(11, 16)}}</span>
+          <span class="graytime">{{item?.no}}</span>
+        </span>
+          </div>
+          <div class="rightspan">
+            <div class="rightdiv" style="padding-left:0">
+              <div class="haomali" *ngIf="spanType!=3">
+                <ul class="ssclilist listli" *ngIf="spanType==0 && item?.num && item?.num?.length>0">
+                  <li *ngFor="let tem of item?.num"><span class="bluenum"><i>{{tem}}</i></span></li>
+                </ul>
+                <ul class="ssclilist listli" *ngIf="spanType==1 && item?.num && item?.num?.length>0">
+                  <li *ngFor="let it of item?.num"><span
+                    [ngClass]="{bluebig:it > (max/2),bluesm:it < (max/2) || it == (max/2)}"
+                  ><i style="display: none;">{{it}}</i></span></li>
+                </ul>
+                <ul class="ssclilist listli" *ngIf="spanType==2 && item?.num && item?.num?.length>0">
+                  <li *ngFor="let aa of item?.num"><span
+                    [ngClass]="{blueeve:aa%2==0,bluesig:aa%2==1}"
+                  ><i style="display: none;">{{aa}}</i></span></li>
+                </ul>
+              </div>
+              <div class="longhuli" *ngIf="spanType==3">
+                <ul class="ssclilistxt listli lhlist">
+                  <li style="color:#f12d35;min-width: 18px;">{{item?.total}}</li>
+                  <li style="color:#f12d35;min-width: 18px;">{{item?.size}}</li>
+                  <li style="color:#184dd5;min-width: 18px;">{{item?.oddEven}}</li>
+                  <li style="color:#184dd5;min-width: 18px;">{{item?.pred}}</li>
+                  <li style="color:#184dd5;min-width: 18px;">{{item?.desc?.front}}</li>
+                  <li style="color:#184dd5;min-width: 18px;">{{item?.desc?.middle}}</li>
+                  <li style="color:#184dd5;min-width: 18px;">{{item?.desc?.back}}</li>
+                  <!--<li style="color:#f12d35">大</li>-->
+                  <!--<li style="color:#184dd5">单</li>-->
+                  <!--<li style="color:#184dd5">虎</li>-->
+                  <!--<li style="color:#184dd5">半顺</li>-->
+                  <!--<li style="color:#184dd5">半顺</li>-->
+                  <!--<li style="color:#184dd5">杂六</li>-->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!--极速快乐十分(jsklsf)  广东快乐十分(gdklsf) 天津快乐十分(tjklsf) 广西快乐十分(gxklsf) 澳洲幸运8（ajxyb）（5）-->
+    <div class="drawCodebox kaijianghm" *ngIf="showType==5">
+      <div class="linebox">
+        <div class="leftspan">
+          <span class="leftspan">时间</span>
+          <span class="rightspan padleft1">期数</span>
+        </div>
+        <div class="rightspan">
+          <div class="rightdiv">
+            <span [ngClass]="{spanchecked:spanType==0}" (click)="spanType=0">号码</span>
+            <span [ngClass]="{spanchecked:spanType==1}" (click)="spanType=1">大小</span>
+            <span [ngClass]="{spanchecked:spanType==2}" (click)="spanType=2">单双</span>
+            <span [ngClass]="{spanchecked:spanType==3}" (click)="spanType=3">总和/形态</span>
+          </div>
+        </div>
+      </div>
+      <div class="contentlist bortop002" >
+        <div class="listotherline bortop001 ssclist" *ngFor="let item of mainList;">
+          <div class="leftspan">
+        <span class="boxflex">
+          <span class="graytime">{{item?.time?.substring(11, 16)}}</span>
+          <span class="graytime">{{item?.no}}</span>
+        </span>
+          </div>
+          <div class="rightspan">
+            <div class="rightdiv" style="padding-left:0">
+              <div class="haomali" *ngIf="spanType!=3">
+                <ul class="ssclilist listli" *ngIf="spanType==0 && item?.num && item?.num?.length>0">
+                  <li *ngFor="let tem of item?.num" style="margin-right: 2px;"><span
+                    class="bluenum"><i>{{tem}}</i></span></li>
+                </ul>
+                <ul class="ssclilist listli" *ngIf="spanType==1 && item?.num && item?.num?.length>0">
+                  <li *ngFor="let it of item?.num" style="margin-right: 2px;"><span
+                    [ngClass]="{bluebig:it > (max/2),bluesm:it < (max/2) || it == (max/2)}"
+                  ><i style="display: none;">{{it}}</i></span></li>
+                </ul>
+                <ul class="ssclilist listli" *ngIf="spanType==2 && item?.num && item?.num?.length>0">
+                  <li *ngFor="let aa of item?.num" style="margin-right: 2px;"><span
+                    [ngClass]="{blueeve:aa%2==0,bluesig:aa%2==1}"
+                  ><i style="display: none;">{{aa}}</i></span></li>
+                </ul>
+              </div>
+              <div class="longhuli" *ngIf="spanType==3">
+                <ul class="ssclilistxt listli lhlist">
+                  <li style="color:#f12d35;min-width: 20px;">{{item?.total}}</li>
+                  <li style="color:#f12d35;min-width: 20px;">{{item?.size}}</li>
+                  <li style="color:#184dd5;min-width: 20px;">{{item?.oddEven}}</li>
+                  <li style="color:#184dd5;min-width: 20px;" *ngFor="let a of item?.pred;">{{a}}</li>
+                  <li style="color:#184dd5;min-width: 20px;">{{item?.desc?.front}}</li>
+                  <li style="color:#184dd5;min-width: 20px;">{{item?.desc?.middle}}</li>
+                  <li style="color:#184dd5;min-width: 20px;">{{item?.desc?.back}}</li>
+                  <!--<li style="color:#f12d35">大</li>-->
+                  <!--<li style="color:#184dd5">单</li>-->
+                  <!--<li style="color:#184dd5">虎</li>-->
+                  <!--<li style="color:#184dd5">半顺</li>-->
+                  <!--<li style="color:#184dd5">半顺</li>-->
+                  <!--<li style="color:#184dd5">杂六</li>-->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!--福彩3D 体彩排列3-->
+    <div class="drawCodebox kaijianghm" *ngIf="showType==8">
+      <div class="linebox">
+        <div class="leftspan" style="width: 65px;">
+          <span class="leftspan">时间</span>
+          <span class="leftspan midillspan">期数</span>
+          <!--<span class="rightspan padleft1">试机号</span>-->
+        </div>
+        <div class="rightspan">
+          <div class="rightdiv">
+            <span [ngClass]="{spanchecked:spanType==0}" (click)="spanType=0">号码</span>
+            <span [ngClass]="{spanchecked:spanType==3}" (click)="spanType=3">总和/形态</span>
+          </div>
+        </div>
+      </div>
+      <div class="contentlist bortop002" >
+        <div class="listotherline bortop001 ssclist" *ngFor="let item of mainList;">
+          <div class="leftspan"><span class="boxflex"><span
+            class="graytime">{{item?.time?.substring(11, 16)}}</span><span
+            class="graytime">{{item?.no}}</span></span></div>
+          <div class="rightspan">
+            <div class="rightdiv" style="padding-left:0">
+
+              <div class="haomali" style="display:block;" *ngIf="spanType==0">
+                <ul class="ssclilist listli" *ngIf="item?.num && item?.num?.length>0">
+                  <li style="margin-right: 20px;" *ngFor="let temp of item?.num;"><span
+                    class="rednum"><i>{{temp}}</i></span></li>
+                </ul>
+              </div>
+              <div class="longhuli" *ngIf="spanType==3">
+                <ul class="ssclilistxt listli lhlist">
+                  <!--<li style="color:#f12d35">3,1,5</li>-->
+                  <!--<li style="color:#f12d35;margin-right: 20px;" *ngFor="let pp of item?.total;">{{pp}}</li>-->
+                  <li style="color:#f12d35;margin-right: 20px;min-width: 20px;">{{item?.total1}}</li>
+                  <li style="color:#f12d35;margin-right: 20px;min-width: 20px;">{{item?.total2}}</li>
+                  <li style="color:#f12d35;margin-right: 20px;min-width: 20px;">{{item?.total3}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!--福彩七乐彩-->
+    <div class="drawCodebox kaijianghm" *ngIf="showType==10">
+      <div class="linebox">
+        <div class="leftspan" style="width: 65px;">
+          <span class="leftspan">时间</span>
+          <span class="rightspan padleft1">期数</span>
+        </div>
+        <div class="rightspan">
+          <div class="rightdiv">
+            <span [ngClass]="{spanchecked:spanType==0}" (click)="spanType=0">号码</span>
+            <span [ngClass]="{spanchecked:spanType==3}" (click)="spanType=3">总和/形态</span>
+          </div>
+        </div>
+      </div>
+      <div class="contentlist bortop002" >
+        <div class="listotherline bortop001 ssclist" *ngFor="let item of mainList;">
+          <div class="leftspan"><span class="boxflex"><span
+            class="graytime">{{item?.time?.substring(11, 16)}}</span><span
+            class="graytime">{{item?.no}}</span></span></div>
+          <div class="rightspan">
+            <div class="rightdiv" style="padding-left:0">
+              <div class="haomali" *ngIf="spanType==0 && item?.num && item?.num?.length>0">
+                <ul class="ssclilist listli">
+                  <li style="margin-right: 2px;" *ngFor="let temp of item?.num;let index = index;"><span
+                    [ngClass]="{rednum:index<7,bluenum:index==7}"><i>{{temp}}</i></span>
+                  </li>
+                </ul>
+              </div>
+              <div class="longhuli" *ngIf="spanType==3">
+                <ul class="ssclilistxt listli lhlist">
+                  <li style="color:#f12d35">{{item?.total}}</li>
+                  <li style="color:#666">{{item?.oddEven}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--pc蛋蛋幸运28-->
+
+    <div class="drawCodebox kaijianghm" *ngIf="showType==12">
+      <div class="linebox">
+        <div class="leftspan">
+          <span class="leftspan">时间</span>
+          <span class="rightspan padleft1">期数</span>
+        </div>
+        <div class="rightspan">
+          <div class="rightdiv egxy_rightdiv">
+            <span class="egxy_xshm">号码</span>
+          </div>
+        </div>
+      </div>
+      <div class="contentlist bortop002" >
+        <div class="listotherline bortop001 ssclist" *ngFor="let item of mainList;">
+          <div class="leftspan"><span class="boxflex"><span
+            class="graytime">{{item?.time?.substring(11, 16)}}</span><span
+            class="graytime">{{item?.no}}</span></span></div>
+          <div class="rightspan">
+            <div class="rightdiv" style="padding-left:0;position:relative">
+              <div class="haomali eghaomali" *ngIf="item?.num && item?.num?.length>0">
+                <ul class="ssclilist listli egxy_ssclilist">
+                  <li><span class="bluenum"><i>{{item?.num[0]}}</i></span></li>
+                  <li><span class="addicon" style="width:20px"></span></li>
+                  <li><span class="bluenum"><i>{{item?.num[1]}}</i></span></li>
+                  <li><span class="addicon" style="width:20px"></span></li>
+                  <li><span class="bluenum"><i>{{item?.num[2]}}</i></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--双色球(fcssq) 超级大乐透(cjdlt) 体彩七星彩(tcqxx)(3)-->
+    <div class="drawCodebox kaijianghm" *ngIf="showType==6">
+      <div class="linebox">
+        <div class="leftspan">
+          <span class="leftspan">时间</span>
+          <span class="rightspan padleft1">期数</span>
+        </div>
+        <div class="rightspan">
+          <div class="rightdiv">
+            <span [ngClass]="{spanchecked:spanType==0}" (click)="spanType=0">号码</span>
+            <span [ngClass]="{spanchecked:spanType==3}" (click)="spanType=3">总和/形态</span>
+          </div>
+        </div>
+      </div>
+      <div class="contentlist bortop002" >
+        <div class="listotherline bortop001 ssclist" *ngFor="let item of mainList;">
+          <div class="leftspan"><span class="boxflex"><span
+            class="graytime">{{item?.time?.substring(11, 16)}}</span><span
+            class="graytime">{{item?.no}}</span></span></div>
+          <div class="rightspan">
+            <div class="rightdiv" style="padding-left:0">
+              <div class="haomali" *ngIf="spanType==0 && item?.num && item?.num?.length>0">
+                <ul class="ssclilist listli">
+                  <li *ngFor="let temp of item?.num;let index = index;"><span
+                    [ngClass]="{rednum:index!=6,bluenum:index==6}"><i>{{temp}}</i></span></li>
+                </ul>
+              </div>
+              <div class="longhuli" *ngIf="spanType==3">
+                <ul class="ssclilistxt listli lhlist">
+                  <li style="color:#f12d35;min-width: 30px;">{{item?.total}}</li>
+                  <li style="color:#666;min-width: 30px;">{{item?.oddEven}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--台湾宾果(twbg) 澳洲幸运20(ajxyes) 极速快乐8(jsklb) 北京快乐8(bjklb)(4)-->
+    <div class="drawCodebox kaijianghm" *ngIf="showType==7">
+      <div class="linebox">
+        <div class="leftspan">
+          <span class="leftspan">时间</span>
+          <span class="rightspan padleft1">期数</span>
+        </div>
+        <div class="rightspan">
+          <div class="rightdiv">
+            <span [ngClass]="{spanchecked:spanType==0}" (click)="spanType=0">号码</span>
+            <span [ngClass]="{spanchecked:spanType==1}" (click)="spanType=1">大小</span>
+            <span [ngClass]="{spanchecked:spanType==2}" (click)="spanType=2">单双</span>
+            <span [ngClass]="{spanchecked:spanType==3}" (click)="spanType=3">总和/形态</span>
+          </div>
+        </div>
+      </div>
+      <div class="contentlist bortop002" >
+
+        <!--极速快乐8等-->
+        <div class="listotherline bjkl8_listotherline bortop001 ssclist" *ngFor="let item of mainList;">
+          <div class="leftspan jskl-8-l"><span class="boxflex"><span
+            class="graytime">{{item?.time?.substring(11, 16)}}</span><span
+            class="graytime">{{item?.no}}</span></span></div>
+          <div class="rightspan">
+            <div class="rightdiv" style="padding-left:0">
+              <div class="haomali jskl-8" *ngIf="spanType == 0 && item?.num && item?.num?.length>0">
+                <ul class="ssclilist listli zhxtlilist">
+                  <li *ngFor="let temp of item?.num;let index = index;">
+                <span [ngClass]="{lightblue:temp<41,bluenum:temp>40}">
+                  <i>{{temp}}</i>
+                </span>
+                  </li>
+                  <li><span class="Orange">{{item?.on}}</span></li>
+                </ul>
+              </div>
+              <!--大小-->
+              <div class="haomali jskl-8" *ngIf="spanType == 1 && item?.num && item?.num?.length>0">
+                <ul class="ssclilist listli zhxtlilist">
+                  <li *ngFor="let temp of item?.num;">
+                    <span [ngClass]="{bluesm:temp<max/2||temp==max/2,bluebig:temp>max/2}"></span>
+                  </li>
+                  <li><span [ngClass]="{bluesm:item?.on<max/2||item?.on==max/2,bluebig:item?.on>max/2}"></span></li>
+                </ul>
+              </div>
+              <!--单双-->
+              <div class="haomali jskl-8 displayblock" *ngIf="spanType == 2 && item?.num && item?.num?.length>0">
+                <ul class="ssclilist listli zhxtlilist" style="height: 80px;">
+                  <li *ngFor="let temp of item?.num;">
+                    <span [ngClass]="{blueeve:temp%2==0,bluesig:temp%2==1}"></span>
+                  </li>
+                  <li><span [ngClass]="{blueeve:item?.on%2==0,bluesig:item?.on%2==1}"></span></li>
+                </ul>
+              </div>
+              <!--总和/形态-->
+              <div class="longhuli" *ngIf="spanType == 3">
+                <ul class="ssclilistxt listli lhlist">
+                  <li style="color:#f12d35">{{item?.total}}</li>
+                  <li style="color:#666">{{item?.size}}</li>
+                  <li style="color:#666">{{item?.oddEven}}</li>
+                  <li style="color:#666">{{item?.singleAndDoubleMuch}}</li>
+                  <li style="color:#666">{{item?.aroundMuch}}</li>
+                  <li style="color:#666">{{item?.sumComb}}</li>
+                  <li style="color:#666">{{item?.fiveEle}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--体彩排列5-->
+    <div class="drawCodebox kaijianghm" *ngIf="showType==9">
+      <div class="linebox">
+        <div class="leftspan" style="width: 65px;">
+          <span class="leftspan">时间</span>
+          <span class="leftspan midillspan">期数</span>
+          <!--<span class="rightspan padleft1">试机号</span>-->
+        </div>
+        <div class="rightspan">
+          <div class="rightdiv">
+            <span [ngClass]="{spanchecked:spanType==0}" (click)="spanType=0">号码</span>
+            <span [ngClass]="{spanchecked:spanType==3}" (click)="spanType=3">总和/形态</span>
+          </div>
+        </div>
+      </div>
+      <div class="contentlist bortop002" >
+        <div class="listotherline bortop001 ssclist" *ngFor="let item of mainList;">
+          <div class="leftspan"><span class="boxflex"><span
+            class="graytime">{{item?.time?.substring(11, 16)}}</span><span
+            class="graytime">{{item?.no}}</span></span></div>
+          <div class="rightspan">
+            <div class="rightdiv" style="padding-left:0">
+
+              <div class="haomali" style="display:block;" *ngIf="spanType==0">
+                <ul class="ssclilist listli" *ngIf="item?.num && item?.num?.length>0">
+                  <li style="margin-right: 15px;" *ngFor="let temp of item?.num;"><span
+                    class="rednum"><i>{{temp}}</i></span></li>
+                </ul>
+              </div>
+              <div class="longhuli" *ngIf="spanType==3">
+                <ul class="ssclilistxt listli lhlist">
+                  <!--<li style="color:#f12d35">3,1,5</li>-->
+                  <li style="color:#f12d35;margin-right: 20px;">{{item?.total}}</li>
+                  <li style="color: #666;">{{item?.oddEven}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!--重庆幸运农场-->
+    <div class="drawCodebox kaijianghm" *ngIf="showType==11">
+      <div class="linebox">
+        <div class="leftspan">
+          <span class="leftspan">时间</span>
+          <span class="rightspan padleft1">期数</span>
+        </div>
+        <div class="rightspan">
+          <div class="rightdiv">
+            <span [ngClass]="{spanchecked:spanType==0}" (click)="spanType=0">号码</span>
+            <span [ngClass]="{spanchecked:spanType==1}" (click)="spanType=1">大小</span>
+            <span [ngClass]="{spanchecked:spanType==2}" (click)="spanType=2">单双</span>
+            <span [ngClass]="{spanchecked:spanType==3}" (click)="spanType=3">冠军/龙虎</span>
+          </div>
+        </div>
+      </div>
+      <div class="contentlist bortop002" >
+        <div class="listotherline bortop001 ssclist" *ngFor="let item of mainList;">
+          <div class="leftspan">
+        <span class="boxflex">
+          <span class="graytime">{{item?.time?.substring(11, 16)}}</span>
+          <span class="graytime">{{item?.no}}</span>
+        </span>
+          </div>
+          <div class="rightspan">
+            <div class="rightdiv padl0" style="margin-top:10px;padding-left:0;">
+              <div class="haomali displayblock" *ngIf="spanType==0 && item?.num && item?.num?.length>0">
+                <ul class="cqnclilist">
+                  <li *ngFor="let temp of item?.num;">
+                <span [ngClass]="{ncnum01:temp=='01',ncnum02:temp=='02',ncnum03:temp=='03',ncnum04:temp=='04',
+                ncnum05:temp=='05',ncnum06:temp=='06',ncnum07:temp=='07',ncnum08:temp=='08',ncnum09:temp=='09',
+                ncnum10:temp=='10',ncnum11:temp=='11',ncnum12:temp=='12',ncnum13:temp=='13',ncnum14:temp=='14',
+                ncnum15:temp=='15',ncnum16:temp=='16',ncnum17:temp=='17',ncnum18:temp=='18',ncnum19:temp=='19',
+                ncnum20:temp=='20'}">
+                </span>
+                  </li>
+                </ul>
+              </div>
+              <div class="haomali displayblock" *ngIf="spanType==1 && item?.num && item?.num?.length>0">
+                <ul class="cqnclilist">
+                  <li *ngFor="let temp of item?.num;"><span
+                    [ngClass]="{bluebig:temp>max/2 , bluesm:temp<max/2 || temp==max/2}"></span></li>
+                </ul>
+              </div>
+              <div class="haomali displayblock" *ngIf="spanType==2 && item?.num && item?.num?.length>0">
+                <ul class="cqnclilist">
+                  <li *ngFor="let temp of item?.num;"><span
+                    [ngClass]="{blueeve:temp%2==0 , bluesig:temp%2==1}"></span></li>
+                </ul>
+              </div>
+              <div class="longhuli displayblock" *ngIf="spanType==3">
+                <ul style="color:#666" class="ssclilistxt ssclilist listli lhlist listlitxt">
+                  <li class="font_red mr15">{{item?.total}}</li>
+                  <li class="mr15" style="color:#666">{{item?.size}}</li>
+                  <li class="mr15" style="color:#666">{{item?.oddEven}}</li>
+                  <li class=" mr15" [ngClass]="{font_red:item?.footSize=='尾大'}">{{item?.footSize}}</li>
+                  <li class="mr15" *ngFor="let pp of item?.pred;" [ngClass]="{font_red:pp=='龙'}">{{pp}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </ng-container>
+
+  <div *ngIf="!mainList || mainList?.length==0" class="no-data">木得数据啦</div>
+
+  <div style="height: 350px;"></div>
+</div>

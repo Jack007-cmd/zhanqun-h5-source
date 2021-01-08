@@ -1,0 +1,89 @@
+<div class="component_scroll">
+  <div class="drawCodebox shuangmiantj"  *ngIf="mainData"style="left: 0; display: block;">
+    <div class="line2box" id="liangmianbox">
+      <div class="lianmlist" *ngIf="codeType==2 || codeType==4">
+        <div class="head head1">号码出现次数</div>
+        <table cellpadding="0" cellspacing="0" border="0">
+          <tbody>
+          <tr *ngIf="codeType==2" class="tr1">
+            <td>0</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+          </tr>
+          <tr *ngIf="codeType==4" class="tr1">
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+          </tr>
+          <tr class="tr2">
+            <td *ngFor="let up of mainData?.up;">{{up}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="lianmlist" *ngFor="let item of mainData?.down;let index = index;">
+        <div class="head" *ngIf="codeType==2||codeType==4"
+             [ngClass]="{head2:index == 0}">{{index == 0 ? '第一球' : index == 1 ? '第二球' : index == 2 ? '第三球' : index == 3 ? '第四球' : index == 4 ? '第五球' : index == 5 ? '第六球' : index == 6 ? '第七球' : '第八球'}}</div>
+        <div class="head" *ngIf="codeType==3"
+             [ngClass]="{head1:index == 0,head2:index == 1}">{{index == 0 ? '第一球' : index == 1 ? '第二球' : index == 2 ? '第三球' : index == 3 ? '第四球' : index == 4 ? '第五球' : index == 5 ? '第六球' : index == 6 ? '第七球' : '第八球'}}</div>
+        <div class="head" *ngIf="codeType==1"
+             [ngClass]="{head1:index == 0,head2:index == 1}">{{index == 0 ? '冠军' : index == 1 ? '亚军' : index == 2 ? '第三名' : index == 3 ? '第四名' : index == 4 ? '第五名' : index == 5 ? '第六名' : index == 6 ? '第七名' : index == 7 ? '第八名' : index == 8 ? '第九名' : '第十名'}}</div>
+        <table cellpadding="0" cellspacing="0" border="0">
+          <tbody>
+          <tr class="tr1">
+            <td>单</td>
+            <td>双</td>
+            <td>大</td>
+            <td>小</td>
+            <!--<td>龙</td>-->
+            <!--<td>虎</td>-->
+          </tr>
+          <tr class="tr2">
+            <td>{{item?.single}}</td>
+            <td>{{item?.double}}</td>
+            <td>{{item?.big}}</td>
+            <td>{{item?.little}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="lianmlist">
+        <div class="head " *ngIf="codeType!=1">总和</div>
+        <div class="head " *ngIf="codeType==1">冠亚和</div>
+        <table cellpadding="0" cellspacing="0" border="0">
+          <tbody>
+          <tr class="tr1">
+            <td>单</td>
+            <td>双</td>
+            <td>大</td>
+            <td>小</td>
+          </tr>
+          <tr class="tr2">
+            <td>{{mainData?.total?.single}}</td>
+            <td>{{mainData?.total?.double}}</td>
+            <td>{{mainData?.total?.big}}</td>
+            <td>{{mainData?.total?.litter}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+    <div *ngIf="!mainData" class="no-data">木得数据啦  <div style="height: 350px;"></div></div>
+
+</div>

@@ -1,0 +1,50 @@
+<!--
+  Generated template for the GameRulesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <div class="myHeader">
+    <div class="header_back" navPop></div>
+    <h2><span tappable>玩法规则 </span></h2>
+    <span class="about_kinds" navPush="AboutKindsPage">彩种</span>
+  </div>
+</ion-header>
+
+
+<ion-content >
+  <div class="ListHead">
+    <div class="drawCodebox">
+      <div class="navcz">
+        <div id="choseCaiName" (click)="showType=1">&nbsp;&nbsp;{{name}}<i class="grayTip"></i></div>
+      </div>
+      <div class="guize_detail" [innerHTML]="mainData?.content">
+      </div>
+      <div *ngIf="!mainData || !mainData?.content" class="no-data">木得数据啦</div>
+    </div>
+
+  </div>
+</ion-content>
+
+<div *ngIf="showType==1" class="opacitbox" style="height: 100%; top: 0px;">
+  <div class="caikindBox" id="caikindBox">
+    <p>彩种选择</p>
+    <ul *ngIf="categoryList">
+      <ng-container *ngFor="let key of objectKeys(categoryList);">
+        <ng-container *ngFor="let item of categoryList[key]?.list;let i=index;">
+          <li (click)="aboutChange(item)"
+              [ngClass]="{checked:code==item?.code}">
+            {{item?.name}}
+            <i *ngIf="i==0&&key=='101'" class="czclassBg">PK10系列</i>
+            <i *ngIf="i==0&&key=='103'" class="czclassBg">11选5系列</i>
+            <i *ngIf="i==0&&key=='102'" class="czclassBg">时时彩系列</i>
+            <i *ngIf="i==0&&key=='104'" class="czclassBg">快3系列</i>
+            <i *ngIf="i==0&&key=='105'" class="czclassBg">其他</i>
+          </li>
+        </ng-container>
+      </ng-container>
+    </ul>
+    <span class="qsCancel" (click)="showType=-1">取消</span>
+  </div>
+</div>

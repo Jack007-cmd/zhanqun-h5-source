@@ -1,0 +1,207 @@
+<!--
+  Generated template for the AboutPlanPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <div class="myHeader">
+    <!--<div class="header_back" navPop></div>-->
+    <h2><span (click)="showKinds=!showKinds" tappable>
+      购彩计划 &nbsp;
+      <i *ngIf="!showKinds" class="top_arrow"></i>
+      <i *ngIf="showKinds" class="bottom_arrow"></i>
+    </span></h2>
+    <span class="about_kinds" (click)="showKinds=false" navPush="AboutKindsPage">彩种</span>
+  </div>
+</ion-header>
+
+
+<ion-content>
+  <div *ngIf="showKinds" class="navList" style="opacity: 1;">
+    <div (click)="showKinds=false" navPush="AboutKindsPage">
+      <dl>
+        <dt class="cphost"><span></span></dt>
+        <dd>彩种大厅</dd>
+      </dl>
+    </div>
+    <div (click)="showKinds=false;toRecommendTwoSides()">
+      <dl>
+        <dt class="lmtuijan"><span></span></dt>
+        <dd>双面统计</dd>
+      </dl>
+    </div>
+    <div (click)="showKinds=false;toLongDragonCount()">
+      <dl>
+        <dt class="clcj"><span></span></dt>
+        <dd>长龙提醒</dd>
+      </dl>
+    </div>
+    <div (click)="showKinds=false;toKillingPlan()">
+      <dl>
+        <dt class="shjhua"><span></span></dt>
+        <dd>杀号计划</dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="body-box">
+    <div class="lottHeader">
+      <div class="left" (click)="showType=1">
+        <span data-text="xingyft">{{aboutName}}</span>
+        <i></i>
+      </div>
+      <div class="center" id="countTime">
+        倒计时：<span class="countTime" *ngIf="allSeconds>0"><ng-container *ngIf="hour>0">{{hour}}:</ng-container>
+        {{minute}}:{{second}}</span>
+        <span class="countTime" *ngIf="allSeconds<=0">开奖中...</span>
+      </div>
+      <div class="right">
+        已推荐<span class="lotteryCount">{{mainData?.basic?.recommendCount}}</span>期
+        <button class="doubt" (click)="showType=2"></button>
+      </div>
+      <p>
+        提示：推荐计划时间段， <br>
+        <ng-container *ngFor="let period of mainData?.basic?.recommendTime;let pi = index;">
+          {{pi == 0 ? "第一段" : pi == 1 ? "第二段" : "第三段"}}:
+          <span class="puoneTime">{{period?.start?.substring(0, 5)}}-{{period?.end?.substring(0, 5)}}</span>
+          <br>
+        </ng-container>
+      </p>
+    </div>
+
+    <div class="dayAndStage">
+      <div class="checkday one-third">
+        <ion-item
+          style="top: -1px;width: 173px!important;margin-right: 3px!important;border-top: 1px solid #dbdbdb;height: 30px;border-bottom: 6.2px solid #dbdbdb;">
+          <ion-label style="margin-top: 5px;"><span id="myDate">{{myDate}}<i></i></span></ion-label>
+          <ion-datetime displayFormat="YYYY年 MM月 DD日 " min="{{startDay}}" max="{{today}}" [(ngModel)]="myDate"
+                        (ionChange)="getAboutPlans()" cancelText="取消" doneText="确认">
+          </ion-datetime>
+        </ion-item>
+      </div>
+      <div class="checkstage one-third">
+        <span (click)="showType=3">
+        <input type="text" readonly="" unselectable="on" onfocus="this.blur();" class="timePeriod" > <i></i>
+        </span>
+      </div>
+    </div>
+
+    <div class="contenbox">
+      <div class="check_plan">
+        <ul *ngIf="mainData?.planMenu">
+          <li *ngFor="let planName of mainData?.planMenu;let mi=index;" [ngClass]="{check:planNo==mi}"
+              (click)="planNo=mi">{{planName}} <i></i></li>
+        </ul>
+      </div>
+      <div class="content_main" *ngIf="planData && planData?.length>0">
+        <ul class="title">
+          <li class="qihao">期号</li>
+          <li class="checkNum" *ngIf="codeType==1||codeType==2">号码</li>
+          <li class="checkNum" *ngIf="codeType==3">点数</li>
+          <li class="checkNum" *ngIf="codeType==4">和值</li>
+          <li class="planArr">
+            <span class="gucaNum">
+              <ng-container *ngIf="codeType==1">冠军</ng-container>
+              <ng-container *ngIf="codeType==2">第一球</ng-container>
+              <ng-container *ngIf="codeType==3||codeType==4">和值</ng-container>
+            购彩
+            </span><br>
+            <span id="playtext">
+            {{planData[planNo]?.name}}
+						</span></li>
+          <li class="chben">当前<br>成本</li>
+          <li class="sumchben">累计<br>成本</li>
+          <li class="win">赢利/<br>亏损</li>
+          <li class="kaiTime">开奖<br>时间</li>
+        </ul>
+        <ul class="content_list" *ngFor="let item of planData[planNo]?.list;">
+          <li class="qihao">{{item?.number?.toString()?.substring(3)}}</li>
+          <li class="checkNum">
+            <span *ngIf="codeType==1 || codeType==2"
+                  [ngClass]="{winning:item?.onPosition>-1}">{{item?.data?.length > 0 ? item?.data[0] : "待"}}</span>
+            <span *ngIf="codeType==3 || codeType==4"
+                  [ngClass]="{winning:item?.onPosition>-1}">{{item?.data?.length > 0 ? getArraySum(item?.data) : "待"}}</span>
+          </li>
+          <li class="planArr">
+            <span *ngFor="let n of item?.content;let ni=index;" [ngClass]="{winning:item?.onPosition==ni}">{{n}}</span>
+          </li>
+          <li class="chben">{{item?.cost}}</li>
+          <li class="sumchben">{{item?.totalCost}}</li>
+          <li class="win"
+              [ngClass]="{resultRed:item?.condition>0,resultBlue:item?.condition<0}">{{item?.condition}}</li>
+          <li class="kaiTime">{{item?.time}}</li>
+        </ul>
+      </div>
+      <div *ngIf="!planData || planData?.length==0" class="no-data">木得数据啦</div>
+    </div>
+  </div>
+</ion-content>
+
+<div *ngIf="showType==1" class="select-page">
+  <ion-backdrop (click)="showType=-1" role="presentation" tappable="" style="opacity: 0.26;"></ion-backdrop>
+  <div class="about-wrapper">
+    <div class="tool-bar">
+      <span class="option-md" style="float: left;">彩种选择</span>
+      <span class="option-md" style="float: right;" (click)="showType=-1">取消</span>
+    </div>
+    <div class="about-main">
+      <div class="about-series">
+        <ul>
+          <li *ngFor="let key of objectKeys(categoryList);" (click)="selectedKey=key"
+              [ngClass]="{checked:selectedKey==key}">
+            <span style="line-height: 40px;padding-left: 10px;">{{categoryList[key]?.name}}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="about-list">
+        <ul>
+          <ng-container *ngFor="let item of categoryList[selectedKey]?.list;">
+            <li (click)="aboutChange(item)" [ngClass]="{checked:code==item?.code}">
+              {{item?.name}}
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="showType==2" class="select-page">
+  <ion-backdrop (click)="showType=-1" role="presentation" tappable="" style="opacity: 0.26;"></ion-backdrop>
+  <div class="main-wrapper" style="height: 45%;">
+    <div class="tool-bar">
+      <span class="option-md" style="float: left;">帮助说明</span>
+      <span class="option-md" style="float: right;" (click)="toGameRule()">玩法规则介绍</span>
+      <span class="option-md" style="float: right;" (click)="showType=-1">取消</span>
+    </div>
+    <div class="main-content">
+      <ul>
+        <li *ngFor="let temp of mainData?.planRule;">
+          <h4>{{temp?.name}}</h4>
+          <p class="powP" style="line-height: 20px;">{{temp?.value}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showType==3" class="select-page">
+  <ion-backdrop (click)="showType=-1" role="presentation" tappable="" style="opacity: 0.26;"></ion-backdrop>
+  <div class="main-wrapper">
+    <div class="tool-bar">
+      <span class="option-md" style="float: left;">时间段选择</span>
+      <span class="option-md" style="float: right;" (click)="showType=-1">取消</span>
+    </div>
+    <div class="main-content">
+      <ul>
+        <li [ngClass]="{checked:timeIndex==0}" (click)="timeIndexChange(0,'')">全部</li>
+        <li *ngFor="let period of mainData?.basic?.recommendTime;let pi = index;"
+            [ngClass]="{checked:timeIndex==(pi+1)}"
+            (click)="timeIndexChange(pi+1,period)">{{period?.start?.substring(0, 5)}}
+          -{{period?.end?.substring(0, 5)}}</li>
+      </ul>
+    </div>
+  </div>
+</div>

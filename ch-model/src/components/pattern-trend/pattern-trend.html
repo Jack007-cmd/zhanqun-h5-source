@@ -1,0 +1,203 @@
+<div class="component_scroll" id="{{code}}">
+  <div class="drawCodebox singtaizs" *ngIf="mainData" style="left: 0; display: block;background: #eaeaea;">
+    <!--<div class="haomazsbgcls" style="display: none;"></div>-->
+    <div class="Pattern">
+      <span class="hamafb" data-text="0" [ngClass]="{checkspan:modeType==1}" (click)="modeType=1">前三形态</span>
+      <span class="sttz" data-text="1" [ngClass]="{checkspan:modeType==2}" (click)="modeType=2">中三形态</span>
+      <span class="lu012" data-text="2" [ngClass]="{checkspan:modeType==3}" (click)="modeType=3">后三形态</span>
+    </div>
+    <div class="table_conditions">
+      <div class="divtitile">
+        <p>
+        <span class="shjian_singtai"
+              (click)="showFilter=2">{{tPeriods == 2000 ? '当天' : tPeriods == 30 ? '近30期' : tPeriods == 60 ? '近60期' : '近90期'}}</span>
+          <span class="tiaojian_singtai" (click)="choseCon(3)">筛选</span>
+        </p>
+        <div class="lookshjtj" (click)="goBottom()">查看数据统计</div>
+      </div>
+      <div class="table_conBox" id="waitBox">
+        <div class="" id="chartLinediv">
+          <table id="singtai_content" border="0" cellspacing="1" cellpadding="1">
+            <thead>
+            <tr>
+              <th rowspan="2">期号</th>
+              <th rowspan="2">第一球</th>
+              <th rowspan="2">第二球</th>
+              <th rowspan="2">第三球</th>
+              <th colspan="5">形态</th>
+              <th colspan="5">组选类型</th>
+            </tr>
+            <tr>
+              <th>豹子</th>
+              <th>顺子</th>
+              <th>对子</th>
+              <th>半顺</th>
+              <th>杂六</th>
+              <th>组三</th>
+              <th>组六</th>
+              <th>豹子</th>
+            </tr>
+            </thead>
+            <tbody id="allNumber">
+            <ng-container *ngFor="let item of mainData?.list;let m=index;">
+              <tr *ngIf="m<tPeriods">
+                <td>{{item?.no.toString().substring(4)}}</td>
+                <ng-container *ngFor="let num of item?.num;let n=index;">
+                  <td class="nohide" *ngIf="n==modeType-1 || n==modeType || n==modeType+1"><span>{{num}}</span></td>
+                </ng-container>
+                <ng-container *ngFor="let temp of item?.list?.numList;let t=index;">
+                  <ng-container *ngIf="t==modeType-1">
+                    <td [ngClass]="{hot:temp?.is==0}"><span
+                      [ngClass]="{orblue:temp?.is==0}">{{temp?.is == 0 ? '豹子' : temp?.is}}</span></td>
+                    <td [ngClass]="{hot:temp?.ag==0}"><span
+                      [ngClass]="{orblue:temp?.ag==0}">{{temp?.ag == 0 ? '顺子' : temp?.ag}}</span></td>
+                    <td [ngClass]="{hot:temp?.ps==0}"><span
+                      [ngClass]="{orblue:temp?.ps==0}">{{temp?.ps == 0 ? '对子' : temp?.ps}}</span></td>
+                    <td [ngClass]="{hot:temp?.hag==0}"><span
+                      [ngClass]="{orblue:temp?.hag==0}">{{temp?.hag == 0 ? '半顺' : temp?.hag}}</span></td>
+                    <td [ngClass]="{hot:temp?.or==0}"><span
+                      [ngClass]="{orblue:temp?.or==0}">{{temp?.or == 0 ? '杂六' : temp?.or}}</span></td>
+                    <td [ngClass]="{hot:temp?.gt==0}"><span
+                      [ngClass]="{orcls:temp?.gt==0}">{{temp?.gt == 0 ? '组三' : temp?.gt}}</span></td>
+                    <td [ngClass]="{hot:temp?.gs==0}"><span
+                      [ngClass]="{orcls:temp?.gs==0}">{{temp?.gs == 0 ? '组六' : temp?.gs}}</span></td>
+                    <td [ngClass]="{hot:temp?.is==0}"><span
+                      [ngClass]="{orcls:temp?.is==0}">{{temp?.is == 0 ? '豹子' : temp?.is}}</span></td>
+                  </ng-container>
+                </ng-container>
+              </tr>
+            </ng-container>
+            </tbody>
+            <tbody>
+            <tr class="clospan">
+              <td rowspan="2" colspan="4">数据统计</td>
+              <td colspan="5">形态</td>
+              <td colspan="5">组选类型</td>
+            </tr>
+            <tr class="clospan">
+              <td>豹子</td>
+              <td>顺子</td>
+              <td>对子</td>
+              <td>半顺</td>
+              <td>杂六</td>
+              <td>组三</td>
+              <td>组六</td>
+              <td>豹子</td>
+            </tr>
+            <tr class="closas">
+              <td colspan="4">出现次数</td>
+              <ng-container *ngFor="let numList of mainData?.statistics?.appear?.numList;let a=index">
+                <ng-container *ngIf="a==modeType-1">
+                  <td>{{numList?.is}}</td>
+                  <td>{{numList?.ag}}</td>
+                  <td>{{numList?.ps}}</td>
+                  <td>{{numList?.hag}}</td>
+                  <td>{{numList?.or}}</td>
+                  <td>{{numList?.gt}}</td>
+                  <td>{{numList?.gs}}</td>
+                  <td>{{numList?.is}}</td>
+                </ng-container>
+              </ng-container>
+            </tr>
+            <tr class="closas">
+              <td colspan="4">平均遗漏</td>
+              <ng-container *ngFor="let numList of mainData?.statistics?.avg?.numList;let a=index">
+                <ng-container *ngIf="a==modeType-1">
+                  <td>{{numList?.is}}</td>
+                  <td>{{numList?.ag}}</td>
+                  <td>{{numList?.ps}}</td>
+                  <td>{{numList?.hag}}</td>
+                  <td>{{numList?.or}}</td>
+                  <td>{{numList?.gt}}</td>
+                  <td>{{numList?.gs}}</td>
+                  <td>{{numList?.is}}</td>
+                </ng-container>
+              </ng-container>
+            </tr>
+            <tr class="closas">
+              <td colspan="4">最大连出</td>
+              <ng-container *ngFor="let numList of mainData?.statistics?.maxAway?.numList;let a=index">
+                <ng-container *ngIf="a==modeType-1">
+                  <td>{{numList?.is}}</td>
+                  <td>{{numList?.ag}}</td>
+                  <td>{{numList?.ps}}</td>
+                  <td>{{numList?.hag}}</td>
+                  <td>{{numList?.or}}</td>
+                  <td>{{numList?.gt}}</td>
+                  <td>{{numList?.gs}}</td>
+                  <td>{{numList?.is}}</td>
+                </ng-container>
+              </ng-container>
+            </tr>
+            <tr class="closas">
+              <td colspan="4">最大遗漏</td>
+              <ng-container *ngFor="let numList of mainData?.statistics?.max?.numList;let a=index">
+                <ng-container *ngIf="a==modeType-1">
+                  <td>{{numList?.is}}</td>
+                  <td>{{numList?.ag}}</td>
+                  <td>{{numList?.ps}}</td>
+                  <td>{{numList?.hag}}</td>
+                  <td>{{numList?.or}}</td>
+                  <td>{{numList?.gt}}</td>
+                  <td>{{numList?.gs}}</td>
+                  <td>{{numList?.is}}</td>
+                </ng-container>
+              </ng-container>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="chartbottom">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!mainData" class="no-data">木得数据啦  <div style="height: 350px;"></div></div>
+
+</div>
+<div *ngIf="showFilter==2" class="select-page">
+  <ion-backdrop (click)="showFilter=-1" role="presentation" tappable="" style="opacity: 0.26;"></ion-backdrop>
+  <div class="main-wrapper" style="height: 45%;">
+    <div class="tool-bar">
+      <span class="option-md" style="float: left;">查看期数选择</span>
+      <span class="option-md" style="float: right;" (click)="showFilter=-1">取消</span>
+    </div>
+    <div class="main-content">
+      <ul>
+        <li [ngClass]="{checked:tPeriods == 2000}" (click)="chosePeriods(2000);">当天</li>
+        <li [ngClass]="{checked:tPeriods == 30}" (click)="chosePeriods(30);">近30期</li>
+        <li [ngClass]="{checked:tPeriods == 60}" (click)="chosePeriods(60);">近60期</li>
+        <li [ngClass]="{checked:tPeriods == 90}" (click)="chosePeriods(90);">近90期</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showFilter==3" class="select-page">
+  <ion-backdrop (click)="choseCon(-1)" role="presentation" tappable="" style="opacity: 0.26;"></ion-backdrop>
+  <div class="main-wrapper" style="height: 30%;">
+    <div class="tool-bar">
+      <span class="option-md" style="float: left;">条件选择</span>
+      <!--<span class="option-md" style="float: right;" (click)="choseCon(-1)">取消</span>-->
+      <span class="option-md" style="float: right;" (click)="choseCon(99)">确定</span>
+    </div>
+    <div class="main-content" style="display: block;  padding: 0 15px;">
+      <div>
+        <ul class="marginTop" style="margin-top: 15px;padding-top: 1px;">
+          <li class="yilo" [ngClass]="{check_tj:temRs.missing}" (click)="temRs.missing=!temRs.missing">
+            遗漏
+          </li>
+          <li class="caix" [ngClass]="{check_tj:temRs.disassemble}"
+              (click)="temRs.disassemble=!temRs.disassemble">拆线
+          </li>
+          <li class="fancong" [ngClass]="{check_tj:temRs.missingLayer}"
+              (click)="temRs.missingLayer=!temRs.missingLayer">遗漏分层
+          </li>
+          <li class="fgx" [ngClass]="{check_tj:temRs.dividingLine}"
+              (click)="temRs.dividingLine=!temRs.dividingLine">分割线
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,167 @@
+<div class="component_scroll" id="{{code}}">
+  <div class="drawCodebox haomafb" *ngIf="mainData && mainData?.length>0" style="left: 0; display: block;">
+
+    <div class="linebox" *ngIf="codeType==2">
+      <div class="numbtn">
+        <ul>
+          <li [ngClass]="{lichecked:numRs?.indexOf('0')>-1}" (click)="numSelect('0')">0</li>
+          <li [ngClass]="{lichecked:numRs?.indexOf('1')>-1}" (click)="numSelect('1')">1</li>
+          <li [ngClass]="{lichecked:numRs?.indexOf('2')>-1}" (click)="numSelect('2')">2</li>
+          <li [ngClass]="{lichecked:numRs?.indexOf('3')>-1}" (click)="numSelect('3')">3</li>
+          <li [ngClass]="{lichecked:numRs?.indexOf('4')>-1}" (click)="numSelect('4')">4</li>
+          <li [ngClass]="{lichecked:numRs?.indexOf('5')>-1}" (click)="numSelect('5')">5</li>
+          <li [ngClass]="{lichecked:numRs?.indexOf('6')>-1}" (click)="numSelect('6')">6</li>
+          <li [ngClass]="{lichecked:numRs?.indexOf('7')>-1}" (click)="numSelect('7')">7</li>
+          <li [ngClass]="{lichecked:numRs?.indexOf('8')>-1}" (click)="numSelect('8')">8</li>
+          <li [ngClass]="{lichecked:numRs?.indexOf('9')>-1}" (click)="numSelect('9')">9</li>
+        </ul>
+      </div>
+    </div>
+    <div class="linebox" *ngIf="codeType==1||codeType==4">
+      <div class="numbtn">
+        <ul>
+          <li [ngClass]="{lichecked:numRs?.indexOf('1')>-1}" (click)="numSelect('1')">01</li>
+          <li [ngClass]="{lichecked:numRs?.indexOf('2')>-1}" (click)="numSelect('2')">02</li>
+          <li [ngClass]="{lichecked:numRs?.indexOf('3')>-1}" (click)="numSelect('3')">03</li>
+          <li [ngClass]="{lichecked:numRs?.indexOf('4')>-1}" (click)="numSelect('4')">04</li>
+          <li [ngClass]="{lichecked:numRs?.indexOf('5')>-1}" (click)="numSelect('5')">05</li>
+          <li [ngClass]="{lichecked:numRs?.indexOf('6')>-1}" (click)="numSelect('6')">06</li>
+          <li [ngClass]="{lichecked:numRs?.indexOf('7')>-1}" (click)="numSelect('7')">07</li>
+          <li [ngClass]="{lichecked:numRs?.indexOf('8')>-1}" (click)="numSelect('8')">08</li>
+          <li [ngClass]="{lichecked:numRs?.indexOf('9')>-1}" (click)="numSelect('9')">09</li>
+          <li [ngClass]="{lichecked:numRs?.indexOf('10')>-1}" (click)="numSelect('10')">10</li>
+          <ng-container *ngIf="codeType==4">
+            <li [ngClass]="{lichecked:numRs?.indexOf('11')>-1}" (click)="numSelect('11')">11</li>
+          </ng-container>
+        </ul>
+      </div>
+    </div>
+    <ng-container *ngIf="codeType==3||codeType==5||codeType==6">
+      <div class="linebox">
+        <div class="numbtn">
+          <ul>
+            <li [ngClass]="{lichecked:numRs?.indexOf('1')>-1}" (click)="numSelect('1')">01</li>
+            <li [ngClass]="{lichecked:numRs?.indexOf('2')>-1}" (click)="numSelect('2')">02</li>
+            <li [ngClass]="{lichecked:numRs?.indexOf('3')>-1}" (click)="numSelect('3')">03</li>
+            <li [ngClass]="{lichecked:numRs?.indexOf('4')>-1}" (click)="numSelect('4')">04</li>
+            <li [ngClass]="{lichecked:numRs?.indexOf('5')>-1}" (click)="numSelect('5')">05</li>
+            <li [ngClass]="{lichecked:numRs?.indexOf('6')>-1}" (click)="numSelect('6')">06</li>
+            <li [ngClass]="{lichecked:numRs?.indexOf('7')>-1}" (click)="numSelect('7')">07</li>
+            <li [ngClass]="{lichecked:numRs?.indexOf('8')>-1}" (click)="numSelect('8')">08</li>
+            <li [ngClass]="{lichecked:numRs?.indexOf('9')>-1}" (click)="numSelect('9')">09</li>
+            <li [ngClass]="{lichecked:numRs?.indexOf('10')>-1}" (click)="numSelect('10')">10</li>
+          </ul>
+        </div>
+      </div>
+      <div class="linebox">
+        <div class="numbtn">
+          <ul>
+            <li [ngClass]="{lichecked:numRs?.indexOf('11')>-1}" (click)="numSelect('11')">11</li>
+            <li [ngClass]="{lichecked:numRs?.indexOf('12')>-1}" (click)="numSelect('12')">12</li>
+            <li [ngClass]="{lichecked:numRs?.indexOf('13')>-1}" (click)="numSelect('13')">13</li>
+            <li [ngClass]="{lichecked:numRs?.indexOf('14')>-1}" (click)="numSelect('14')">14</li>
+            <li [ngClass]="{lichecked:numRs?.indexOf('15')>-1}" (click)="numSelect('15')">15</li>
+            <li [ngClass]="{lichecked:numRs?.indexOf('16')>-1}" (click)="numSelect('16')">16</li>
+            <li [ngClass]="{lichecked:numRs?.indexOf('17')>-1}" (click)="numSelect('17')">17</li>
+            <li [ngClass]="{lichecked:numRs?.indexOf('18')>-1}" (click)="numSelect('18')">18</li>
+            <li [ngClass]="{lichecked:numRs?.indexOf('19')>-1}" (click)="numSelect('19')">19</li>
+            <li [ngClass]="{lichecked:numRs?.indexOf('20')>-1}" (click)="numSelect('20')">20</li>
+            <ng-container *ngIf="codeType==6">
+              <li [ngClass]="{lichecked:numRs?.indexOf('21')>-1}" (click)="numSelect('21')">21</li>
+            </ng-container>
+          </ul>
+        </div>
+      </div>
+    </ng-container>
+    <div class="linebox">
+      <div class="dansdxbtn">
+        <ul>
+          <li [ngClass]="{lichecked:filterRs?.indexOf('0')>-1}" (click)="filter(0)">单</li>
+          <li [ngClass]="{lichecked:filterRs?.indexOf('1')>-1}" (click)="filter(1)">双</li>
+          <li [ngClass]="{lichecked:filterRs?.indexOf('2')>-1}" (click)="filter(2)">大</li>
+          <li [ngClass]="{lichecked:filterRs?.indexOf('3')>-1}" (click)="filter(3)">小</li>
+        </ul>
+      </div>
+    </div>
+    <div class="contentlist bortop002" id="haomafblist">
+      <ng-container *ngIf="codeType==1">
+        <div class="listline bortop001" *ngFor="let item of mainData;">
+          <div class="leftspan leftspanw"><span class="boxflex"><span
+            class="graytime">{{item?.time?.substring(11, 16)}}</span><span class="graytime">{{item?.no}}</span></span>
+          </div>
+          <div class="rightspan">
+            <div class="rightdiv padl0">
+              <ul class="pk10li haomali listli">
+                <li [ngClass]="{nubb01:num=='01',nubb02:num=='02',nubb03:num=='03',nubb04:num=='04',nubb05:num=='05',
+              nubb06:num=='06',nubb07:num=='07',nubb08:num=='08',nubb09:num=='09',nubb10:num=='10'}"
+                    *ngFor="let num of item?.num;"><i style="display: none;">{{num}}</i></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="codeType==2||codeType==4">
+        <div class="listotherline bortop001 ssclist" *ngFor="let item of mainData;">
+          <div class="leftspan"><span class="boxflex"><span
+            class="graytime">{{item?.time?.substring(11, 16)}}</span><span
+            class="graytime">{{item?.no.toString().substring(6)}}</span></span></div>
+          <div class="rightspan">
+            <div class="rightdiv" style="padding-left:0">
+              <div class="haomali">
+                <ul class="ssclilist listli">
+                  <li style="margin-right: 25px;" *ngFor="let num of item?.num;"><span
+                    class="bluenum"><i>{{num}}</i></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="codeType==3||codeType==6">
+        <div class="listotherline bortop001 ssclist" *ngFor="let item of mainData;">
+          <div class="leftspan"><span class="boxflex"><span
+            class="graytime">{{item?.time?.substring(11, 16)}}</span><span
+            class="graytime">{{item?.no.toString().substring(2)}}</span></span></div>
+          <div class="rightspan">
+            <div class="rightdiv padl0" style="padding-left: 10px;">
+              <div class="haomali">
+                <ul class="ssclilist listli">
+                  <ng-container *ngIf="codeType==3">
+                    <li style="margin-right: 1px;" *ngFor="let num of item?.num;"><span
+                      class="bluenum"><i>{{num}}</i></span></li>
+                  </ng-container>
+                  <ng-container *ngIf="codeType==6">
+                    <li style="margin-right: 25px;" *ngFor="let num of item?.num;"><span
+                      class="bluenum"><i>{{num}}</i></span></li>
+                  </ng-container>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="codeType==5">
+        <div class="listotherline bortop001 ssclist" *ngFor="let item of mainData;">
+          <div class="leftspan"><span class="boxflex"><span
+            class="graytime">{{item?.time?.substring(11, 16)}}</span><span
+            class="graytime">{{item?.no.toString().substring(6)}}</span></span></div>
+          <div class="rightspan">
+            <div class="rightdiv padl0" style="margin-top:0.1rem;padding-left:0;">
+              <div class="haomali">
+                <ul class="cqnclilist">
+                  <li *ngFor="let num of item?.num;">
+                  <span [ngClass]="{ncnum01:num=='01',ncnum02:num=='02',ncnum03:num=='03',ncnum04:num=='04',ncnum05:num=='05',ncnum06:num=='06',
+                  ncnum07:num=='07',ncnum08:num=='08',ncnum09:num=='09',ncnum10:num=='10',ncnum11:num=='11',ncnum12:num=='12',ncnum13:num=='13',
+                  ncnum14:num=='14',ncnum15:num=='15',ncnum16:num=='16',ncnum17:num=='17',ncnum18:num=='18',ncnum19:num=='19',ncnum20:num=='20'}"
+                  ><i style="display:none;">{{num}}</i></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <div *ngIf="!mainData || mainData?.length==0" class="no-data">木得数据啦  <div style="height: 350px;"></div></div>
+
+</div>

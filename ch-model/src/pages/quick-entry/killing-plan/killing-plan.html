@@ -1,0 +1,267 @@
+<!--
+  Generated template for the KillingPlanPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <div class="myHeader">
+    <!--<div class="header_back" navPop></div>-->
+    <h2><span (click)="showKinds=!showKinds" tappable>
+      杀号计划 &nbsp;
+      <i *ngIf="!showKinds" class="top_arrow"></i>
+      <i *ngIf="showKinds" class="bottom_arrow"></i>
+    </span></h2>
+    <span class="about_kinds" (click)="showKinds=false" navPush="AboutKindsPage">彩种</span>
+  </div>
+</ion-header>
+
+
+<ion-content>
+  <div *ngIf="showKinds" class="navList" style="opacity: 1;">
+    <div (click)="showKinds=false" navPush="AboutKindsPage">
+      <dl>
+        <dt class="cphost"><span></span></dt>
+        <dd>彩种大厅</dd>
+      </dl>
+    </div>
+    <div (click)="showKinds=false;toRecommendTwoSides()">
+      <dl>
+        <dt class="lmtuijan"><span></span></dt>
+        <dd>双面统计</dd>
+      </dl>
+    </div>
+    <div (click)="showKinds=false;toLongDragonCount()">
+      <dl>
+        <dt class="clcj"><span></span></dt>
+        <dd>长龙提醒</dd>
+      </dl>
+    </div>
+    <div (click)="showKinds=false;toAboutPlan()">
+      <dl>
+        <dt class="goucjhua"><span></span></dt>
+        <dd>购彩计划</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="body-box">
+    <div class="lottHeader">
+      <div class="left" (click)="showType=1">
+        <span data-text="pk10">{{aboutName}}</span>
+        <i></i>
+      </div>
+      <div class="center">
+        <!--倒计时：<span class="countTime"></span>-->
+      </div>
+      <div class="right">
+        已杀<span class="KillCount">{{mainData?.basic?.killCount}}</span>期
+        <button class="doubt" (click)="showType=4"></button>
+      </div>
+    </div>
+
+    <div class="dayAndStage">
+      <div class="checkrank one-third" (click)="showType=2">
+      <span (click)="showType=3">
+        <input type="text" class="checkrank" readonly="" unselectable="on" onfocus="this.blur();" data-text="first"
+               value="{{killType?.type}}">
+        <i></i>
+      </span>
+      </div>
+      <div class="checkday one-third">
+        <ion-item
+          style="top: -1px;width: 130px!important;margin-right: -14px!important;border-top: 1px solid #dbdbdb;height: 30px;border-bottom: 6.2px solid #dbdbdb;">
+          <ion-label style="margin-top: 5px;"><span id="myDate" style="color: inherit;font-size: 14px;margin-top: -9px;">{{myDate}} <i></i></span>
+          </ion-label>
+          <ion-datetime displayFormat="YYYY年 MM月 DD日 " min="{{startDay}}" max="{{today}}" [(ngModel)]="myDate"
+                        (ionChange)="getKillPlan()" cancelText="取消" doneText="确认">
+          </ion-datetime>
+        </ion-item>
+      </div>
+      <div class="checkstage one-third">
+      <span (click)="showType=3">
+    <input type="text" class="periodStage" readonly="" unselectable="on" onfocus="this.blur();"> <i></i>
+        </span>
+      </div>
+    </div>
+
+    <div class="contenbox">
+      <div class="content_main" *ngIf="killData && killData?.list?.length>0">
+        <ul class="title">
+          <li class="qihao">期号</li>
+          <li class="checkNum" *ngIf="killType?.killCode!='1003'">号码</li>
+          <li class="checkNum" *ngIf="killType?.killCode=='1003'">和值</li>
+          <li *ngFor="let role of mainData?.killRole;" class="name_li"><span class="name2">{{role}}</span></li>
+        </ul>
+        <ul class="content_list" *ngFor="let item of killData?.list;let ki = index;">
+          <li class="qihao">{{item?.number?.toString()?.substring(4)}}</li>
+          <ng-container *ngIf="codeType==3">
+            <li class="checkNum" *ngIf="killType?.killCode=='1002'"
+                [ngStyle]="{'color':ki==0?'#FA3253':''}">{{item?.data?.length > 0 ? item?.data?.join(' ') : "待开"}}</li>
+            <li class="checkNum" *ngIf="killType?.killCode=='1003'"
+                [ngStyle]="{'color':ki==0?'#FA3253':''}">{{item?.data?.length > 0 ? getArraySum(item?.data) : "待开"}}</li>
+          </ng-container>
+          <ng-container *ngIf="codeType!=3">
+            <li class="checkNum"
+                [ngStyle]="{'color':ki==0?'#FA3253':''}">{{item?.data?.length > 0 ? item?.data[killType?.killCode] : "待开"}}</li>
+          </ng-container>
+          <ng-container *ngIf="codeType!=3 && item?.content['1001']?.length>0">
+            <ng-container *ngFor="let temp of item?.content['1001']">
+              <ng-container *ngFor="let sub of temp;let ti=index;">
+              <li class="name_li" *ngIf="ti==killType?.killCode" [ngClass]="{kill_right:sub?.status==1,wrong:sub?.status==0}">
+                <span>杀:{{sub?.num}}</span></li>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+          <ng-container *ngIf="codeType==3 && item?.content[killType?.killCode]?.length>0">
+            <ng-container *ngFor="let content of item?.content[killType?.killCode];">
+              <ng-container *ngFor="let key of objectKeys(content);">
+                <li class="name_li" [ngClass]="{kill_right:content[key]?.status==1,wrong:content[key]?.status==0}">
+                  <span>杀:{{content[key]?.num}}</span></li>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+        </ul>
+        <ul class="list_result">
+          <li class="score">成绩统计</li>
+          <li *ngFor="let role of mainData?.killRole;" class="name_li"><span class="name2">{{role}}</span></li>
+        </ul>
+        <ul class="list_result list_result_del">
+          <li class="score">杀对次数</li>
+          <ng-container *ngIf="codeType==3">
+            <ng-container *ngFor="let temp of killData?.statistics[killType?.killCode];">
+              <ng-container *ngFor="let k of objectKeys(temp);">
+                <li class="name_li"><span class="name1">{{period}}V{{temp[k]?.time}}</span></li>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+          <ng-container *ngIf="codeType!=3">
+            <ng-container *ngFor="let temp of killData?.statistics['1001']">
+              <ng-container *ngFor="let sub of temp;let ti = index;">
+              <li class="name_li" *ngIf="ti==killType?.killCode"><span class="name1">{{period}}V{{sub?.time}}</span></li>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+        </ul>
+        <ul class="list_result list_result_del">
+          <li class="score">成功概率</li>
+          <ng-container *ngIf="codeType==3">
+            <ng-container *ngFor="let temp of killData?.statistics[killType?.killCode];">
+              <ng-container *ngFor="let k of objectKeys(temp);">
+                <li class="name_li"><span class="name1">{{temp[k]?.chance}}%</span></li>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+          <ng-container *ngIf="codeType!=3">
+            <ng-container *ngFor="let temp of killData?.statistics['1001']">
+              <ng-container *ngFor="let sub of temp;let ti = index;">
+              <li class="name_li" *ngIf="ti==killType?.killCode"><span class="name1">{{sub?.chance}}%</span></li>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+        </ul>
+      </div>
+      <div *ngIf="!killData || killData?.list?.length==0" class="no-data">木得数据啦</div>
+    </div>
+  </div>
+</ion-content>
+
+<!--彩种选择-->
+<div *ngIf="showType==1" class="select-page">
+  <ion-backdrop (click)="showType=-1" role="presentation" tappable="" style="opacity: 0.26;"></ion-backdrop>
+  <div class="about-wrapper">
+    <div class="tool-bar">
+      <span class="option-md" style="float: left;">彩种选择</span>
+      <span class="option-md" style="float: right;" (click)="showType=-1">取消</span>
+    </div>
+    <div class="about-main">
+      <div class="about-series">
+        <ul>
+          <li *ngFor="let key of objectKeys(categoryList);" (click)="selectedKey=key"
+              [ngClass]="{checked:selectedKey==key}">
+            <span style="line-height: 40px;padding-left: 10px;">{{categoryList[key]?.name}}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="about-list">
+        <ul>
+          <ng-container *ngFor="let item of categoryList[selectedKey]?.list;">
+            <li (click)="aboutChange(item)" [ngClass]="{checked:code==item?.code}">
+              {{item?.name}}
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!--开奖号码选择 *ngIf="showType==2" -->
+<div *ngIf="showType==2" class="select-page">
+  <ion-backdrop (click)="showType=-1" role="presentation" tappable="" style="opacity: 0.26;"></ion-backdrop>
+  <div class="main-wrapper">
+    <div class="tool-bar">
+      <span class="option-md" style="float: left;">开奖号码选择</span>
+      <span class="option-md" style="float: right;" (click)="showType=-1">取消</span>
+    </div>
+    <div class="main-content">
+      <ul *ngIf="codeType==3">
+        <li (click)="killTypeChange({k:1002,val:'综合杀号'})" [ngClass]="{checked:killType?.killCode==1002}">综合杀号</li>
+        <li (click)="killTypeChange({k:1003,val:'和值杀号'})" [ngClass]="{checked:killType?.killCode==1003}">和值杀号</li>
+      </ul>
+      <ul *ngIf="codeType==1">
+        <li (click)="killTypeChange({k:0,val:'冠军'})" [ngClass]="{checked:killType?.killCode==0}">冠军</li>
+        <li (click)="killTypeChange({k:1,val:'亚军'})" [ngClass]="{checked:killType?.killCode==1}">亚军</li>
+        <li (click)="killTypeChange({k:2,val:'第三名'})" [ngClass]="{checked:killType?.killCode==2}">第三名</li>
+        <li (click)="killTypeChange({k:3,val:'第四名'})" [ngClass]="{checked:killType?.killCode==3}">第四名</li>
+        <li (click)="killTypeChange({k:4,val:'第五名'})" [ngClass]="{checked:killType?.killCode==4}">第五名</li>
+        <li (click)="killTypeChange({k:5,val:'第六名'})" [ngClass]="{checked:killType?.killCode==5}">第六名</li>
+        <li (click)="killTypeChange({k:6,val:'第七名'})" [ngClass]="{checked:killType?.killCode==6}">第七名</li>
+        <li (click)="killTypeChange({k:7,val:'第八名'})" [ngClass]="{checked:killType?.killCode==7}">第八名</li>
+        <li (click)="killTypeChange({k:8,val:'第九名'})" [ngClass]="{checked:killType?.killCode==8}">第九名</li>
+        <li (click)="killTypeChange({k:9,val:'第十名'})" [ngClass]="{checked:killType?.killCode==9}">第十名</li>
+      </ul>
+      <ul *ngIf="codeType==2">
+        <li (click)="killTypeChange({k:0,val:'万位杀号'})" [ngClass]="{checked:killType?.killCode==0}">万位杀号</li>
+        <li (click)="killTypeChange({k:1,val:'千位杀号'})" [ngClass]="{checked:killType?.killCode==1}">千位杀号</li>
+        <li (click)="killTypeChange({k:2,val:'百位杀号'})" [ngClass]="{checked:killType?.killCode==2}">百位杀号</li>
+        <li (click)="killTypeChange({k:3,val:'十位杀号'})" [ngClass]="{checked:killType?.killCode==3}">十位杀号</li>
+        <li (click)="killTypeChange({k:4,val:'个位杀号'})" [ngClass]="{checked:killType?.killCode==4}">个位杀号</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="showType==3" class="select-page">
+  <ion-backdrop (click)="showType=-1" role="presentation" tappable="" style="opacity: 0.26;"></ion-backdrop>
+  <div class="main-wrapper">
+    <div class="tool-bar">
+      <span class="option-md" style="float: left;">查看期数选择</span>
+      <span class="option-md" style="float: right;" (click)="showType=-1">取消</span>
+    </div>
+    <div class="main-content">
+      <ul>
+        <li [ngClass]="{checked:period==10}" (click)="periodChange(10)">近10期</li>
+        <li [ngClass]="{checked:period==20}" (click)="periodChange(20)">近20期</li>
+        <li [ngClass]="{checked:period==30}" (click)="periodChange(30)">近30期</li>
+        <li [ngClass]="{checked:period==50}" (click)="periodChange(50)">近50期</li>
+        <li [ngClass]="{checked:period==100}" (click)="periodChange(100)">近100期</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showType==4" class="select-page">
+  <ion-backdrop (click)="showType=-1" role="presentation" tappable="" style="opacity: 0.26;"></ion-backdrop>
+  <div class="main-wrapper">
+    <div class="tool-bar">
+      <span class="option-md" style="float: left;">帮助说明</span>
+      <span class="option-md" style="float: right;" (click)="showType=-1">取消</span>
+      <span class="option-md" style="float: right;" (click)="toGameRule()">玩法规则介绍</span>
+    </div>
+    <div class="main-content">
+      <ul>
+        <li *ngFor="let temp of mainData?.killRule;"> <p style="line-height: 20px;"><span style="font-weight: 600;">{{temp?.name}}</span><br>{{temp?.value}}</p></li>
+      </ul>
+    </div>
+  </div>
+</div>

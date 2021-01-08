@@ -1,0 +1,46 @@
+about-item {
+
+  .current_issue {
+    font-style: normal !important;
+    color: #0092dd !important;
+  }
+
+  .line {
+    display: block;
+    float: left;
+    width: 5px;
+    height: 17px;
+    background: #618aff;
+    overflow: hidden;
+    margin-right: 8px;
+    margin-top: 2px;
+    border-radius: 7px;
+  }
+
+  .r_arrow{
+    float: right;
+    overflow: hidden;
+    display: inline-block;
+    height: 21px;
+    width: 19px;
+    background: url(../../../assets/imgs/sprite.png) -346px -190px no-repeat;
+    background-size: 450px 225px;
+    position: relative;
+  }
+
+  .next_opening {
+    span {
+      display: block;
+      font-size: 12px;
+      height: 20px;
+      line-height: 20px;
+      /* margin: 0 auto; */
+      text-align: center;
+      margin-top: 5px;
+
+      i {
+        font-style: normal;
+      }
+    }
+  }
+}

@@ -1,0 +1,782 @@
+<!-- Generated template for the PositionTrendComponent component -->
+<div class="component_scroll" id="{{code}}">
+  <div class="drawCodebox wezizs haomazs" *ngIf="mainData?.list && mainData?.list?.length>0"
+       style="left: 0; display: block;">
+    <div class="Pattern" *ngIf="codeType<4">
+      <span class="hamafb" [ngClass]="{checkspan:modeType==0}" (click)="modeType=0">号码分布</span>
+      <span class="sttz" [ngClass]="{checkspan:modeType==1}" (click)="modeType=1">形态特征</span>
+      <ng-container *ngIf="codeType!=3">
+        <span class="lu012" [ngClass]="{checkspan:modeType==2}" (click)="modeType=2">012路</span>
+        <span class="spj" [ngClass]="{checkspan:modeType==3}" (click)="modeType=3">升平降</span>
+      </ng-container>
+    </div>
+    <div class="table_conditions">
+      <div class="divtitile">
+        <p [ngClass]="{w_70:codeType==4}">
+        <span *ngIf="codeType<4" class="weai" data-text="1"
+              (click)="showFilter=1">{{tGoal == 0 ? '第一球' : tGoal == 1 ? '第二球' : tGoal == 2 ? '第三球' : tGoal == 3 ? '第四球' : '第五球'}}</span>
+          <span *ngIf="codeType==4" style="margin-right: -10px;" data-text="1"
+                (click)="showFilter=1">&nbsp;&nbsp;{{tGoal == 0 ? '第一位号码' : tGoal == 1 ? '第二位号码' : '第三位号码'}}</span>
+          <span class="shjian"
+                (click)="showFilter=2">{{tPeriods == 2000 ? '当天' : tPeriods == 30 ? '近30期' : tPeriods == 60 ? '近60期' : '近90期'}}</span>
+          <span class="tiaojian" (click)="choseCon(3)">筛选</span>
+        </p>
+        <div class="lookshjtj" (click)="goBottom()">查看数据统计</div>
+      </div>
+      <div class="table_conBox" id="waitBox">
+
+        <div id="chartLinediv">
+          <ng-container *ngIf="codeType<4">
+            <table class="table_hamafb" *ngIf="modeType==0" style="display: table;">
+              <thead>
+              <tr *ngIf="codeType==1">
+                <th>期号</th>
+                <th>号码</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+                <th>9</th>
+                <th>10</th>
+              </tr>
+              <tr *ngIf="codeType==2">
+                <th>期号</th>
+                <th>号码</th>
+                <th>0</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+                <th>9</th>
+              </tr>
+              <tr *ngIf="codeType==3">
+                <th>期号</th>
+                <th>号码</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+                <th>9</th>
+                <th>10</th>
+                <th>11</th>
+              </tr>
+              </thead>
+              <tbody id="allNumber" *ngIf="mainData">
+              <ng-container *ngFor="let item of mainData?.list;let m = index;">
+                <tr *ngIf="m<tPeriods">
+                  <td>{{item?.no.toString().substring(4)}}</td>
+                  <ng-container *ngFor="let n of item?.num;let i=index;">
+                    <td class="tabred" *ngIf="i==tGoal"><span>{{n}}</span></td>
+                  </ng-container>
+                  <ng-container *ngFor="let basic of item?.list?.basic;let b = index;">
+                    <ng-container *ngIf="b==tGoal">
+                      <td *ngFor="let temp of basic;">
+                        <span>{{temp}}</span></td>
+                    </ng-container>
+                  </ng-container>
+                </tr>
+              </ng-container>
+              </tbody>
+              <tbody>
+              <tr *ngIf="codeType==1" class="clospan">
+                <td colspan="2">数据统计</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+              </tr>
+              <tr *ngIf="codeType==2" class="clospan">
+                <td colspan="2">数据统计</td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+              </tr>
+              <tr *ngIf="codeType==3" class="clospan">
+                <td colspan="2">数据统计</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+              </tr>
+              <tr>
+                <td colspan="2">总次数</td>
+                <ng-container *ngFor="let basic of mainData?.statistics?.appear?.basic;let b=index;">
+                  <ng-container *ngIf="b==tGoal">
+                    <td *ngFor="let appear of basic;">{{appear}}</td>
+                  </ng-container>
+                </ng-container>
+                <!--<td *ngFor="let appear of mainData?.statistics?.appear?.basic[tGoal];">{{appear}}</td>-->
+              </tr>
+              <tr>
+                <td colspan="2">平均遗漏</td>
+                <ng-container *ngFor="let basic of mainData?.statistics?.avg?.basic;let b=index;">
+                  <ng-container *ngIf="b==tGoal">
+                    <td *ngFor="let avg of basic;">{{avg}}</td>
+                  </ng-container>
+                </ng-container>
+                <!--<td *ngFor="let avg of mainData?.statistics?.avg?.basic[tGoal];">{{avg}}</td>-->
+              </tr>
+              <tr>
+                <td colspan="2">当前遗漏</td>
+                <ng-container *ngFor="let basic of mainData?.statistics?.current?.basic;let b=index;">
+                  <ng-container *ngIf="b==tGoal">
+                    <td *ngFor="let current of basic;">{{current}}</td>
+                  </ng-container>
+                </ng-container>
+                <!--<td *ngFor="let current of mainData?.statistics?.current?.basic[tGoal];">{{current}}</td>-->
+              </tr>
+              <tr>
+                <td colspan="2">最大连出</td>
+                <ng-container *ngFor="let basic of mainData?.statistics?.maxAway?.basic;let b=index;">
+                  <ng-container *ngIf="b==tGoal">
+                    <td *ngFor="let maxAway of basic;">{{maxAway}}</td>
+                  </ng-container>
+                </ng-container>
+              </tr>
+              <tr>
+                <td colspan="2">最大遗漏</td>
+                <ng-container *ngFor="let basic of mainData?.statistics?.max?.basic;let b=index;">
+                  <ng-container *ngIf="b==tGoal">
+                    <td *ngFor="let max of basic;">{{max}}</td>
+                  </ng-container>
+                </ng-container>
+              </tr>
+              </tbody>
+            </table>
+            <table class="table_sttz" *ngIf="modeType==1" style="display: table;">
+              <thead>
+              <tr>
+                <th>期数</th>
+                <th>号码</th>
+                <th colspan="2">单双</th>
+                <th colspan="2">大小</th>
+                <th colspan="2" *ngIf="codeType!=3">质合</th>
+              </tr>
+              </thead>
+              <tbody id="table_sttz" *ngIf="mainData">
+              <ng-container *ngFor="let item of mainData?.list;let m = index;">
+                <tr *ngIf="m<tPeriods">
+                  <td>{{item?.no.toString().substring(4)}}</td>
+                  <ng-container *ngFor="let n of item?.num;let i=index;">
+                    <td class="tabred" *ngIf="i==tGoal"><span>{{n}}</span></td>
+                  </ng-container>
+                  <ng-container *ngFor="let sad of item?.list?.sad;let d=index;">
+                    <ng-container *ngIf="d==tGoal">
+                      <td [ngClass]="{numeven:sad?.s==0}"><span>{{sad?.s == 0 ? '单' : sad?.s}}</span></td>
+                      <td [ngClass]="{numodd:sad?.d==0}"><span>{{sad?.d == 0 ? '双' : sad?.d}}</span></td>
+                    </ng-container>
+                  </ng-container>
+                  <ng-container *ngFor="let bas of item?.list?.bas;let b=index;">
+                    <ng-container *ngIf="b==tGoal">
+                      <td [ngClass]="{numeven:bas?.b==0}"><span>{{bas?.b == 0 ? '大' : bas?.b}}</span></td>
+                      <td [ngClass]="{numodd:bas?.s==0}"><span>{{bas?.s == 0 ? '小' : bas?.s}}</span></td>
+                    </ng-container>
+                  </ng-container>
+                  <ng-container *ngIf="codeType!=3">
+                    <ng-container *ngFor="let pc of item?.list?.pc;let p=index;">
+                      <ng-container *ngIf="p==tGoal">
+                        <td [ngClass]="{numeven:pc?.p==0}"><span>{{pc?.p == 0 ? '质' : pc?.p}}</span></td>
+                        <td [ngClass]="{numodd:pc?.c==0}"><span>{{pc?.c == 0 ? '合' : pc?.c}}</span></td>
+                      </ng-container>
+                    </ng-container>
+                  </ng-container>
+                </tr>
+              </ng-container>
+              <tr class="clospan">
+                <td colspan="2">数据统计</td>
+                <td colspan="2">单双</td>
+                <td colspan="2">大小</td>
+                <td colspan="2" *ngIf="codeType!=3">质和</td>
+              </tr>
+              <tr>
+                <td colspan="2">总次数</td>
+                <ng-container *ngFor="let sad of mainData?.statistics?.appear?.sad;let d=index;">
+                  <ng-container *ngIf="d==tGoal">
+                    <td>{{sad?.s}}</td>
+                    <td>{{sad?.d}}</td>
+                  </ng-container>
+                </ng-container>
+                <ng-container *ngFor="let bas of mainData?.statistics?.appear?.bas;let b=index;">
+                  <ng-container *ngIf="b==tGoal">
+                    <td>{{bas?.b}}</td>
+                    <td>{{bas?.s}}</td>
+                  </ng-container>
+                </ng-container>
+                <ng-container *ngFor="let pc of mainData?.statistics?.appear?.pc;let p=index;">
+                  <ng-container *ngIf="p==tGoal">
+                    <td>{{pc?.p}}</td>
+                    <td>{{pc?.c}}</td>
+                  </ng-container>
+                </ng-container>
+              </tr>
+              <tr>
+                <td colspan="2">平均遗漏</td>
+                <ng-container *ngFor="let sad of mainData?.statistics?.avg?.sad;let d=index;">
+                  <ng-container *ngIf="d==tGoal">
+                    <td>{{sad?.s}}</td>
+                    <td>{{sad?.d}}</td>
+                  </ng-container>
+                </ng-container>
+                <ng-container *ngFor="let bas of mainData?.statistics?.avg?.bas;let b=index;">
+                  <ng-container *ngIf="b==tGoal">
+                    <td>{{bas?.b}}</td>
+                    <td>{{bas?.s}}</td>
+                  </ng-container>
+                </ng-container>
+                <ng-container *ngFor="let pc of mainData?.statistics?.avg?.pc;let p=index;">
+                  <ng-container *ngIf="p==tGoal">
+                    <td>{{pc?.p}}</td>
+                    <td>{{pc?.c}}</td>
+                  </ng-container>
+                </ng-container>
+              </tr>
+              <tr>
+                <td colspan="2">当前遗漏</td>
+                <ng-container *ngFor="let sad of mainData?.statistics?.current?.sad;let d=index;">
+                  <ng-container *ngIf="d==tGoal">
+                    <td>{{sad?.s}}</td>
+                    <td>{{sad?.d}}</td>
+                  </ng-container>
+                </ng-container>
+                <ng-container *ngFor="let bas of mainData?.statistics?.current?.bas;let b=index;">
+                  <ng-container *ngIf="b==tGoal">
+                    <td>{{bas?.b}}</td>
+                    <td>{{bas?.s}}</td>
+                  </ng-container>
+                </ng-container>
+                <ng-container *ngFor="let pc of mainData?.statistics?.current?.pc;let p=index;">
+                  <ng-container *ngIf="p==tGoal">
+                    <td>{{pc?.p}}</td>
+                    <td>{{pc?.c}}</td>
+                  </ng-container>
+                </ng-container>
+              </tr>
+              <tr>
+                <td colspan="2">最大连出</td>
+                <ng-container *ngFor="let sad of mainData?.statistics?.maxAway?.sad;let d=index;">
+                  <ng-container *ngIf="d==tGoal">
+                    <td>{{sad?.s}}</td>
+                    <td>{{sad?.d}}</td>
+                  </ng-container>
+                </ng-container>
+                <ng-container *ngFor="let bas of mainData?.statistics?.maxAway?.bas;let b=index;">
+                  <ng-container *ngIf="b==tGoal">
+                    <td>{{bas?.b}}</td>
+                    <td>{{bas?.s}}</td>
+                  </ng-container>
+                </ng-container>
+                <ng-container *ngFor="let pc of mainData?.statistics?.maxAway?.pc;let p=index;">
+                  <ng-container *ngIf="p==tGoal">
+                    <td>{{pc?.p}}</td>
+                    <td>{{pc?.c}}</td>
+                  </ng-container>
+                </ng-container>
+              </tr>
+              <tr>
+                <td colspan="2">最大遗漏</td>
+                <ng-container *ngFor="let sad of mainData?.statistics?.max?.sad;let d=index;">
+                  <ng-container *ngIf="d==tGoal">
+                    <td>{{sad?.s}}</td>
+                    <td>{{sad?.d}}</td>
+                  </ng-container>
+                </ng-container>
+                <ng-container *ngFor="let bas of mainData?.statistics?.max?.bas;let b=index;">
+                  <ng-container *ngIf="b==tGoal">
+                    <td>{{bas?.b}}</td>
+                    <td>{{bas?.s}}</td>
+                  </ng-container>
+                </ng-container>
+                <ng-container *ngFor="let pc of mainData?.statistics?.max?.pc;let p=index;">
+                  <ng-container *ngIf="p==tGoal">
+                    <td>{{pc?.p}}</td>
+                    <td>{{pc?.c}}</td>
+                  </ng-container>
+                </ng-container>
+              </tr>
+              </tbody>
+            </table>
+            <table class="table_lu012" *ngIf="modeType==2" style="display: table;">
+              <thead>
+              <tr>
+                <th>期号</th>
+                <th class="short">号码</th>
+                <th>0</th>
+                <th>1</th>
+                <th>2</th>
+              </tr>
+              </thead>
+              <tbody id="table_lu012" *ngIf="mainData">
+              <ng-container *ngFor="let item of mainData?.list;let m = index;">
+                <tr *ngIf="m<tPeriods">
+                  <td>{{item?.no.toString().substring(4)}}</td>
+                  <ng-container *ngFor="let n of item?.num;let i=index;">
+                    <td class="tabred" *ngIf="i==tGoal"><span>{{n}}</span></td>
+                  </ng-container>
+                  <ng-container *ngFor="let zot of item?.list?.zot;let z=index;">
+                    <ng-container *ngIf="z==tGoal">
+                      <ng-container *ngFor="let temp of zot;let t=index;">
+                        <td [ngClass]="{numeven:temp==0 && t%2==0,numodd:temp==0 && t%2==1}">
+                          <span>{{temp == 0 ? t : temp}}</span></td>
+                      </ng-container>
+                    </ng-container>
+                  </ng-container>
+                </tr>
+              </ng-container>
+              <tr class="clospan">
+                <td colspan="2">数据统计</td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td colspan="2">总次数</td>
+                <ng-container *ngFor="let appear of mainData?.statistics?.appear?.zot;let b=index;">
+                  <ng-container *ngIf="b==tGoal">
+                    <td *ngFor="let zot of appear;">{{zot}}</td>
+                  </ng-container>
+                </ng-container>
+              </tr>
+              <tr>
+                <td colspan="2">平均遗漏</td>
+                <ng-container *ngFor="let avg of mainData?.statistics?.avg?.zot;let a=index;">
+                  <ng-container *ngIf="a==tGoal">
+                    <td *ngFor="let zot of avg;">{{zot}}</td>
+                  </ng-container>
+                </ng-container>
+              </tr>
+              <tr>
+                <td colspan="2">当前遗漏</td>
+                <ng-container *ngFor="let current of mainData?.statistics?.current?.zot;let c=index;">
+                  <ng-container *ngIf="c==tGoal">
+                    <td *ngFor="let zot of current;">{{zot}}</td>
+                  </ng-container>
+                </ng-container>
+              </tr>
+              <tr>
+                <td colspan="2">最大连出</td>
+                <ng-container *ngFor="let maxAway of mainData?.statistics?.maxAway?.zot;let c=index;">
+                  <ng-container *ngIf="c==tGoal">
+                    <td *ngFor="let zot of maxAway;">{{zot}}</td>
+                  </ng-container>
+                </ng-container>
+              </tr>
+              <tr>
+                <td colspan="2">最大遗漏</td>
+                <ng-container *ngFor="let max of mainData?.statistics?.max?.zot;let c=index;">
+                  <ng-container *ngIf="c==tGoal">
+                    <td *ngFor="let zot of max;">{{zot}}</td>
+                  </ng-container>
+                </ng-container>
+              </tr>
+              </tbody>
+            </table>
+            <table class="table_spj" *ngIf="modeType==3" style="display: table;">
+              <thead>
+              <tr>
+                <th>期号</th>
+                <th class="short">号码</th>
+                <th>升</th>
+                <th>平</th>
+                <th>降</th>
+              </tr>
+              </thead>
+              <tbody id="table_spj" *ngIf="mainData">
+              <ng-container *ngFor="let item of mainData?.list;let m = index;">
+                <tr *ngIf="m<tPeriods">
+                  <td>{{item?.no.toString().substring(4)}}</td>
+                  <ng-container *ngFor="let n of item?.num;let i=index;">
+                    <td class="tabred" *ngIf="i==tGoal"><span>{{n}}</span></td>
+                  </ng-container>
+                  <ng-container *ngFor="let uad of item?.list?.uad;let u=index;">
+                    <ng-container *ngIf="u==tGoal">
+                      <td [ngClass]="{numeven:uad.u==0}"><span>{{uad.u == 0 ? '升' : uad.u}}</span></td>
+                      <td [ngClass]="{numodd:uad.a==0}"><span>{{uad.a == 0 ? '平' : uad.a}}</span></td>
+                      <td [ngClass]="{numeven:uad.d==0}"><span>{{uad.d == 0 ? '降' : uad.d}}</span></td>
+                    </ng-container>
+                  </ng-container>
+                </tr>
+              </ng-container>
+              <tr class="clospan">
+                <td colspan="2">数据统计</td>
+                <td>升</td>
+                <td>平</td>
+                <td>降</td>
+              </tr>
+              <tr>
+                <td colspan="2">总次数</td>
+                <ng-container *ngFor="let uad of mainData?.statistics?.appear?.uad;let b=index;">
+                  <ng-container *ngIf="b==tGoal">
+                    <td>{{uad?.u}}</td>
+                    <td>{{uad?.a}}</td>
+                    <td>{{uad?.d}}</td>
+                  </ng-container>
+                </ng-container>
+              </tr>
+              <tr>
+                <td colspan="2">平均遗漏</td>
+                <ng-container *ngFor="let uad of mainData?.statistics?.avg?.uad;let b=index;">
+                  <ng-container *ngIf="b==tGoal">
+                    <td>{{uad?.u}}</td>
+                    <td>{{uad?.a}}</td>
+                    <td>{{uad?.d}}</td>
+                  </ng-container>
+                </ng-container>
+              </tr>
+              <tr>
+                <td colspan="2">当前遗漏</td>
+                <ng-container *ngFor="let uad of mainData?.statistics?.current?.uad;let b=index;">
+                  <ng-container *ngIf="b==tGoal">
+                    <td>{{uad?.u}}</td>
+                    <td>{{uad?.a}}</td>
+                    <td>{{uad?.d}}</td>
+                  </ng-container>
+                </ng-container>
+              </tr>
+              <tr>
+                <td colspan="2">最大连出</td>
+                <ng-container *ngFor="let uad of mainData?.statistics?.maxAway?.uad;let b=index;">
+                  <ng-container *ngIf="b==tGoal">
+                    <td>{{uad?.u}}</td>
+                    <td>{{uad?.a}}</td>
+                    <td>{{uad?.d}}</td>
+                  </ng-container>
+                </ng-container>
+              </tr>
+              <tr>
+                <td colspan="2">最大遗漏</td>
+                <ng-container *ngFor="let uad of mainData?.statistics?.max?.uad;let b=index;">
+                  <ng-container *ngIf="b==tGoal">
+                    <td>{{uad?.u}}</td>
+                    <td>{{uad?.a}}</td>
+                    <td>{{uad?.d}}</td>
+                  </ng-container>
+                </ng-container>
+              </tr>
+              </tbody>
+            </table>
+          </ng-container>
+          <ng-container *ngIf="codeType==4">
+            <table class="table_dingwezs" id="trend_ding">
+              <thead>
+              <tr>
+                <th>期号</th>
+                <th>开奖号</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>大</th>
+                <th>小</th>
+                <th>单</th>
+                <th>双</th>
+              </tr>
+              </thead>
+              <tbody id="k3_dwzs">
+              <tr *ngFor="let item of mainData?.list;">
+                <td>{{item?.no}}</td>
+                <td>
+                  <ng-container *ngFor="let n of item?.num;let i=index;">
+                    <span [ngStyle]="{'color':tGoal==i?'red':'#999'}">{{n}}</span>&nbsp;
+                  </ng-container>
+                </td>
+                <ng-container *ngFor="let temp of item?.list?.basic;let index=index;">
+                  <ng-container *ngIf="index==tGoal">
+                    <td style="background: #fdf7ed;" [ngClass]="{hot:temp['1']==0,ding:temp['1']==0}">
+                      <span>{{temp['1'] == 0 ? 1 : temp['1']}}</span></td>
+                    <td style="background: #fdf7ed;" [ngClass]="{hot:temp['2']==0,ding:temp['2']==0}">
+                      <span>{{temp['2'] == 0 ? 2 : temp['2']}}</span></td>
+                    <td style="background: #fdf7ed;" [ngClass]="{hot:temp['3']==0,ding:temp['3']==0}">
+                      <span>{{temp['3'] == 0 ? 3 : temp['3']}}</span></td>
+                    <td style="background: #fdf7ed;" [ngClass]="{hot:temp['4']==0,ding:temp['4']==0}">
+                      <span>{{temp['4'] == 0 ? 4 : temp['4']}}</span></td>
+                    <td style="background: #fdf7ed;" [ngClass]="{hot:temp['5']==0,ding:temp['5']==0}">
+                      <span>{{temp['5'] == 0 ? 5 : temp['5']}}</span></td>
+                    <td style="background: #fdf7ed;" [ngClass]="{hot:temp['6']==0,ding:temp['6']==0}">
+                      <span>{{temp['6'] == 0 ? 6 : temp['6']}}</span></td>
+                  </ng-container>
+                </ng-container>
+                <ng-container *ngFor="let bas of item?.list?.bas;let index=index;">
+                  <ng-container *ngIf="index==tGoal">
+                    <td [ngClass]="{hot:bas['b']==0,pol:bas['b']==0}"><span>{{bas['b'] == 0 ? '大' : bas['b']}}</span></td>
+                    <td [ngClass]="{hot:bas['s']==0,pol:bas['s']==0}"><span>{{bas['s'] == 0 ? '小' : bas['s']}}</span></td>
+                  </ng-container>
+                </ng-container>
+                <ng-container *ngFor="let sad of item?.list?.sad;let index=index;">
+                  <ng-container *ngIf="index==tGoal">
+                    <td [ngClass]="{hot:sad['s']==0,sin:sad['s']==0}"><span>{{sad['s'] == 0 ? '单' : sad['s']}}</span></td>
+                    <td [ngClass]="{hot:sad['d']==0,sin:sad['d']==0}"><span>{{sad['d'] == 0 ? '双' : sad['d']}}</span></td>
+                  </ng-container>
+                </ng-container>
+              </tr>
+              </tbody>
+              <tbody>
+              <tr class="clospan">
+                <td colspan="2">数据统计</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>大</td>
+                <td>小</td>
+                <td>单</td>
+                <td>双</td>
+              </tr>
+              <tr>
+                <td colspan="2">出现次数</td>
+                <ng-container *ngFor="let basic of mainData?.statistics?.appear?.basic;let index=index;">
+                  <ng-container *ngIf="index==tGoal">
+                    <td>{{basic['1']}}</td>
+                    <td>{{basic['2']}}</td>
+                    <td>{{basic['3']}}</td>
+                    <td>{{basic['4']}}</td>
+                    <td>{{basic['5']}}</td>
+                    <td>{{basic['6']}}</td>
+                  </ng-container>
+                </ng-container>
+                <ng-container *ngFor="let bas of mainData?.statistics?.appear?.bas;let index=index;">
+                  <ng-container *ngIf="index==tGoal">
+                    <td>{{bas['b']}}</td>
+                    <td>{{bas['s']}}</td>
+                  </ng-container>
+                </ng-container>
+                <ng-container *ngFor="let sad of mainData?.statistics?.appear?.sad;let index=index;">
+                  <ng-container *ngIf="index==tGoal">
+                    <td>{{sad['s']}}</td>
+                    <td>{{sad['d']}}</td>
+                  </ng-container>
+                </ng-container>
+              </tr>
+              <tr>
+                <td colspan="2">平均遗漏</td>
+                <ng-container *ngFor="let basic of mainData?.statistics?.avg?.basic;let index=index;">
+                  <ng-container *ngIf="index==tGoal">
+                    <td>{{basic['1']}}</td>
+                    <td>{{basic['2']}}</td>
+                    <td>{{basic['3']}}</td>
+                    <td>{{basic['4']}}</td>
+                    <td>{{basic['5']}}</td>
+                    <td>{{basic['6']}}</td>
+                  </ng-container>
+                </ng-container>
+                <ng-container *ngFor="let bas of mainData?.statistics?.avg?.bas;let index=index;">
+                  <ng-container *ngIf="index==tGoal">
+                    <td>{{bas['b']}}</td>
+                    <td>{{bas['s']}}</td>
+                  </ng-container>
+                </ng-container>
+                <ng-container *ngFor="let sad of mainData?.statistics?.avg?.sad;let index=index;">
+                  <ng-container *ngIf="index==tGoal">
+                    <td>{{sad['s']}}</td>
+                    <td>{{sad['d']}}</td>
+                  </ng-container>
+                </ng-container>
+              </tr>
+              <tr>
+                <td colspan="2">当前遗漏</td>
+                <ng-container *ngFor="let basic of mainData?.statistics?.current?.basic;let index=index;">
+                  <ng-container *ngIf="index==tGoal">
+                    <td>{{basic['1']}}</td>
+                    <td>{{basic['2']}}</td>
+                    <td>{{basic['3']}}</td>
+                    <td>{{basic['4']}}</td>
+                    <td>{{basic['5']}}</td>
+                    <td>{{basic['6']}}</td>
+                  </ng-container>
+                </ng-container>
+                <ng-container *ngFor="let bas of mainData?.statistics?.current?.bas;let index=index;">
+                  <ng-container *ngIf="index==tGoal">
+                    <td>{{bas['b']}}</td>
+                    <td>{{bas['s']}}</td>
+                  </ng-container>
+                </ng-container>
+                <ng-container *ngFor="let sad of mainData?.statistics?.current?.sad;let index=index;">
+                  <ng-container *ngIf="index==tGoal">
+                    <td>{{sad['s']}}</td>
+                    <td>{{sad['d']}}</td>
+                  </ng-container>
+                </ng-container>
+              </tr>
+              <tr>
+                <td colspan="2">最大连出</td>
+                <ng-container *ngFor="let basic of mainData?.statistics?.maxAway?.basic;let index=index;">
+                  <ng-container *ngIf="index==tGoal">
+                    <td>{{basic['1']}}</td>
+                    <td>{{basic['2']}}</td>
+                    <td>{{basic['3']}}</td>
+                    <td>{{basic['4']}}</td>
+                    <td>{{basic['5']}}</td>
+                    <td>{{basic['6']}}</td>
+                  </ng-container>
+                </ng-container>
+                <ng-container *ngFor="let bas of mainData?.statistics?.maxAway?.bas;let index=index;">
+                  <ng-container *ngIf="index==tGoal">
+                    <td>{{bas['b']}}</td>
+                    <td>{{bas['s']}}</td>
+                  </ng-container>
+                </ng-container>
+                <ng-container *ngFor="let sad of mainData?.statistics?.maxAway?.sad;let index=index;">
+                  <ng-container *ngIf="index==tGoal">
+                    <td>{{sad['s']}}</td>
+                    <td>{{sad['d']}}</td>
+                  </ng-container>
+                </ng-container>
+              </tr>
+              <tr>
+                <td colspan="2">最大遗漏</td>
+                <ng-container *ngFor="let basic of mainData?.statistics?.max?.basic;let index=index;">
+                  <ng-container *ngIf="index==tGoal">
+                    <td>{{basic['1']}}</td>
+                    <td>{{basic['2']}}</td>
+                    <td>{{basic['3']}}</td>
+                    <td>{{basic['4']}}</td>
+                    <td>{{basic['5']}}</td>
+                    <td>{{basic['6']}}</td>
+                  </ng-container>
+                </ng-container>
+                <ng-container *ngFor="let bas of mainData?.statistics?.max?.bas;let index=index;">
+                  <ng-container *ngIf="index==tGoal">
+                    <td>{{bas['b']}}</td>
+                    <td>{{bas['s']}}</td>
+                  </ng-container>
+                </ng-container>
+                <ng-container *ngFor="let sad of mainData?.statistics?.max?.sad;let index=index;">
+                  <ng-container *ngIf="index==tGoal">
+                    <td>{{sad['s']}}</td>
+                    <td>{{sad['d']}}</td>
+                  </ng-container>
+                </ng-container>
+              </tr>
+              </tbody>
+            </table>
+          </ng-container>
+        </div>
+        <div id="chartbottom">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!mainData?.list || mainData?.list?.length==0" class="no-data">木得数据啦<div style="height: 350px;"></div></div>
+
+</div>
+
+<div *ngIf="showFilter==1" class="select-page">
+  <ion-backdrop (click)="showFilter=-1" role="presentation" tappable="" style="opacity: 0.26;"></ion-backdrop>
+  <div class="main-wrapper" style="height: 45%;">
+    <div class="tool-bar">
+      <span class="option-md" style="float: left;">查看期数选择</span>
+      <span class="option-md" style="float: right;" (click)="showFilter=-1">取消</span>
+    </div>
+    <div class="main-content">
+      <ul *ngIf="codeType==1">
+        <li [ngClass]="{checked:tGoal==0}" (click)="choseGoal(0);">冠军</li>
+        <li [ngClass]="{checked:tGoal==1}" (click)="choseGoal(1);">亚军</li>
+        <li [ngClass]="{checked:tGoal==2}" (click)="choseGoal(2);">第三名</li>
+        <li [ngClass]="{checked:tGoal==3}" (click)="choseGoal(3);">第四名</li>
+        <li [ngClass]="{checked:tGoal==4}" (click)="choseGoal(4);">第五名</li>
+        <li [ngClass]="{checked:tGoal==5}" (click)="choseGoal(5);">第六名</li>
+        <li [ngClass]="{checked:tGoal==6}" (click)="choseGoal(6);">第七名</li>
+        <li [ngClass]="{checked:tGoal==7}" (click)="choseGoal(7);">第八名</li>
+        <li [ngClass]="{checked:tGoal==8}" (click)="choseGoal(8);">第九名</li>
+        <li [ngClass]="{checked:tGoal==9}" (click)="choseGoal(9);">第十名</li>
+      </ul>
+      <ul *ngIf="codeType==2 || codeType==3">
+        <li data-text="0" [ngClass]="{checked:tGoal==0}" (click)="choseGoal(0);">第一球</li>
+        <li data-text="1" [ngClass]="{checked:tGoal==1}" (click)="choseGoal(1);">第二球</li>
+        <li data-text="2" [ngClass]="{checked:tGoal==2}" (click)="choseGoal(2);">第三球</li>
+        <li data-text="3" [ngClass]="{checked:tGoal==3}" (click)="choseGoal(3);">第四球</li>
+        <li data-text="4" [ngClass]="{checked:tGoal==4}" (click)="choseGoal(4);">第五球</li>
+      </ul>
+      <ul *ngIf="codeType==4">
+        <li data-text="0" [ngClass]="{checked:tGoal==0}" (click)="choseGoal(0);">第一位号码</li>
+        <li data-text="1" [ngClass]="{checked:tGoal==1}" (click)="choseGoal(1);">第二位号码</li>
+        <li data-text="2" [ngClass]="{checked:tGoal==2}" (click)="choseGoal(2);">第三位号码</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showFilter==2" class="select-page">
+  <ion-backdrop (click)="showFilter=-1" role="presentation" tappable="" style="opacity: 0.26;"></ion-backdrop>
+  <div class="main-wrapper" style="height: 45%;">
+    <div class="tool-bar">
+      <span class="option-md" style="float: left;">查看期数选择</span>
+      <span class="option-md" style="float: right;" (click)="showFilter=-1">取消</span>
+    </div>
+    <div class="main-content">
+      <ul >
+        <li [ngClass]="{checked:tPeriods == 2000}" (click)="chosePeriods(2000);">当天</li>
+        <li [ngClass]="{checked:tPeriods == 30}"  (click)="chosePeriods(30);">近30期</li>
+        <li [ngClass]="{checked:tPeriods == 60}" (click)="chosePeriods(60);">近60期</li>
+        <li [ngClass]="{checked:tPeriods == 90}" (click)="chosePeriods(90);">近90期</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="showFilter==3" class="select-page">
+  <ion-backdrop (click)="choseCon(-1)" role="presentation" tappable="" style="opacity: 0.26;"></ion-backdrop>
+  <div class="main-wrapper" style="height: 30%;">
+    <div class="tool-bar">
+      <span class="option-md" style="float: left;">条件选择</span>
+      <span class="option-md" style="float: right;" (click)="choseCon(-1)">取消</span>
+      <span class="option-md" style="float: right;" (click)="choseCon(99)">确定</span>
+    </div>
+    <div class="main-content" style="display: block;  padding: 0 15px;">
+      <div>
+        <ul class="marginTop" style="margin-top: 15px;padding-top: 1px;">
+          <li class="yilo" [ngClass]="{check_tj:temRs.missing}" (click)="temRs.missing=!temRs.missing">
+            遗漏
+          </li>
+          <li class="caix" [ngClass]="{check_tj:temRs.disassemble}"
+              (click)="temRs.disassemble=!temRs.disassemble">拆线
+          </li>
+          <li class="fancong" [ngClass]="{check_tj:temRs.missingLayer}"
+              (click)="temRs.missingLayer=!temRs.missingLayer">遗漏分层
+          </li>
+          <li class="fgx" [ngClass]="{check_tj:temRs.dividingLine}"
+              (click)="temRs.dividingLine=!temRs.dividingLine">分割线
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+

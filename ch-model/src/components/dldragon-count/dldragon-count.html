@@ -1,0 +1,31 @@
+<div class="drawCodebox changlongtj" style="left: 0; display: block;" *ngIf="list && list?.length>0">
+  <div class="line2box">
+    <ul id="longDrag">
+      <li *ngFor="let item of list;">
+        <span>{{item?.rank}}</span>:
+        <span>{{item?.type}}</span>
+        <span style="color:#f11821">{{item?.num}}</span> 期
+      </li>
+      <!--<li><span>第四名</span>：<span>龙</span><span style="color:#f11821">6</span>期</li>-->
+      <!--<li><span>亚军</span>：<span>大</span><span style="color:#f11821">5</span>期</li>-->
+      <!--<li><span>第五名</span>：<span>龙</span><span style="color:#f11821">5</span>期</li>-->
+      <!--<li><span>亚军</span>：<span>双</span><span>4</span>期</li>-->
+      <!--<li><span>第四名</span>：<span>双</span><span>4</span>期</li>-->
+      <!--<li><span>第九名</span>：<span>单</span><span>4</span>期</li>-->
+      <!--<li><span>第三名</span>：<span>小</span><span>3</span>期</li>-->
+      <!--<li><span>第三名</span>：<span>虎</span><span>3</span>期</li>-->
+      <!--<li><span>第四名</span>：<span>大</span><span>3</span>期</li>-->
+      <!--<li><span>第五名</span>：<span>单</span><span>3</span>期</li>-->
+      <!--<li><span>第六名</span>：<span>小</span><span>3</span>期</li>-->
+      <!--<li><span>冠军</span>：<span>龙</span><span>2</span>期</li>-->
+      <!--<li><span>冠军</span>：<span>大</span><span>2</span>期</li>-->
+      <!--<li><span>第三名</span>：<span>双</span><span>2</span>期</li>-->
+      <!--<li><span>第七名</span>：<span>单</span><span>2</span>期</li>-->
+      <!--<li><span>第七名</span>：<span>小</span><span>2</span>期</li>-->
+      <!--<li><span>冠亚和</span>：<span>大</span><span>2</span>期</li>-->
+    </ul>
+  </div>
+</div>
+
+<div *ngIf="!list || list?.length==0" class="no-data">木得数据啦<div style="height: 350px;"></div></div>
+

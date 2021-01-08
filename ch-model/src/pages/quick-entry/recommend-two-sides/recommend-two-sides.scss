@@ -1,0 +1,291 @@
+page-recommend-two-sides {
+
+  .navList {
+    position: absolute;
+    font-size: 14px;
+    background: #fff;
+    width: 100%;
+    height: 110px;
+    z-index: 3;
+    opacity: .1;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .navList div {
+    display: inline-block;
+    margin-right: 30px;
+    -moz-box-flex: 1;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    text-align: center;
+    color: #292929;
+    margin-top: 20px;
+    font-size: 12px;
+    flex: 1;
+  }
+
+  .navList div:first-child {
+    margin-left: 32px;
+  }
+
+  .navList span {
+    display: inline-block;
+    height: 38px;
+    width: 36px;
+    margin-bottom: 5px;
+  }
+
+  .navList .cphost span {
+    background: #fff url(../../../assets/imgs/icon-168index.png) -70px 2px no-repeat;
+    background-size: 333px;
+  }
+
+  .navList .lmtuijan span {
+    background: #fff url(../../../assets/imgs/icon-168index.png) -105px 2px no-repeat;
+    background-size: 333px;
+  }
+
+  .navList .shjhua span {
+    background: #fff url(../../../assets/imgs/icon-168index.png) -176px 2px no-repeat;
+    background-size: 333px;
+  }
+
+  .navList .goucjhua span {
+    background: #fff url(../../../assets/imgs/icon-168index.png) -210px 2px no-repeat;
+    background-size: 333px;
+  }
+
+  .navList .clcj span {
+    background: #fff url(../../../assets/imgs/icon-168index.png) -140px 0 no-repeat ;
+    background-size: 333px;
+  }
+
+  .body-box {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background: #f0eff5;
+    font-size: 12px;
+  }
+
+  tr th,tr td{
+    border:1px solid #d6d6d6;
+  }
+
+  .unFillInfo {
+    height: 30px;
+    line-height: 30px;
+    color: #666;
+    font-size: 14px;
+    padding-left: 10px;
+    background: #efeff4;
+  }
+
+  .unFillInfo span {
+    color: red;
+    padding-left: 5px;
+    padding-right: 20px
+  }
+
+  .headNum {
+    margin-bottom: 10px;
+    width: 100%;
+    height: 84px;
+    background: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 12px;
+  }
+
+  .headNum .drawCount {
+    font-size: 12px;
+    color: #666;
+  }
+
+  .headNum .issuel {
+    height: 17px;
+  }
+
+  .headNum .issuel .caiName {
+    font-size: 16px;
+    color: #333;
+    margin-right: 50px;
+  }
+
+  .headNum .issue {
+    font-size: 12px;
+    color: #666;
+    margin-right: 30px;
+  }
+
+  .headNum .drawCodel {
+    position: relative;
+    margin-top: 12px;
+    height: 25px;
+  }
+
+  .headNum .drawCodel .bqkiajiang {
+    display: inline-block;
+    width: 60px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 12px;
+    color: #666;
+    float: left;
+  }
+
+  .headNum .drawCodel .pk10li {
+    display: inline-block;
+    float: left;
+    margin-left: 65px;
+    margin-top: -25px;
+  }
+
+  .headNum .drawCodel .pk10li li {
+    display: inline-block;
+    float: left;
+    height: 25px;
+    width: 22px !important;
+    margin-right: 3.3px;
+    background-size: 350px auto;
+    text-align: center;
+  }
+
+  .headNum .drawCodel .pk10li .li_after {
+    margin-right: 0;
+  }
+
+  .headNum .timeBox {
+    display: inline-block;
+    color: #ef020a;
+    font-size: 16px;
+    font-weight: 600;
+    margin-right: 0 !important;
+  }
+
+  .headNum .drawTimebox {
+    display: inline-block;
+    font-size: 14px;
+    color: #666;
+  }
+
+  .headNum .drawTimebox .flexr {
+    color: #ef020a !important;
+    padding-left: 7px;
+    font-size: 14px;
+    min-width: 0.1px;
+    text-align: right;
+    line-height: 15px;
+  }
+
+  .ListHead {
+    width: 100%;
+    height: auto;
+    background: #fff;
+    position: relative;
+    min-height: 500px!important;
+  }
+
+  .ListHead table {
+    background: #e6e6e6;
+    width: 100%;
+  }
+
+  .ListHead table tr th {
+    height: 50px;
+    background: #f0f0f0;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    font-family: Regular;
+    font-weight: 400;
+  }
+
+  .ListHead table tr td {
+    height: 50px;
+    text-align: center;
+    background: #fff;
+    color: #666;
+  }
+
+  .ListHead table tr td.oth_cla span {
+    float: left;
+    height: 20px;
+    line-height: 20px;
+  }
+
+  .ListHead table tr td.oth_cla span:first-child {
+    font-size: 14px;
+    margin-left: 5px;
+  }
+
+  .ListHead table tr td.oth_cla span:last-child {
+    font-size: 10px;
+    margin-left: 2px;
+  }
+
+  .ListHead table tr td ul .push {
+    position: relative;
+    opacity: 1;
+  }
+
+  .ListHead table tr td ul .push i {
+    display: inline-block;
+  }
+
+  .ListHead table tr td ul .push .redBK {
+    position: absolute;
+    width: 24px;
+    height: 23px;
+    border: 2px solid red;
+    border-radius: 3px;
+    top: -1px;
+    left: -1px;
+    z-index: 2;
+  }
+
+  .ListHead table tr td ul .push .whiteBK {
+    position: absolute;
+    width: 22px;
+    height: 21px;
+    //border: 1px solid #fff;
+    top: 1px;
+    left: 1px;
+    z-index: 1;
+  }
+
+  .ListHead table tr td ul li {
+    width: 26px;
+    float: left;
+    height: 24.5px;
+    background-size: 350px auto;
+    text-align: center;
+  }
+
+  .ListHead table tr td:first-child, .ListHead table tr td:nth-child(2) {
+    padding: 0 5px;
+  }
+
+  .ListHead table tr td:nth-child(3) {
+    padding-left: 5px;
+  }
+
+  .ListHead table tr td:last-child {
+    color: red;
+  }
+
+  .time_arrow{
+    position: absolute;
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url(../../../assets/imgs/icon-168index.png) -51px -6px no-repeat;
+    background-size: 333px;
+    top: 3px;
+    left: 74%;
+    z-index: 0!important;
+  }
+
+}
