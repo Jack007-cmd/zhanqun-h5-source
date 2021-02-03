@@ -23,7 +23,7 @@
 							<view class="box clearfix"  style="margin-top: 22rpx;">
 								<template v-for="(ccode, cindex) in item['num']">
 									<view :key="'x'+6" v-if="cindex==6" class="font_icon iconjia" style="font-size: 24px;display: inline-block;width: 46rpx;height: 46rpx;line-height: 26px;float: left;margin-right: 20rpx;display: inline-block;border-radius: 50%;color:#BBBBBB;"></view>
-									<view  :key="cindex + ccode" class="lhc" :class="{jslhcRed:item.color[cindex]==1,jslhcGreen:item.color[cindex]==2,jslhcBlue:item.color[cindex]==3}">{{ ccode }}</view>
+									<view  :key="cindex + ccode" class="lhc" :class="{bglhcRed:item.color[cindex]==1,bglhcGreen:item.color[cindex]==2,bglhcBlue:item.color[cindex]==3}">{{ Number(ccode)<10?'0'+ Number(ccode) : ccode }}</view>
 								</template>
 							</view>
 							<view class="box clearfix" style="padding-left: 6rpx;">
@@ -57,7 +57,7 @@
 							<text class="left-time">{{item['no']}}期</text>
 						</view>
 						<view class="right-special">
-							<view class="lhc" :class="{jslhcRed:item.color[6]==1,jslhcGreen:item.color[6]==2,jslhcBlue:item.color[6]==3}">{{item['num'][6]}}</view>
+							<view class="lhc" :class="{bglhcRed:item.color[6]==1,bglhcGreen:item.color[6]==2,bglhcBlue:item.color[6]==3}">{{ Number(item['num'][6])<10?'0'+ Number(item['num'][6]) : item['num'][6]}}</view>
 							<view class="ds">{{item['teMa']['singleDouble']}}</view>
 							<view class="dx">{{item['teMa']['bigSmall']}}</view>
 							<view class="hds">{{item['teMa']['compositeSingleDouble']}}</view>
@@ -66,6 +66,7 @@
 							<!-- <view class="size" >{{item['tm_bate']}}</view> -->
 						</view>
 					</view>
+					<view style="width: 100%;height:84rpx;"></view>
 				</template>
 			</view>
 			<view class="lhc_popup" v-if="spanType == 3">
@@ -326,6 +327,21 @@
 			.jslhcSum{
 				color: #fff;
 				background-color: #be9a74;
+			}
+			.bglhcGreen{
+				color: #444;
+				background: url(../../../static/green_m.png) no-repeat;
+				background-size: 100% 100%;
+			}
+			.bglhcBlue{
+				color: #444;
+				background: url(../../../static/blue_m.png) no-repeat;
+				background-size: 100% 100%;
+			}
+			.bglhcRed{
+				color: #444;
+				background: url(../../../static/red_m.png) no-repeat;
+				background-size: 100% 100%;
 			}
 			.right-pt{
 				height: 100%;

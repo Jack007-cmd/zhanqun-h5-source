@@ -201,8 +201,9 @@ export default {
 		// 当前彩种即时开奖数据
 		getAboutOnce() {
 			let that = this;
+			clearInterval(that.rl);
 			that.$api.getAboutOnce({ code: that.code }).then(rs => {
-				if (rs.code == 0) {
+				if (rs.code==0) {
 					if(that.current_number != rs.data.current_number){
 						that.date = that.getDate({
 							format: true
@@ -210,41 +211,52 @@ export default {
 					}
 					that.aboutList = rs.data;
 					that.current_number = rs.data.current_number;
-					that.countDown();
-					that.numberRoll();
+					that.allSeconds = Math.floor((new Date(that.aboutList.next_time.replace(/-/g, '/')).getTime() - new Date().getTime() - that.timeDiff) / 1000);
+					if(that.allSeconds<=0){
+						setTimeout(function() {
+							that.getAboutOnce();
+						}, 3000);
+						that.numberRoll();
+					}else{
+						clearInterval(that.rl);
+						that.countDown();
+					}
 				}
 			});
 		},
 		//下期开奖倒计时
 		countDown() {
-			this.interval = this.allSeconds = Math.floor((new Date(this.aboutList.next_time.replace(/-/g, '/')).getTime() - new Date().getTime() - this.timeDiff) / 1000);
-			this.st = setInterval(() => {
-				this.allSeconds -= 2;
-				if (this.allSeconds <= 0) {
-					this.minute = '00';
-					this.second = '00';
-					this.getAboutOnce();
-					clearInterval(this.st);
+			let that = this;
+			that.interval = that.allSeconds = Math.floor((new Date(that.aboutList.next_time.replace(/-/g, '/')).getTime() - new Date().getTime() - that.timeDiff) / 1000);
+			that.st = setInterval(() => {
+				that.allSeconds -= 1;
+				if (that.allSeconds <= 0) {
+					that.minute = '00';
+					that.second = '00';
+					that.numberRoll();
+					that.getAboutOnce();
+					clearInterval(that.st);
 				} else {
-					this.hour = Math.floor(this.allSeconds / 3600);
-					let lastSeconds = this.allSeconds % 3600;
-					this.minute = (lastSeconds / 60 < 10 ? '0' : '') + Math.floor(lastSeconds / 60);
-					this.second = (lastSeconds % 60 < 10 ? '0' : '') + (lastSeconds % 60);
+					that.hour = Math.floor(that.allSeconds / 3600);
+					that.hour = that.hour < 10 ? '0' + that.hour : that.hour;
+					let lastSeconds = that.allSeconds % 3600;
+					that.minute = (lastSeconds / 60 < 10 ? '0' : '') + Math.floor(lastSeconds / 60);
+					that.second = (lastSeconds % 60 < 10 ? '0' : '') + (lastSeconds % 60);
 				}
-			}, 2000);
+			}, 1000);
 		},
 		//号码滚动
 		numberRoll() {
 			let that = this;
 			that.rl = setInterval(() => {
-				if (that.allSeconds >= 0) {
+				if (that.allSeconds > 0) {
 					clearInterval(that.rl);
 					return;
 				}
 				that.aboutList.current_code.forEach((v, k) => {
-					that.aboutList.current_code[k] = Math.floor(10 * Math.random());
+					that.$set(that.aboutList.current_code,k,Math.floor(10 * Math.random()) + 1);
 				});
-			}, 100);
+			}, 200);
 		},
 		getAnalysisSort() {
 			this.$api.getAnalysisSort({ code: this.code, type: 'app' }).then(res => {

@@ -324,7 +324,7 @@
 		}, {
 			"path": "pages/about-kinds/about-kinds",
 			"style": {
-				"navigationBarTitleText": "所有彩种"
+				"navigationBarTitleText": "选择彩种"
 			}
 		}, {
 			"path": "pages/about-bar/about-bar",

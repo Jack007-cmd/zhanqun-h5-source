@@ -26,7 +26,7 @@
 					<view class="box">
 						<template v-for="(ccode, index) in aboutList['current_code']">
 							<view :key="index+'x'+6" v-if="index==6" class="font_icon iconjia"></view>
-							<view  :key="'m'+index" class="lhc" :class="{jslhcRed:aboutList.color[index]==1,jslhcGreen:aboutList.color[index]==2,jslhcBlue:aboutList.color[index]==3}">{{ ccode }}</view>
+							<view  :key="'m'+index" class="lhc" :class="{jslhcRed:aboutList.color[index]==1,jslhcGreen:aboutList.color[index]==2,jslhcBlue:aboutList.color[index]==3}">{{ Number(ccode)<10?'0'+ Number(ccode) : ccode }}</view>
 						</template>
 					</view>
 				</view>
@@ -38,14 +38,14 @@
 						</template>					
 					</view>
 				</view>
-				<!-- <view class="boxline">
+				<view class="boxline">
 					<view class="box lhcon" style="margin-top: -14rpx;">
 						<template v-for="(temp, tempIndex) in aboutList['five_elements']" >
 							<view :key="6" style="visibility: hidden;margin-right: 22rpx;margin-top: 0;" v-if="tempIndex==6" class="plus"></view>
 							<view :key="aboutList.code + tempIndex" class="lhcOther" >{{ temp }}</view>
 						</template>		
 					</view>
-				</view> -->
+				</view>
 				<view class="boxline">
 					<view class="box-title" style="padding-top: 6rpx;">
 						<view class="issue"><view>{{ current_number }}</view>期开奖</view>
@@ -221,8 +221,9 @@
 				// 当前彩种即时开奖数据
 				getAboutOnce() {
 					let that = this;
+					clearInterval(that.rl);
 					that.$api.getAboutOnce({ code: that.code }).then(rs => {
-						if (rs.code == 0) {
+						if (rs.code==0) {
 							if(that.current_number != rs.data.current_number){
 								that.date = that.getDate({
 									format: true
@@ -230,41 +231,52 @@
 							}
 							that.aboutList = rs.data;
 							that.current_number = rs.data.current_number;
-							that.countDown();
-							that.numberRoll();
+							that.allSeconds = Math.floor((new Date(that.aboutList.next_time.replace(/-/g, '/')).getTime() - new Date().getTime() - that.timeDiff) / 1000);
+							if(that.allSeconds<=0){
+								setTimeout(function() {
+									that.getAboutOnce();
+								}, 3000);
+								that.numberRoll();
+							}else{
+								clearInterval(that.rl);
+								that.countDown();
+							}
 						}
 					});
 				},
 				//下期开奖倒计时
 				countDown() {
-					this.interval = this.allSeconds = Math.floor((new Date(this.aboutList.next_time.replace(/-/g, '/')).getTime() - new Date().getTime() - this.timeDiff) / 1000);
-					this.st = setInterval(() => {
-						this.allSeconds -= 2;
-						if (this.allSeconds <= 0) {
-							this.minute = '00';
-							this.second = '00';
-							this.getAboutOnce();
-							clearInterval(this.st);
+					let that = this;
+					that.interval = that.allSeconds = Math.floor((new Date(that.aboutList.next_time.replace(/-/g, '/')).getTime() - new Date().getTime() - that.timeDiff) / 1000);
+					that.st = setInterval(() => {
+						that.allSeconds -= 1;
+						if (that.allSeconds <= 0) {
+							that.minute = '00';
+							that.second = '00';
+							that.numberRoll();
+							that.getAboutOnce();
+							clearInterval(that.st);
 						} else {
-							this.hour = Math.floor(this.allSeconds / 3600);
-							let lastSeconds = this.allSeconds % 3600;
-							this.minute = (lastSeconds / 60 < 10 ? '0' : '') + Math.floor(lastSeconds / 60);
-							this.second = (lastSeconds % 60 < 10 ? '0' : '') + (lastSeconds % 60);
+							that.hour = Math.floor(that.allSeconds / 3600);
+							that.hour = that.hour < 10 ? '0' + that.hour : that.hour;
+							let lastSeconds = that.allSeconds % 3600;
+							that.minute = (lastSeconds / 60 < 10 ? '0' : '') + Math.floor(lastSeconds / 60);
+							that.second = (lastSeconds % 60 < 10 ? '0' : '') + (lastSeconds % 60);
 						}
-					}, 2000);
+					}, 1000);
 				},
 				//号码滚动
 				numberRoll() {
 					let that = this;
 					that.rl = setInterval(() => {
-						if (that.allSeconds >= 0) {
+						if (that.allSeconds > 0) {
 							clearInterval(that.rl);
 							return;
 						}
 						that.aboutList.current_code.forEach((v, k) => {
-							that.aboutList.current_code[k] = Math.floor(10 * Math.random());
+							that.$set(that.aboutList.current_code,k,Math.floor(10 * Math.random()) + 1);
 						});
-					}, 100);
+					}, 200);
 				},
 				getLhcLotteryAnalysis() {
 					this.$api.getLhcLotteryAnalysis({ code: this.code, type: 1 }).then(res => {
@@ -416,17 +428,25 @@
 				align-items: center;     /* 垂直居中 */
 			}
 			.jslhcGreen{
-				color: #fff;
-				background-color: #7AB264;
+				// color: #fff;
+				// background-color: #7AB264;
+				olor: #444;
+				background: url(../../../static/green_m.png) no-repeat;
+				background-size: 100% 100%;
 			}
 			.jslhcBlue{
-				color: #fff;
-				background-color: #4AA6E2;
-			
+				// color: #fff;
+				// background-color: #4AA6E2;
+				color: #444;
+				background: url(../../../static/blue_m.png) no-repeat;
+				background-size: 100% 100%;
 			}
 			.jslhcRed{
-				color: #fff;
-				background-color: #EF5858;
+				// color: #fff;
+				// background-color: #EF5858;
+				color: #444;
+				background: url(../../../static/red_m.png) no-repeat;
+				background-size: 100% 100%;
 			}
 			.box-item {
 				display: inline-block;

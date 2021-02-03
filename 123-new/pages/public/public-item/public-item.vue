@@ -261,7 +261,9 @@
 					</view>
 					<view class="boxline">
 						<view class="box">
-							<view class="ssc" v-for="(ccode, index) in rsItem['current_code']" :key="index + ccode" :class="{ lastBall: index == 20 }">{{ ccode }}</view>
+							<view class="ssc" v-for="(ccode, index) in rsItem['current_code']" v-if="index<=9" :key="index + ccode" :class="Number(ccode)>40&&index<20? 'bigBall':(index==20?'lastBall':'')">{{ ccode }}</view>
+							</br>
+							<view class="ssc" v-for="(ccode, index) in rsItem['current_code']" v-if="index>9" :key="index + ccode" :class="Number(ccode)>40&&index<20? 'bigBall':(index==20?'lastBall':'')">{{ ccode }}</view>
 						</view>
 					</view>
 					<view class="boxline">
@@ -502,8 +504,8 @@
 					<view class="boxline">
 						<view class="box">
 							<template v-for="(ccode, index) in rsItem['current_code']">
-								<view :key="6" v-if="index==6" class="font_icon iconjia" style="font-size: 24px;display: inline-block;width: 26px;height: 26px;line-height: 26px;float: left;margin-right: 20rpx;margin-top: 4px;display: inline-block;border-radius: 50%;"></view>
-								<view  :key="index + ccode" class="lhc" :class="{jslhcRed:rsItem.color[index]==1,jslhcGreen:rsItem.color[index]==2,jslhcBlue:rsItem.color[index]==3}" style="margin-right: 20rpx;">{{ ccode }}</view>
+								<view :key="6" v-if="index==6" class="font_icon iconjia" style="font-size: 24px;display: inline-block;width: 26px;height: 26px;line-height: 26px;float: left;margin-right: 10rpx;margin-top: 4px;display: inline-block;border-radius: 50%;"></view>
+								<view  :key="index + ccode" class="lhc" :class="{xglhcRed:rsItem.color[index]==1,xglhcGreen:rsItem.color[index]==2,xglhcBlue:rsItem.color[index]==3}" style="margin-right: 10rpx;">{{ Number(ccode)<10?'0'+ Number(ccode) : ccode }}</view>
 							</template>
 						</view>
 					</view>
@@ -511,18 +513,18 @@
 						<view class="box" style="margin: 0 auto;">
 							<template v-for="(temp, tempIndex) in rsItem['an']" >
 								<view :key="6" style="visibility: hidden;margin-right: 20rpx;" v-if="tempIndex==6" class="plus"></view>
-								<view :key="rsItem.code + tempIndex" class="lhcOther" style="margin-right: 20rpx;">{{ temp }}</view>
+								<view :key="rsItem.code + tempIndex" class="lhcOther" style="margin-right: 10rpx;">{{ temp }}</view>
 							</template>					
 						</view>
 					</view>
-					<!-- <view class="boxline">
+					<view class="boxline">
 						<view class="box" style="margin: -18rpx auto 0;">
 							<template v-for="(temp, tempIndex) in rsItem['five_elements']" >
-								<view :key="6" style="visibility: hidden;" v-if="tempIndex==6" class="plus"></view>
-								<view :key="rsItem.code + tempIndex" class="lhcOther" >{{ temp }}</view>
+								<view :key="6" style="visibility: hidden;margin-right: 20rpx;" v-if="tempIndex==6" class="plus"></view>
+								<view :key="rsItem.code + tempIndex" class="lhcOther">{{ temp }}</view>
 							</template>		
 						</view>
-					</view> -->
+					</view>
 				</template>
 			</view>
 		</view>
@@ -592,7 +594,9 @@ export default {
 			minute: '00', //分
 			second: '00', //秒
 			st: null,
-			rsItem: null
+			rsItem: null,
+			intervalFirst:null,
+			intervalSecond:null
 		};
 	},
 	computed: {
@@ -617,7 +621,8 @@ export default {
 		}
 	},
 	beforeDestroy: function() {
-		clearInterval(this.st);
+		clearInterval(this.intervalFirst);
+		clearInterval(this.intervalSecond);
 	},
 	methods: {
 		toDetail(code) {
@@ -650,40 +655,62 @@ export default {
 		},
 		// 当前彩种即时开奖数据
 		getAboutOnce() {
-			if (this.itemIndex != 14) {
-				this.$api.getAboutOnce({ code: this.currentItem.code }).then(rs => {
+			let that = this;
+			if (that.itemIndex != 14) {
+				that.$api.getAboutOnce({ code: that.currentItem.code }).then(rs => {
 					if (rs.code == 0) {
-							this.rsItem = eval('(' + (JSON.stringify(this.currentItem) + JSON.stringify(rs.data)).replace(/}{/, ',') + ')');
-							this.countDown();
+						that.rsItem = eval('(' + (JSON.stringify(that.currentItem) + JSON.stringify(rs.data)).replace(/}{/, ',') + ')');
+						that.allSeconds = Math.floor((new Date(rs.data.next_time.replace(/-/g, '/')).getTime() - new Date().getTime() - that.timeDiff) / 1000);
+						if(that.allSeconds<=0){
+							clearInterval(that.intervalSecond);
+							that.intervalSecond = null;							
+							that.intervalFirst = setTimeout(()=>{
+								that.getAboutOnce();
+							},2000);								
+						}else{
+							if(!that.intervalSecond){
+								that.setCountDown(that.allSeconds);	
+							}	
+						}						
 					}
 				});
 			} else {
-				this.$api.getHKWinNumber({ code: this.currentItem.code }).then(rs => {
+				that.$api.getHKWinNumber({ code: that.currentItem.code }).then(rs => {
 					if (!rs.code) {
-						this.rsItem = rs.data;
-						this.countDown();
+						that.rsItem = rs.data;
+						that.allSeconds = Math.floor((new Date(that.rsItem.next_time.replace(/-/g, '/')).getTime() - new Date().getTime() - that.timeDiff) / 1000);
+						if(that.allSeconds<=0){
+							clearInterval(that.intervalSecond);
+							that.intervalSecond = null;
+							that.intervalFirst = setTimeout(()=>{
+								that.getAboutOnce();
+							},2000);								
+						}else{
+							if(!that.intervalSecond){
+								that.setCountDown(that.allSeconds);	
+							}	
+						}
 					}
 				});
 			}
 		},
-		//下期开奖倒计时
-		countDown() {
-			// if(!this.aboutList.next_time) return;
-			this.interval = this.allSeconds = Math.floor((new Date(this.rsItem.next_time.replace(/-/g, '/')).getTime() - new Date().getTime() - this.timeDiff) / 1000);
-			this.st = setInterval(() => {
-				this.allSeconds -= 2;
-				if (this.allSeconds <= 0) {
-					this.minute = '00';
-					this.second = '00';
-					this.getAboutOnce();
-					clearInterval(this.st);
-				} else {
-					this.hour = Math.floor(this.allSeconds / 3600);
-					let lastSeconds = this.allSeconds % 3600;
-					this.minute = (lastSeconds / 60 < 10 ? '0' : '') + Math.floor(lastSeconds / 60);
-					this.second = (lastSeconds % 60 < 10 ? '0' : '') + (lastSeconds % 60);
+		//开奖倒计时
+		setCountDown(seconds){			
+			let that = this;
+			let temSeconds = seconds;
+			that.intervalSecond = setInterval(() => {	
+				temSeconds-=1;
+				if(temSeconds==0){
+					clearInterval(this.intervalSecond);
+					that.getAboutOnce();			
+				}else{
+					that.hour = Math.floor(temSeconds / 3600);
+					let lastSeconds = temSeconds % 3600;
+					that.minute = (lastSeconds / 60 < 10 ? '0' : '') + Math.floor(lastSeconds / 60);
+					that.second = (lastSeconds % 60 < 10 ? '0' : '') + (lastSeconds % 60);
 				}
-			}, 2000);
+				
+			}, 1000);
 		}
 	}
 };

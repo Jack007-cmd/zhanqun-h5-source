@@ -177,9 +177,9 @@
 			},
 			getAboutOnce(){
 				let that = this;
+				clearInterval(that.rl);
 				that.$api.getAboutOnce({ code: that.code }).then(rs => {
 					if (rs.code==0) {
-						that.aboutList = rs.data;
 						if(that.current_number != rs.data.current_number){
 							that.date = that.getDate({
 								format: true
@@ -192,6 +192,7 @@
 							setTimeout(function() {
 								that.getAboutOnce();
 							}, 3000);
+							that.numberRoll();
 						}else{
 							clearInterval(that.rl);
 							that.countDown();

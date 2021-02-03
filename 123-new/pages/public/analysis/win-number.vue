@@ -279,18 +279,22 @@
 			</view>
 			<view class="content">
 				<view class="detail-line" style="display: flex;padding-top: 10rpx;padding-bottom: 5px;" :key="index" v-for="(item, index) in mainList">
-					<view class="line-left">
+					<!-- <view class="line-left" style="width: 244rpx;">
+						<text style="margin-right:10rpx;">{{ item.time.substring(11, 16) }}</text>
+						<text style="margin-right:0;">{{ item.no.toString().substring(item.no.toString().length-6) }}</text>
+					</view> -->
+					<view class="line-left" style="width: 240rpx;">
 						<text>{{ item.time.substring(11, 16) }}</text>
-						<text>{{ item.no.toString().substring(item.no.toString().length-6) }}</text>
+						<text style="margin-right: 0;">{{ item.no.toString().substring(item.no.toString().length-6) }}</text>
 					</view>
 					<view class="line-right">
 						<template v-if="spanType == 0">
-							<view class="ssc_sm" style="margin-right: 4rpx;margin-top: 8rpx;" :key="nIndex" v-for="(num, nIndex) in item.num">{{ num }}</view>
+							<view class="ssc_sm" :style="nIndex==9?'margin-right:52rpx;margin-top:8rpx;':'margin-right:4rpx;margin-top:8rpx;'" :key="nIndex" v-for="(num, nIndex) in item.num" :class="{bigBall:Number(num)>40&&nIndex<20}">{{ num }}</view>
 							<view class="ssc_sm lastBall" style="margin-right: 4rpx;margin-top: 8rpx;">{{ item.on }}</view>
 						</template>
 						<template v-if="spanType == 1">
 							<view
-								style="margin-right: 4rpx;margin-top: 8rpx;"
+								:style="nIndex==9?'margin-right:52rpx;margin-top:8rpx;':'margin-right:4rpx;margin-top:8rpx;'" 
 								class="ssc_sm"
 								:key="nIndex"
 								v-for="(num, nIndex) in item.num"
@@ -304,7 +308,7 @@
 						</template>
 						<template v-if="spanType == 2">
 							<view
-								style="margin-right: 4rpx;margin-top: 8rpx;"
+								:style="nIndex==9?'margin-right:52rpx;margin-top:8rpx;':'margin-right:4rpx;margin-top:8rpx;'" 
 								class="ssc_sm"
 								:key="nIndex"
 								v-for="(num, nIndex) in item.num"
@@ -796,4 +800,10 @@ export default {
 .sscOther:last-child {
 	margin-right: 0;
 }
+@media screen and (max-width: 320px) {
+	.container .content .detail-line .line-left{
+		width: 300rpx!important;
+	}
+}
+
 </style>

@@ -326,7 +326,7 @@
 
 <style lang="scss">
 .container {
-	padding-top: 5px;
+	// padding-top: 5px;
 	position: relative;
 	width: 100%;
 	height: 100%;

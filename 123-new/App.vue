@@ -471,7 +471,7 @@ page {
 	position: fixed;
 	right: 20rpx;
 	bottom:120rpx;
-	z-index: 999;
+	z-index: 888;
 	width: 120rpx;
 	height:120rpx;
 	overflow: hidden;
